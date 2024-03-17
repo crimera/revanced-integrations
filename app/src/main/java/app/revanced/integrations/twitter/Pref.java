@@ -5,6 +5,8 @@ import app.revanced.integrations.twitter.settings.Settings;
 
 public class Pref {
 
+    public static boolean isReaderModeEnabled() {return Utils.getBooleanPerf(Settings.READER_MODE);}
+
     public static boolean isChirpFontEnabled() {return Utils.getBooleanPerf(Settings.MISC_FONT);}
 
     public static String getPublicFolder() { return Utils.getStringPref(Settings.VID_PUBLIC_FOLDER);}

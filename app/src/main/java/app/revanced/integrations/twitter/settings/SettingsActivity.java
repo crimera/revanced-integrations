@@ -39,8 +39,23 @@ public class SettingsActivity extends Activity {
             PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(context);
             SettingsStatus.load();
 
+            if(SettingsStatus.enablePremiumScreen()){
+                String title = Settings.CATEGORY_PREMIUM;
+                LegacyTwitterPreferenceCategory premiumSettingsCategory = preferenceCategory(title,screen);
+                if(SettingsStatus.enableReaderModeMod){
+                    premiumSettingsCategory.addPreference(
+                            switchPreference(
+                                    "Enable Reader Mode",
+                                    "",
+                                    Settings.READER_MODE
+                                    )
+                                );
+                }
+
+            }
+
             if (SettingsStatus.changeDownloadEnabled) {
-                LegacyTwitterPreferenceCategory downloadPrefs = preferenceCategory("Download", screen);
+                LegacyTwitterPreferenceCategory downloadPrefs = preferenceCategory(Settings.CATEGORY_DOWNLOAD, screen);
                 downloadPrefs.addPreference(listPreference(
                         "Public Folder",
                         "The public folder to use for video downloads",
@@ -54,7 +69,7 @@ public class SettingsActivity extends Activity {
             }
 
             if (SettingsStatus.enableFontMod) {
-                LegacyTwitterPreferenceCategory miscPrefs = preferenceCategory("Misc", screen);
+                LegacyTwitterPreferenceCategory miscPrefs = preferenceCategory(Settings.CATEGORY_MISC, screen);
                 if (SettingsStatus.enableFontMod) {
                     miscPrefs.addPreference(
                             switchPreference(
