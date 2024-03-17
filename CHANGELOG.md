@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 # [1.4.0](https://github.com/crimera/revanced-integrations/compare/v1.3.0...v1.4.0) (2024-03-03)
+=======
+# [1.4.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.4.0-dev.2...v1.4.0-dev.3) (2024-03-16)
+>>>>>>> 622ab8c0cfbb6a547ed6f46d00649c7156fb6a64
 
 
 ### Features
 
+<<<<<<< HEAD
 * (Twitter/X) no t.co links ([cd1c143](https://github.com/crimera/revanced-integrations/commit/cd1c1435d6782eea43c8b214fe8dfbcfa31678f9))
 * (Twitter/X) no t.co links ([37b45c0](https://github.com/crimera/revanced-integrations/commit/37b45c0cb2bba3f353a8d89567fa196ba4b7d53c))
 * add helper method for opening chooser ([c2e6203](https://github.com/crimera/revanced-integrations/commit/c2e6203d5237be3f6efc8e23a1e28fd05e1bb082))
 * add helper method for opening chooser ([e61bf33](https://github.com/crimera/revanced-integrations/commit/e61bf338f0b16c818374d785ee5ac0b45adfa23f))
+=======
+* Add settings for `Disable chirp font` patch ([8600093](https://github.com/crimera/revanced-integrations/commit/8600093d879ff708fa65500bd9c17cb2d1bcc915))
+>>>>>>> 622ab8c0cfbb6a547ed6f46d00649c7156fb6a64
 
 # [1.4.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.4.0-dev.1...v1.4.0-dev.2) (2024-03-03)
 

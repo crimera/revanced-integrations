@@ -31,6 +31,11 @@ public class Utils {
         return value;
     }
 
+    @SuppressWarnings("deprecation")
+    private static Boolean getBooleanPerf(Setting<Boolean> setting) {
+        return PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean(setting.key, setting.defaultValue);
+    }
+
     public static String getPublicFolder() {
         return getStringPref(Settings.VID_PUBLIC_FOLDER);
     }
@@ -43,5 +48,9 @@ public class Utils {
         String[] bigger = Arrays.copyOf(prefs, prefs.length+1);
         bigger[prefs.length] = pref;
         return bigger;
+    }
+
+    public static boolean isChirpFontEnabled() {
+        return getBooleanPerf(Settings.MISC_FONT);
     }
 }
