@@ -5,7 +5,7 @@ public class SettingsStatus {
     public static boolean enableFontMod = false;
 
 
-    public static void enableDownload() { changeDownloadEnabled = true; }
+    public static void enableDownloadFolder() { changeDownloadEnabled = true; }
     public static void enableFont() { enableFontMod = true; }
 
     public static void load() {}

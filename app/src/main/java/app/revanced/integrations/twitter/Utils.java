@@ -10,21 +10,28 @@ import java.util.Arrays;
 import app.revanced.integrations.shared.settings.Setting;
 import app.revanced.integrations.twitter.settings.Settings;
 import app.revanced.integrations.twitter.settings.SettingsActivity;
+import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
 
 @SuppressWarnings("unused")
 public class Utils {
     @SuppressLint("StaticFieldLeak")
     private static final Context ctx = app.revanced.integrations.shared.Utils.getContext();
+    private static SharedPrefCategory sp = new SharedPrefCategory("com.twitter.android_preferences");
 
-    public static void startActivity() {
-        Intent intent = new Intent(ctx, SettingsActivity.class);
+
+    private static void startActivity(Class cls) {
+        Intent intent = new Intent(ctx, cls);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         ctx.startActivity(intent);
     }
 
+    public static void startSettingsActivity(){
+        startActivity(SettingsActivity.class);
+    }
+
     @SuppressWarnings("deprecation")
-    private static String getStringPref(Setting<String> setting) {
-        String value = PreferenceManager.getDefaultSharedPreferences(ctx).getString(setting.key, setting.defaultValue);
+    public static String getStringPref(Setting<String> setting) {
+        String value = sp.getString(setting.key, setting.defaultValue);
         if (value.isBlank()) {
             return setting.defaultValue;
         }
@@ -32,16 +39,8 @@ public class Utils {
     }
 
     @SuppressWarnings("deprecation")
-    private static Boolean getBooleanPerf(Setting<Boolean> setting) {
-        return PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean(setting.key, setting.defaultValue);
-    }
-
-    public static String getPublicFolder() {
-        return getStringPref(Settings.VID_PUBLIC_FOLDER);
-    }
-
-    public static String getVideoFolder(String filename) {
-        return getStringPref(Settings.VID_SUBFOLDER)+"/"+filename;
+    public static Boolean getBooleanPerf(Setting<Boolean> setting) {
+        return sp.getBoolean(setting.key, setting.defaultValue);
     }
 
     public static String[] addPref(String[] prefs, String pref) {
@@ -50,7 +49,4 @@ public class Utils {
         return bigger;
     }
 
-    public static boolean isChirpFontEnabled() {
-        return getBooleanPerf(Settings.MISC_FONT);
-    }
 }
