@@ -236,6 +236,16 @@ public class SettingsActivity extends Activity {
                             )
                     );
                 }
+
+                if (SettingsStatus.customSharingDomainEnabled) {
+                    miscPrefs.addPreference(
+                            editTextPreference(
+                                    "Custom sharing domain",
+                                    "The domain to use when sharing tweets",
+                                    Settings.CUSTOM_SHARING_DOMAIN
+                            )
+                    );
+                }
             }
 
             if (SettingsStatus.enableTimelineSection()) {

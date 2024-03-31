@@ -2,6 +2,7 @@ package app.revanced.integrations.twitter.settings;
 
 public class SettingsStatus {
     public static boolean changeDownloadEnabled = false;
+    public static boolean customSharingDomainEnabled = false;
     public static boolean enableFontMod = false;
     public static boolean hideRecommendedUsers = false;
     public static boolean hidePromotedTrend = false;
@@ -27,6 +28,7 @@ public class SettingsStatus {
 
 
     public static void enableDownloadFolder() { changeDownloadEnabled = true; }
+    public static void enableCustomSharingDomain() { customSharingDomainEnabled = true; }
     public static void enableFont() { enableFontMod = true; }
 
     public static void hideRecommendedUsers() { hideRecommendedUsers = true; }
@@ -52,7 +54,7 @@ public class SettingsStatus {
     public static void enableAppIconNNavIcon() { enableAppIconNNavIcon = true; }
 
     public static boolean enableTimelineSection(){ return (hideLiveThreads || hideBanner || hideForyou); }
-    public static boolean enableMiscSection() { return (enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || hideCommunityNote); }
+    public static boolean enableMiscSection() { return (enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || hideCommunityNote || customSharingDomainEnabled); }
     public static boolean enableAdsSection() {return (hideAds|| hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK ||hidePromotedTrend); }
 
     public static boolean enablePremiumSection() {return (enableReaderMode || enableUndoPosts || enableAppIconNNavIcon); }

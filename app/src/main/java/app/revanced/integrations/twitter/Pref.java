@@ -14,6 +14,11 @@ public class Pref {
         return Utils.getStringPref(Settings.VID_SUBFOLDER)+"/"+filename;
     }
 
+    public static String getSharingLink(String link) {
+        String domain = Utils.getStringPref(Settings.CUSTOM_SHARING_DOMAIN);
+        return link.replace("x", domain);
+    }
+
     public  static ArrayList hideRecommendedUsers(ArrayList users) {
         if (Utils.getBooleanPerf(Settings.MISC_HIDE_RECOMMENDED_USERS)) { return null; }
         return users;

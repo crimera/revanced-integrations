@@ -7,7 +7,7 @@ import app.revanced.integrations.shared.settings.StringSetting;
 public class Settings extends BaseSettings {
     public static final StringSetting VID_PUBLIC_FOLDER = new StringSetting("vid_public_folder", "Movies");
     public static final StringSetting VID_SUBFOLDER = new StringSetting("vid_subfolder", "Twitter");
-
+    public static final StringSetting CUSTOM_SHARING_DOMAIN = new StringSetting("misc_custom_sharing_domain", "fxtwitter");
     public static final BooleanSetting MISC_FONT = new BooleanSetting("misc_font", false);
     public static final BooleanSetting MISC_HIDE_FAB = new BooleanSetting("misc_hide_fab", true);
     public static final BooleanSetting MISC_HIDE_RECOMMENDED_USERS = new BooleanSetting("misc_hide_recommended_users", true);
