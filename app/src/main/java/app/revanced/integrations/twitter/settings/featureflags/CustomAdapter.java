@@ -44,6 +44,7 @@ public class CustomAdapter extends RecyclerView.e<CustomAdapter.ViewHolder> {
                 Class<?> parameterType = declaredMethod.getParameterTypes()[0];
                 if (parameterType==Integer.TYPE && (modifier & Modifier.FINAL) == Modifier.FINAL) {
                     notifyMethod = declaredMethod;
+                    break;
                 }
             }
         }
