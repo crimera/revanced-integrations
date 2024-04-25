@@ -1,3 +1,10 @@
+## [1.15.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.15.0-dev.1...v1.15.0-dev.2) (2024-04-25)
+
+
+### Features
+
+* **Twitter:** Added `Customize timeline top bar` patch ([044efa8](https://github.com/crimera/revanced-integrations/commit/044efa8b75ee742526f5578dc58f2330391a4da2))
+
 ## [1.15.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.14.0...v1.15.0-dev.1) (2024-04-25)
 
 
