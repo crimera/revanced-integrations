@@ -102,10 +102,16 @@ public class Pref {
         return !Utils.getBooleanPerf(Settings.TIMELINE_HIDE_BANNER);
     }
 
-    public static int hideForYou() {
-        return Utils.getBooleanPerf(Settings.TIMELINE_HIDE_FORYOU) ? 34 : 17;
+    public static int timelineTab() {
+        String val = Utils.getStringPref(Settings.CUSTOM_TIMELINE_TABS);
+        if(val.equals("hide_forYou")){
+            return 1;
+        }
+        if (val.equals("hide_following")){
+            return 2;
+        }
+        return 0;
     }
-
     public static boolean hideFAB() {
         return Utils.getBooleanPerf(Settings.MISC_HIDE_FAB);
     }
