@@ -1,20 +1,18 @@
 package app.revanced.integrations.twitter.settings;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import app.revanced.integrations.shared.Utils;
-import app.revanced.integrations.twitter.settings.Settings;
 
-public class BackupPrefActivity extends Activity {
+import app.revanced.integrations.shared.Utils;
+
+public class BackupPrefFragment extends Fragment {
     private String prefData;
     private boolean featureFlag = false;
 
@@ -37,14 +35,12 @@ public class BackupPrefActivity extends Activity {
         startIntent(str, 1);
     }
 
-
-
     private void copyFile(String jsonString, Uri uri) {
         try {
             jsonString = this.prefData;
             byte[] bytes = jsonString.getBytes();
 
-            OutputStream openOutputStream = getContentResolver().openOutputStream(uri);
+            OutputStream openOutputStream = getActivity().getContentResolver().openOutputStream(uri);
             openOutputStream.write(bytes);
             openOutputStream.close();
             toast("piko_pref_export_saved");
@@ -66,17 +62,20 @@ public class BackupPrefActivity extends Activity {
         else if (i2 == -1) {
             copyFile(this.prefData, uri);
         }
-        finish();
-        return;
+
+        getFragmentManager().popBackStack();
     }
 
     private void toast(String tag){
         app.revanced.integrations.twitter.Utils.toast(Utils.getResourceString(tag));
     }
 
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.featureFlag = getIntent().getBooleanExtra("featureFlag", false);
+    @Override
+    public void onCreate(@org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        this.featureFlag = getArguments().getBoolean("featureFlag", false);
+
         if (this.featureFlag) {
             this.prefData = app.revanced.integrations.twitter.Utils.getStringPref(Settings.MISC_FEATURE_FLAGS);
             backupFlags();

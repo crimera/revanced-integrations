@@ -43,6 +43,10 @@ public class SharedPrefCategory {
         preferences.edit().putBoolean(key, value).apply();
     }
 
+    public void saveSet(@NonNull String key, Set<String> value) {
+        preferences.edit().putStringSet(key, value).apply();
+    }
+
     /**
      * @param value a NULL parameter removes the value from the preferences
      */
@@ -67,6 +71,16 @@ public class SharedPrefCategory {
     /**
      * @param value a NULL parameter removes the value from the preferences
      */
+
+    public Set<String> getSet(@NonNull String key, Set<String> _default) {
+        try {
+            return preferences.getStringSet(key, _default);
+        } catch (ClassCastException ex) {
+            // Value stored is a completely different type (should never happen).
+            removeConflictingPreferenceKeyValue(key);
+            return _default;
+        }
+    }
     public void saveString(@NonNull String key, @Nullable String value) {
         saveObjectAsString(key, value);
     }

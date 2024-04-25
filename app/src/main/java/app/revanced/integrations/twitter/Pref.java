@@ -3,10 +3,7 @@ package app.revanced.integrations.twitter;
 import android.util.Log;
 import app.revanced.integrations.twitter.settings.Settings;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @SuppressWarnings("unused")
 public class Pref {
@@ -180,4 +177,17 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.PREMIUM_UNDO_POSTS);
     }
 
+    public static ArrayList customProfileTabs() {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        try{
+            String key =Settings.CUSTOM_PROFILE_TABS.key;
+            Set<String> ch = Utils.getSetPerf(key,null);
+            if(!ch.isEmpty()) {
+                arrayList = new ArrayList<String>(ch);
+            }
+        }catch (Exception e){}
+        return arrayList;
+    }
+
+    //end
 }

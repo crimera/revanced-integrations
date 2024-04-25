@@ -39,6 +39,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting PREMIUM_UNDO_POSTS = new BooleanSetting("premium_undo_posts", false);
     public static final StringSetting PREMIUM_ICONS = new StringSetting("premium_app_icon_n_nav_icon", "");
 
+    public static final StringSetting CUSTOM_PROFILE_TABS = new StringSetting("customisation_profile_tabs", "");
+
     public static final StringSetting EXPORT_PREF = new StringSetting("export_pref", "");
     public static final StringSetting EXPORT_FLAGS = new StringSetting("export_flags", "");
     public static final StringSetting IMPORT_PREF = new StringSetting("import_pref", "");

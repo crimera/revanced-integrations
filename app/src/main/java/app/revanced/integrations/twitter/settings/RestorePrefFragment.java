@@ -1,26 +1,18 @@
 package app.revanced.integrations.twitter.settings;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
+
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
-import app.revanced.integrations.twitter.Utils;
-import app.revanced.integrations.twitter.settings.Settings;
 
-public class RestorePrefActivity extends Activity {
+import android.app.Fragment;
+import app.revanced.integrations.twitter.Utils;
+
+public class RestorePrefFragment extends Fragment {
     private static final int READ_REQUEST_CODE = 42;
     private boolean featureFlag = false;
 
@@ -61,10 +53,9 @@ public class RestorePrefActivity extends Activity {
         else{
             toast("piko_pref_import_failed");
         }
-
-        return;
     }
 
+    @Override
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == READ_REQUEST_CODE && i2 == -1) {
@@ -75,22 +66,21 @@ public class RestorePrefActivity extends Activity {
             if (uri != null) {
                 receiveFileForRestore(uri,this.featureFlag);
             }
-            else{
+            else {
                 toast("piko_pref_import_no_uri");
             }
-
         }
-        finish();
-        return;
+        getFragmentManager().popBackStack();
     }
 
     private static void toast(String tag){
         Utils.toast(app.revanced.integrations.shared.Utils.getResourceString(tag));
     }
 
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.featureFlag = getIntent().getBooleanExtra("featureFlag", false);
+    @Override
+    public void onCreate(@org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.featureFlag = getArguments().getBoolean("featureFlag", false);
         requestFileForRestore();
     }
 
