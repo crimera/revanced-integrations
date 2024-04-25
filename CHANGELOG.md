@@ -1,3 +1,10 @@
+## [1.14.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.14.0-dev.2...v1.14.0-dev.3) (2024-04-25)
+
+
+### Bug Fixes
+
+* Crash when modifying flags ([9807a52](https://github.com/crimera/revanced-integrations/commit/9807a5233019a6fe786c1b9484777a2768bf89cd))
+
 ## [1.14.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.14.0-dev.1...v1.14.0-dev.2) (2024-04-21)
 
 
