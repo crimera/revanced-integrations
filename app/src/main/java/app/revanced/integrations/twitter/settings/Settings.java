@@ -30,7 +30,6 @@ public class Settings extends BaseSettings {
 
     public static final BooleanSetting TIMELINE_HIDE_LIVETHREADS = new BooleanSetting("timeline_hide_livethreads", true);
     public static final BooleanSetting TIMELINE_HIDE_BANNER = new BooleanSetting("timeline_hide_banner", true);
-    public static final BooleanSetting TIMELINE_HIDE_FORYOU = new BooleanSetting("timeline_hide_foryou", false);
     public static final BooleanSetting TIMELINE_HIDE_BMK_ICON = new BooleanSetting("timeline_hide_bookmark_icon", false);
     public static final BooleanSetting TIMELINE_SHOW_POLL_RESULTS = new BooleanSetting("timeline_show_poll_results", false);
     public static final BooleanSetting TIMELINE_HIDE_IMMERSIVE_PLAYER = new BooleanSetting("timeline_hide_immersive_player", false);
@@ -40,6 +39,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting PREMIUM_ICONS = new StringSetting("premium_app_icon_n_nav_icon", "");
 
     public static final StringSetting CUSTOM_PROFILE_TABS = new StringSetting("customisation_profile_tabs", "");
+    public static final StringSetting CUSTOM_TIMELINE_TABS = new StringSetting("customisation_timeline_tabs", "show_both");
 
     public static final StringSetting EXPORT_PREF = new StringSetting("export_pref", "");
     public static final StringSetting EXPORT_FLAGS = new StringSetting("export_flags", "");

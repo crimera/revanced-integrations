@@ -1,3 +1,22 @@
+## [1.15.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.15.0-dev.1...v1.15.0-dev.2) (2024-04-25)
+
+
+### Features
+
+* **Twitter:** Added `Customize timeline top bar` patch ([044efa8](https://github.com/crimera/revanced-integrations/commit/044efa8b75ee742526f5578dc58f2330391a4da2))
+
+## [1.15.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.14.0...v1.15.0-dev.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* don't use chooser for internal stuff ([ed95b79](https://github.com/crimera/revanced-integrations/commit/ed95b79bc8d87b9d08d9ca6b99d990efa1c8a468))
+
+
+### Features
+
+* Add `Use browser chooser when opening links` patch ([c4d693c](https://github.com/crimera/revanced-integrations/commit/c4d693ce4fb62d41f3970375411d6d50899256ef))
+
 ## [1.14.0](https://github.com/crimera/revanced-integrations/compare/v1.13.0...v1.14.0) (2024-04-25)
 
 

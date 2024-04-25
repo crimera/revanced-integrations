@@ -276,20 +276,20 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+            if (SettingsStatus.timelineTabCustomisation) {
+                customisationPrefs.addPreference(
+                        listPreference(
+                                strRes("piko_pref_customisation_timelinetabs"),
+                                "",
+                                Settings.CUSTOM_TIMELINE_TABS
+                        )
+                );
+            }
         }
 
         //Timeline Section
         if (SettingsStatus.enableTimelineSection()) {
             LegacyTwitterPreferenceCategory timelinePrefs = preferenceCategory(strRes("piko_title_timeline"), screen);
-            if (SettingsStatus.hideForyou) {
-                timelinePrefs.addPreference(
-                        switchPreference(
-                                strRes("piko_pref_hide_for_you"),
-                                "",
-                                Settings.TIMELINE_HIDE_FORYOU
-                        )
-                );
-            }
             if (SettingsStatus.hideLiveThreads) {
                 timelinePrefs.addPreference(
                         switchPreference(
@@ -417,6 +417,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             CharSequence[] vals = new CharSequence[]{"Movies", "DCIM", "Pictures", "Download"};
             preference.setEntries(vals);
             preference.setEntryValues(vals);
+        }else if (key == Settings.CUSTOM_TIMELINE_TABS.key) {
+            preference.setEntries(Utils.getResourceStringArray("piko_array_timelinetabs"));
+            preference.setEntryValues(new CharSequence[]{"show_both","hide_forYou", "hide_following"});
         }
         setOnPreferenceChangeListener(preference);
         return preference;

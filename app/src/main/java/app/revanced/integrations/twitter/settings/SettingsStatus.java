@@ -13,7 +13,6 @@ public class SettingsStatus {
     public static boolean hideInlineBmk = false;
     public static boolean hideLiveThreads = false;
     public static boolean hideBanner = false;
-    public static boolean hideForyou = false;
     public static boolean showPollResultsEnabled = false;
     public static boolean featureFlags = false;
 
@@ -33,6 +32,7 @@ public class SettingsStatus {
     public static boolean hideImmersivePlayer = false;
 
     public static boolean profileTabCustomisation = false;
+    public static boolean timelineTabCustomisation = false;
 
 
     public static void enableDownloadFolder() { changeDownloadEnabled = true; }
@@ -48,7 +48,6 @@ public class SettingsStatus {
     public static void hideInlineBmk() { hideInlineBmk = true; }
     public static void hideLiveThreads() { hideLiveThreads = true; }
     public static void hideBanner() { hideBanner = true; }
-    public static void hideForYou() { hideForyou = true; }
     public static void enableShowPollResults() { showPollResultsEnabled = true; }
 
     public static void hideAds() { hideAds = true; }
@@ -67,13 +66,14 @@ public class SettingsStatus {
     public static void hideImmersivePlayer() { hideImmersivePlayer = true; }
 
     public static void profileTabCustomisation() { profileTabCustomisation = true; }
+    public static void timelineTabCustomisation() { timelineTabCustomisation = true; }
 
-    public static boolean enableTimelineSection(){ return (hideLiveThreads || hideBanner || hideForyou || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
+    public static boolean enableTimelineSection(){ return (hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
     public static boolean enableMiscSection() { return (enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || hideCommunityNote || customSharingDomainEnabled || hideFABBtns); }
     public static boolean enableAdsSection() {return (hideAds|| hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK ||hidePromotedTrend); }
 
     public static boolean enablePremiumSection() {return (enableReaderMode || enableUndoPosts || enableAppIconNNavIcon); }
-    public static boolean enableCustomisationSection() {return (profileTabCustomisation); }
+    public static boolean enableCustomisationSection() {return (profileTabCustomisation || timelineTabCustomisation); }
 
     public static void load() {}
 }
