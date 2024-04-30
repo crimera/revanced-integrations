@@ -1,3 +1,11 @@
+## [1.16.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.16.0...v1.16.1-dev.1) (2024-04-30)
+
+
+### Updates
+
+* Add restart app dialog when importing settings ([e6421db](https://github.com/crimera/revanced-integrations/commit/e6421db75f654ad2bbba74e6768928894e625d43))
+* Now applies profile tabs hide on settings import ([8a8a202](https://github.com/crimera/revanced-integrations/commit/8a8a202e91cc3d106adbd191234ec3acc1cfe781))
+
 ## [1.16.0](https://github.com/crimera/revanced-integrations/compare/v1.15.0...v1.16.0) (2024-04-30)
 
 
