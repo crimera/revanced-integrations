@@ -1,3 +1,10 @@
+## [1.16.0](https://github.com/crimera/revanced-integrations/compare/v1.15.0...v1.16.0) (2024-04-30)
+
+
+### Features
+
+* Add toggle for `Open browser chooser on opening links` patch ([4d957f5](https://github.com/crimera/revanced-integrations/commit/4d957f56e24a49b92b0ef6ca372442a608c4cc2b))
+
 ## [1.16.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.15.0...v1.16.0-dev.1) (2024-04-26)
 
 
