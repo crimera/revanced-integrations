@@ -113,6 +113,8 @@ public class FeatureFlagsFragment extends Fragment {
 
         RecyclerView rc = view.findViewById(Utils.getResourceIdentifier("list", "id"));
         rc.setLayoutManager(new LinearLayoutManager(1));
+        rc.setClipToPadding(false);
+        rc.setPadding(0, 0, 0, 200);
 
         CustomAdapter adapter = new CustomAdapter(flags);
 
