@@ -243,6 +243,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.browserChooserEnabled) {
+                miscPrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_browser_chooser"),
+                                strRes("piko_pref_browser_chooser_desc"),
+                                Settings.MISC_BROWSER_CHOOSER
+                        )
+                );
+            }
+
             if (SettingsStatus.customSharingDomainEnabled) {
                 miscPrefs.addPreference(
                         editTextPreference(
@@ -253,7 +263,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
-            if (SettingsStatus.featureFlags) {
+            if (SettingsStatus.featureFlagsEnabled) {
                 miscPrefs.addPreference(
                         buttonPreference(
                                 strRes("piko_pref_feature_flags"),
