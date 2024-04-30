@@ -8,7 +8,9 @@ import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
 import app.revanced.integrations.twitter.settings.Settings;
 import app.revanced.integrations.twitter.settings.BackupPrefFragment;
 import app.revanced.integrations.twitter.settings.RestorePrefFragment;
+import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.*;
 
 import java.util.Arrays;
@@ -97,7 +99,7 @@ public class Utils {
         }
         return prefs.toString();
     }
-    public static Set<String> getSetPerf(String key,Set<String> defaultValue) {
+    public static Set<String> getSetPerf(String key, Set<String> defaultValue) {
         return sp.getSet(key, defaultValue);
     }
 
@@ -123,6 +125,19 @@ public class Utils {
                     setBooleanPerf(key,(Boolean)value);
                 } else if (value instanceof String) {
                     setStringPref(key,(String)value);
+                } else if (value instanceof JSONArray) {
+                    int index = 0;
+                    Set<String> strings = new HashSet<>();
+
+                    if (!(((JSONArray) value).get(0) instanceof String)) {
+                        continue;
+                    }
+
+                    for (int i = 0; i< ((JSONArray) value).length(); i++) {
+                        strings.add(((JSONArray) value).getString(i));
+                    }
+
+                    setSetPerf(key, strings);
                 }
             }
             sts = true;
