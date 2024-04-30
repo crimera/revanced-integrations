@@ -1,3 +1,10 @@
+## [1.16.1-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.16.1-dev.1...v1.16.1-dev.2) (2024-04-30)
+
+
+### Bug Fixes
+
+* **Hook feature flag:** Added offset so fab doesn't obstruct settings. ([a33f2e4](https://github.com/crimera/revanced-integrations/commit/a33f2e40a1f4d2b9755be40c6548958642721f6b))
+
 ## [1.16.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.16.0...v1.16.1-dev.1) (2024-04-30)
 
 
