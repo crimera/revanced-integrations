@@ -1,8 +1,10 @@
 package app.revanced.integrations.twitter;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.LinearLayout;
 import app.revanced.integrations.shared.settings.Setting;
 import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
 import app.revanced.integrations.twitter.settings.Settings;
@@ -87,6 +89,30 @@ public class Utils {
             return setting.defaultValue;
         }
         return value;
+    }
+
+    public static String strRes(String tag) {
+        try {
+            return app.revanced.integrations.shared.Utils.getResourceString(tag);
+        } catch (Exception e) {
+
+            app.revanced.integrations.shared.Utils.showToastShort(tag + " not found");
+        }
+        return tag;
+    }
+
+    public static void showRestartAppDialog(Context context) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+
+        LinearLayout ln = new LinearLayout(context);
+        ln.setOrientation(LinearLayout.VERTICAL);
+
+        dialog.setTitle(Utils.strRes("settings_restart"));
+        dialog.setPositiveButton(Utils.strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+            app.revanced.integrations.shared.Utils.restartApp(context);
+        });
+        dialog.setNegativeButton(Utils.strRes("cancel"), null);
+        dialog.show();
     }
 
     public static Boolean getBooleanPerf(Setting<Boolean> setting) {

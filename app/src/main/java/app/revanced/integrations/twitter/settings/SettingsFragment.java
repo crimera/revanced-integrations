@@ -513,13 +513,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     private static String strRes(String tag) {
-        try {
-            return Utils.getResourceString(tag);
-        } catch (Exception e) {
-
-            Utils.showToastShort(tag + " not found");
-        }
-        return tag;
+        return app.revanced.integrations.twitter.Utils.strRes(tag);
     }
 
     private static void setBooleanPerf(String key, Boolean val) {
