@@ -20,6 +20,17 @@ public class Pref {
         return Utils.getStringPref(Settings.VID_SUBFOLDER) + "/" + filename;
     }
 
+    public static int vidMediaHandle() {
+        String val = Utils.getStringPref(Settings.VID_MEDIA_HANDLE);
+        if(val.equals("download_media")){
+            return 1;
+        }
+        if (val.equals("copy_media_link")){
+            return 2;
+        }
+        return 3;
+    }
+
     public static String getSharingLink(String link) {
         String domain = Utils.getStringPref(Settings.CUSTOM_SHARING_DOMAIN);
         return link.replaceFirst("x|twitter", domain);
