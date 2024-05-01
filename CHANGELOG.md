@@ -1,3 +1,10 @@
+## [1.17.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.16.1-dev.2...v1.17.0-dev.1) (2024-05-01)
+
+
+### Features
+
+* **Twitter:** Added `Ability to copy video media link` patch ([b06379b](https://github.com/crimera/revanced-integrations/commit/b06379beccaa4aa6dede757fd914dfb05ff47ec1))
+
 ## [1.16.1-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.16.1-dev.1...v1.16.1-dev.2) (2024-04-30)
 
 
