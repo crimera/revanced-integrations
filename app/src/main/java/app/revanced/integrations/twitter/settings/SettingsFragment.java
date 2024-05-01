@@ -73,18 +73,29 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
 
         //download section
-        if (SettingsStatus.changeDownloadEnabled) {
+        if (SettingsStatus.enableDownloadSection()) {
             LegacyTwitterPreferenceCategory downloadPrefs = preferenceCategory(strRes("piko_title_download"), screen);
-            downloadPrefs.addPreference(listPreference(
-                    strRes("piko_pref_download_path"),
-                    strRes("piko_pref_download_path_desc"),
-                    Settings.VID_PUBLIC_FOLDER
-            ));
-            downloadPrefs.addPreference(editTextPreference(
-                    strRes("piko_pref_download_folder"),
-                    strRes("piko_pref_download_folder_desc"),
-                    Settings.VID_SUBFOLDER
-            ));
+            if (SettingsStatus.changeDownloadEnabled) {
+                downloadPrefs.addPreference(listPreference(
+                        strRes("piko_pref_download_path"),
+                        strRes("piko_pref_download_path_desc"),
+                        Settings.VID_PUBLIC_FOLDER
+                ));
+                downloadPrefs.addPreference(editTextPreference(
+                        strRes("piko_pref_download_folder"),
+                        strRes("piko_pref_download_folder_desc"),
+                        Settings.VID_SUBFOLDER
+                ));
+            }
+            if (SettingsStatus.mediaLinkHandle) {
+                downloadPrefs.addPreference(
+                        listPreference(
+                                strRes("piko_pref_download_media_link_handle"),
+                                "",
+                                Settings.VID_MEDIA_HANDLE
+                        )
+                );
+            }
         }
 
         //ads section
@@ -423,14 +434,20 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         preference.setSummary(summary);
         preference.setKey(key);
         preference.setDefaultValue(setting.defaultValue);
+        CharSequence[] entries = new CharSequence[]{};
+        CharSequence[] entriesValues = new CharSequence[]{};
         if (key == Settings.VID_PUBLIC_FOLDER.key) {
-            CharSequence[] vals = new CharSequence[]{"Movies", "DCIM", "Pictures", "Download"};
-            preference.setEntries(vals);
-            preference.setEntryValues(vals);
+            entries = new CharSequence[]{"Movies", "DCIM", "Pictures", "Download"};
+            entriesValues = entries;
         }else if (key == Settings.CUSTOM_TIMELINE_TABS.key) {
-            preference.setEntries(Utils.getResourceStringArray("piko_array_timelinetabs"));
-            preference.setEntryValues(new CharSequence[]{"show_both","hide_forYou", "hide_following"});
+            entries = Utils.getResourceStringArray("piko_array_timelinetabs");
+            entriesValues = new CharSequence[]{"show_both","hide_forYou", "hide_following"};
+        }else if (key == Settings.VID_MEDIA_HANDLE.key) {
+            entries = Utils.getResourceStringArray("piko_array_download_media_handle");
+            entriesValues = new CharSequence[]{"download_media","copy_media_link", "always_ask"};
         }
+        preference.setEntries(entries);
+        preference.setEntryValues(entriesValues);
         setOnPreferenceChangeListener(preference);
         return preference;
     }
@@ -442,10 +459,14 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         preference.setDialogTitle(title);
         preference.setSummary(summary);
         preference.setKey(key);
+        CharSequence[] entries = new CharSequence[]{};
+        CharSequence[] entriesValues = new CharSequence[]{};
         if (key == Settings.CUSTOM_PROFILE_TABS.key) {
-            preference.setEntries(Utils.getResourceStringArray("piko_array_profiletabs"));
-            preference.setEntryValues(new CharSequence[]{"tweets", "tweets_replies", "affiliated", "subs", "highlights", "articles", "media", "likes"});
+            entries = Utils.getResourceStringArray("piko_array_profiletabs");
+            entriesValues = new CharSequence[]{"tweets", "tweets_replies", "affiliated", "subs", "highlights", "articles", "media", "likes"};
         }
+        preference.setEntries(entries);
+        preference.setEntryValues(entriesValues);
         setOnPreferenceChangeListener(preference);
         return preference;
     }
