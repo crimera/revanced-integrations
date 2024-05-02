@@ -1,3 +1,10 @@
+## [1.17.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.1...v1.17.0-dev.2) (2024-05-02)
+
+
+### Refactors
+
+* **Twitter:** Added flag to enable custom nav bar settings ([3644f99](https://github.com/crimera/revanced-integrations/commit/3644f99c67d5243553bd18a5c568ed9febe3ec52))
+
 ## [1.17.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.16.1-dev.2...v1.17.0-dev.1) (2024-05-01)
 
 
