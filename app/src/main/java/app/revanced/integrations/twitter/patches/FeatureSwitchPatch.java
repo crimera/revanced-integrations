@@ -29,6 +29,10 @@ public class FeatureSwitchPatch {
         addFlag("bookmarks_in_timelines_enabled", Pref.hideInlineBookmark());
     }
 
+    private static void navbarFix() {
+        addFlag("subscriptions_feature_1008", true);
+    }
+
     private static void immersivePlayer() {
         addFlag("explore_relaunch_enable_immersive_player_across_twitter", Pref.hideImmersivePlayer());
     }
