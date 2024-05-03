@@ -123,6 +123,13 @@ public class Pref {
         }
         return 0;
     }
+
+    public static boolean enableForceTranslate() {
+        return Utils.getBooleanPerf(Settings.TIMELINE_HIDE_FORCE_TRANSLATE);
+    }
+    public static boolean hidePromoteBtn() {
+        return Utils.getBooleanPerf(Settings.TIMELINE_HIDE_PROMOTE_BUTTON);
+    }
     public static boolean hideFAB() {
         return Utils.getBooleanPerf(Settings.MISC_HIDE_FAB);
     }
