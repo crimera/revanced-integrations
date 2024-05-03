@@ -16,6 +16,8 @@ public class SettingsStatus {
     public static boolean showPollResultsEnabled = false;
     public static boolean browserChooserEnabled = false;
     public static boolean featureFlagsEnabled = false;
+    public static boolean forceTranslate = false;
+    public static boolean hidePromoteButton = false;
 
     public static boolean hideAds = false;
     public static boolean hideGAds = false;
@@ -52,6 +54,9 @@ public class SettingsStatus {
     public static void hideLiveThreads() { hideLiveThreads = true; }
     public static void hideBanner() { hideBanner = true; }
     public static void enableShowPollResults() { showPollResultsEnabled = true; }
+    public static void forceTranslate() { forceTranslate = true; }
+    public static void hidePromoteButton() { hidePromoteButton = true; }
+
 
     public static void hideAds() { hideAds = true; }
     public static void hideGAds() { hideGAds = true; }
@@ -71,8 +76,8 @@ public class SettingsStatus {
     public static void profileTabCustomisation() { profileTabCustomisation = true; }
     public static void timelineTabCustomisation() { timelineTabCustomisation = true; }
 
-    public static boolean enableTimelineSection(){ return (hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
-    public static boolean enableMiscSection() { return (enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || hideCommunityNote || customSharingDomainEnabled || hideFABBtns); }
+    public static boolean enableTimelineSection(){ return (forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
+    public static boolean enableMiscSection() { return (enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns); }
     public static boolean enableAdsSection() {return (hideAds|| hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK ||hidePromotedTrend); }
     public static boolean enableDownloadSection() {return (changeDownloadEnabled || mediaLinkHandle); }
 

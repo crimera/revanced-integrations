@@ -234,16 +234,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
-            if (SettingsStatus.hideCommunityNote) {
-                miscPrefs.addPreference(
-                        switchPreference(
-                                strRes("piko_pref_comm_notes"),
-                                "",
-                                Settings.MISC_HIDE_COMM_NOTES
-                        )
-                );
-            }
-
             if (SettingsStatus.hideViewCount) {
                 miscPrefs.addPreference(
                         switchPreference(
@@ -345,6 +335,36 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                 strRes("piko_pref_show_poll_result"),
                                 strRes("piko_pref_show_poll_result_desc"),
                                 Settings.TIMELINE_SHOW_POLL_RESULTS
+                        )
+                );
+            }
+
+            if (SettingsStatus.hideCommunityNote) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_comm_notes"),
+                                "",
+                                Settings.MISC_HIDE_COMM_NOTES
+                        )
+                );
+            }
+
+            if (SettingsStatus.forceTranslate) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_force_translate"),
+                                strRes("piko_pref_force_translate_desc"),
+                                Settings.TIMELINE_HIDE_FORCE_TRANSLATE
+                        )
+                );
+            }
+
+            if (SettingsStatus.hidePromoteButton) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_hide_quick_promote"),
+                                strRes("piko_pref_hide_quick_promote_desc"),
+                                Settings.TIMELINE_HIDE_PROMOTE_BUTTON
                         )
                 );
             }
