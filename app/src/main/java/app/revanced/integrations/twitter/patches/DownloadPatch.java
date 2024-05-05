@@ -50,14 +50,36 @@ public class DownloadPatch {
         }
     }
 
-    private static void copyVideoMediaLink(Object para1) {
+    private static String getMediaLink(Object para1) {
         try{
             Class<?> clazz = para1.getClass();
             clazz.cast(para1);
             Field urlField = clazz.getDeclaredField("a");
             String mediaLink = (String) urlField.get(para1);
+            return mediaLink;
+        }
+        catch (Exception e){
+            Utils.toast(e.toString());
+        }
+        return "";
+    }
+
+    private static void copyVideoMediaLink(Object para1) {
+        try{
+
+            String mediaLink = getMediaLink(para1);
             app.revanced.integrations.shared.Utils.setClipboard(mediaLink);
             Utils.toast(strRes("link_copied_to_clipboard"));
+        }
+        catch (Exception e){
+            Utils.toast(e.toString());
+        }
+    }
+
+    private static void shareMediaLink(Object para1) {
+        try{
+            String mediaLink = getMediaLink(para1);
+            app.revanced.integrations.shared.Utils.shareText(mediaLink);
         }
         catch (Exception e){
             Utils.toast(e.toString());
@@ -75,7 +97,7 @@ public class DownloadPatch {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(strRes("piko_pref_download_media_link_handle"));
 
-        String[] choices = {strRes("download_video_option"), strRes("copy_link"), strRes("cancel")};
+        String[] choices = {strRes("download_video_option"), strRes("piko_pref_download_media_link_handle_copy_media_link"),strRes("piko_pref_download_media_link_handle_share_media_link"), strRes("cancel")};
         builder.setItems(choices, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
@@ -89,6 +111,7 @@ public class DownloadPatch {
                         break;
                     }
                     case 2: {
+                        shareMediaLink(para1);
                         break;
                     }
                 }

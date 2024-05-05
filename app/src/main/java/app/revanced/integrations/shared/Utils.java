@@ -268,6 +268,16 @@ public class Utils {
         return isRightToLeftTextLayout;
     }
 
+    public static void shareText(String txt) {
+        final String appPackageName = context.getPackageName();
+        Intent sendIntent = new Intent();
+        sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, txt);
+        sendIntent.setType("text/plain");
+        context.startActivity(sendIntent);
+    }
+
     /**
      * Safe to call from any thread
      */
