@@ -1,3 +1,15 @@
+## [1.17.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.2...v1.17.0-dev.3) (2024-05-05)
+
+
+### Features
+
+* **Twitter:** Added share link in `Add ability to copy media link` patch ([0f52dbc](https://github.com/crimera/revanced-integrations/commit/0f52dbcc901088c39578fd6db300402bdc3a1e6c))
+
+
+### Refactors
+
+* **Twitter:** Vertical download pref dialog ([7b99e58](https://github.com/crimera/revanced-integrations/commit/7b99e58cbb690577f89b08b98df4bc2d71306d80))
+
 ## [1.17.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.1...v1.17.0-dev.2) (2024-05-02)
 
 
