@@ -75,29 +75,26 @@ public class DownloadPatch {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(strRes("piko_pref_download_media_link_handle"));
 
-        builder.setPositiveButton(strRes("download_video_option"), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface,int which) {
-                downloadVideoMedia(obj1, para1);
-                dialogInterface.dismiss();
-            }
-        });
-
-        builder.setNegativeButton(strRes("cancel"), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface,int which) {
-                dialogInterface.dismiss();
-            }
-        });
-
-        builder.setNeutralButton(strRes("copy_link"), new DialogInterface.OnClickListener() {
+        String[] choices = {strRes("download_video_option"), strRes("copy_link"), strRes("cancel")};
+        builder.setItems(choices, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                copyVideoMediaLink(para1);
+                switch (which) {
+                    case 0: {
+                        downloadVideoMedia(obj1, para1);
+                        break;
+                    }
+                    case 1: {
+                        copyVideoMediaLink(para1);
+                        break;
+                    }
+                    case 2: {
+                        break;
+                    }
+                }
                 dialogInterface.dismiss();
             }
         });
-
         builder.show();
 
         //endfunc
