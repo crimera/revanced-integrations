@@ -38,6 +38,12 @@ public class SettingsStatus {
     public static boolean timelineTabCustomisation = false;
     public static boolean mediaLinkHandle = false;
 
+    public static boolean selectableText = false;
+    public static boolean showSensitiveMedia = false;
+    public static boolean enableVidDownload = false;
+    public static void enableVidDownload() { enableVidDownload = true; }
+    public static void showSensitiveMedia() { showSensitiveMedia = true; }
+    public static void selectableText() { selectableText = true; }
     public static void enableDownloadFolder() { changeDownloadEnabled = true; }
     public static void mediaLinkHandle() { mediaLinkHandle = true; }
     public static void enableCustomSharingDomain() { customSharingDomainEnabled = true; }
