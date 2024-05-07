@@ -1,3 +1,10 @@
+## [1.17.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.3...v1.17.0-dev.4) (2024-05-07)
+
+
+### Features
+
+* **Twitter:** Added `Patch info` section ([dcf7e0e](https://github.com/crimera/revanced-integrations/commit/dcf7e0e2621d0029b8918ba5af2c9192de627f83))
+
 ## [1.17.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.2...v1.17.0-dev.3) (2024-05-05)
 
 
