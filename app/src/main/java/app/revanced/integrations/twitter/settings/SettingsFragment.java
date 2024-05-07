@@ -413,6 +413,17 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 )
         );
 
+        //export section
+        LegacyTwitterPreferenceCategory aboutPref = preferenceCategory(strRes("piko_title_about"), screen);
+        aboutPref.addPreference(
+                buttonPreference(
+                        strRes("piko_pref_patch_info"),
+                        "",
+                        Settings.PATCH_INFO.key
+                )
+        );
+
+
         setPreferenceScreen(screen);
     }
 
@@ -506,7 +517,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         } else if (key.equals(Settings.PREMIUM_ICONS.key)) {
             app.revanced.integrations.twitter.Utils.startAppIconNNavIconActivity();
         } else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
-            getFragmentManager().beginTransaction().replace(Utils.getResourceIdentifier("fragment_container", "id"), new FeatureFlagsFragment()).addToBackStack(null).commit();
+//            getFragmentManager().beginTransaction().replace(Utils.getResourceIdentifier("fragment_container", "id"), new FeatureFlagsFragment()).addToBackStack(null).commit();
+            startFragment(new FeatureFlagsFragment());
         } else if (key.equals(Settings.EXPORT_PREF.key)) {
             startBackupFragment(new BackupPrefFragment(), false);
         } else if (key.equals(Settings.EXPORT_FLAGS.key)) {
@@ -515,9 +527,17 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             startBackupFragment(new RestorePrefFragment(), false);
         } else if (key.equals(Settings.IMPORT_FLAGS.key)) {
             startBackupFragment(new RestorePrefFragment(), true);
+        }else if (key.equals(Settings.PATCH_INFO.key)) {
+            startFragment(new SettingsAboutFragment());
         }
 
         return true;
+    }
+
+    private void startFragment(Fragment fragment) {
+        Bundle bundle = new Bundle();
+        fragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace(Utils.getResourceIdentifier("fragment_container", "id"), fragment).addToBackStack(null).commit();
     }
 
     private void startBackupFragment(Fragment fragment, boolean featureFlag) {
