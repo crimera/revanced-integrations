@@ -73,18 +73,29 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
 
         //download section
-        if (SettingsStatus.changeDownloadEnabled) {
+        if (SettingsStatus.enableDownloadSection()) {
             LegacyTwitterPreferenceCategory downloadPrefs = preferenceCategory(strRes("piko_title_download"), screen);
-            downloadPrefs.addPreference(listPreference(
-                    strRes("piko_pref_download_path"),
-                    strRes("piko_pref_download_path_desc"),
-                    Settings.VID_PUBLIC_FOLDER
-            ));
-            downloadPrefs.addPreference(editTextPreference(
-                    strRes("piko_pref_download_folder"),
-                    strRes("piko_pref_download_folder_desc"),
-                    Settings.VID_SUBFOLDER
-            ));
+            if (SettingsStatus.changeDownloadEnabled) {
+                downloadPrefs.addPreference(listPreference(
+                        strRes("piko_pref_download_path"),
+                        strRes("piko_pref_download_path_desc"),
+                        Settings.VID_PUBLIC_FOLDER
+                ));
+                downloadPrefs.addPreference(editTextPreference(
+                        strRes("piko_pref_download_folder"),
+                        strRes("piko_pref_download_folder_desc"),
+                        Settings.VID_SUBFOLDER
+                ));
+            }
+            if (SettingsStatus.mediaLinkHandle) {
+                downloadPrefs.addPreference(
+                        listPreference(
+                                strRes("piko_pref_download_media_link_handle"),
+                                "",
+                                Settings.VID_MEDIA_HANDLE
+                        )
+                );
+            }
         }
 
         //ads section
@@ -223,16 +234,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
-            if (SettingsStatus.hideCommunityNote) {
-                miscPrefs.addPreference(
-                        switchPreference(
-                                strRes("piko_pref_comm_notes"),
-                                "",
-                                Settings.MISC_HIDE_COMM_NOTES
-                        )
-                );
-            }
-
             if (SettingsStatus.hideViewCount) {
                 miscPrefs.addPreference(
                         switchPreference(
@@ -338,6 +339,36 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.hideCommunityNote) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_comm_notes"),
+                                "",
+                                Settings.MISC_HIDE_COMM_NOTES
+                        )
+                );
+            }
+
+            if (SettingsStatus.forceTranslate) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_force_translate"),
+                                strRes("piko_pref_force_translate_desc"),
+                                Settings.TIMELINE_HIDE_FORCE_TRANSLATE
+                        )
+                );
+            }
+
+            if (SettingsStatus.hidePromoteButton) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_hide_quick_promote"),
+                                strRes("piko_pref_hide_quick_promote_desc"),
+                                Settings.TIMELINE_HIDE_PROMOTE_BUTTON
+                        )
+                );
+            }
+
             if (SettingsStatus.hideImmersivePlayer) {
                 timelinePrefs.addPreference(
                         switchPreference(
@@ -382,6 +413,17 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 )
         );
 
+        //export section
+        LegacyTwitterPreferenceCategory aboutPref = preferenceCategory(strRes("piko_title_about"), screen);
+        aboutPref.addPreference(
+                buttonPreference(
+                        strRes("piko_pref_patch_info"),
+                        "",
+                        Settings.PATCH_INFO.key
+                )
+        );
+
+
         setPreferenceScreen(screen);
     }
 
@@ -423,14 +465,20 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         preference.setSummary(summary);
         preference.setKey(key);
         preference.setDefaultValue(setting.defaultValue);
+        CharSequence[] entries = new CharSequence[]{};
+        CharSequence[] entriesValues = new CharSequence[]{};
         if (key == Settings.VID_PUBLIC_FOLDER.key) {
-            CharSequence[] vals = new CharSequence[]{"Movies", "DCIM", "Pictures", "Download"};
-            preference.setEntries(vals);
-            preference.setEntryValues(vals);
+            entries = new CharSequence[]{"Movies", "DCIM", "Pictures", "Download"};
+            entriesValues = entries;
         }else if (key == Settings.CUSTOM_TIMELINE_TABS.key) {
-            preference.setEntries(Utils.getResourceStringArray("piko_array_timelinetabs"));
-            preference.setEntryValues(new CharSequence[]{"show_both","hide_forYou", "hide_following"});
+            entries = Utils.getResourceStringArray("piko_array_timelinetabs");
+            entriesValues = new CharSequence[]{"show_both","hide_forYou", "hide_following"};
+        }else if (key == Settings.VID_MEDIA_HANDLE.key) {
+            entries = Utils.getResourceStringArray("piko_array_download_media_handle");
+            entriesValues = new CharSequence[]{"download_media","copy_media_link", "always_ask"};
         }
+        preference.setEntries(entries);
+        preference.setEntryValues(entriesValues);
         setOnPreferenceChangeListener(preference);
         return preference;
     }
@@ -442,10 +490,14 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         preference.setDialogTitle(title);
         preference.setSummary(summary);
         preference.setKey(key);
+        CharSequence[] entries = new CharSequence[]{};
+        CharSequence[] entriesValues = new CharSequence[]{};
         if (key == Settings.CUSTOM_PROFILE_TABS.key) {
-            preference.setEntries(Utils.getResourceStringArray("piko_array_profiletabs"));
-            preference.setEntryValues(new CharSequence[]{"tweets", "tweets_replies", "affiliated", "subs", "highlights", "articles", "media", "likes"});
+            entries = Utils.getResourceStringArray("piko_array_profiletabs");
+            entriesValues = new CharSequence[]{"tweets", "tweets_replies", "affiliated", "subs", "highlights", "articles", "media", "likes"};
         }
+        preference.setEntries(entries);
+        preference.setEntryValues(entriesValues);
         setOnPreferenceChangeListener(preference);
         return preference;
     }
@@ -465,7 +517,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         } else if (key.equals(Settings.PREMIUM_ICONS.key)) {
             app.revanced.integrations.twitter.Utils.startAppIconNNavIconActivity();
         } else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
-            getFragmentManager().beginTransaction().replace(Utils.getResourceIdentifier("fragment_container", "id"), new FeatureFlagsFragment()).addToBackStack(null).commit();
+//            getFragmentManager().beginTransaction().replace(Utils.getResourceIdentifier("fragment_container", "id"), new FeatureFlagsFragment()).addToBackStack(null).commit();
+            startFragment(new FeatureFlagsFragment());
         } else if (key.equals(Settings.EXPORT_PREF.key)) {
             startBackupFragment(new BackupPrefFragment(), false);
         } else if (key.equals(Settings.EXPORT_FLAGS.key)) {
@@ -474,9 +527,17 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             startBackupFragment(new RestorePrefFragment(), false);
         } else if (key.equals(Settings.IMPORT_FLAGS.key)) {
             startBackupFragment(new RestorePrefFragment(), true);
+        }else if (key.equals(Settings.PATCH_INFO.key)) {
+            startFragment(new SettingsAboutFragment());
         }
 
         return true;
+    }
+
+    private void startFragment(Fragment fragment) {
+        Bundle bundle = new Bundle();
+        fragment.setArguments(bundle);
+        getFragmentManager().beginTransaction().replace(Utils.getResourceIdentifier("fragment_container", "id"), fragment).addToBackStack(null).commit();
     }
 
     private void startBackupFragment(Fragment fragment, boolean featureFlag) {
@@ -513,13 +574,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     private static String strRes(String tag) {
-        try {
-            return Utils.getResourceString(tag);
-        } catch (Exception e) {
-
-            Utils.showToastShort(tag + " not found");
-        }
-        return tag;
+        return app.revanced.integrations.twitter.Utils.strRes(tag);
     }
 
     private static void setBooleanPerf(String key, Boolean val) {

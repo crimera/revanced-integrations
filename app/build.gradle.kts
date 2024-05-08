@@ -8,20 +8,23 @@ android {
     namespace = "app.revanced.integrations"
     compileSdk = 33
 
-    applicationVariants.all {
-        outputs.all {
-            this as com.android.build.gradle.internal.api.ApkVariantOutputImpl
-
-            outputFileName = "${rootProject.name}-$versionName.apk"
-        }
-    }
-
     defaultConfig {
         applicationId = "app.revanced.integrations"
         minSdk = 23
         targetSdk = 33
         multiDexEnabled = false
         versionName = version as String
+    }
+    buildFeatures {
+        buildConfig = true
+    }
+
+    applicationVariants.all {
+        buildConfigField("String", "VERSION_NAME", "\"${defaultConfig.versionName}\"")
+        outputs.all {
+            this as com.android.build.gradle.internal.api.ApkVariantOutputImpl
+            outputFileName = "${rootProject.name}-$versionName.apk"
+        }
     }
 
     buildTypes {

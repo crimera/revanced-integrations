@@ -1,14 +1,18 @@
 package app.revanced.integrations.twitter;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.LinearLayout;
 import app.revanced.integrations.shared.settings.Setting;
 import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
 import app.revanced.integrations.twitter.settings.Settings;
 import app.revanced.integrations.twitter.settings.BackupPrefFragment;
 import app.revanced.integrations.twitter.settings.RestorePrefFragment;
+import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.*;
 
 import java.util.Arrays;
@@ -87,6 +91,30 @@ public class Utils {
         return value;
     }
 
+    public static String strRes(String tag) {
+        try {
+            return app.revanced.integrations.shared.Utils.getResourceString(tag);
+        } catch (Exception e) {
+
+            app.revanced.integrations.shared.Utils.showToastShort(tag + " not found");
+        }
+        return tag;
+    }
+
+    public static void showRestartAppDialog(Context context) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+
+        LinearLayout ln = new LinearLayout(context);
+        ln.setOrientation(LinearLayout.VERTICAL);
+
+        dialog.setTitle(Utils.strRes("settings_restart"));
+        dialog.setPositiveButton(Utils.strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+            app.revanced.integrations.shared.Utils.restartApp(context);
+        });
+        dialog.setNegativeButton(Utils.strRes("cancel"), null);
+        dialog.show();
+    }
+
     public static Boolean getBooleanPerf(Setting<Boolean> setting) {
         return sp.getBoolean(setting.key, setting.defaultValue);
     }
@@ -97,7 +125,7 @@ public class Utils {
         }
         return prefs.toString();
     }
-    public static Set<String> getSetPerf(String key,Set<String> defaultValue) {
+    public static Set<String> getSetPerf(String key, Set<String> defaultValue) {
         return sp.getSet(key, defaultValue);
     }
 
@@ -123,6 +151,19 @@ public class Utils {
                     setBooleanPerf(key,(Boolean)value);
                 } else if (value instanceof String) {
                     setStringPref(key,(String)value);
+                } else if (value instanceof JSONArray) {
+                    int index = 0;
+                    Set<String> strings = new HashSet<>();
+
+                    if (!(((JSONArray) value).get(0) instanceof String)) {
+                        continue;
+                    }
+
+                    for (int i = 0; i< ((JSONArray) value).length(); i++) {
+                        strings.add(((JSONArray) value).getString(i));
+                    }
+
+                    setSetPerf(key, strings);
                 }
             }
             sts = true;

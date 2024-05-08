@@ -9,6 +9,7 @@ public class Settings extends BaseSettings {
 
     public static final StringSetting VID_PUBLIC_FOLDER = new StringSetting("vid_public_folder", "Movies");
     public static final StringSetting VID_SUBFOLDER = new StringSetting("vid_subfolder", "Twitter");
+    public static final StringSetting VID_MEDIA_HANDLE = new StringSetting("vid_media_handle", "download_media");
     public static final StringSetting CUSTOM_SHARING_DOMAIN = new StringSetting("misc_custom_sharing_domain", "twitter");
     public static final BooleanSetting MISC_FONT = new BooleanSetting("misc_font", false);
     public static final BooleanSetting MISC_HIDE_FAB = new BooleanSetting("misc_hide_fab", false);
@@ -34,6 +35,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting TIMELINE_HIDE_BMK_ICON = new BooleanSetting("timeline_hide_bookmark_icon", false);
     public static final BooleanSetting TIMELINE_SHOW_POLL_RESULTS = new BooleanSetting("timeline_show_poll_results", false);
     public static final BooleanSetting TIMELINE_HIDE_IMMERSIVE_PLAYER = new BooleanSetting("timeline_hide_immersive_player", false);
+    public static final BooleanSetting TIMELINE_HIDE_PROMOTE_BUTTON = new BooleanSetting("timeline_hide_promote_button", false);
+    public static final BooleanSetting TIMELINE_HIDE_FORCE_TRANSLATE = new BooleanSetting("timeline_force_translate", false);
 
     public static final BooleanSetting PREMIUM_READER_MODE = new BooleanSetting("premium_reader_mode", false);
     public static final BooleanSetting PREMIUM_UNDO_POSTS = new BooleanSetting("premium_undo_posts", false);
@@ -46,4 +49,5 @@ public class Settings extends BaseSettings {
     public static final StringSetting EXPORT_FLAGS = new StringSetting("export_flags", "");
     public static final StringSetting IMPORT_PREF = new StringSetting("import_pref", "");
     public static final StringSetting IMPORT_FLAGS = new StringSetting("import_flags", "");
+    public static final BooleanSetting PATCH_INFO = new BooleanSetting("patch_info", true);
 }

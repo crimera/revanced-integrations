@@ -1,3 +1,58 @@
+## [1.17.0-dev.5](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.4...v1.17.0-dev.5) (2024-05-08)
+
+
+### Updates
+
+* Improve the retrieval of the patches version ([2c6dd1b](https://github.com/crimera/revanced-integrations/commit/2c6dd1b52a15326559215a21db453fd4198a2443))
+
+## [1.17.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.3...v1.17.0-dev.4) (2024-05-07)
+
+
+### Features
+
+* **Twitter:** Added `Patch info` section ([dcf7e0e](https://github.com/crimera/revanced-integrations/commit/dcf7e0e2621d0029b8918ba5af2c9192de627f83))
+
+## [1.17.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.2...v1.17.0-dev.3) (2024-05-05)
+
+
+### Features
+
+* **Twitter:** Added share link in `Add ability to copy media link` patch ([0f52dbc](https://github.com/crimera/revanced-integrations/commit/0f52dbcc901088c39578fd6db300402bdc3a1e6c))
+
+
+### Refactors
+
+* **Twitter:** Vertical download pref dialog ([7b99e58](https://github.com/crimera/revanced-integrations/commit/7b99e58cbb690577f89b08b98df4bc2d71306d80))
+
+## [1.17.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.1...v1.17.0-dev.2) (2024-05-02)
+
+
+### Refactors
+
+* **Twitter:** Added flag to enable custom nav bar settings ([3644f99](https://github.com/crimera/revanced-integrations/commit/3644f99c67d5243553bd18a5c568ed9febe3ec52))
+
+## [1.17.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.16.1-dev.2...v1.17.0-dev.1) (2024-05-01)
+
+
+### Features
+
+* **Twitter:** Added `Ability to copy video media link` patch ([b06379b](https://github.com/crimera/revanced-integrations/commit/b06379beccaa4aa6dede757fd914dfb05ff47ec1))
+
+## [1.16.1-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.16.1-dev.1...v1.16.1-dev.2) (2024-04-30)
+
+
+### Bug Fixes
+
+* **Hook feature flag:** Added offset so fab doesn't obstruct settings. ([a33f2e4](https://github.com/crimera/revanced-integrations/commit/a33f2e40a1f4d2b9755be40c6548958642721f6b))
+
+## [1.16.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.16.0...v1.16.1-dev.1) (2024-04-30)
+
+
+### Updates
+
+* Add restart app dialog when importing settings ([e6421db](https://github.com/crimera/revanced-integrations/commit/e6421db75f654ad2bbba74e6768928894e625d43))
+* Now applies profile tabs hide on settings import ([8a8a202](https://github.com/crimera/revanced-integrations/commit/8a8a202e91cc3d106adbd191234ec3acc1cfe781))
+
 ## [1.16.0](https://github.com/crimera/revanced-integrations/compare/v1.15.0...v1.16.0) (2024-04-30)
 
 

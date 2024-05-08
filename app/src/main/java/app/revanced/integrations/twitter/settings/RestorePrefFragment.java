@@ -37,7 +37,7 @@ public class RestorePrefFragment extends Fragment {
         return "";
     }
 
-    public static void receiveFileForRestore(Uri uri,boolean flags) {
+    public static void receiveFileForRestore(Uri uri,boolean flags, Context context) {
         String jsonString = readFileContent(uri);
         boolean sts = false;
         if(flags){
@@ -48,11 +48,12 @@ public class RestorePrefFragment extends Fragment {
         }
         if(sts){
             toast("piko_pref_import_saved");
-
         }
         else{
             toast("piko_pref_import_failed");
         }
+
+        Utils.showRestartAppDialog(context);
     }
 
     @Override
@@ -64,7 +65,7 @@ public class RestorePrefFragment extends Fragment {
                 uri = intent.getData();
             }
             if (uri != null) {
-                receiveFileForRestore(uri,this.featureFlag);
+                receiveFileForRestore(uri,this.featureFlag, getActivity());
             }
             else {
                 toast("piko_pref_import_no_uri");

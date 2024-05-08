@@ -50,6 +50,15 @@ public class Utils {
     public static void load() {
     }
 
+    /**
+     * Injection point.
+     *
+     * @return The manifest 'Version' entry of the patches.jar used during patching.
+     */
+    public static String getPatchesReleaseVersion() {
+        return ""; // Value is replaced during patching.
+    }
+
     public static String getVersionName() {
         if (versionName != null) return versionName;
 
@@ -266,6 +275,16 @@ public class Utils {
             isRightToLeftTextLayout = new Bidi(displayLanguage, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT).isRightToLeft();
         }
         return isRightToLeftTextLayout;
+    }
+
+    public static void shareText(String txt) {
+        final String appPackageName = context.getPackageName();
+        Intent sendIntent = new Intent();
+        sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, txt);
+        sendIntent.setType("text/plain");
+        context.startActivity(sendIntent);
     }
 
     /**
