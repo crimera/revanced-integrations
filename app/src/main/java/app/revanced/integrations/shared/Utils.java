@@ -50,6 +50,15 @@ public class Utils {
     public static void load() {
     }
 
+    /**
+     * Injection point.
+     *
+     * @return The manifest 'Version' entry of the patches.jar used during patching.
+     */
+    public static String getPatchesReleaseVersion() {
+        return ""; // Value is replaced during patching.
+    }
+
     public static String getVersionName() {
         if (versionName != null) return versionName;
 

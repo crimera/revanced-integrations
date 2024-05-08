@@ -41,7 +41,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         verPref.addPreference(
                 buttonPreference(
                         strRes("piko_title_piko_patches"),
-                        strRes("piko_title_piko_patches_ver"),
+                        Utils.getPatchesReleaseVersion(),
                         strRes("piko_title_piko_patches")
                 )
         );
