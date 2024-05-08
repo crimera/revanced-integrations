@@ -1,3 +1,10 @@
+## [1.17.0-dev.5](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.4...v1.17.0-dev.5) (2024-05-08)
+
+
+### Updates
+
+* Improve the retrieval of the patches version ([2c6dd1b](https://github.com/crimera/revanced-integrations/commit/2c6dd1b52a15326559215a21db453fd4198a2443))
+
 ## [1.17.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.17.0-dev.3...v1.17.0-dev.4) (2024-05-07)
 
 
