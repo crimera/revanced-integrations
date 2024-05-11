@@ -1,3 +1,10 @@
+## [1.18.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.17.0...v1.18.0-dev.1) (2024-05-11)
+
+
+### Features
+
+* **Twitter:** Added `Disable auto timeline scroll on launch` patch ([731a6cd](https://github.com/crimera/revanced-integrations/commit/731a6cdd76556215c840b1ac25565cd2f4994593))
+
 ## [1.17.0](https://github.com/crimera/revanced-integrations/compare/v1.16.0...v1.17.0) (2024-05-08)
 
 
