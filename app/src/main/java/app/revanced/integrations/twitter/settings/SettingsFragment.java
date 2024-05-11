@@ -301,6 +301,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         //Timeline Section
         if (SettingsStatus.enableTimelineSection()) {
             LegacyTwitterPreferenceCategory timelinePrefs = preferenceCategory(strRes("piko_title_timeline"), screen);
+            if (SettingsStatus.disableAutoTimelineScroll) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_disable_auto_timeline_scroll"),
+                                "",
+                                Settings.TIMELINE_DISABLE_AUTO_SCROLL
+                        )
+                );
+            }
             if (SettingsStatus.hideLiveThreads) {
                 timelinePrefs.addPreference(
                         switchPreference(
