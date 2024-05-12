@@ -81,6 +81,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put("piko_pref_feature_flags",SettingsStatus.featureFlagsEnabled);
         flags.put("piko_pref_customisation_profiletabs",SettingsStatus.profileTabCustomisation);
         flags.put("piko_pref_customisation_timelinetabs",SettingsStatus.timelineTabCustomisation);
+        flags.put("piko_pref_customisation_sidebartabs",SettingsStatus.sideBarCustomisation);
         flags.put("piko_pref_disable_auto_timeline_scroll",SettingsStatus.disableAutoTimelineScroll);
         flags.put("piko_pref_hide_live_threads",SettingsStatus.hideLiveThreads);
         flags.put("piko_pref_hide_banner",SettingsStatus.hideBanner);
