@@ -15,7 +15,7 @@ public class ProfileTabs {
     }
 
 
-    public static ArrayList a(ArrayList inp){
+    public static ArrayList profiletabs(ArrayList inp){
         try{
                 ArrayList choices = Pref.customProfileTabs();
                 Object inpObj = inp.clone();
