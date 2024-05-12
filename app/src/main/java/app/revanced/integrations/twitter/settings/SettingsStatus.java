@@ -42,6 +42,11 @@ public class SettingsStatus {
     public static boolean selectableText = false;
     public static boolean showSensitiveMedia = false;
     public static boolean enableVidDownload = false;
+    public static boolean cleartrackingparams = false;
+    public static boolean unshortenlink = false;
+
+    public static void cleartrackingparams() { cleartrackingparams = true; }
+    public static void unshortenlink() { unshortenlink = true; }
     public static void enableVidDownload() { enableVidDownload = true; }
     public static void showSensitiveMedia() { showSensitiveMedia = true; }
     public static void selectableText() { selectableText = true; }

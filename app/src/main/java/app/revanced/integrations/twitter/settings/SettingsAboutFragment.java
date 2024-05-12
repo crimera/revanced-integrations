@@ -90,6 +90,8 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put("piko_pref_force_translate",SettingsStatus.forceTranslate);
         flags.put("piko_pref_hide_quick_promote",SettingsStatus.hidePromoteButton);
         flags.put("piko_pref_hide_immersive_player",SettingsStatus.hideImmersivePlayer);
+        flags.put("piko_pref_clear_tracking_params",SettingsStatus.cleartrackingparams);
+        flags.put("piko_pref_unshorten_link",SettingsStatus.unshortenlink);
 
         for (Map.Entry<String, Boolean> entry : flags.entrySet()) {
             String resName = entry.getKey();
