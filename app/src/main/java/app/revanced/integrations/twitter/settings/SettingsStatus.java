@@ -37,11 +37,17 @@ public class SettingsStatus {
 
     public static boolean profileTabCustomisation = false;
     public static boolean timelineTabCustomisation = false;
+    public static boolean sideBarCustomisation = false;
     public static boolean mediaLinkHandle = false;
 
     public static boolean selectableText = false;
     public static boolean showSensitiveMedia = false;
     public static boolean enableVidDownload = false;
+    public static boolean cleartrackingparams = false;
+    public static boolean unshortenlink = false;
+
+    public static void cleartrackingparams() { cleartrackingparams = true; }
+    public static void unshortenlink() { unshortenlink = true; }
     public static void enableVidDownload() { enableVidDownload = true; }
     public static void showSensitiveMedia() { showSensitiveMedia = true; }
     public static void selectableText() { selectableText = true; }
@@ -83,6 +89,7 @@ public class SettingsStatus {
 
     public static void profileTabCustomisation() { profileTabCustomisation = true; }
     public static void timelineTabCustomisation() { timelineTabCustomisation = true; }
+    public static void sideBarCustomisation() { sideBarCustomisation = true; }
 
     public static boolean enableTimelineSection(){ return (disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
     public static boolean enableMiscSection() { return (enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns); }
@@ -90,7 +97,7 @@ public class SettingsStatus {
     public static boolean enableDownloadSection() {return (changeDownloadEnabled || mediaLinkHandle); }
 
     public static boolean enablePremiumSection() {return (enableReaderMode || enableUndoPosts || enableAppIconNNavIcon); }
-    public static boolean enableCustomisationSection() {return (profileTabCustomisation || timelineTabCustomisation); }
+    public static boolean enableCustomisationSection() {return (sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation); }
 
     public static void load() {}
 }

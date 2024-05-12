@@ -296,6 +296,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+            if (SettingsStatus.sideBarCustomisation) {
+                customisationPrefs.addPreference(
+                        multiSelectListPreference(
+                                strRes("piko_pref_customisation_sidebartabs"),
+                                "",
+                                Settings.CUSTOM_SIDEBAR_TABS
+                        )
+                );
+            }
         }
 
         //Timeline Section
@@ -504,6 +513,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (key == Settings.CUSTOM_PROFILE_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_profiletabs");
             entriesValues = new CharSequence[]{"tweets", "tweets_replies", "affiliated", "subs", "highlights", "articles", "media", "likes"};
+        }else if (key == Settings.CUSTOM_SIDEBAR_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_sidebar");
+            entriesValues = new CharSequence[]{"Profile","TwitterBlueNonSubscriber", "Grok","DMs","Communities","Bookmarks","Lists","TopArticles","BirdwatchNotes","Spaces","PendingFollowers","Monetization","ProfessionalToolsGroup","MediaTransparency","Imprint"};
         }
         preference.setEntries(entries);
         preference.setEntryValues(entriesValues);

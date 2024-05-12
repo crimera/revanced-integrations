@@ -213,5 +213,17 @@ public class Pref {
         return arrayList;
     }
 
+    public static ArrayList customSidebar() {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        try{
+            String key =Settings.CUSTOM_SIDEBAR_TABS.key;
+            Set<String> ch = Utils.getSetPerf(key,null);
+            if(!ch.isEmpty()) {
+                arrayList = new ArrayList<String>(ch);
+            }
+        }catch (Exception e){}
+        return arrayList;
+    }
+
     //end
 }
