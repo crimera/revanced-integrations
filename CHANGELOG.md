@@ -1,3 +1,10 @@
+## [1.18.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.18.0-dev.2...v1.18.0-dev.3) (2024-05-13)
+
+
+### Features
+
+* **Twitter:** Added `Customize Navigation Bar items` patch ([133d316](https://github.com/crimera/revanced-integrations/commit/133d316ff631f11a2ecbd62c8abe5f797f31142e))
+
 ## [1.18.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.18.0-dev.1...v1.18.0-dev.2) (2024-05-12)
 
 
