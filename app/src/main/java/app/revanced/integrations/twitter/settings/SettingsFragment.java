@@ -305,6 +305,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+
+            if (SettingsStatus.navBarCustomisation) {
+                customisationPrefs.addPreference(
+                        multiSelectListPreference(
+                                strRes("piko_pref_customisation_navbartabs"),
+                                "",
+                                Settings.CUSTOM_NAVBAR_TABS
+                        )
+                );
+            }
         }
 
         //Timeline Section
@@ -516,6 +526,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }else if (key == Settings.CUSTOM_SIDEBAR_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_sidebar");
             entriesValues = new CharSequence[]{"Profile","TwitterBlueNonSubscriber", "Grok","DMs","Communities","Bookmarks","Lists","TopArticles","BirdwatchNotes","Spaces","PendingFollowers","Monetization","ProfessionalToolsGroup","MediaTransparency","Imprint"};
+        }else if (key == Settings.CUSTOM_NAVBAR_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_navbar");
+            entriesValues = new CharSequence[]{"HOME","GUIDE", "SPACES","COMMUNITIES","NOTIFICATIONS","CONNECT","COMMUNITY_NOTES","BOOKMARKS","DMS","GROK","MEDIA_TAB"};
         }
         preference.setEntries(entries);
         preference.setEntryValues(entriesValues);
@@ -538,7 +551,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         } else if (key.equals(Settings.PREMIUM_ICONS.key)) {
             app.revanced.integrations.twitter.Utils.startAppIconNNavIconActivity();
         } else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
-//            getFragmentManager().beginTransaction().replace(Utils.getResourceIdentifier("fragment_container", "id"), new FeatureFlagsFragment()).addToBackStack(null).commit();
             startFragment(new FeatureFlagsFragment());
         } else if (key.equals(Settings.EXPORT_PREF.key)) {
             startBackupFragment(new BackupPrefFragment(), false);
