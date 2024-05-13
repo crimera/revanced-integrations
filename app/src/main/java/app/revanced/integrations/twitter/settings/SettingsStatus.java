@@ -38,6 +38,7 @@ public class SettingsStatus {
     public static boolean profileTabCustomisation = false;
     public static boolean timelineTabCustomisation = false;
     public static boolean sideBarCustomisation = false;
+    public static boolean navBarCustomisation = false;
     public static boolean mediaLinkHandle = false;
 
     public static boolean selectableText = false;
@@ -90,6 +91,7 @@ public class SettingsStatus {
     public static void profileTabCustomisation() { profileTabCustomisation = true; }
     public static void timelineTabCustomisation() { timelineTabCustomisation = true; }
     public static void sideBarCustomisation() { sideBarCustomisation = true; }
+    public static void navBarCustomisation() { navBarCustomisation = true; }
 
     public static boolean enableTimelineSection(){ return (disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
     public static boolean enableMiscSection() { return (enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns); }
