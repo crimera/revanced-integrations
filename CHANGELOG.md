@@ -1,3 +1,23 @@
+## [1.18.0](https://github.com/crimera/revanced-integrations/compare/v1.17.0...v1.18.0) (2024-05-15)
+
+
+### Bug Fixes
+
+* **Twitter:** Added `Customize side bar items` in about ([e391223](https://github.com/crimera/revanced-integrations/commit/e391223055fa9a19e2f2a17ffd594944aab840e8))
+
+
+### Features
+
+* **Twitter:** Added `Customize Navigation Bar items` patch ([133d316](https://github.com/crimera/revanced-integrations/commit/133d316ff631f11a2ecbd62c8abe5f797f31142e))
+* **Twitter:** Added `Customize side bar items` patch ([cd48fd2](https://github.com/crimera/revanced-integrations/commit/cd48fd29506179361e35b836c712eaa583692445))
+* **Twitter:** Added `Disable auto timeline scroll on launch` patch ([731a6cd](https://github.com/crimera/revanced-integrations/commit/731a6cdd76556215c840b1ac25565cd2f4994593))
+
+
+### Refactors
+
+* **Twitter:** Added some missing patches to about ([ab3be6c](https://github.com/crimera/revanced-integrations/commit/ab3be6c9a3424d187430243263001aed94ee3b20))
+* **Twitter:** Refactor about fragment logic ([1c56d8e](https://github.com/crimera/revanced-integrations/commit/1c56d8eea1018eb3f7220097ac209810eeaf9c1f))
+
 ## [1.18.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.18.0-dev.2...v1.18.0-dev.3) (2024-05-13)
 
 
