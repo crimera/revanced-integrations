@@ -58,7 +58,8 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         Map<String,Boolean> flags = new HashMap();
         flags.put("piko_pref_video_download",SettingsStatus.enableVidDownload);
         flags.put("piko_pref_reader_mode",SettingsStatus.enableReaderMode);
-        flags.put("piko_pref_icon_n_navbar_btn",SettingsStatus.enableAppIconNNavIcon);
+        flags.put("app_icon",SettingsStatus.customAppIcon);
+        flags.put("custom_navigation",SettingsStatus.navBarCustomisation);
         flags.put("piko_pref_download",SettingsStatus.changeDownloadEnabled);
         flags.put("piko_pref_download_media_link_handle",SettingsStatus.mediaLinkHandle);
         flags.put("piko_pref_hide_promoted_posts",SettingsStatus.hideAds);
