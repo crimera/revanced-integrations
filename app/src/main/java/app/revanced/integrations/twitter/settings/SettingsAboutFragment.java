@@ -55,278 +55,58 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 
+        Map<String,Boolean> flags = new HashMap();
+        flags.put("piko_pref_video_download",SettingsStatus.enableVidDownload);
+        flags.put("piko_pref_reader_mode",SettingsStatus.enableReaderMode);
+        flags.put("piko_pref_icon_n_navbar_btn",SettingsStatus.enableAppIconNNavIcon);
+        flags.put("piko_pref_download",SettingsStatus.changeDownloadEnabled);
+        flags.put("piko_pref_download_media_link_handle",SettingsStatus.mediaLinkHandle);
+        flags.put("piko_pref_hide_promoted_posts",SettingsStatus.hideAds);
+        flags.put("piko_pref_hide_g_ads",SettingsStatus.hideGAds);
+        flags.put("piko_pref_wtf_section",SettingsStatus.hideWTF);
+        flags.put("piko_pref_cts_section",SettingsStatus.hideCTS);
+        flags.put("piko_pref_ctj_section",SettingsStatus.hideCTJ);
+        flags.put("piko_pref_ryb_section",SettingsStatus.hideRBMK);
+        flags.put("piko_pref_pinned_posts_section",SettingsStatus.hideRPinnedPosts);
+        flags.put("piko_pref_hide_detailed_posts",SettingsStatus.hideDetailedPosts);
+        flags.put("piko_pref_hide_trends",SettingsStatus.hidePromotedTrend);
+        flags.put("piko_pref_chirp_font",SettingsStatus.enableFontMod);
+        flags.put("piko_pref_hide_fab",SettingsStatus.hideFAB);
+        flags.put("piko_pref_hide_fab_menu",SettingsStatus.hideFABBtns);
+        flags.put("piko_pref_show_sensitive_media",SettingsStatus.showSensitiveMedia);
+        flags.put("piko_pref_selectable_text",SettingsStatus.selectableText);
+        flags.put("piko_pref_rec_users",SettingsStatus.hideRecommendedUsers);
+        flags.put("piko_pref_browser_chooser",SettingsStatus.browserChooserEnabled);
+        flags.put("piko_pref_custom_share_domain",SettingsStatus.customSharingDomainEnabled);
+        flags.put("piko_pref_feature_flags",SettingsStatus.featureFlagsEnabled);
+        flags.put("piko_pref_customisation_profiletabs",SettingsStatus.profileTabCustomisation);
+        flags.put("piko_pref_customisation_timelinetabs",SettingsStatus.timelineTabCustomisation);
+        flags.put("piko_pref_customisation_navbartabs",SettingsStatus.navBarCustomisation);
+        flags.put("piko_pref_customisation_sidebartabs",SettingsStatus.sideBarCustomisation);
+        flags.put("piko_pref_disable_auto_timeline_scroll",SettingsStatus.disableAutoTimelineScroll);
+        flags.put("piko_pref_hide_live_threads",SettingsStatus.hideLiveThreads);
+        flags.put("piko_pref_hide_banner",SettingsStatus.hideBanner);
+        flags.put("piko_pref_hide_bmk_timeline",SettingsStatus.hideInlineBmk);
+        flags.put("piko_pref_show_poll_result",SettingsStatus.showPollResultsEnabled);
+        flags.put("piko_pref_comm_notes",SettingsStatus.hideCommunityNote);
+        flags.put("piko_pref_force_translate",SettingsStatus.forceTranslate);
+        flags.put("piko_pref_hide_quick_promote",SettingsStatus.hidePromoteButton);
+        flags.put("piko_pref_hide_immersive_player",SettingsStatus.hideImmersivePlayer);
+        flags.put("piko_pref_clear_tracking_params",SettingsStatus.cleartrackingparams);
+        flags.put("piko_pref_unshorten_link",SettingsStatus.unshortenlink);
 
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_video_download"),
-                        SettingsStatus.enableVidDownload,
-                        strRes("piko_pref_patches")
-                )
-        );
+        for (Map.Entry<String, Boolean> entry : flags.entrySet()) {
+            String resName = entry.getKey();
+            boolean sts = (boolean)entry.getValue();
 
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_reader_mode"),
-                        SettingsStatus.enableReaderMode,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_undo_posts"),
-                        SettingsStatus.enableUndoPosts,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_icon_n_navbar_btn"),
-                        SettingsStatus.enableAppIconNNavIcon,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_download"),
-                        SettingsStatus.changeDownloadEnabled,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_download_media_link_handle"),
-                        SettingsStatus.mediaLinkHandle,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_promoted_posts"),
-                        SettingsStatus.hideAds,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_g_ads"),
-                        SettingsStatus.hideGAds,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_wtf_section"),
-                        SettingsStatus.hideWTF,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_cts_section"),
-                        SettingsStatus.hideCTS,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_ctj_section"),
-                        SettingsStatus.hideCTJ,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_ryb_section"),
-                        SettingsStatus.hideRBMK,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_pinned_posts_section"),
-                        SettingsStatus.hideRPinnedPosts,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_detailed_posts"),
-                        SettingsStatus.hideDetailedPosts,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_trends"),
-                        SettingsStatus.hidePromotedTrend,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_chirp_font"),
-                        SettingsStatus.enableFontMod,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_fab"),
-                        SettingsStatus.hideFAB,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_fab_menu"),
-                        SettingsStatus.hideFABBtns,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_show_sensitive_media"),
-                        SettingsStatus.showSensitiveMedia,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_selectable_text"),
-                        SettingsStatus.selectableText,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_rec_users"),
-                        SettingsStatus.hideRecommendedUsers,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_browser_chooser"),
-                        SettingsStatus.browserChooserEnabled,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_custom_share_domain"),
-                        SettingsStatus.customSharingDomainEnabled,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_feature_flags"),
-                        SettingsStatus.featureFlagsEnabled,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_customisation_profiletabs"),
-                        SettingsStatus.profileTabCustomisation,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_customisation_timelinetabs"),
-                        SettingsStatus.timelineTabCustomisation,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_live_threads"),
-                        SettingsStatus.hideLiveThreads,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_banner"),
-                        SettingsStatus.hideBanner,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_bmk_timeline"),
-                        SettingsStatus.hideInlineBmk,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_show_poll_result"),
-                        SettingsStatus.showPollResultsEnabled,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_comm_notes"),
-                        SettingsStatus.hideCommunityNote,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_force_translate"),
-                        SettingsStatus.forceTranslate,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_quick_promote"),
-                        SettingsStatus.hidePromoteButton,
-                        strRes("piko_pref_patches")
-                )
-        );
-
-        patPref.addPreference(
-                buttonPreference2(
-                        strRes("piko_pref_hide_immersive_player"),
-                        SettingsStatus.hideImmersivePlayer,
-                        strRes("piko_pref_patches")
-                )
-        );
+                patPref.addPreference(
+                    buttonPreference2(
+                            strRes(resName),
+                            sts,
+                            strRes("piko_pref_patches")
+                    )
+            );
+        }
 
         setPreferenceScreen(screen);
 

@@ -296,11 +296,39 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+            if (SettingsStatus.sideBarCustomisation) {
+                customisationPrefs.addPreference(
+                        multiSelectListPreference(
+                                strRes("piko_pref_customisation_sidebartabs"),
+                                "",
+                                Settings.CUSTOM_SIDEBAR_TABS
+                        )
+                );
+            }
+
+            if (SettingsStatus.navBarCustomisation) {
+                customisationPrefs.addPreference(
+                        multiSelectListPreference(
+                                strRes("piko_pref_customisation_navbartabs"),
+                                "",
+                                Settings.CUSTOM_NAVBAR_TABS
+                        )
+                );
+            }
         }
 
         //Timeline Section
         if (SettingsStatus.enableTimelineSection()) {
             LegacyTwitterPreferenceCategory timelinePrefs = preferenceCategory(strRes("piko_title_timeline"), screen);
+            if (SettingsStatus.disableAutoTimelineScroll) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_disable_auto_timeline_scroll"),
+                                "",
+                                Settings.TIMELINE_DISABLE_AUTO_SCROLL
+                        )
+                );
+            }
             if (SettingsStatus.hideLiveThreads) {
                 timelinePrefs.addPreference(
                         switchPreference(
@@ -495,6 +523,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (key == Settings.CUSTOM_PROFILE_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_profiletabs");
             entriesValues = new CharSequence[]{"tweets", "tweets_replies", "affiliated", "subs", "highlights", "articles", "media", "likes"};
+        }else if (key == Settings.CUSTOM_SIDEBAR_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_sidebar");
+            entriesValues = new CharSequence[]{"Profile","TwitterBlueNonSubscriber", "Grok","DMs","Communities","Bookmarks","Lists","TopArticles","BirdwatchNotes","Spaces","PendingFollowers","Monetization","ProfessionalToolsGroup","MediaTransparency","Imprint"};
+        }else if (key == Settings.CUSTOM_NAVBAR_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_navbar");
+            entriesValues = new CharSequence[]{"HOME","GUIDE", "SPACES","COMMUNITIES","NOTIFICATIONS","CONNECT","COMMUNITY_NOTES","BOOKMARKS","DMS","GROK","MEDIA_TAB"};
         }
         preference.setEntries(entries);
         preference.setEntryValues(entriesValues);
@@ -517,7 +551,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         } else if (key.equals(Settings.PREMIUM_ICONS.key)) {
             app.revanced.integrations.twitter.Utils.startAppIconNNavIconActivity();
         } else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
-//            getFragmentManager().beginTransaction().replace(Utils.getResourceIdentifier("fragment_container", "id"), new FeatureFlagsFragment()).addToBackStack(null).commit();
             startFragment(new FeatureFlagsFragment());
         } else if (key.equals(Settings.EXPORT_PREF.key)) {
             startBackupFragment(new BackupPrefFragment(), false);

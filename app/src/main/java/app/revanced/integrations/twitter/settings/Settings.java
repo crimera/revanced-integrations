@@ -30,6 +30,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ADS_HIDE_REVISIT_PINNED_POSTS = new BooleanSetting("ads_hide_revisit_pinned_posts", true);
     public static final BooleanSetting ADS_HIDE_DETAILED_POSTS = new BooleanSetting("ads_hide_detailed_posts", true);
 
+    public static final BooleanSetting TIMELINE_DISABLE_AUTO_SCROLL = new BooleanSetting("timeline_disable_auto_scroll", true);
     public static final BooleanSetting TIMELINE_HIDE_LIVETHREADS = new BooleanSetting("timeline_hide_livethreads", true);
     public static final BooleanSetting TIMELINE_HIDE_BANNER = new BooleanSetting("timeline_hide_banner", true);
     public static final BooleanSetting TIMELINE_HIDE_BMK_ICON = new BooleanSetting("timeline_hide_bookmark_icon", false);
@@ -44,6 +45,8 @@ public class Settings extends BaseSettings {
 
     public static final StringSetting CUSTOM_PROFILE_TABS = new StringSetting("customisation_profile_tabs", "");
     public static final StringSetting CUSTOM_TIMELINE_TABS = new StringSetting("customisation_timeline_tabs", "show_both");
+    public static final StringSetting CUSTOM_SIDEBAR_TABS = new StringSetting("customisation_sidebar_tabs", "");
+    public static final StringSetting CUSTOM_NAVBAR_TABS = new StringSetting("customisation_navbar_tabs", "");
 
     public static final StringSetting EXPORT_PREF = new StringSetting("export_pref", "");
     public static final StringSetting EXPORT_FLAGS = new StringSetting("export_flags", "");
