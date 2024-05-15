@@ -29,6 +29,10 @@ public class Utils {
         ctx.startActivity(intent);
     }
 
+    public static void print(Object message) {
+        System.out.println("BRUH: "+message);
+    }
+
     public static void startActivityFromClassName(String className){
         try {
             Class<?> clazz = Class.forName(className);
