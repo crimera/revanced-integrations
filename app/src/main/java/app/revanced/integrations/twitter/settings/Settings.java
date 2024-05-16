@@ -41,7 +41,7 @@ public class Settings extends BaseSettings {
 
     public static final BooleanSetting PREMIUM_READER_MODE = new BooleanSetting("premium_reader_mode", false);
     public static final BooleanSetting PREMIUM_UNDO_POSTS = new BooleanSetting("premium_undo_posts", false);
-    public static final StringSetting PREMIUM_ICONS = new StringSetting("premium_app_icon_n_nav_icon", "");
+    public static final StringSetting PREMIUM_ICONS = new StringSetting("premium_app_icon", "");
 
     public static final StringSetting CUSTOM_PROFILE_TABS = new StringSetting("customisation_profile_tabs", "");
     public static final StringSetting CUSTOM_TIMELINE_TABS = new StringSetting("customisation_timeline_tabs", "show_both");
