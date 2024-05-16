@@ -1,3 +1,11 @@
+## [1.18.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.18.0...v1.18.1-dev.1) (2024-05-16)
+
+
+### Refactors
+
+* **Twitter:** Separated `App icon` and `Navigation icon` patch ([4068a66](https://github.com/crimera/revanced-integrations/commit/4068a66899a508c0e66670a0aa581ea2a75b3da7))
+* **Twitter:** Sorted about fragment ([2e7f94d](https://github.com/crimera/revanced-integrations/commit/2e7f94dcff46707d529d01c02aebfd63b488d824))
+
 ## [1.18.0](https://github.com/crimera/revanced-integrations/compare/v1.17.0...v1.18.0) (2024-05-15)
 
 
