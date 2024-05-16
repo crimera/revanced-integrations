@@ -4,9 +4,9 @@ import android.app.Activity;
 import com.instagram.api.schemas.MediaOptionStyle;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class DownloadPatch {
     //  To be added in revanced patches
     public static String feedOptionItemIconClassName() {
