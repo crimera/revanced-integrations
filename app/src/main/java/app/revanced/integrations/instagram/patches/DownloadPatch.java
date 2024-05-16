@@ -1,13 +1,13 @@
 package app.revanced.integrations.instagram.patches;
 
-import app.revanced.integrations.twitter.Utils;
+import android.app.Activity;
 import com.instagram.api.schemas.MediaOptionStyle;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.List;
 
-class DownloadPatch {
+public class DownloadPatch {
     //  To be added in revanced patches
     public static String feedOptionItemIconClassName() {
         return "";
@@ -39,10 +39,15 @@ class DownloadPatch {
                 .getConstructor(MediaOptionStyle.class, feedItemIconClass, CharSequence.class)
 //                TODO dynamically get the Download icon field
                 .newInstance(MediaOptionStyle.A05, feedItemIconClass.getField("A0Z").get(feedItemIconClass), "Download");
+
         items.add(item);
     }
 
-    private void findNormalField() {
+    public static void downloadPost(Object p1, int p2, Object p3, Activity p4) {
+        System.out.println("BRUH p1: "+p1+", p2: "+p2+", p3: "+p3+", p4: "+p4);
+    }
 
+    public static void print(Object message) {
+        System.out.println("BRUH: "+message);
     }
 }
