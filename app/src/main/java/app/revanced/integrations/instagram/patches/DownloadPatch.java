@@ -1,10 +1,15 @@
 package app.revanced.integrations.instagram.patches;
 
 import android.app.Activity;
+import android.content.Context;
+import app.revanced.integrations.shared.Utils;
 import com.instagram.api.schemas.MediaOptionStyle;
+import com.instagram.model.mediasize.ExtendedImageUrl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Objects;
 
 @SuppressWarnings("unused")
 public class DownloadPatch {
@@ -43,9 +48,25 @@ public class DownloadPatch {
         items.add(item);
     }
 
-    public static void downloadPost(Object p1, int p2, Object p3, Activity p4) {
+    public static void downloadPost(Object media, int p2, Object p3, Activity p4) throws InvocationTargetException, IllegalAccessException {
 //        TODO implement method
-        System.out.println("BRUH p1: "+p1+", p2: "+p2+", p3: "+p3+", p4: "+p4);
+        System.out.println("BRUH p1: "+media+", p2: "+p2+", p3: "+p3+", p4: "+p4);
+//        TODO implement download a post with only 1 media
+        print("BRUH: "+getPhotoLink(media));
+    }
+
+    public static String getPhotoLink(Object media) throws InvocationTargetException, IllegalAccessException {
+        Method getExtendedImageUrl = null;
+        for (Method method : media.getClass().getMethods()) {
+            if (method.getParameterTypes().length == 0) {continue;}
+
+            if (method.getReturnType() == ExtendedImageUrl.class && method.getParameterTypes()[0] == Context.class) {
+                getExtendedImageUrl = method;
+            }
+        }
+
+        assert getExtendedImageUrl != null;
+        return ((ExtendedImageUrl) Objects.requireNonNull(getExtendedImageUrl.invoke(media, Utils.getContext()))).getUrl();
     }
 
     public static void print(Object message) {
