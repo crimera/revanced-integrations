@@ -54,4 +54,6 @@ public class Settings extends BaseSettings {
     public static final StringSetting IMPORT_PREF = new StringSetting("import_pref", "");
     public static final StringSetting IMPORT_FLAGS = new StringSetting("import_flags", "");
     public static final BooleanSetting PATCH_INFO = new BooleanSetting("patch_info", true);
+    public static final BooleanSetting RESET_PREF = new BooleanSetting("reset_pref", true);
+    public static final BooleanSetting RESET_FLAGS = new BooleanSetting("reset_flags", true);
 }

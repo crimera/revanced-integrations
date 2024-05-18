@@ -451,7 +451,23 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 )
         );
 
-        //export section
+        backupPref.addPreference(
+                buttonPreference(
+                        strRes("delete")+": "+strRes("notification_settings_preferences_category"),
+                        "",
+                        Settings.RESET_PREF.key
+                )
+        );
+
+        backupPref.addPreference(
+                buttonPreference(
+                        strRes("delete")+": "+strRes("piko_title_feature_flags"),
+                        "",
+                        Settings.RESET_FLAGS.key
+                )
+        );
+
+        //about section
         LegacyTwitterPreferenceCategory aboutPref = preferenceCategory(strRes("piko_title_about"), screen);
         aboutPref.addPreference(
                 buttonPreference(
@@ -560,7 +576,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             app.revanced.integrations.twitter.Utils.startUndoPostActivity();
         } else if (key.equals(Settings.PREMIUM_ICONS.key)) {
             app.revanced.integrations.twitter.Utils.startAppIconNNavIconActivity();
-        }else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
+        } else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
             startFragment(new FeatureFlagsFragment());
         } else if (key.equals(Settings.EXPORT_PREF.key)) {
             startBackupFragment(new BackupPrefFragment(), false);
@@ -570,8 +586,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             startBackupFragment(new RestorePrefFragment(), false);
         } else if (key.equals(Settings.IMPORT_FLAGS.key)) {
             startBackupFragment(new RestorePrefFragment(), true);
-        }else if (key.equals(Settings.PATCH_INFO.key)) {
+        } else if (key.equals(Settings.PATCH_INFO.key)) {
             startFragment(new SettingsAboutFragment());
+        } else if (key.equals(Settings.RESET_PREF.key)) {
+            app.revanced.integrations.twitter.Utils.deleteSharedPrefAB(context,false);
+        } else if (key.equals(Settings.RESET_FLAGS.key)) {
+            app.revanced.integrations.twitter.Utils.deleteSharedPrefAB(context,true);
         }
 
         return true;

@@ -172,6 +172,20 @@ public class SharedPrefCategory {
         }
     }
 
+    public void removeKey(@NonNull String key) {
+        preferences.edit().remove(key).commit();
+    }
+
+    public boolean clearAll(){
+        try{
+            preferences.edit().clear().commit();
+            return true;
+        }catch(Exception e){
+            Utils.showToastShort(e.toString());
+            return false;
+        }
+    }
+
     @NonNull
     @Override
     public String toString() {
