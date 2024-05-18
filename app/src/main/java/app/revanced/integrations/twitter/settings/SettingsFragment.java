@@ -61,7 +61,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
-            if (SettingsStatus.enableAppIconNNavIcon) {
+            if (SettingsStatus.customAppIcon || SettingsStatus.navBarCustomisation) {
                 premiumPrefs.addPreference(
                         buttonPreference(
                                 strRes("piko_pref_icon_n_navbar_btn"),
@@ -550,7 +550,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             app.revanced.integrations.twitter.Utils.startUndoPostActivity();
         } else if (key.equals(Settings.PREMIUM_ICONS.key)) {
             app.revanced.integrations.twitter.Utils.startAppIconNNavIconActivity();
-        } else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
+        }else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
             startFragment(new FeatureFlagsFragment());
         } else if (key.equals(Settings.EXPORT_PREF.key)) {
             startBackupFragment(new BackupPrefFragment(), false);
