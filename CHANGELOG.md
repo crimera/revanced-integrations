@@ -1,3 +1,10 @@
+## [1.19.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.18.1...v1.19.0-dev.1) (2024-05-18)
+
+
+### Features
+
+* **Twitter:** Added `Round off numbers` patch ([18cd14f](https://github.com/crimera/revanced-integrations/commit/18cd14fa40c6a7d07158086310bb8b4cf5336e0d))
+
 ## [1.18.1](https://github.com/crimera/revanced-integrations/compare/v1.18.0...v1.18.1) (2024-05-18)
 
 
