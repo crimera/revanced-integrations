@@ -1,3 +1,10 @@
+## [1.19.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.1...v1.19.0-dev.2) (2024-05-18)
+
+
+### Features
+
+* **Twitter:** Added ability to reset pref and flags ([ea40880](https://github.com/crimera/revanced-integrations/commit/ea40880e13dfd872343115feb5e118fbe3b3b925))
+
 ## [1.19.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.18.1...v1.19.0-dev.1) (2024-05-18)
 
 
