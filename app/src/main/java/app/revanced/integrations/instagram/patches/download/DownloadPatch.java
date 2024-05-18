@@ -1,6 +1,7 @@
 package app.revanced.integrations.instagram.patches.download;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.net.Uri;
@@ -26,13 +27,18 @@ public class DownloadPatch {
     public static String feedOptionItemIconClassName() {
         return "";
     }
+
     public static String feedItemClassName() {
         return "";
     }
+
     public static String mediaListSourceClass() {
         return "";
     }
-    public static String listFieldName() {return ""; }
+
+    public static String listFieldName() {
+        return "";
+    }
 
     public static Class<?> feedItemIconClass;
     public static Class<?> feedItem;
@@ -70,7 +76,7 @@ public class DownloadPatch {
         items.add(item);
     }
 
-    public static void downloadPost(Object media, int p2, Object p3, Activity p4) throws URISyntaxException, NoSuchFieldException, IllegalAccessException {
+    public static void downloadPost(Object media, int index, Object p3, Activity act) throws URISyntaxException, NoSuchFieldException, IllegalAccessException {
         // TODO fingerprint them fields
         // TODO support video downloading
         Field mediaField = null;
@@ -88,15 +94,34 @@ public class DownloadPatch {
 
         List mediaList = (List) _mediaList.getClass().getField(listFieldName()).get(_mediaList);
 
-        print(mediaList);
-        // TODO implement choose to download all, or only download the current media
+        // TODO Support video downloads
         if (mediaList != null) {
-            for (Object image: mediaList) {
-                startDownload(getPhotoLink(image));
-            }
+            downloadDialog(mediaList, index, act);
         } else {
             startDownload(getPhotoLink(media));
         }
+    }
+
+    public static void downloadDialog(List mediaList, int index, Activity activity) {
+        // TODO use instagram dialog
+        AlertDialog.Builder d = new AlertDialog.Builder(activity)
+                .setTitle("Download")
+                .setItems(new String[]{"Current", "Download all"}, (dialogInterface, i) -> {
+                    Toast.makeText(activity, "Download started", Toast.LENGTH_SHORT).show();
+                    try {
+                        if (i == 0) {
+                            startDownload(getPhotoLink(mediaList.get(index)));
+                        } else {
+                            for (Object media: mediaList) {
+                                startDownload(getPhotoLink(media));
+                            }
+                        }
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                        Toast.makeText(Utils.getContext(), "Download failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        d.show();
     }
 
     public static void startDownload(URL link) throws URISyntaxException {
@@ -106,9 +131,7 @@ public class DownloadPatch {
 
         File imageFile = new File(Environment.getExternalStoragePublicDirectory(publicFolderDirectory), subPath);
 
-        if (imageFile.exists()) {
-            return;
-        }
+        if (imageFile.exists()) {return;}
 
         DownloadManager mgr = (DownloadManager) Utils.getContext().getSystemService(Context.DOWNLOAD_SERVICE);
 
@@ -120,6 +143,8 @@ public class DownloadPatch {
                 .setDescription("Something useful. No, really.")
                 .setDestinationInExternalPublicDir(publicFolderDirectory,
                         subPath));
+
+        Toast.makeText(Utils.getContext(), "Download completed", Toast.LENGTH_SHORT).show();
     }
 
     public static void downloadPhoto(URL link) {
@@ -153,12 +178,12 @@ public class DownloadPatch {
         IOException exception = null;
 
         try {
-            try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
-                while ((readLen = inputStream.read(buf, 0, bufLen)) != -1)
-                    outputStream.write(buf, 0, readLen);
-
-                return outputStream.toByteArray();
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            while ((readLen = inputStream.read(buf, 0, bufLen)) != -1) {
+                outputStream.write(buf, 0, readLen);
             }
+
+            return outputStream.toByteArray();
         } catch (IOException e) {
             exception = e;
             throw e;
