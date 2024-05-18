@@ -95,7 +95,6 @@ public class DownloadPatch {
 
         List mediaList = (List) _mediaList.getClass().getField(listFieldName()).get(_mediaList);
 
-        // TODO Support video downloads
         if (mediaList != null) {
             downloadDialog(mediaList, index, act);
         } else {
