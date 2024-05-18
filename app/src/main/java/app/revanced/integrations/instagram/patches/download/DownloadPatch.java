@@ -16,6 +16,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
@@ -76,7 +77,7 @@ public class DownloadPatch {
         items.add(item);
     }
 
-    public static void downloadPost(Object media, int index, Object p3, Activity act) throws URISyntaxException, NoSuchFieldException, IllegalAccessException {
+    public static void downloadPost(Object media, int index, Object p3, Activity act) throws URISyntaxException, NoSuchFieldException, IllegalAccessException, MalformedURLException, InvocationTargetException {
         // TODO fingerprint them fields
         // TODO support video downloading
         Field mediaField = null;
@@ -98,7 +99,7 @@ public class DownloadPatch {
         if (mediaList != null) {
             downloadDialog(mediaList, index, act);
         } else {
-            startDownload(getPhotoLink(media));
+            downloadMedia(media);
         }
     }
 
@@ -107,16 +108,16 @@ public class DownloadPatch {
         AlertDialog.Builder d = new AlertDialog.Builder(activity)
                 .setTitle("Download")
                 .setItems(new String[]{"Current", "Download all"}, (dialogInterface, i) -> {
-                    Toast.makeText(activity, "Download started", Toast.LENGTH_SHORT).show();
                     try {
                         if (i == 0) {
-                            startDownload(getPhotoLink(mediaList.get(index)));
+                            downloadMedia(mediaList.get(index));
                         } else {
-                            for (Object media: mediaList) {
-                                startDownload(getPhotoLink(media));
+                            for (Object media : mediaList) {
+                                downloadMedia(media);
                             }
                         }
-                    } catch (URISyntaxException e) {
+                    } catch (URISyntaxException | MalformedURLException | InvocationTargetException |
+                             IllegalAccessException e) {
                         e.printStackTrace();
                         Toast.makeText(Utils.getContext(), "Download failed", Toast.LENGTH_SHORT).show();
                     }
@@ -124,14 +125,27 @@ public class DownloadPatch {
         d.show();
     }
 
-    public static void startDownload(URL link) throws URISyntaxException {
+    public static void downloadMedia(Object media) throws URISyntaxException, MalformedURLException, InvocationTargetException, IllegalAccessException {
+        if (isVideo(media)) {
+            startDownload(getVideoLink(media));
+        } else {
+            startDownload(getPhotoLink(media));
+        }
+    }
+
+    // TODO add a new destination parameter so we can use the same download function for video and photo
+    public static void startDownload(String url) throws URISyntaxException, MalformedURLException {
+        URL link = new URL(url);
+
         String filename = link.getPath().split("/")[link.getPath().split("/").length - 1];
         String publicFolderDirectory = Environment.DIRECTORY_PICTURES;
         String subPath = "Instagram/" + filename;
 
         File imageFile = new File(Environment.getExternalStoragePublicDirectory(publicFolderDirectory), subPath);
 
-        if (imageFile.exists()) {return;}
+        if (imageFile.exists()) {
+            return;
+        }
 
         DownloadManager mgr = (DownloadManager) Utils.getContext().getSystemService(Context.DOWNLOAD_SERVICE);
 
@@ -139,8 +153,9 @@ public class DownloadPatch {
                 .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI |
                         DownloadManager.Request.NETWORK_MOBILE)
                 .setAllowedOverRoaming(false)
-                .setTitle("Demo")
-                .setDescription("Something useful. No, really.")
+                .setTitle(filename)
+                .setDescription("Downloading...")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                 .setDestinationInExternalPublicDir(publicFolderDirectory,
                         subPath));
 
@@ -197,33 +212,33 @@ public class DownloadPatch {
         }
     }
 
-    public static URL getPhotoLink(Object media) {
+    private static String getVideoLink(Object media) {
+        return "";
+    }
+
+    public static String getPhotoLink(Object media) throws InvocationTargetException, IllegalAccessException {
         Method getExtendedImageUrl = null;
         URL url = null;
 
-        try {
-            for (Method method : media.getClass().getMethods()) {
-                if (method.getParameterTypes().length == 0) {
-                    continue;
-                }
-
-                if (method.getReturnType() == ExtendedImageUrl.class
-                        && method.getParameterTypes()[0] == Context.class) {
-                    getExtendedImageUrl = method;
-                }
+        for (Method method : media.getClass().getMethods()) {
+            if (method.getParameterTypes().length == 0) {
+                continue;
             }
 
-            assert getExtendedImageUrl != null;
-            String urlString = ((ExtendedImageUrl) Objects
-                    .requireNonNull(getExtendedImageUrl.invoke(media, Utils.getContext())))
-                    .getUrl();
-
-            url = new URL(urlString);
-        } catch (Exception e) {
-            e.printStackTrace();
+            if (method.getReturnType() == ExtendedImageUrl.class
+                    && method.getParameterTypes()[0] == Context.class) {
+                getExtendedImageUrl = method;
+            }
         }
 
-        return url;
+        assert getExtendedImageUrl != null;
+        return ((ExtendedImageUrl) Objects
+                .requireNonNull(getExtendedImageUrl.invoke(media, Utils.getContext())))
+                .getUrl();
+    }
+
+    public static boolean isVideo(Object media) {
+        return true;
     }
 
     public static void print(Object message) {
