@@ -7,7 +7,14 @@ import java.util.*;
 
 @SuppressWarnings("unused")
 public class Pref {
+    public static boolean ROUND_OFF_NUMBERS;
+    static{
+        ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
+    }
 
+    public static boolean isRoundOffNumbersEnabled() {
+        return Utils.getBooleanPerf(Settings.MISC_ROUND_OFF_NUMBERS);
+    }
     public static boolean isChirpFontEnabled() {
         return Utils.getBooleanPerf(Settings.MISC_FONT);
     }

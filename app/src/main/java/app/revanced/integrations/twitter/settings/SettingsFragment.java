@@ -264,6 +264,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.roundOffNumbers) {
+                miscPrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_round_off_numbers"),
+                                strRes("piko_pref_round_off_numbers_desc"),
+                                Settings.MISC_ROUND_OFF_NUMBERS
+                        )
+                );
+            }
+
             if (SettingsStatus.featureFlagsEnabled) {
                 miscPrefs.addPreference(
                         buttonPreference(
