@@ -10,6 +10,7 @@ import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
 import app.revanced.integrations.twitter.settings.Settings;
 import app.revanced.integrations.twitter.settings.BackupPrefFragment;
 import app.revanced.integrations.twitter.settings.RestorePrefFragment;
+import app.revanced.integrations.shared.StringRef;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -110,6 +111,32 @@ public class Utils {
         dialog.setTitle(Utils.strRes("settings_restart"));
         dialog.setPositiveButton(Utils.strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
             app.revanced.integrations.shared.Utils.restartApp(context);
+        });
+        dialog.setNegativeButton(Utils.strRes("cancel"), null);
+        dialog.show();
+    }
+
+    public static void deleteSharedPrefAB(Context context,boolean flag) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+
+        LinearLayout ln = new LinearLayout(context);
+        ln.setOrientation(LinearLayout.VERTICAL);
+
+        String content = flag? strRes("piko_title_feature_flags"):strRes("notification_settings_preferences_category");
+
+        dialog.setTitle(Utils.strRes("delete"));
+        dialog.setMessage(StringRef.str("piko_pref_reset_pref",content));
+        dialog.setPositiveButton(Utils.strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+            boolean success = false;
+            if(flag){
+                sp.removeKey(Settings.MISC_FEATURE_FLAGS.key);
+                success = true;
+            }else{
+                success = sp.clearAll();
+            }
+            if(success) {
+                app.revanced.integrations.shared.Utils.restartApp(context);
+            }
         });
         dialog.setNegativeButton(Utils.strRes("cancel"), null);
         dialog.show();
