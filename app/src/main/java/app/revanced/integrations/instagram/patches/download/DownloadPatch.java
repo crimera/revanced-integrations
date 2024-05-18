@@ -1,4 +1,4 @@
-package app.revanced.integrations.instagram.patches;
+package app.revanced.integrations.instagram.patches.download;
 
 import android.app.Activity;
 import android.app.DownloadManager;
@@ -11,6 +11,7 @@ import com.instagram.api.schemas.MediaOptionStyle;
 import com.instagram.model.mediasize.ExtendedImageUrl;
 
 import java.io.*;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
@@ -25,13 +26,17 @@ public class DownloadPatch {
     public static String feedOptionItemIconClassName() {
         return "";
     }
-
     public static String feedItemClassName() {
         return "";
     }
+    public static String mediaListSourceClass() {
+        return "";
+    }
+    public static String listFieldName() {return ""; }
 
     public static Class<?> feedItemIconClass;
     public static Class<?> feedItem;
+    public static Class<?> mediaListSourceClass;
 
     static {
         try {
@@ -42,6 +47,13 @@ public class DownloadPatch {
 
         try {
             feedItem = Class.forName(feedItemClassName());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        try {
+            mediaListSourceClass = Class.forName(mediaListSourceClass());
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -58,18 +70,40 @@ public class DownloadPatch {
         items.add(item);
     }
 
-    public static void downloadPost(Object media, int p2, Object p3, Activity p4) throws URISyntaxException {
+    public static void downloadPost(Object media, int p2, Object p3, Activity p4) throws URISyntaxException, NoSuchFieldException, IllegalAccessException {
+        // TODO fingerprint them fields
+        Field mediaField = null;
 
-        // TODO implement download a post with only 1 media
-        startDownload(getPhotoLink(media));
+        // Get media field
+        for (Field field : media.getClass().getFields()) {
+            if (field.getType() == mediaListSourceClass.getInterfaces()[0]) {
+                mediaField = field;
+            }
+        }
+
+        assert mediaField != null;
+        Object _mediaList = mediaField.get(media);
+        _mediaList = mediaListSourceClass.cast(_mediaList);
+
+        List mediaList = (List) _mediaList.getClass().getField(listFieldName()).get(_mediaList);
+
+        print(mediaList);
+        // TODO implement choose to download all, or only download the current media
+        if (mediaList != null) {
+            for (Object image: mediaList) {
+                startDownload(getPhotoLink(image));
+            }
+        } else {
+            startDownload(getPhotoLink(media));
+        }
     }
 
     public static void startDownload(URL link) throws URISyntaxException {
         String filename = link.getPath().split("/")[link.getPath().split("/").length - 1];
         String publicFolderDirectory = Environment.DIRECTORY_PICTURES;
-        String folder = "Instagram";
+        String subPath = "Instagram/" + filename;
 
-        File imageFile = new File(Environment.getExternalStoragePublicDirectory(publicFolderDirectory), filename);
+        File imageFile = new File(Environment.getExternalStoragePublicDirectory(publicFolderDirectory), subPath);
 
         if (imageFile.exists()) {
             return;
@@ -84,7 +118,7 @@ public class DownloadPatch {
                 .setTitle("Demo")
                 .setDescription("Something useful. No, really.")
                 .setDestinationInExternalPublicDir(publicFolderDirectory,
-                        folder+"/"+filename));
+                        subPath));
     }
 
     public static void downloadPhoto(URL link) {
