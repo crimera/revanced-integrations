@@ -72,6 +72,7 @@ public class DownloadPatch {
 
     public static void downloadPost(Object media, int p2, Object p3, Activity p4) throws URISyntaxException, NoSuchFieldException, IllegalAccessException {
         // TODO fingerprint them fields
+        // TODO support video downloading
         Field mediaField = null;
 
         // Get media field
