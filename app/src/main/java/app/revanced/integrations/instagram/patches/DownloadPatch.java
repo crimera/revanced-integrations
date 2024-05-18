@@ -1,19 +1,27 @@
 package app.revanced.integrations.instagram.patches;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Context;
+import android.net.Uri;
+import android.os.Environment;
+import android.widget.Toast;
 import app.revanced.integrations.shared.Utils;
 import com.instagram.api.schemas.MediaOptionStyle;
 import com.instagram.model.mediasize.ExtendedImageUrl;
 
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.HttpURLConnection;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.List;
 import java.util.Objects;
 
 @SuppressWarnings("unused")
 public class DownloadPatch {
-    //  To be added in revanced patches
+    // To be added in revanced patches
     public static String feedOptionItemIconClassName() {
         return "";
     }
@@ -39,37 +47,126 @@ public class DownloadPatch {
         }
     }
 
-    public static void addDownloadButton(List items) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
+    public static void addDownloadButton(List items) throws IllegalAccessException, InstantiationException,
+            NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
         Object item = feedItem
                 .getConstructor(MediaOptionStyle.class, feedItemIconClass, CharSequence.class)
-//                TODO dynamically get the Download icon field
-                .newInstance(MediaOptionStyle.A05, feedItemIconClass.getField("A0Z").get(feedItemIconClass), "Download");
+                // TODO dynamically get the Download icon field
+                .newInstance(MediaOptionStyle.A05, feedItemIconClass.getField("A0Z").get(feedItemIconClass),
+                        "Download");
 
         items.add(item);
     }
 
-    public static void downloadPost(Object media, int p2, Object p3, Activity p4) throws InvocationTargetException, IllegalAccessException {
-//        TODO implement method
-        System.out.println("BRUH p1: "+media+", p2: "+p2+", p3: "+p3+", p4: "+p4);
-//        TODO implement download a post with only 1 media
-        print("BRUH: "+getPhotoLink(media));
+    public static void downloadPost(Object media, int p2, Object p3, Activity p4) throws URISyntaxException {
+
+        // TODO implement download a post with only 1 media
+        startDownload(getPhotoLink(media));
     }
 
-    public static String getPhotoLink(Object media) throws InvocationTargetException, IllegalAccessException {
-        Method getExtendedImageUrl = null;
-        for (Method method : media.getClass().getMethods()) {
-            if (method.getParameterTypes().length == 0) {continue;}
+    public static void startDownload(URL link) throws URISyntaxException {
+        String filename = link.getPath().split("/")[link.getPath().split("/").length - 1];
+        String publicFolderDirectory = Environment.DIRECTORY_PICTURES;
+        String folder = "Instagram";
 
-            if (method.getReturnType() == ExtendedImageUrl.class && method.getParameterTypes()[0] == Context.class) {
-                getExtendedImageUrl = method;
-            }
+        File imageFile = new File(Environment.getExternalStoragePublicDirectory(publicFolderDirectory), filename);
+
+        if (imageFile.exists()) {
+            return;
         }
 
-        assert getExtendedImageUrl != null;
-        return ((ExtendedImageUrl) Objects.requireNonNull(getExtendedImageUrl.invoke(media, Utils.getContext()))).getUrl();
+        DownloadManager mgr = (DownloadManager) Utils.getContext().getSystemService(Context.DOWNLOAD_SERVICE);
+
+        mgr.enqueue(new DownloadManager.Request(Uri.parse(link.toURI().toString()))
+                .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI |
+                        DownloadManager.Request.NETWORK_MOBILE)
+                .setAllowedOverRoaming(false)
+                .setTitle("Demo")
+                .setDescription("Something useful. No, really.")
+                .setDestinationInExternalPublicDir(publicFolderDirectory,
+                        folder+"/"+filename));
+    }
+
+    public static void downloadPhoto(URL link) {
+        HttpURLConnection connection;
+        try {
+            connection = (HttpURLConnection) link.openConnection();
+            connection.connect();
+
+            InputStream inputStream = connection.getInputStream();
+
+            File imageFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "test.png");
+            if (!imageFile.createNewFile()) {
+                Toast.makeText(Utils.getContext(), "Failed to create file", Toast.LENGTH_SHORT).show();
+            }
+
+            FileOutputStream fos = new FileOutputStream(imageFile);
+            fos.write(readAllBytes(inputStream));
+
+            fos.close();
+
+            Toast.makeText(Utils.getContext(), "File downloaded", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(Utils.getContext(), "Error downloading", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static byte[] readAllBytes(InputStream inputStream) throws IOException {
+        final int bufLen = 4 * 0x400; // 4KB
+        byte[] buf = new byte[bufLen];
+        int readLen;
+        IOException exception = null;
+
+        try {
+            try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+                while ((readLen = inputStream.read(buf, 0, bufLen)) != -1)
+                    outputStream.write(buf, 0, readLen);
+
+                return outputStream.toByteArray();
+            }
+        } catch (IOException e) {
+            exception = e;
+            throw e;
+        } finally {
+            if (exception == null) inputStream.close();
+            else try {
+                inputStream.close();
+            } catch (IOException e) {
+                exception.addSuppressed(e);
+            }
+        }
+    }
+
+    public static URL getPhotoLink(Object media) {
+        Method getExtendedImageUrl = null;
+        URL url = null;
+
+        try {
+            for (Method method : media.getClass().getMethods()) {
+                if (method.getParameterTypes().length == 0) {
+                    continue;
+                }
+
+                if (method.getReturnType() == ExtendedImageUrl.class
+                        && method.getParameterTypes()[0] == Context.class) {
+                    getExtendedImageUrl = method;
+                }
+            }
+
+            assert getExtendedImageUrl != null;
+            String urlString = ((ExtendedImageUrl) Objects
+                    .requireNonNull(getExtendedImageUrl.invoke(media, Utils.getContext())))
+                    .getUrl();
+
+            url = new URL(urlString);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return url;
     }
 
     public static void print(Object message) {
-        System.out.println("BRUH: "+message);
+        System.out.println("BRUH: " + message);
     }
 }
