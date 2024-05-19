@@ -1,3 +1,16 @@
+## [1.19.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.2...v1.19.0-dev.3) (2024-05-19)
+
+
+### Features
+
+* **Twitter:** Added `Customize Inline action Bar items` patch ([ae2cf2c](https://github.com/crimera/revanced-integrations/commit/ae2cf2cfbbe2d806a3e8a045142abcf209f25b2d))
+
+
+### Refactors
+
+* **Twitter:** Added restart warning to `customize patch` ([425d75c](https://github.com/crimera/revanced-integrations/commit/425d75cd3909acb387359fbf686a4f9c87dc767d))
+* **Twitter:** Combined `customize patch` into single class ([70343ff](https://github.com/crimera/revanced-integrations/commit/70343ff623d2dc4f7caefcb66ea90b228a9f9b7e))
+
 ## [1.19.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.1...v1.19.0-dev.2) (2024-05-18)
 
 
