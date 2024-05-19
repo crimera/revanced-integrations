@@ -292,7 +292,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         multiSelectListPreference(
                                 strRes("piko_pref_customisation_profiletabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_PROFILE_TABS
                         )
                 );
@@ -301,7 +301,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         listPreference(
                                 strRes("piko_pref_customisation_timelinetabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_TIMELINE_TABS
                         )
                 );
@@ -310,7 +310,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         multiSelectListPreference(
                                 strRes("piko_pref_customisation_sidebartabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_SIDEBAR_TABS
                         )
                 );
@@ -320,7 +320,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         multiSelectListPreference(
                                 strRes("piko_pref_customisation_navbartabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_NAVBAR_TABS
                         )
                 );
@@ -330,7 +330,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         multiSelectListPreference(
                                 strRes("piko_pref_customisation_inlinetabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_INLINE_TABS
                         )
                 );
