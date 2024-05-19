@@ -48,6 +48,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_TIMELINE_TABS = new StringSetting("customisation_timeline_tabs", "show_both");
     public static final StringSetting CUSTOM_SIDEBAR_TABS = new StringSetting("customisation_sidebar_tabs", "");
     public static final StringSetting CUSTOM_NAVBAR_TABS = new StringSetting("customisation_navbar_tabs", "");
+    public static final StringSetting CUSTOM_INLINE_TABS = new StringSetting("customisation_inlinebar_tabs", "");
 
     public static final StringSetting EXPORT_PREF = new StringSetting("export_pref", "");
     public static final StringSetting EXPORT_FLAGS = new StringSetting("export_flags", "");
