@@ -208,40 +208,30 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.PREMIUM_UNDO_POSTS);
     }
 
-    public static ArrayList customProfileTabs() {
+    private static ArrayList getList(String key){
         ArrayList<String> arrayList = new ArrayList<String>();
         try{
-            String key =Settings.CUSTOM_PROFILE_TABS.key;
             Set<String> ch = Utils.getSetPerf(key,null);
             if(!ch.isEmpty()) {
                 arrayList = new ArrayList<String>(ch);
             }
         }catch (Exception e){}
         return arrayList;
+    }
+    public static ArrayList customProfileTabs() {
+        return getList(Settings.CUSTOM_PROFILE_TABS.key);
     }
 
     public static ArrayList customSidebar() {
-        ArrayList<String> arrayList = new ArrayList<String>();
-        try{
-            String key =Settings.CUSTOM_SIDEBAR_TABS.key;
-            Set<String> ch = Utils.getSetPerf(key,null);
-            if(!ch.isEmpty()) {
-                arrayList = new ArrayList<String>(ch);
-            }
-        }catch (Exception e){}
-        return arrayList;
+        return getList(Settings.CUSTOM_SIDEBAR_TABS.key);
     }
 
     public static ArrayList customNavbar() {
-        ArrayList<String> arrayList = new ArrayList<String>();
-        try{
-            String key =Settings.CUSTOM_NAVBAR_TABS.key;
-            Set<String> ch = Utils.getSetPerf(key,null);
-            if(!ch.isEmpty()) {
-                arrayList = new ArrayList<String>(ch);
-            }
-        }catch (Exception e){}
-        return arrayList;
+        return getList(Settings.CUSTOM_NAVBAR_TABS.key);
+    }
+
+    public static ArrayList inlineBar() {
+        return getList(Settings.CUSTOM_INLINE_TABS.key);
     }
 
     //end

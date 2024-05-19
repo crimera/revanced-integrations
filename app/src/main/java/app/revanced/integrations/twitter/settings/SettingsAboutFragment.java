@@ -94,6 +94,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("piko_pref_unshorten_link"),SettingsStatus.unshortenlink);
         flags.put(strRes("piko_pref_force_translate"),SettingsStatus.forceTranslate);
         flags.put(strRes("piko_pref_round_off_numbers"),SettingsStatus.roundOffNumbers);
+        flags.put(strRes("piko_pref_customisation_inlinetabs"),SettingsStatus.inlineBarCustomisation);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 

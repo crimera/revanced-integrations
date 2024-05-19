@@ -292,7 +292,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         multiSelectListPreference(
                                 strRes("piko_pref_customisation_profiletabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_PROFILE_TABS
                         )
                 );
@@ -301,7 +301,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         listPreference(
                                 strRes("piko_pref_customisation_timelinetabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_TIMELINE_TABS
                         )
                 );
@@ -310,7 +310,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         multiSelectListPreference(
                                 strRes("piko_pref_customisation_sidebartabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_SIDEBAR_TABS
                         )
                 );
@@ -320,8 +320,18 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 customisationPrefs.addPreference(
                         multiSelectListPreference(
                                 strRes("piko_pref_customisation_navbartabs"),
-                                "",
+                                strRes("piko_pref_import_warn"),
                                 Settings.CUSTOM_NAVBAR_TABS
+                        )
+                );
+            }
+
+            if (SettingsStatus.inlineBarCustomisation) {
+                customisationPrefs.addPreference(
+                        multiSelectListPreference(
+                                strRes("piko_pref_customisation_inlinetabs"),
+                                strRes("piko_pref_import_warn"),
+                                Settings.CUSTOM_INLINE_TABS
                         )
                 );
             }
@@ -530,6 +540,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }else if (key == Settings.VID_MEDIA_HANDLE.key) {
             entries = Utils.getResourceStringArray("piko_array_download_media_handle");
             entriesValues = new CharSequence[]{"download_media","copy_media_link", "always_ask"};
+        }else if (key == Settings.CUSTOM_INLINE_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_inlinetabs");
+            entriesValues = new CharSequence[]{"Reply","Retweet", "Favorite","ViewCount","AddRemoveBookmarks", "TwitterShare"};
         }
         preference.setEntries(entries);
         preference.setEntryValues(entriesValues);
@@ -555,6 +568,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }else if (key == Settings.CUSTOM_NAVBAR_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_navbar");
             entriesValues = new CharSequence[]{"HOME","GUIDE", "SPACES","COMMUNITIES","NOTIFICATIONS","CONNECT","COMMUNITY_NOTES","BOOKMARKS","DMS","GROK","MEDIA_TAB"};
+        }else if (key == Settings.CUSTOM_INLINE_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_inlinetabs");
+            entriesValues = new CharSequence[]{"Reply","Retweet", "Favorite","ViewCount","AddRemoveBookmarks", "TwitterShare"};
         }
         preference.setEntries(entries);
         preference.setEntryValues(entriesValues);
