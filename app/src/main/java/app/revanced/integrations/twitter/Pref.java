@@ -207,6 +207,9 @@ public class Pref {
     public static boolean enableUndoPosts() {
         return Utils.getBooleanPerf(Settings.PREMIUM_UNDO_POSTS);
     }
+    public static boolean enableDebugMenu() {
+        return Utils.getBooleanPerf(Settings.MISC_DEBUG_MENU);
+    }
 
     private static ArrayList getList(String key){
         ArrayList<String> arrayList = new ArrayList<String>();

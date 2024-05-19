@@ -274,6 +274,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.enableDebugMenu) {
+                miscPrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_debug_menu"),
+                                "",
+                                Settings.MISC_DEBUG_MENU
+                        )
+                );
+            }
+
             if (SettingsStatus.featureFlagsEnabled) {
                 miscPrefs.addPreference(
                         buttonPreference(

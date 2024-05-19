@@ -20,6 +20,7 @@ public class SettingsStatus {
     public static boolean forceTranslate = false;
     public static boolean hidePromoteButton = false;
     public static boolean roundOffNumbers = false;
+    public static boolean enableDebugMenu = false;
 
     public static boolean hideAds = false;
     public static boolean hideGAds = false;
@@ -75,6 +76,7 @@ public class SettingsStatus {
     public static void enableShowPollResults() { showPollResultsEnabled = true; }
     public static void forceTranslate() { forceTranslate = true; }
     public static void hidePromoteButton() { hidePromoteButton = true; }
+    public static void enableDebugMenu() { enableDebugMenu = true; }
 
 
     public static void hideAds() { hideAds = true; }
