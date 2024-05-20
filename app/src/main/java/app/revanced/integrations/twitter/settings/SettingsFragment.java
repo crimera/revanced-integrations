@@ -190,6 +190,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.hidePremiumPrompt) {
+                adsPrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_hide_premium_prompt"),
+                                "",
+                                Settings.ADS_HIDE_PREMIUM_PROMPT
+                        )
+                );
+            }
+
 
         }
 

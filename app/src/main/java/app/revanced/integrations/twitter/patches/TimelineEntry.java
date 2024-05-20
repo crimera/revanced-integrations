@@ -6,7 +6,7 @@ import app.revanced.integrations.twitter.Pref;
 import app.revanced.integrations.twitter.settings.SettingsStatus;
 
 public class TimelineEntry {
-    private static final boolean hideAds,hideGAds,hideWTF,hideCTS,hideCTJ,hideDetailedPosts,hideRBMK,hidePinnedPosts;
+    private static final boolean hideAds,hideGAds,hideWTF,hideCTS,hideCTJ,hideDetailedPosts,hideRBMK,hidePinnedPosts,hidePremiumPrompt;
     static {
         hideAds = (Pref.hideAds() && SettingsStatus.hideAds);
         hideGAds = (Pref.hideGoogleAds() && SettingsStatus.hideGAds);
@@ -16,6 +16,7 @@ public class TimelineEntry {
         hideDetailedPosts = (Pref.hideDetailedPosts() && SettingsStatus.hideDetailedPosts);
         hideRBMK = (Pref.hideRBMK() && SettingsStatus.hideRBMK);
         hidePinnedPosts = (Pref.hideRPinnedPosts() && SettingsStatus.hideRPinnedPosts);
+        hidePremiumPrompt = (Pref.hidePremiumPrompt() && SettingsStatus.hidePremiumPrompt);
     }
 
 
@@ -46,6 +47,9 @@ public class TimelineEntry {
                 return true;
             }
             if (entryId.startsWith("pinned-tweets") && hidePinnedPosts) {
+                return true;
+            }
+            if (entryId.startsWith("messageprompt-premium") && hidePremiumPrompt) {
                 return true;
             }
         }

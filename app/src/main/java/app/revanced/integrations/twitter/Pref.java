@@ -200,6 +200,10 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_DETAILED_POSTS);
     }
 
+    public static boolean hidePremiumPrompt() {
+        return Utils.getBooleanPerf(Settings.ADS_HIDE_PREMIUM_PROMPT);
+    }
+
     public static boolean enableReaderMode() {
         return Utils.getBooleanPerf(Settings.PREMIUM_READER_MODE);
     }
@@ -207,6 +211,7 @@ public class Pref {
     public static boolean enableUndoPosts() {
         return Utils.getBooleanPerf(Settings.PREMIUM_UNDO_POSTS);
     }
+
     public static boolean enableDebugMenu() {
         return Utils.getBooleanPerf(Settings.MISC_DEBUG_MENU);
     }

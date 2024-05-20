@@ -30,6 +30,7 @@ public class SettingsStatus {
     public static boolean hideDetailedPosts = false;
     public static boolean hideRBMK = false;
     public static boolean hideRPinnedPosts = false;
+    public static boolean hidePremiumPrompt = false;
 
     public static boolean enableReaderMode = false;
     public static boolean enableUndoPosts = false;
@@ -73,6 +74,7 @@ public class SettingsStatus {
     public static void disableAutoTimelineScroll() { disableAutoTimelineScroll = true; }
     public static void hideLiveThreads() { hideLiveThreads = true; }
     public static void hideBanner() { hideBanner = true; }
+    public static void hidePremiumPrompt(){ hidePremiumPrompt = true; }
     public static void enableShowPollResults() { showPollResultsEnabled = true; }
     public static void forceTranslate() { forceTranslate = true; }
     public static void hidePromoteButton() { hidePromoteButton = true; }
