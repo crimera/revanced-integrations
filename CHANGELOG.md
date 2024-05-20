@@ -1,3 +1,10 @@
+## [1.19.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.3...v1.19.0-dev.4) (2024-05-20)
+
+
+### Features
+
+* **Twitter:** Added `Debug Menu` patch ([2664d9f](https://github.com/crimera/revanced-integrations/commit/2664d9fd2f1501b7c8a88ea6666b6fc7edff99ea))
+
 ## [1.19.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.2...v1.19.0-dev.3) (2024-05-19)
 
 
