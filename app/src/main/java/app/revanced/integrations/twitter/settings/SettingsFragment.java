@@ -447,6 +447,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.hideHiddenReplies) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_hide_hidden_replies"),
+                                "",
+                                Settings.TIMELINE_HIDE_HIDDEN_REPLIES
+                        )
+                );
+            }
         }
 
 

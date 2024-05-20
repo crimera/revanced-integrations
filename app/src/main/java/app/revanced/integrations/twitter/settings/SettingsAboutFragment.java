@@ -97,6 +97,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("piko_pref_customisation_inlinetabs"),SettingsStatus.inlineBarCustomisation);
         flags.put(strRes("piko_pref_debug_menu"),SettingsStatus.enableDebugMenu);
         flags.put(strRes("piko_pref_hide_premium_prompt"),SettingsStatus.hidePremiumPrompt);
+        flags.put(strRes("piko_pref_hide_hidden_replies"),SettingsStatus.hideHiddenReplies);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 

@@ -41,6 +41,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting TIMELINE_HIDE_IMMERSIVE_PLAYER = new BooleanSetting("timeline_hide_immersive_player", false);
     public static final BooleanSetting TIMELINE_HIDE_PROMOTE_BUTTON = new BooleanSetting("timeline_hide_promote_button", false);
     public static final BooleanSetting TIMELINE_HIDE_FORCE_TRANSLATE = new BooleanSetting("timeline_force_translate", false);
+    public static final BooleanSetting TIMELINE_HIDE_HIDDEN_REPLIES = new BooleanSetting("timeline_hide_hidden_replies", false);
 
     public static final BooleanSetting PREMIUM_READER_MODE = new BooleanSetting("premium_reader_mode", false);
     public static final BooleanSetting PREMIUM_UNDO_POSTS = new BooleanSetting("premium_undo_posts", false);
