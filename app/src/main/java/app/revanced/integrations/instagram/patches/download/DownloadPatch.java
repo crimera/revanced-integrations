@@ -78,8 +78,6 @@ public class DownloadPatch {
     }
 
     public static void downloadPost(Object media, int index, Object p3, Activity act) throws URISyntaxException, NoSuchFieldException, IllegalAccessException, MalformedURLException, InvocationTargetException {
-        // TODO fingerprint them fields
-        // TODO support video downloading
         Field mediaField = null;
 
         // Get media field
@@ -126,19 +124,18 @@ public class DownloadPatch {
 
     public static void downloadMedia(Object media) throws URISyntaxException, MalformedURLException, InvocationTargetException, IllegalAccessException {
         if (isVideo(media)) {
-            startDownload(getVideoLink(media));
+            startDownload(getVideoLink(media), Environment.DIRECTORY_MOVIES, "Instagram");
         } else {
-            startDownload(getPhotoLink(media));
+            startDownload(getPhotoLink(media), Environment.DIRECTORY_PICTURES, "Instagram");
         }
     }
 
-    // TODO add a new destination parameter so we can use the same download function for video and photo
-    public static void startDownload(String url) throws URISyntaxException, MalformedURLException {
+    public static void startDownload(String url, String publicFolder, String subpath) throws URISyntaxException, MalformedURLException {
         URL link = new URL(url);
 
         String filename = link.getPath().split("/")[link.getPath().split("/").length - 1];
         String publicFolderDirectory = Environment.DIRECTORY_PICTURES;
-        String subPath = "Instagram/" + filename;
+        String subPath =subpath + "/" + filename;
 
         File imageFile = new File(Environment.getExternalStoragePublicDirectory(publicFolderDirectory), subPath);
 
@@ -159,56 +156,6 @@ public class DownloadPatch {
                         subPath));
 
         Toast.makeText(Utils.getContext(), "Download completed", Toast.LENGTH_SHORT).show();
-    }
-
-    public static void downloadPhoto(URL link) {
-        HttpURLConnection connection;
-        try {
-            connection = (HttpURLConnection) link.openConnection();
-            connection.connect();
-
-            InputStream inputStream = connection.getInputStream();
-
-            File imageFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "test.png");
-            if (!imageFile.createNewFile()) {
-                Toast.makeText(Utils.getContext(), "Failed to create file", Toast.LENGTH_SHORT).show();
-            }
-
-            FileOutputStream fos = new FileOutputStream(imageFile);
-            fos.write(readAllBytes(inputStream));
-
-            fos.close();
-
-            Toast.makeText(Utils.getContext(), "File downloaded", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(Utils.getContext(), "Error downloading", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public static byte[] readAllBytes(InputStream inputStream) throws IOException {
-        final int bufLen = 4 * 0x400; // 4KB
-        byte[] buf = new byte[bufLen];
-        int readLen;
-        IOException exception = null;
-
-        try {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            while ((readLen = inputStream.read(buf, 0, bufLen)) != -1) {
-                outputStream.write(buf, 0, readLen);
-            }
-
-            return outputStream.toByteArray();
-        } catch (IOException e) {
-            exception = e;
-            throw e;
-        } finally {
-            if (exception == null) inputStream.close();
-            else try {
-                inputStream.close();
-            } catch (IOException e) {
-                exception.addSuppressed(e);
-            }
-        }
     }
 
     private static String getVideoLink(Object media) {
