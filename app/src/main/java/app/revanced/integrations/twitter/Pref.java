@@ -7,7 +7,14 @@ import java.util.*;
 
 @SuppressWarnings("unused")
 public class Pref {
+    public static boolean ROUND_OFF_NUMBERS;
+    static{
+        ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
+    }
 
+    public static boolean isRoundOffNumbersEnabled() {
+        return Utils.getBooleanPerf(Settings.MISC_ROUND_OFF_NUMBERS);
+    }
     public static boolean isChirpFontEnabled() {
         return Utils.getBooleanPerf(Settings.MISC_FONT);
     }
@@ -154,6 +161,13 @@ public class Pref {
         return !Utils.getBooleanPerf(Settings.TIMELINE_HIDE_IMMERSIVE_PLAYER);
     }
 
+    public static boolean hideHiddenReplies(boolean bool){
+        if(Utils.getBooleanPerf(Settings.TIMELINE_HIDE_HIDDEN_REPLIES)){
+            return false;
+        }
+        return bool;
+    }
+
     public static boolean hidePromotedTrend(Object data) {
         if (data != null && Utils.getBooleanPerf(Settings.ADS_HIDE_PROMOTED_TRENDS)) {
             return true;
@@ -193,6 +207,10 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_DETAILED_POSTS);
     }
 
+    public static boolean hidePremiumPrompt() {
+        return Utils.getBooleanPerf(Settings.ADS_HIDE_PREMIUM_PROMPT);
+    }
+
     public static boolean enableReaderMode() {
         return Utils.getBooleanPerf(Settings.PREMIUM_READER_MODE);
     }
@@ -201,40 +219,34 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.PREMIUM_UNDO_POSTS);
     }
 
-    public static ArrayList customProfileTabs() {
+    public static boolean enableDebugMenu() {
+        return Utils.getBooleanPerf(Settings.MISC_DEBUG_MENU);
+    }
+
+    private static ArrayList getList(String key){
         ArrayList<String> arrayList = new ArrayList<String>();
         try{
-            String key =Settings.CUSTOM_PROFILE_TABS.key;
             Set<String> ch = Utils.getSetPerf(key,null);
             if(!ch.isEmpty()) {
                 arrayList = new ArrayList<String>(ch);
             }
         }catch (Exception e){}
         return arrayList;
+    }
+    public static ArrayList customProfileTabs() {
+        return getList(Settings.CUSTOM_PROFILE_TABS.key);
     }
 
     public static ArrayList customSidebar() {
-        ArrayList<String> arrayList = new ArrayList<String>();
-        try{
-            String key =Settings.CUSTOM_SIDEBAR_TABS.key;
-            Set<String> ch = Utils.getSetPerf(key,null);
-            if(!ch.isEmpty()) {
-                arrayList = new ArrayList<String>(ch);
-            }
-        }catch (Exception e){}
-        return arrayList;
+        return getList(Settings.CUSTOM_SIDEBAR_TABS.key);
     }
 
     public static ArrayList customNavbar() {
-        ArrayList<String> arrayList = new ArrayList<String>();
-        try{
-            String key =Settings.CUSTOM_NAVBAR_TABS.key;
-            Set<String> ch = Utils.getSetPerf(key,null);
-            if(!ch.isEmpty()) {
-                arrayList = new ArrayList<String>(ch);
-            }
-        }catch (Exception e){}
-        return arrayList;
+        return getList(Settings.CUSTOM_NAVBAR_TABS.key);
+    }
+
+    public static ArrayList inlineBar() {
+        return getList(Settings.CUSTOM_INLINE_TABS.key);
     }
 
     //end

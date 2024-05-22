@@ -1,3 +1,45 @@
+## [1.19.0-dev.5](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.4...v1.19.0-dev.5) (2024-05-22)
+
+
+### Features
+
+* **Twitter:** Added `Hide Buy Premium Banner` patch ([3b474d3](https://github.com/crimera/revanced-integrations/commit/3b474d3503e619ab9cfb6a95497df7992c17f83a))
+* **Twitter:** Added `Hide hidden replies` patch ([9b9dd0d](https://github.com/crimera/revanced-integrations/commit/9b9dd0dd6d1eab7ede235d29ae5dc2153a01f8cb))
+
+## [1.19.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.3...v1.19.0-dev.4) (2024-05-20)
+
+
+### Features
+
+* **Twitter:** Added `Debug Menu` patch ([2664d9f](https://github.com/crimera/revanced-integrations/commit/2664d9fd2f1501b7c8a88ea6666b6fc7edff99ea))
+
+## [1.19.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.2...v1.19.0-dev.3) (2024-05-19)
+
+
+### Features
+
+* **Twitter:** Added `Customize Inline action Bar items` patch ([ae2cf2c](https://github.com/crimera/revanced-integrations/commit/ae2cf2cfbbe2d806a3e8a045142abcf209f25b2d))
+
+
+### Refactors
+
+* **Twitter:** Added restart warning to `customize patch` ([425d75c](https://github.com/crimera/revanced-integrations/commit/425d75cd3909acb387359fbf686a4f9c87dc767d))
+* **Twitter:** Combined `customize patch` into single class ([70343ff](https://github.com/crimera/revanced-integrations/commit/70343ff623d2dc4f7caefcb66ea90b228a9f9b7e))
+
+## [1.19.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.1...v1.19.0-dev.2) (2024-05-18)
+
+
+### Features
+
+* **Twitter:** Added ability to reset pref and flags ([ea40880](https://github.com/crimera/revanced-integrations/commit/ea40880e13dfd872343115feb5e118fbe3b3b925))
+
+## [1.19.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.18.1...v1.19.0-dev.1) (2024-05-18)
+
+
+### Features
+
+* **Twitter:** Added `Round off numbers` patch ([18cd14f](https://github.com/crimera/revanced-integrations/commit/18cd14fa40c6a7d07158086310bb8b4cf5336e0d))
+
 ## [1.18.1](https://github.com/crimera/revanced-integrations/compare/v1.18.0...v1.18.1) (2024-05-18)
 
 

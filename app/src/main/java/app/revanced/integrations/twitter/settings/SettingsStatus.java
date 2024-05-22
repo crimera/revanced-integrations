@@ -19,6 +19,8 @@ public class SettingsStatus {
     public static boolean featureFlagsEnabled = false;
     public static boolean forceTranslate = false;
     public static boolean hidePromoteButton = false;
+    public static boolean roundOffNumbers = false;
+    public static boolean enableDebugMenu = false;
 
     public static boolean hideAds = false;
     public static boolean hideGAds = false;
@@ -28,6 +30,8 @@ public class SettingsStatus {
     public static boolean hideDetailedPosts = false;
     public static boolean hideRBMK = false;
     public static boolean hideRPinnedPosts = false;
+    public static boolean hidePremiumPrompt = false;
+    public static boolean hideHiddenReplies = false;
 
     public static boolean enableReaderMode = false;
     public static boolean enableUndoPosts = false;
@@ -39,6 +43,7 @@ public class SettingsStatus {
     public static boolean timelineTabCustomisation = false;
     public static boolean sideBarCustomisation = false;
     public static boolean navBarCustomisation = false;
+    public static boolean inlineBarCustomisation = false;
     public static boolean mediaLinkHandle = false;
 
     public static boolean selectableText = false;
@@ -56,6 +61,8 @@ public class SettingsStatus {
     public static void mediaLinkHandle() { mediaLinkHandle = true; }
     public static void enableCustomSharingDomain() { customSharingDomainEnabled = true; }
     public static void enableFont() { enableFontMod = true; }
+
+    public static void roundOffNumbers() { roundOffNumbers = true; }
     public static void enableFeatureFlags() { featureFlagsEnabled = true; }
     public static void enableBrowserChooser() { browserChooserEnabled = true; }
 
@@ -68,9 +75,12 @@ public class SettingsStatus {
     public static void disableAutoTimelineScroll() { disableAutoTimelineScroll = true; }
     public static void hideLiveThreads() { hideLiveThreads = true; }
     public static void hideBanner() { hideBanner = true; }
+    public static void hidePremiumPrompt(){ hidePremiumPrompt = true; }
     public static void enableShowPollResults() { showPollResultsEnabled = true; }
     public static void forceTranslate() { forceTranslate = true; }
+    public static void hideHiddenReplies() { hideHiddenReplies = true; }
     public static void hidePromoteButton() { hidePromoteButton = true; }
+    public static void enableDebugMenu() { enableDebugMenu = true; }
 
 
     public static void hideAds() { hideAds = true; }
@@ -92,9 +102,10 @@ public class SettingsStatus {
     public static void timelineTabCustomisation() { timelineTabCustomisation = true; }
     public static void sideBarCustomisation() { sideBarCustomisation = true; }
     public static void navBarCustomisation() { navBarCustomisation = true; }
+    public static void inlineBarCustomisation() { inlineBarCustomisation = true; }
 
-    public static boolean enableTimelineSection(){ return (navBarCustomisation || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
-    public static boolean enableMiscSection() { return (enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns); }
+    public static boolean enableTimelineSection(){ return (inlineBarCustomisation || navBarCustomisation || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
+    public static boolean enableMiscSection() { return (roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns); }
     public static boolean enableAdsSection() {return (hideAds|| hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK ||hidePromotedTrend); }
     public static boolean enableDownloadSection() {return (changeDownloadEnabled || mediaLinkHandle); }
 
