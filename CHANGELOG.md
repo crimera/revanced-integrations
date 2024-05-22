@@ -1,3 +1,11 @@
+## [1.19.0-dev.5](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.4...v1.19.0-dev.5) (2024-05-22)
+
+
+### Features
+
+* **Twitter:** Added `Hide Buy Premium Banner` patch ([3b474d3](https://github.com/crimera/revanced-integrations/commit/3b474d3503e619ab9cfb6a95497df7992c17f83a))
+* **Twitter:** Added `Hide hidden replies` patch ([9b9dd0d](https://github.com/crimera/revanced-integrations/commit/9b9dd0dd6d1eab7ede235d29ae5dc2153a01f8cb))
+
 ## [1.19.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.19.0-dev.3...v1.19.0-dev.4) (2024-05-20)
 
 
