@@ -38,6 +38,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting TIMELINE_HIDE_BANNER = new BooleanSetting("timeline_hide_banner", true);
     public static final BooleanSetting TIMELINE_HIDE_BMK_ICON = new BooleanSetting("timeline_hide_bookmark_icon", false);
     public static final BooleanSetting TIMELINE_SHOW_POLL_RESULTS = new BooleanSetting("timeline_show_poll_results", false);
+    public static final BooleanSetting TIMELINE_UNSHORT_URL = new BooleanSetting("timeline_unshort_url", true);
     public static final BooleanSetting TIMELINE_HIDE_IMMERSIVE_PLAYER = new BooleanSetting("timeline_hide_immersive_player", false);
     public static final BooleanSetting TIMELINE_HIDE_PROMOTE_BUTTON = new BooleanSetting("timeline_hide_promote_button", false);
     public static final BooleanSetting TIMELINE_HIDE_FORCE_TRANSLATE = new BooleanSetting("timeline_force_translate", false);

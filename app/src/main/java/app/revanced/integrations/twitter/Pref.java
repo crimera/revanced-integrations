@@ -18,6 +18,9 @@ public class Pref {
     public static boolean isChirpFontEnabled() {
         return Utils.getBooleanPerf(Settings.MISC_FONT);
     }
+    public static boolean unShortUrl() {
+        return Utils.getBooleanPerf(Settings.TIMELINE_UNSHORT_URL);
+    }
 
     public static String getPublicFolder() {
         return Utils.getStringPref(Settings.VID_PUBLIC_FOLDER);
