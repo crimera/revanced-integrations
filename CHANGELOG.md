@@ -1,3 +1,11 @@
+## [1.19.1](https://github.com/crimera/revanced-integrations/compare/v1.19.0...v1.19.1) (2024-06-01)
+
+
+### Refactors
+
+* **Twitter:** Added `No shortened URL` as a settings toggle ([03cb7e9](https://github.com/crimera/revanced-integrations/commit/03cb7e927e6658ffca98ddbe059607f7ea6e19eb))
+* **Twitter:** Renamed patch `Remove Buy Premium Banner` to `Remove message prompts Banner` ([c4148dc](https://github.com/crimera/revanced-integrations/commit/c4148dc514e74a588c382e8b4be022df0cda1eea))
+
 ## [1.19.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.19.0...v1.19.1-dev.1) (2024-06-01)
 
 
