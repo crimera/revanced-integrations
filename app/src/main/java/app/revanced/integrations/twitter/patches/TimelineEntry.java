@@ -49,7 +49,7 @@ public class TimelineEntry {
             if (entryId.startsWith("pinned-tweets") && hidePinnedPosts) {
                 return true;
             }
-            if (entryId.startsWith("messageprompt-premium") && hidePremiumPrompt) {
+            if (entryId.startsWith("messageprompt-") && hidePremiumPrompt) {
                 return true;
             }
         }

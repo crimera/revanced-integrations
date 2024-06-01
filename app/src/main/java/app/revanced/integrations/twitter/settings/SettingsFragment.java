@@ -407,6 +407,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.unshortenlink) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_unshorten_link"),
+                                strRes("piko_pref_unshorten_link_desc"),
+                                Settings.TIMELINE_UNSHORT_URL
+                        )
+                );
+            }
+
             if (SettingsStatus.hideCommunityNote) {
                 timelinePrefs.addPreference(
                         switchPreference(
