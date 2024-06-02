@@ -1,5 +1,6 @@
 package app.revanced.integrations.twitter.settings;
 
+import app.revanced.integrations.shared.StringRef;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -105,7 +106,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hideAds) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_hide_promoted_posts"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_hide_promoted_posts")),
                                 "",
                                 Settings.ADS_HIDE_PROMOTED_POSTS
                         )
@@ -115,7 +116,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hideGAds) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_hide_g_ads"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_hide_g_ads")),
                                 "",
                                 Settings.ADS_HIDE_GOOGLE_ADS
                         )
@@ -124,7 +125,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hideWTF) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_wtf_section"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_wtf_section")),
                                 "",
                                 Settings.ADS_HIDE_WHO_TO_FOLLOW
                         )
@@ -133,7 +134,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hideCTS) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_cts_section"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_cts_section")),
                                 "",
                                 Settings.ADS_HIDE_CREATORS_TO_SUB
                         )
@@ -143,7 +144,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hideCTJ) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_ctj_section"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_ctj_section")),
                                 "",
                                 Settings.ADS_HIDE_COMM_TO_JOIN
                         )
@@ -153,7 +154,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hideRBMK) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_ryb_section"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_ryb_section")),
                                 "",
                                 Settings.ADS_HIDE_REVISIT_BMK
                         )
@@ -163,7 +164,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hideRPinnedPosts) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_pinned_posts_section"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_pinned_posts_section")),
                                 "",
                                 Settings.ADS_HIDE_REVISIT_PINNED_POSTS
                         )
@@ -173,7 +174,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hideDetailedPosts) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_hide_detailed_posts"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_hide_detailed_posts")),
                                 "",
                                 Settings.ADS_HIDE_DETAILED_POSTS
                         )
@@ -183,7 +184,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hidePromotedTrend) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_hide_trends"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_hide_trends")),
                                 "",
                                 Settings.ADS_HIDE_PROMOTED_TRENDS
                         )
@@ -193,9 +194,19 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.hidePremiumPrompt) {
                 adsPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_hide_premium_prompt"),
+                                StringRef.str("piko_pref_hide",strRes("piko_pref_hide_premium_prompt")),
                                 "",
                                 Settings.ADS_HIDE_PREMIUM_PROMPT
+                        )
+                );
+            }
+
+            if (SettingsStatus.deleteFromDb) {
+                adsPrefs.addPreference(
+                        buttonPreference(
+                                strRes("piko_pref_del_from_db"),
+                                "",
+                                Settings.ADS_DEL_FROM_DB.key
                         )
                 );
             }
@@ -466,6 +477,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+
+
         }
 
 
@@ -647,6 +660,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             app.revanced.integrations.twitter.Utils.deleteSharedPrefAB(context,false);
         } else if (key.equals(Settings.RESET_FLAGS.key)) {
             app.revanced.integrations.twitter.Utils.deleteSharedPrefAB(context,true);
+        }else if (key.equals(Settings.ADS_DEL_FROM_DB.key)) {
+            app.revanced.integrations.twitter.patches.DatabasePatch.showDialog(context);
         }
 
         return true;
@@ -692,7 +707,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     private static String strRes(String tag) {
-        return app.revanced.integrations.twitter.Utils.strRes(tag);
+        return StringRef.str(tag);
     }
 
     private static void setBooleanPerf(String key, Boolean val) {
