@@ -12,6 +12,7 @@ import app.revanced.integrations.shared.Utils;
 import com.twitter.ui.widget.LegacyTwitterPreferenceCategory;
 import app.revanced.integrations.BuildConfig;
 import java.util.*;
+import app.revanced.integrations.shared.StringRef;
 
 @SuppressWarnings("deprecation")
 public class SettingsAboutFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
@@ -60,15 +61,15 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("custom_navigation"),SettingsStatus.navBarCustomisation);
         flags.put(strRes("piko_pref_download"),SettingsStatus.changeDownloadEnabled);
         flags.put(strRes("piko_pref_download_media_link_handle"),SettingsStatus.mediaLinkHandle);
-        flags.put(strRes("piko_pref_hide_promoted_posts"),SettingsStatus.hideAds);
-        flags.put(strRes("piko_pref_hide_g_ads"),SettingsStatus.hideGAds);
-        flags.put(strRes("piko_pref_wtf_section"),SettingsStatus.hideWTF);
-        flags.put(strRes("piko_pref_cts_section"),SettingsStatus.hideCTS);
-        flags.put(strRes("piko_pref_ctj_section"),SettingsStatus.hideCTJ);
-        flags.put(strRes("piko_pref_ryb_section"),SettingsStatus.hideRBMK);
-        flags.put(strRes("piko_pref_pinned_posts_section"),SettingsStatus.hideRPinnedPosts);
-        flags.put(strRes("piko_pref_hide_detailed_posts"),SettingsStatus.hideDetailedPosts);
-        flags.put(strRes("piko_pref_hide_trends"),SettingsStatus.hidePromotedTrend);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_hide_promoted_posts")),SettingsStatus.hideAds);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_hide_g_ads")),SettingsStatus.hideGAds);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_wtf_section")),SettingsStatus.hideWTF);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_cts_section")),SettingsStatus.hideCTS);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_ctj_section")),SettingsStatus.hideCTJ);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_ryb_section")),SettingsStatus.hideRBMK);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_pinned_posts_section")),SettingsStatus.hideRPinnedPosts);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_hide_detailed_posts")),SettingsStatus.hideDetailedPosts);
+        flags.put(StringRef.str("piko_pref_hide",strRes("piko_pref_hide_trends")),SettingsStatus.hidePromotedTrend);
         flags.put(strRes("piko_pref_chirp_font"),SettingsStatus.enableFontMod);
         flags.put(strRes("piko_pref_hide_fab"),SettingsStatus.hideFAB);
         flags.put(strRes("piko_pref_hide_fab_menu"),SettingsStatus.hideFABBtns);
@@ -98,6 +99,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("piko_pref_debug_menu"),SettingsStatus.enableDebugMenu);
         flags.put(strRes("piko_pref_hide_premium_prompt"),SettingsStatus.hidePremiumPrompt);
         flags.put(strRes("piko_pref_hide_hidden_replies"),SettingsStatus.hideHiddenReplies);
+        flags.put(strRes("piko_pref_del_from_db"),SettingsStatus.deleteFromDb);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 
@@ -160,7 +162,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
     }
 
     private static String strRes(String tag) {
-        return app.revanced.integrations.twitter.Utils.strRes(tag);
+        return StringRef.str(tag);
     }
 
 }

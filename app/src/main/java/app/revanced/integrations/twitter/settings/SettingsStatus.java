@@ -51,7 +51,9 @@ public class SettingsStatus {
     public static boolean enableVidDownload = false;
     public static boolean cleartrackingparams = false;
     public static boolean unshortenlink = false;
+    public static boolean deleteFromDb = false;
 
+    public static void deleteFromDb() { deleteFromDb = true; }
     public static void cleartrackingparams() { cleartrackingparams = true; }
     public static void unshortenlink() { unshortenlink = true; }
     public static void enableVidDownload() { enableVidDownload = true; }
