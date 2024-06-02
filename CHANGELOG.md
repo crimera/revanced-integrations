@@ -1,3 +1,10 @@
+## [1.20.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.19.1...v1.20.0-dev.1) (2024-06-02)
+
+
+### Features
+
+* **Twitter:** Added `Delete from database` patch ([5934600](https://github.com/crimera/revanced-integrations/commit/59346003bff4573682815fa77db7d463845db113))
+
 ## [1.19.1](https://github.com/crimera/revanced-integrations/compare/v1.19.0...v1.19.1) (2024-06-01)
 
 
