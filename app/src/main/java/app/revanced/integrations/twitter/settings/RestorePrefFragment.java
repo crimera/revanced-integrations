@@ -11,10 +11,12 @@ import java.io.InputStreamReader;
 
 import android.app.Fragment;
 import app.revanced.integrations.twitter.Utils;
+import app.revanced.integrations.shared.StringRef;
 
 public class RestorePrefFragment extends Fragment {
     private static final int READ_REQUEST_CODE = 42;
-    private boolean featureFlag = false;
+    private static boolean featureFlag = false;
+    private static String prefTag = "";
 
     private static String readFileContent(Uri uri){
         try {
@@ -37,20 +39,22 @@ public class RestorePrefFragment extends Fragment {
         return "";
     }
 
-    public static void receiveFileForRestore(Uri uri,boolean flags, Context context) {
+    public static void receiveFileForRestore(Uri uri, Context context) {
         String jsonString = readFileContent(uri);
         boolean sts = false;
-        if(flags){
+        String prefTag = StringRef.str("notification_settings_preferences_category");
+        if(featureFlag){
             sts = Utils.setStringPref(Settings.MISC_FEATURE_FLAGS.key,jsonString);
+            prefTag = StringRef.str("piko_title_feature_flags");
         }else{
             sts = Utils.setAll(jsonString);
 
         }
         if(sts){
-            toast("piko_pref_import_saved");
+            toast(StringRef.str("piko_pref_import",StringRef.str("piko_pref_success")));
         }
         else{
-            toast("piko_pref_import_failed");
+            toast(StringRef.str("piko_pref_import_failed",prefTag));
         }
 
         Utils.showRestartAppDialog(context);
@@ -65,17 +69,17 @@ public class RestorePrefFragment extends Fragment {
                 uri = intent.getData();
             }
             if (uri != null) {
-                receiveFileForRestore(uri,this.featureFlag, getActivity());
+                receiveFileForRestore(uri,getActivity());
             }
             else {
-                toast("piko_pref_import_no_uri");
+                toast(StringRef.str("piko_pref_import_no_uri"));
             }
         }
         getFragmentManager().popBackStack();
     }
 
-    private static void toast(String tag){
-        Utils.toast(app.revanced.integrations.shared.Utils.getResourceString(tag));
+    private static void toast(String msg){
+        Utils.toast(msg);
     }
 
     @Override
