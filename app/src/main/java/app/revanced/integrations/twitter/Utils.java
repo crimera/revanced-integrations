@@ -94,7 +94,7 @@ public class Utils {
 
     public static String strRes(String tag) {
         try {
-            return app.revanced.integrations.shared.Utils.getResourceString(tag);
+            return StringRef.str(tag);
         } catch (Exception e) {
 
             app.revanced.integrations.shared.Utils.showToastShort(tag + " not found");
@@ -108,11 +108,11 @@ public class Utils {
         LinearLayout ln = new LinearLayout(context);
         ln.setOrientation(LinearLayout.VERTICAL);
 
-        dialog.setTitle(Utils.strRes("settings_restart"));
-        dialog.setPositiveButton(Utils.strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setTitle(strRes("settings_restart"));
+        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
             app.revanced.integrations.shared.Utils.restartApp(context);
         });
-        dialog.setNegativeButton(Utils.strRes("cancel"), null);
+        dialog.setNegativeButton(strRes("cancel"), null);
         dialog.show();
     }
 
@@ -122,11 +122,12 @@ public class Utils {
         LinearLayout ln = new LinearLayout(context);
         ln.setOrientation(LinearLayout.VERTICAL);
 
-        String content = flag? strRes("piko_title_feature_flags"):strRes("notification_settings_preferences_category");
+        String content = flag? "piko_title_feature_flags":"notification_settings_preferences_category";
 
-        dialog.setTitle(Utils.strRes("delete"));
-        dialog.setMessage(StringRef.str("piko_pref_reset_pref",content));
-        dialog.setPositiveButton(Utils.strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setTitle(strRes("delete"));
+
+        dialog.setMessage(strRes("delete")+" "+strRes(content)+" ?");
+        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
             boolean success = false;
             if(flag){
                 sp.removeKey(Settings.MISC_FEATURE_FLAGS.key);
@@ -138,7 +139,7 @@ public class Utils {
                 app.revanced.integrations.shared.Utils.restartApp(context);
             }
         });
-        dialog.setNegativeButton(Utils.strRes("cancel"), null);
+        dialog.setNegativeButton(strRes("cancel"), null);
         dialog.show();
     }
 
