@@ -1,3 +1,10 @@
+## [1.20.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.20.0-dev.1...v1.20.0-dev.2) (2024-06-04)
+
+
+### Refactors
+
+* **Twitter:** Major string changes ([643b121](https://github.com/crimera/revanced-integrations/commit/643b1212d82711847a3bca2816dfbfbd14a83362))
+
 ## [1.20.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.19.1...v1.20.0-dev.1) (2024-06-02)
 
 
