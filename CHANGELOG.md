@@ -1,3 +1,10 @@
+## [1.20.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.20.0-dev.2...v1.20.0-dev.3) (2024-06-09)
+
+
+### Features
+
+* **Twitter:** Added tab redirects hook (for Bookmark Navbar) ([192fe63](https://github.com/crimera/revanced-integrations/commit/192fe6335e39cfde3b77d7e84d7cb926c662f905))
+
 ## [1.20.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.20.0-dev.1...v1.20.0-dev.2) (2024-06-04)
 
 
