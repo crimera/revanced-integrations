@@ -1,5 +1,6 @@
 package app.revanced.integrations.twitter;
 
+import android.util.*;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,10 +14,8 @@ import app.revanced.integrations.twitter.settings.RestorePrefFragment;
 import app.revanced.integrations.shared.StringRef;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.*;
-
-import java.util.Arrays;
+import com.google.android.material.tabs.TabLayout$g;
 
 @SuppressWarnings("unused")
 public class Utils {
@@ -60,6 +59,25 @@ public class Utils {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("featureFlag", featureFlag);
         ctx.startActivity(intent);
+    }
+    private static void startBookmarkActivity(){
+        String className = "com.twitter.app.bookmarks.legacy.BookmarkActivity";
+        startActivityFromClassName(className);
+    }
+
+    //thanks to @Ouxyl
+    public static boolean redirect(TabLayout$g g){
+        try{
+            String tabName = g.c.toString();
+            if(tabName == strRes("bookmarks_title")){
+                startBookmarkActivity();
+                return true;
+            }
+
+        }catch (Exception e){
+            logger(e.toString());
+        }
+        return false;
     }
 
     public static Boolean setBooleanPerf(String key,Boolean val) {
@@ -212,5 +230,11 @@ public class Utils {
     public static void toast(String msg){
         app.revanced.integrations.shared.Utils.showToastShort(msg);
     }
+
+    //dont delete it
+    public static void logger(Object j){
+        Log.d("piko", j.toString());
+    }
+
 
 }

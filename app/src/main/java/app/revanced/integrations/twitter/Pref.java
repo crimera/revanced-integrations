@@ -2,7 +2,7 @@ package app.revanced.integrations.twitter;
 
 import android.util.Log;
 import app.revanced.integrations.twitter.settings.Settings;
-
+import com.google.android.material.tabs.TabLayout$g;
 import java.util.*;
 
 @SuppressWarnings("unused")
@@ -11,6 +11,8 @@ public class Pref {
     static{
         ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
     }
+
+    public static boolean redirect(TabLayout$g g) {return Utils.redirect(g);}
 
     public static boolean isRoundOffNumbersEnabled() {
         return Utils.getBooleanPerf(Settings.MISC_ROUND_OFF_NUMBERS);
