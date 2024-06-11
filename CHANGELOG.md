@@ -1,3 +1,36 @@
+## [1.20.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.20.0-dev.3...v1.20.0-dev.4) (2024-06-11)
+
+
+### Bug Fixes
+
+* Fix crash when opening feature flags ([051bb21](https://github.com/crimera/revanced-integrations/commit/051bb21c4757826eef5d3f949b892040dbc1a391))
+
+
+### Updates
+
+* Enable `Hide Live Threads` patch by default ([715c211](https://github.com/crimera/revanced-integrations/commit/715c2117f13211cf1d63dd33c26796219a837e7d))
+
+## [1.20.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.20.0-dev.2...v1.20.0-dev.3) (2024-06-09)
+
+
+### Features
+
+* **Twitter:** Added tab redirects hook (for Bookmark Navbar) ([192fe63](https://github.com/crimera/revanced-integrations/commit/192fe6335e39cfde3b77d7e84d7cb926c662f905))
+
+## [1.20.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.20.0-dev.1...v1.20.0-dev.2) (2024-06-04)
+
+
+### Refactors
+
+* **Twitter:** Major string changes ([643b121](https://github.com/crimera/revanced-integrations/commit/643b1212d82711847a3bca2816dfbfbd14a83362))
+
+## [1.20.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.19.1...v1.20.0-dev.1) (2024-06-02)
+
+
+### Features
+
+* **Twitter:** Added `Delete from database` patch ([5934600](https://github.com/crimera/revanced-integrations/commit/59346003bff4573682815fa77db7d463845db113))
+
 ## [1.19.1](https://github.com/crimera/revanced-integrations/compare/v1.19.0...v1.19.1) (2024-06-01)
 
 

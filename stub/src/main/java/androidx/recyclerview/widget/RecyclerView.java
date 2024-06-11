@@ -50,7 +50,8 @@ public class RecyclerView extends ViewGroup {
     public static abstract class e<VH extends c0> {
         public final f c = new f();
 
-        public abstract int k();
+        // get count
+        public abstract int getCount();
 
         public abstract c0 I(int i, RecyclerView recyclerView);
 

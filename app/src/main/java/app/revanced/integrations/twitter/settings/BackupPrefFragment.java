@@ -10,11 +10,12 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.twitter.Utils;
+import app.revanced.integrations.shared.StringRef;
 
 public class BackupPrefFragment extends Fragment {
     private String prefData;
-    private boolean featureFlag = false;
+    private static String prefTag;
 
     private void startIntent(String fileName,int mode) {
         fileName = fileName+"_" + new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date()) + ".json";
@@ -25,27 +26,17 @@ public class BackupPrefFragment extends Fragment {
         startActivityForResult(intent, mode);
     }
 
-    private void backupFile() {
-        String str = "backup";
-        startIntent(str, 1);
-    }
-
-    private void backupFlags() {
-        String str = "feature_flags";
-        startIntent(str, 1);
-    }
-
-    private void copyFile(String jsonString, Uri uri) {
+    private void copyFile(Uri uri) {
         try {
-            jsonString = this.prefData;
+            String jsonString = this.prefData;
             byte[] bytes = jsonString.getBytes();
 
             OutputStream openOutputStream = getActivity().getContentResolver().openOutputStream(uri);
             openOutputStream.write(bytes);
             openOutputStream.close();
-            toast("piko_pref_export_saved");
+            toast(StringRef.str("piko_pref_export",StringRef.str("piko_pref_success")));
         } catch (IOException e) {
-            toast("piko_pref_export_failed");
+            toast(StringRef.str("piko_pref_export_failed",prefTag));
         }
     }
 
@@ -56,32 +47,34 @@ public class BackupPrefFragment extends Fragment {
             uri = intent.getData();
         }
         if (uri == null) {
-            toast("piko_pref_export_no_uri");
+            toast(StringRef.str("piko_pref_export_no_uri"));
 
         }
         else if (i2 == -1) {
-            copyFile(this.prefData, uri);
+            copyFile(uri);
         }
 
         getFragmentManager().popBackStack();
     }
 
-    private void toast(String tag){
-        app.revanced.integrations.twitter.Utils.toast(Utils.getResourceString(tag));
+    private void toast(String msg){
+        Utils.toast(msg);
     }
 
     @Override
     public void onCreate(@org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.featureFlag = getArguments().getBoolean("featureFlag", false);
+        boolean featureFlag = getArguments().getBoolean("featureFlag", false);
 
-        if (this.featureFlag) {
-            this.prefData = app.revanced.integrations.twitter.Utils.getStringPref(Settings.MISC_FEATURE_FLAGS);
-            backupFlags();
+        if (featureFlag) {
+            this.prefData = Utils.getStringPref(Settings.MISC_FEATURE_FLAGS);
+            prefTag = StringRef.str("piko_title_feature_flags");
+            startIntent("feature_flags", 1);
         } else {
-            this.prefData = app.revanced.integrations.twitter.Utils.getAll(true);
-            backupFile();
+            this.prefData = Utils.getAll(true);
+            prefTag = StringRef.str("notification_settings_preferences_category");
+            startIntent("backup", 1);
         }
     }
 }

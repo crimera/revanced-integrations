@@ -1,5 +1,6 @@
 package app.revanced.integrations.twitter;
 
+import android.util.*;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,10 +14,8 @@ import app.revanced.integrations.twitter.settings.RestorePrefFragment;
 import app.revanced.integrations.shared.StringRef;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.*;
-
-import java.util.Arrays;
+import com.google.android.material.tabs.TabLayout$g;
 
 @SuppressWarnings("unused")
 public class Utils {
@@ -61,6 +60,25 @@ public class Utils {
         intent.putExtra("featureFlag", featureFlag);
         ctx.startActivity(intent);
     }
+    private static void startBookmarkActivity(){
+        String className = "com.twitter.app.bookmarks.legacy.BookmarkActivity";
+        startActivityFromClassName(className);
+    }
+
+    //thanks to @Ouxyl
+    public static boolean redirect(TabLayout$g g){
+        try{
+            String tabName = g.c.toString();
+            if(tabName == strRes("bookmarks_title")){
+                startBookmarkActivity();
+                return true;
+            }
+
+        }catch (Exception e){
+            logger(e.toString());
+        }
+        return false;
+    }
 
     public static Boolean setBooleanPerf(String key,Boolean val) {
         try{
@@ -94,7 +112,7 @@ public class Utils {
 
     public static String strRes(String tag) {
         try {
-            return app.revanced.integrations.shared.Utils.getResourceString(tag);
+            return StringRef.str(tag);
         } catch (Exception e) {
 
             app.revanced.integrations.shared.Utils.showToastShort(tag + " not found");
@@ -108,11 +126,11 @@ public class Utils {
         LinearLayout ln = new LinearLayout(context);
         ln.setOrientation(LinearLayout.VERTICAL);
 
-        dialog.setTitle(Utils.strRes("settings_restart"));
-        dialog.setPositiveButton(Utils.strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setTitle(strRes("settings_restart"));
+        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
             app.revanced.integrations.shared.Utils.restartApp(context);
         });
-        dialog.setNegativeButton(Utils.strRes("cancel"), null);
+        dialog.setNegativeButton(strRes("cancel"), null);
         dialog.show();
     }
 
@@ -122,11 +140,12 @@ public class Utils {
         LinearLayout ln = new LinearLayout(context);
         ln.setOrientation(LinearLayout.VERTICAL);
 
-        String content = flag? strRes("piko_title_feature_flags"):strRes("notification_settings_preferences_category");
+        String content = flag? "piko_title_feature_flags":"notification_settings_preferences_category";
 
-        dialog.setTitle(Utils.strRes("delete"));
-        dialog.setMessage(StringRef.str("piko_pref_reset_pref",content));
-        dialog.setPositiveButton(Utils.strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setTitle(strRes("delete"));
+
+        dialog.setMessage(strRes("delete")+" "+strRes(content)+" ?");
+        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
             boolean success = false;
             if(flag){
                 sp.removeKey(Settings.MISC_FEATURE_FLAGS.key);
@@ -138,7 +157,7 @@ public class Utils {
                 app.revanced.integrations.shared.Utils.restartApp(context);
             }
         });
-        dialog.setNegativeButton(Utils.strRes("cancel"), null);
+        dialog.setNegativeButton(strRes("cancel"), null);
         dialog.show();
     }
 
@@ -211,5 +230,11 @@ public class Utils {
     public static void toast(String msg){
         app.revanced.integrations.shared.Utils.showToastShort(msg);
     }
+
+    //dont delete it
+    public static void logger(Object j){
+        Log.d("piko", j.toString());
+    }
+
 
 }
