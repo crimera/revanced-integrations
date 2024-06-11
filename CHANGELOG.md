@@ -1,3 +1,10 @@
+## [1.20.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.20.0...v1.20.1-dev.1) (2024-06-11)
+
+
+### Updates
+
+* Improved the hooking of the recyclerview methods. also fixes the crash when opening feature flags. ([66e64d9](https://github.com/crimera/revanced-integrations/commit/66e64d976ae691c5f93a544a8cafe76fa311bc9e))
+
 ## [1.20.0](https://github.com/crimera/revanced-integrations/compare/v1.19.1...v1.20.0) (2024-06-11)
 
 
