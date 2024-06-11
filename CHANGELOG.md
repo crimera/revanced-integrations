@@ -1,3 +1,15 @@
+## [1.20.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.20.0-dev.3...v1.20.0-dev.4) (2024-06-11)
+
+
+### Bug Fixes
+
+* Fix crash when opening feature flags ([051bb21](https://github.com/crimera/revanced-integrations/commit/051bb21c4757826eef5d3f949b892040dbc1a391))
+
+
+### Updates
+
+* Enable `Hide Live Threads` patch by default ([715c211](https://github.com/crimera/revanced-integrations/commit/715c2117f13211cf1d63dd33c26796219a837e7d))
+
 ## [1.20.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.20.0-dev.2...v1.20.0-dev.3) (2024-06-09)
 
 
