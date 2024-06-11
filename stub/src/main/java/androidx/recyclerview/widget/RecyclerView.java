@@ -53,9 +53,9 @@ public class RecyclerView extends ViewGroup {
         // get count
         public abstract int getCount();
 
-        public abstract c0 I(int i, RecyclerView recyclerView);
+        public abstract c0 onCreateViewHolder(int i, RecyclerView recyclerView);
 
-        public abstract void F(VH vh, int i);
+        public abstract void onBindViewHolder(VH vh, int i);
 
         public final void D(int i) {}
     }

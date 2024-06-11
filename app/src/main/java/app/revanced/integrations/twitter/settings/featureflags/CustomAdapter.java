@@ -94,7 +94,7 @@ public class CustomAdapter extends RecyclerView.e<CustomAdapter.ViewHolder> {
     }
 
     @Override
-    public RecyclerView.c0 I(int i, RecyclerView recyclerView){
+    public RecyclerView.c0 onCreateViewHolder(int i, RecyclerView recyclerView){
         View view = LayoutInflater.from(recyclerView.getContext())
                 .inflate(
                         Utils.getResourceIdentifier("item_row", "layout"),
@@ -104,7 +104,7 @@ public class CustomAdapter extends RecyclerView.e<CustomAdapter.ViewHolder> {
     }
 
     @Override
-    public void F(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
         flagTextView.setText(flags.get(i).getName());
         enabled.setChecked(flags.get(i).getEnabled());
     }
