@@ -1,7 +1,6 @@
 package app.revanced.integrations.twitter.settings.featureflags;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Switch;
@@ -110,8 +109,9 @@ public class CustomAdapter extends RecyclerView.e<CustomAdapter.ViewHolder> {
         enabled.setChecked(flags.get(i).getEnabled());
     }
 
+    // setCount abstract method, change this in revanced patches
     @Override
-    public int k() {
+    public int getCount() {
         return flags.size();
     }
 }
