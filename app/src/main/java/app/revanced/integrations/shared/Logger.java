@@ -137,6 +137,14 @@ public class Logger {
     }
 
     /**
+     * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#getContext()} may not be initialized.
+     * Normally this method should not be used.
+     */
+    public static void initializationInfo(@NonNull Class<?> callingClass, @NonNull String message) {
+        Log.i(REVANCED_LOG_PREFIX + callingClass.getSimpleName(), message);
+    }
+
+    /**
      * Logging to use if {@link BaseSettings#DEBUG} or {@link Utils#context} may not be initialized.
      * Always logs even if Debugging is not enabled.
      * Normally this method should not be used.
