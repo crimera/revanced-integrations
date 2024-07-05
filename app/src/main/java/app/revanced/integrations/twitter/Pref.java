@@ -17,9 +17,11 @@ public class Pref {
     public static boolean isRoundOffNumbersEnabled() {
         return Utils.getBooleanPerf(Settings.MISC_ROUND_OFF_NUMBERS);
     }
+
     public static boolean isChirpFontEnabled() {
         return Utils.getBooleanPerf(Settings.MISC_FONT);
     }
+
     public static boolean unShortUrl() {
         return Utils.getBooleanPerf(Settings.TIMELINE_UNSHORT_URL);
     }
