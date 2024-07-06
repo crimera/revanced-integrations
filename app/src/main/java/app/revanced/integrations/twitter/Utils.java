@@ -6,7 +6,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.LinearLayout;
-import app.revanced.integrations.shared.settings.Setting;
+import app.revanced.integrations.shared.settings.StringSetting;
+import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
 import app.revanced.integrations.twitter.settings.Settings;
 import app.revanced.integrations.twitter.settings.BackupPrefFragment;
@@ -16,6 +17,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.*;
 import com.google.android.material.tabs.TabLayout$g;
+import android.app.DownloadManager;
+import android.net.Uri;
+import android.os.Build;
+import app.revanced.integrations.twitter.Pref;
+import android.os.Environment;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 
 @SuppressWarnings("unused")
 public class Utils {
@@ -102,7 +110,7 @@ public class Utils {
         return false;
     }
 
-    public static String getStringPref(Setting<String> setting) {
+    public static String getStringPref(StringSetting setting) {
         String value = sp.getString(setting.key, setting.defaultValue);
         if (value.isBlank()) {
             return setting.defaultValue;
@@ -161,7 +169,7 @@ public class Utils {
         dialog.show();
     }
 
-    public static Boolean getBooleanPerf(Setting<Boolean> setting) {
+    public static Boolean getBooleanPerf(BooleanSetting setting) {
         return sp.getBoolean(setting.key, setting.defaultValue);
     }
     public static String getAll(boolean no_flags){
@@ -220,11 +228,35 @@ public class Utils {
         return sts;
     }
 
-
     public static String[] addPref(String[] prefs, String pref) {
         String[] bigger = Arrays.copyOf(prefs, prefs.length+1);
         bigger[prefs.length] = pref;
         return bigger;
+    }
+
+    public static void downloadFile(String url,  String filename) {
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        request.setDescription("Downloading " + filename);
+        request.setTitle(filename);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            request.allowScanningByMediaScanner();
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        }
+        request.setDestinationInExternalPublicDir(Pref.getPublicFolder(), Pref.getVideoFolder(filename));
+        DownloadManager manager = (DownloadManager) ctx.getSystemService(Context.DOWNLOAD_SERVICE);
+        long downloadId = manager.enqueue(request);
+        ctx.registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+                if (id == downloadId) {
+                    toast(strRes("exo_download_completed")+": "+filename);
+                    ctx.unregisterReceiver(this);
+                }
+            }
+        }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
     }
 
     public static void toast(String msg){

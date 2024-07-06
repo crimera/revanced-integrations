@@ -101,6 +101,8 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRemoveRes("piko_pref_hide_premium_prompt"),SettingsStatus.hidePremiumPrompt);
         flags.put(strRemoveRes("piko_pref_hide_hidden_replies"),SettingsStatus.hideHiddenReplies);
         flags.put(strRes("piko_pref_del_from_db"),SettingsStatus.deleteFromDb);
+        flags.put(strRes("piko_pref_video_download"),SettingsStatus.enableVidDownload);
+        flags.put(strRes("piko_title_native_downloader"),SettingsStatus.nativeDownloader);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 

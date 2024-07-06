@@ -52,7 +52,9 @@ public class SettingsStatus {
     public static boolean cleartrackingparams = false;
     public static boolean unshortenlink = false;
     public static boolean deleteFromDb = false;
+    public static boolean nativeDownloader = false;
 
+    public static void nativeDownloader() { nativeDownloader = true; }
     public static void deleteFromDb() { deleteFromDb = true; }
     public static void cleartrackingparams() { cleartrackingparams = true; }
     public static void unshortenlink() { unshortenlink = true; }
@@ -109,7 +111,7 @@ public class SettingsStatus {
     public static boolean enableTimelineSection(){ return (inlineBarCustomisation || navBarCustomisation || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
     public static boolean enableMiscSection() { return (roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns); }
     public static boolean enableAdsSection() {return (hideAds|| hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK ||hidePromotedTrend); }
-    public static boolean enableDownloadSection() {return (changeDownloadEnabled || mediaLinkHandle); }
+    public static boolean enableDownloadSection() {return (nativeDownloader || changeDownloadEnabled || mediaLinkHandle); }
 
     public static boolean enablePremiumSection() {return (enableReaderMode || enableUndoPosts || customAppIcon); }
     public static boolean enableCustomisationSection() {return (navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation); }

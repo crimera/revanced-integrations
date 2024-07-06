@@ -76,7 +76,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         //download section
         if (SettingsStatus.enableDownloadSection()) {
             LegacyTwitterPreferenceCategory downloadPrefs = preferenceCategory(strRes("piko_title_download"), screen);
-            if (SettingsStatus.changeDownloadEnabled) {
+            if (SettingsStatus.changeDownloadEnabled || SettingsStatus.nativeDownloader) {
                 downloadPrefs.addPreference(listPreference(
                         strRes("piko_pref_download_path"),
                         strRes("piko_pref_download_path_desc"),
@@ -718,6 +718,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         app.revanced.integrations.twitter.Utils.setBooleanPerf(key, val);
     }
 
+    private static String getStringPref(StringSetting setting) {
+        return app.revanced.integrations.twitter.Utils.getStringPref(setting);
+    }
     private static void setStringPref(String key, String val) {
         app.revanced.integrations.twitter.Utils.setStringPref(key, val);
     }
