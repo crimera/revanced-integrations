@@ -1,3 +1,10 @@
+## [1.21.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.20.1-dev.1...v1.21.0-dev.1) (2024-07-06)
+
+
+### Features
+
+* **Twitter:** Added `Custom downloader` ([5ad7114](https://github.com/crimera/revanced-integrations/commit/5ad711440236106fadbac569005952e2c39d3f90))
+
 ## [1.20.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.20.0...v1.20.1-dev.1) (2024-06-11)
 
 
