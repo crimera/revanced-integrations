@@ -1,3 +1,11 @@
+## [1.21.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.21.0...v1.21.1-dev.1) (2024-07-18)
+
+
+### Updates
+
+* **Twitter - Custom Downloader:** Auto start download when only 1 media is present in a post ([b44f715](https://github.com/crimera/revanced-integrations/commit/b44f7150d1009792f3a409128ddb584da517862c))
+* **Twitter - Native Downloader:** Now saves photos on `/sdcard/Pictures/Twitter`, filenames now follow its index. ([e5b7919](https://github.com/crimera/revanced-integrations/commit/e5b7919705d548a13e681f5b3d61b1b1b9a896b9))
+
 ## [1.21.0](https://github.com/crimera/revanced-integrations/compare/v1.20.1...v1.21.0) (2024-07-17)
 
 
