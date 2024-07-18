@@ -1,21 +1,14 @@
 package app.revanced.integrations.twitter.patches;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.LinearLayout;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 import java.util.*;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import app.revanced.integrations.twitter.Utils;
-import app.revanced.integrations.twitter.Pref;
 
 public class NativeDownloader {
 
@@ -244,10 +237,17 @@ public class NativeDownloader {
             }
 
 
-            if(mediaData.size()==0){
+            assert mediaData != null;
+            if(mediaData.isEmpty()){
                 Utils.toast(strRes("piko_pref_native_downloader_no_media"));
                 return;
             }
+
+            if (mediaData.size()==1) {
+                downloadMedia(fileName, mediaData);
+                return;
+            }
+
             alertbox(ctx,fileName,mediaData);
         }catch (Exception ex){
             logger(ex.toString());
