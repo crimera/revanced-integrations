@@ -1,3 +1,11 @@
+## [1.21.1-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.21.1-dev.1...v1.21.1-dev.2) (2024-07-18)
+
+
+### Updates
+
+* **Twitter - Custom Downloader:** Save photos in `Picture/Twitter` ([2c8b1bb](https://github.com/crimera/revanced-integrations/commit/2c8b1bb6358d9871710a8b5e275d1f9117177128))
+* **Twitter - Custom Downloader:** The numbers from filename now follows media index from the post. ([b3ab727](https://github.com/crimera/revanced-integrations/commit/b3ab7271df108e542aa80226cb25c0b03fcf38f1))
+
 ## [1.21.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.21.0...v1.21.1-dev.1) (2024-07-18)
 
 
