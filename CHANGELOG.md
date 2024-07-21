@@ -1,3 +1,10 @@
+## [1.21.1-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.21.1-dev.2...v1.21.1-dev.3) (2024-07-21)
+
+
+### Bug Fixes
+
+* Setting backup preference title ([ca2c5de](https://github.com/crimera/revanced-integrations/commit/ca2c5de5e0317a5aae063da01a73c509eb5e3449))
+
 ## [1.21.1-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.21.1-dev.1...v1.21.1-dev.2) (2024-07-18)
 
 
