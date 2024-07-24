@@ -486,7 +486,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         LegacyTwitterPreferenceCategory backupPref = preferenceCategory(strRes("piko_title_backup"), screen);
         backupPref.addPreference(
                 buttonPreference(
-                        StringRef.str("piko_pref_export",strRes("notification_settings_preferences_category")),
+                        StringRef.str("piko_pref_export",strRes("settings_notification_pref_item_title")),
                         "",
                         Settings.EXPORT_PREF.key
                 )
@@ -500,7 +500,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         );
         backupPref.addPreference(
                 buttonPreference(
-                        StringRef.str("piko_pref_import",strRes("notification_settings_preferences_category")),
+                        StringRef.str("piko_pref_import",strRes("settings_notification_pref_item_title")),
                         strRes("piko_pref_app_restart_rec"),
                         Settings.IMPORT_PREF.key
                 )
@@ -515,7 +515,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         backupPref.addPreference(
                 buttonPreference(
-                        strRes("delete")+": "+strRes("notification_settings_preferences_category"),
+                        strRes("delete")+": "+strRes("settings_notification_pref_item_title"),
                         "",
                         Settings.RESET_PREF.key
                 )

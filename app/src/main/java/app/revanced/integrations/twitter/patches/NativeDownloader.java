@@ -1,21 +1,15 @@
 package app.revanced.integrations.twitter.patches;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.widget.LinearLayout;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 import java.util.*;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import app.revanced.integrations.twitter.Utils;
-import app.revanced.integrations.twitter.Pref;
 
 public class NativeDownloader {
 
@@ -244,10 +238,17 @@ public class NativeDownloader {
             }
 
 
-            if(mediaData.size()==0){
+            assert mediaData != null;
+            if(mediaData.isEmpty()){
                 Utils.toast(strRes("piko_pref_native_downloader_no_media"));
                 return;
             }
+
+            if (mediaData.size()==1) {
+                downloadMedia(fileName, mediaData);
+                return;
+            }
+
             alertbox(ctx,fileName,mediaData);
         }catch (Exception ex){
             logger(ex.toString());
@@ -276,14 +277,23 @@ public class NativeDownloader {
                 ArrayList<HashMap> mData = new ArrayList<HashMap>();
                 HashMap<String,String> media = mediaData.get(which);
                 mData.add(media);
-                downloadMedia(filename,mData);
+                downloadMedia(filename+"_"+(which+1),mData);
                 dialogInterface.dismiss();
             }
         });
         builder.setNegativeButton(strRes("piko_pref_native_downloader_download_all"),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int index) {
-                        downloadMedia(filename,mediaData);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            int i = 0;
+                            for (HashMap ignored : mediaData) {
+                                ArrayList<HashMap> mData = new ArrayList<>();
+                                HashMap media = mediaData.get(i);
+                                mData.add(media);
+                                downloadMedia(filename+"_"+(++i),mData);
+                            }
+
+                        }
                         dialogInterface.dismiss();
                     }
                 });
@@ -302,7 +312,7 @@ public class NativeDownloader {
                 String mediaUrl = (String)media.get("url");
                 String ext = (String)media.get("ext");
 
-                String updFileName = filename+"_"+String.valueOf(i+1)+"."+ext;
+                String updFileName = filename+"."+ext;
 
                 Utils.downloadFile(mediaUrl,updFileName);
             }
