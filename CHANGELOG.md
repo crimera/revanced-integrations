@@ -1,3 +1,17 @@
+## [1.21.1](https://github.com/crimera/revanced-integrations/compare/v1.21.0...v1.21.1) (2024-07-24)
+
+
+### Bug Fixes
+
+* Setting backup preference title ([ca2c5de](https://github.com/crimera/revanced-integrations/commit/ca2c5de5e0317a5aae063da01a73c509eb5e3449))
+
+
+### Updates
+
+* **Twitter - Custom Downloader:** Auto start download when only 1 media is present in a post ([b44f715](https://github.com/crimera/revanced-integrations/commit/b44f7150d1009792f3a409128ddb584da517862c))
+* **Twitter - Custom Downloader:** Save photos in `Picture/Twitter` ([2c8b1bb](https://github.com/crimera/revanced-integrations/commit/2c8b1bb6358d9871710a8b5e275d1f9117177128))
+* **Twitter - Custom Downloader:** The numbers from filename now follows media index from the post. ([b3ab727](https://github.com/crimera/revanced-integrations/commit/b3ab7271df108e542aa80226cb25c0b03fcf38f1))
+
 ## [1.21.1-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.21.1-dev.2...v1.21.1-dev.3) (2024-07-21)
 
 
