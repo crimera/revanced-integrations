@@ -233,6 +233,10 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.PREMIUM_UNDO_POSTS);
     }
 
+    public static boolean enableForcePip() {
+        return Utils.getBooleanPerf(Settings.PREMIUM_ENABLE_FORCE_PIP);
+    }
+
     public static boolean enableDebugMenu() {
         return Utils.getBooleanPerf(Settings.MISC_DEBUG_MENU);
     }

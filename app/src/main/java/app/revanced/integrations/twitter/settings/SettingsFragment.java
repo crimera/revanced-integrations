@@ -71,6 +71,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+            if (SettingsStatus.enableForcePip) {
+                premiumPrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_enable_force_pip"),
+                                strRes("piko_pref_enable_force_pip_desc"),
+                                Settings.PREMIUM_ENABLE_FORCE_PIP
+                        )
+                );
+            }
         }
 
         //download section

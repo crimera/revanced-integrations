@@ -104,6 +104,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("piko_pref_video_download"),SettingsStatus.enableVidDownload);
         flags.put(strRes("piko_title_native_downloader"),SettingsStatus.nativeDownloader);
         flags.put(strRes("piko_pref_enable_vid_auto_advance"),SettingsStatus.enableVidAutoAdvance);
+        flags.put(strRes("piko_pref_enable_force_pip"),SettingsStatus.enableForcePip);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 
