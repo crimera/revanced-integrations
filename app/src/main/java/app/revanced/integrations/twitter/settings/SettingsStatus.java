@@ -38,6 +38,7 @@ public class SettingsStatus {
     public static boolean customAppIcon = false;
 
     public static boolean hideImmersivePlayer = false;
+    public static boolean enableVidAutoAdvance = false;
 
     public static boolean profileTabCustomisation = false;
     public static boolean timelineTabCustomisation = false;
@@ -54,6 +55,7 @@ public class SettingsStatus {
     public static boolean deleteFromDb = false;
     public static boolean nativeDownloader = false;
 
+    public static void enableVidAutoAdvance() { enableVidAutoAdvance = true; }
     public static void nativeDownloader() { nativeDownloader = true; }
     public static void deleteFromDb() { deleteFromDb = true; }
     public static void cleartrackingparams() { cleartrackingparams = true; }
@@ -108,7 +110,7 @@ public class SettingsStatus {
     public static void navBarCustomisation() { navBarCustomisation = true; }
     public static void inlineBarCustomisation() { inlineBarCustomisation = true; }
 
-    public static boolean enableTimelineSection(){ return (inlineBarCustomisation || navBarCustomisation || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer); }
+    public static boolean enableTimelineSection(){ return (inlineBarCustomisation || navBarCustomisation || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance); }
     public static boolean enableMiscSection() { return (roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns); }
     public static boolean enableAdsSection() {return (hideAds|| hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK ||hidePromotedTrend); }
     public static boolean enableDownloadSection() {return (nativeDownloader || changeDownloadEnabled || mediaLinkHandle); }

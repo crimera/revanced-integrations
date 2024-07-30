@@ -467,6 +467,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+            if (SettingsStatus.enableVidAutoAdvance) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strRes("piko_pref_enable_vid_auto_advance"),
+                                strRes("piko_pref_enable_vid_auto_advance_desc"),
+                                Settings.TIMELINE_ENABLE_VID_AUTO_ADVANCE
+                        )
+                );
+            }
 
             if (SettingsStatus.hideHiddenReplies) {
                 timelinePrefs.addPreference(

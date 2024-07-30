@@ -168,6 +168,13 @@ public class Pref {
         return !Utils.getBooleanPerf(Settings.TIMELINE_HIDE_IMMERSIVE_PLAYER);
     }
 
+    public static int enableVidAutoAdvance() {
+        if(Utils.getBooleanPerf(Settings.TIMELINE_ENABLE_VID_AUTO_ADVANCE)){
+            return 1;
+        }
+        return -1;
+    }
+
     public static boolean hideHiddenReplies(boolean bool){
         if(Utils.getBooleanPerf(Settings.TIMELINE_HIDE_HIDDEN_REPLIES)){
             return false;
