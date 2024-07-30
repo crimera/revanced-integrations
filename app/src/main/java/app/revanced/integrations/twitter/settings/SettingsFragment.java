@@ -504,7 +504,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         LegacyTwitterPreferenceCategory backupPref = preferenceCategory(strRes("piko_title_backup"), screen);
         backupPref.addPreference(
                 buttonPreference(
-                        StringRef.str("piko_pref_export",strRes("settings_notification_pref_item_title")),
+                        StringRef.str("piko_pref_export",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
                         "",
                         Settings.EXPORT_PREF.key
                 )
@@ -516,9 +516,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         Settings.EXPORT_FLAGS.key
                 )
         );
+
         backupPref.addPreference(
                 buttonPreference(
-                        StringRef.str("piko_pref_import",strRes("settings_notification_pref_item_title")),
+                        StringRef.str("piko_pref_import",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
                         strRes("piko_pref_app_restart_rec"),
                         Settings.IMPORT_PREF.key
                 )
@@ -533,7 +534,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         backupPref.addPreference(
                 buttonPreference(
-                        strRes("delete")+": "+strRes("settings_notification_pref_item_title"),
+                        strRes("delete")+": "+strRes("piko_name")+" "+strRes("settings_notification_pref_item_title"),
                         "",
                         Settings.RESET_PREF.key
                 )
@@ -666,8 +667,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             startFragment(new FeatureFlagsFragment());
         } else if (key.equals(Settings.EXPORT_PREF.key)) {
             startBackupFragment(new BackupPrefFragment(), false);
-        } else if (key.equals(Settings.EXPORT_FLAGS.key)) {
-            startBackupFragment(new BackupPrefFragment(), true);
+        } else if (key.equals(Settings.EXPORT_PREF.key)) {
+            startBackupFragment(new BackupPrefFragment(), false);
         } else if (key.equals(Settings.IMPORT_PREF.key)) {
             startBackupFragment(new RestorePrefFragment(), false);
         } else if (key.equals(Settings.IMPORT_FLAGS.key)) {
