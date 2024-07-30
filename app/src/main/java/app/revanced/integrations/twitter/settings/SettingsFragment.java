@@ -674,8 +674,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             app.revanced.integrations.twitter.Utils.startAppIconNNavIconActivity();
         } else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
             startFragment(new FeatureFlagsFragment());
-        } else if (key.equals(Settings.EXPORT_PREF.key)) {
-            startBackupFragment(new BackupPrefFragment(), false);
+        } else if (key.equals(Settings.EXPORT_FLAGS.key)) {
+            startBackupFragment(new BackupPrefFragment(), true);
         } else if (key.equals(Settings.EXPORT_PREF.key)) {
             startBackupFragment(new BackupPrefFragment(), false);
         } else if (key.equals(Settings.IMPORT_PREF.key)) {
