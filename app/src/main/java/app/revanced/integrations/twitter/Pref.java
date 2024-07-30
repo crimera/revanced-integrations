@@ -168,6 +168,13 @@ public class Pref {
         return !Utils.getBooleanPerf(Settings.TIMELINE_HIDE_IMMERSIVE_PLAYER);
     }
 
+    public static int enableVidAutoAdvance() {
+        if(Utils.getBooleanPerf(Settings.TIMELINE_ENABLE_VID_AUTO_ADVANCE)){
+            return 1;
+        }
+        return -1;
+    }
+
     public static boolean hideHiddenReplies(boolean bool){
         if(Utils.getBooleanPerf(Settings.TIMELINE_HIDE_HIDDEN_REPLIES)){
             return false;
@@ -205,6 +212,11 @@ public class Pref {
     public static boolean hideRBMK() {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_REVISIT_BMK);
     }
+    public static String removePremiumUpsell(String def) {
+        if(Utils.getBooleanPerf(Settings.ADS_REMOVE_PREMIUM_UPSELL)) return "";
+        return def;
+
+    }
 
     public static boolean hideRPinnedPosts() {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_REVISIT_PINNED_POSTS);
@@ -224,6 +236,10 @@ public class Pref {
 
     public static boolean enableUndoPosts() {
         return Utils.getBooleanPerf(Settings.PREMIUM_UNDO_POSTS);
+    }
+
+    public static boolean enableForcePip() {
+        return Utils.getBooleanPerf(Settings.PREMIUM_ENABLE_FORCE_PIP);
     }
 
     public static boolean enableDebugMenu() {

@@ -234,18 +234,9 @@ public class Utils {
         return bigger;
     }
 
-    public static String getExtensionFromFilename(String filename) {
-        String extension = "";
+    public static void downloadFile(String url,String mediaName,String ext) {
+        String filename = mediaName+"."+ext;
 
-        int i = filename.lastIndexOf('.');
-        if (i > 0) {
-            extension = filename.substring(i+1);
-        }
-
-        return extension;
-    }
-
-    public static void downloadFile(String url,  String filename) {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setDescription("Downloading " + filename);
         request.setTitle(filename);
@@ -255,7 +246,7 @@ public class Utils {
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         }
 
-        if (getExtensionFromFilename(filename).equals("jpg")) {
+        if (ext.equals("jpg")) {
             request.setDestinationInExternalPublicDir("Pictures", "Twitter/"+filename);
         } else {
             request.setDestinationInExternalPublicDir(Pref.getPublicFolder(), Pref.getVideoFolder(filename));

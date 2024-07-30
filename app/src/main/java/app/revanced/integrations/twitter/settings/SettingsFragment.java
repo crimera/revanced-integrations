@@ -39,7 +39,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableReaderMode) {
                 premiumPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_reader_mode"),
+                                strEnableRes("piko_pref_reader_mode"),
                                 strRes("piko_pref_reader_mode_desc"),
                                 Settings.PREMIUM_READER_MODE
                         )
@@ -48,7 +48,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableUndoPosts) {
                 premiumPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_undo_posts"),
+                                strEnableRes("piko_pref_undo_posts"),
                                 strRes("piko_pref_undo_posts_desc"),
                                 Settings.PREMIUM_UNDO_POSTS
                         )
@@ -68,6 +68,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                 strRes("piko_pref_icon_n_navbar_btn"),
                                 "",
                                 Settings.PREMIUM_ICONS.key
+                        )
+                );
+            }
+            if (SettingsStatus.enableForcePip) {
+                premiumPrefs.addPreference(
+                        switchPreference(
+                                strEnableRes("piko_pref_enable_force_pip"),
+                                strRes("piko_pref_enable_force_pip_desc"),
+                                Settings.PREMIUM_ENABLE_FORCE_PIP
                         )
                 );
             }
@@ -201,6 +210,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.removePremiumUpsell) {
+                adsPrefs.addPreference(
+                        switchPreference(
+                                strRemoveRes("piko_pref_hide_premium_upsell"),
+                                strRes("piko_pref_hide_premium_upsell_desc"),
+                                Settings.ADS_REMOVE_PREMIUM_UPSELL
+                        )
+                );
+            }
+
             if (SettingsStatus.deleteFromDb) {
                 adsPrefs.addPreference(
                         buttonPreference(
@@ -220,7 +239,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableFontMod) {
                 miscPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_chirp_font"),
+                                strEnableRes("piko_pref_chirp_font"),
                                 "",
                                 Settings.MISC_FONT
                         )
@@ -298,7 +317,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableDebugMenu) {
                 miscPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_debug_menu"),
+                                strEnableRes("piko_pref_debug_menu"),
                                 "",
                                 Settings.MISC_DEBUG_MENU
                         )
@@ -467,7 +486,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
-
+            if (SettingsStatus.enableVidAutoAdvance) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strEnableRes("piko_pref_enable_vid_auto_advance"),
+                                strRes("piko_pref_enable_vid_auto_advance_desc"),
+                                Settings.TIMELINE_ENABLE_VID_AUTO_ADVANCE
+                        )
+                );
+            }
             if (SettingsStatus.hideHiddenReplies) {
                 timelinePrefs.addPreference(
                         switchPreference(
@@ -486,7 +513,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         LegacyTwitterPreferenceCategory backupPref = preferenceCategory(strRes("piko_title_backup"), screen);
         backupPref.addPreference(
                 buttonPreference(
-                        StringRef.str("piko_pref_export",strRes("settings_notification_pref_item_title")),
+                        StringRef.str("piko_pref_export",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
                         "",
                         Settings.EXPORT_PREF.key
                 )
@@ -498,9 +525,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         Settings.EXPORT_FLAGS.key
                 )
         );
+
         backupPref.addPreference(
                 buttonPreference(
-                        StringRef.str("piko_pref_import",strRes("settings_notification_pref_item_title")),
+                        StringRef.str("piko_pref_import",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
                         strRes("piko_pref_app_restart_rec"),
                         Settings.IMPORT_PREF.key
                 )
@@ -515,7 +543,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         backupPref.addPreference(
                 buttonPreference(
-                        strRes("delete")+": "+strRes("settings_notification_pref_item_title"),
+                        strRes("delete")+": "+strRes("piko_name")+" "+strRes("settings_notification_pref_item_title"),
                         "",
                         Settings.RESET_PREF.key
                 )
@@ -646,10 +674,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             app.revanced.integrations.twitter.Utils.startAppIconNNavIconActivity();
         } else if (key.equals(Settings.MISC_FEATURE_FLAGS.key)) {
             startFragment(new FeatureFlagsFragment());
-        } else if (key.equals(Settings.EXPORT_PREF.key)) {
-            startBackupFragment(new BackupPrefFragment(), false);
         } else if (key.equals(Settings.EXPORT_FLAGS.key)) {
             startBackupFragment(new BackupPrefFragment(), true);
+        } else if (key.equals(Settings.EXPORT_PREF.key)) {
+            startBackupFragment(new BackupPrefFragment(), false);
         } else if (key.equals(Settings.IMPORT_PREF.key)) {
             startBackupFragment(new RestorePrefFragment(), false);
         } else if (key.equals(Settings.IMPORT_FLAGS.key)) {
@@ -712,6 +740,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
     private static String strRemoveRes(String tag) {
         return StringRef.str("piko_pref_remove",strRes(tag));
+    }
+
+    private static String strEnableRes(String tag) {
+        return StringRef.str("piko_pref_enable",strRes(tag));
     }
 
     private static void setBooleanPerf(String key, Boolean val) {
