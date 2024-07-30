@@ -39,7 +39,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableReaderMode) {
                 premiumPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_reader_mode"),
+                                strEnableRes("piko_pref_reader_mode"),
                                 strRes("piko_pref_reader_mode_desc"),
                                 Settings.PREMIUM_READER_MODE
                         )
@@ -48,7 +48,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableUndoPosts) {
                 premiumPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_undo_posts"),
+                                strEnableRes("piko_pref_undo_posts"),
                                 strRes("piko_pref_undo_posts_desc"),
                                 Settings.PREMIUM_UNDO_POSTS
                         )
@@ -74,7 +74,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableForcePip) {
                 premiumPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_enable_force_pip"),
+                                strEnableRes("piko_pref_enable_force_pip"),
                                 strRes("piko_pref_enable_force_pip_desc"),
                                 Settings.PREMIUM_ENABLE_FORCE_PIP
                         )
@@ -229,7 +229,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableFontMod) {
                 miscPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_chirp_font"),
+                                strEnableRes("piko_pref_chirp_font"),
                                 "",
                                 Settings.MISC_FONT
                         )
@@ -307,7 +307,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableDebugMenu) {
                 miscPrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_debug_menu"),
+                                strEnableRes("piko_pref_debug_menu"),
                                 "",
                                 Settings.MISC_DEBUG_MENU
                         )
@@ -479,7 +479,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (SettingsStatus.enableVidAutoAdvance) {
                 timelinePrefs.addPreference(
                         switchPreference(
-                                strRes("piko_pref_enable_vid_auto_advance"),
+                                strEnableRes("piko_pref_enable_vid_auto_advance"),
                                 strRes("piko_pref_enable_vid_auto_advance_desc"),
                                 Settings.TIMELINE_ENABLE_VID_AUTO_ADVANCE
                         )
@@ -730,6 +730,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
     private static String strRemoveRes(String tag) {
         return StringRef.str("piko_pref_remove",strRes(tag));
+    }
+
+    private static String strEnableRes(String tag) {
+        return StringRef.str("piko_pref_enable",strRes(tag));
     }
 
     private static void setBooleanPerf(String key, Boolean val) {
