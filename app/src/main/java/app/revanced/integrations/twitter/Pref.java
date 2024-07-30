@@ -212,6 +212,11 @@ public class Pref {
     public static boolean hideRBMK() {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_REVISIT_BMK);
     }
+    public static String removePremiumUpsell(String def) {
+        if(Utils.getBooleanPerf(Settings.ADS_REMOVE_PREMIUM_UPSELL)) return "";
+        return def;
+
+    }
 
     public static boolean hideRPinnedPosts() {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_REVISIT_PINNED_POSTS);

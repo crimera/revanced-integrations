@@ -210,6 +210,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
+            if (SettingsStatus.removePremiumUpsell) {
+                adsPrefs.addPreference(
+                        switchPreference(
+                                strRemoveRes("piko_pref_hide_premium_upsell"),
+                                strRes("piko_pref_hide_premium_upsell_desc"),
+                                Settings.ADS_REMOVE_PREMIUM_UPSELL
+                        )
+                );
+            }
+
             if (SettingsStatus.deleteFromDb) {
                 adsPrefs.addPreference(
                         buttonPreference(
@@ -485,7 +495,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
-
             if (SettingsStatus.hideHiddenReplies) {
                 timelinePrefs.addPreference(
                         switchPreference(
