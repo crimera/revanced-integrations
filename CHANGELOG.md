@@ -1,3 +1,24 @@
+## [1.22.0](https://github.com/crimera/revanced-integrations/compare/v1.21.1...v1.22.0) (2024-07-31)
+
+
+### Bug Fixes
+
+* **Twitter:** fix export flag button ([427b386](https://github.com/crimera/revanced-integrations/commit/427b38622ddcaf5ab07a85c6e60a0536cccf0f55))
+
+
+### Features
+
+* **Twitter:** Added `Control video auto scroll` patch ([70dd511](https://github.com/crimera/revanced-integrations/commit/70dd51154ace0c6e8452bdb160301798fc54632f))
+* **Twitter:** Added `Enable PiP mode automatically` patch ([f45d39c](https://github.com/crimera/revanced-integrations/commit/f45d39c43dff87248704b3fb3b155118b8203054))
+* **Twitter:** Added `Remove premium upsell` patch ([13f953d](https://github.com/crimera/revanced-integrations/commit/13f953d7ce479b41420fd5396a6879a0fb2e58ae))
+
+
+### Refactors
+
+* **Twitter:** More strings refactor ([25e1c0f](https://github.com/crimera/revanced-integrations/commit/25e1c0fe0e6964514f9cc93137ba067020c6b250))
+* **Twitter:** Optimise `Native downloader` ([85d5b9b](https://github.com/crimera/revanced-integrations/commit/85d5b9be5da83b25b2fb09b31ee2a6a38c1c2ba0))
+* **Twitter:** Strings refactor ([0f3c5ba](https://github.com/crimera/revanced-integrations/commit/0f3c5bab335bc9d2fb48d57d021015d2dc532795))
+
 ## [1.22.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.21.1...v1.22.0-dev.1) (2024-07-30)
 
 
