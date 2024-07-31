@@ -245,7 +245,7 @@ public class NativeDownloader {
             }
 
             if (mediaData.size()==1) {
-                downloadMedia(fileName, mediaData);
+                downloadMedia(fileName, mediaData,-1);
                 return;
             }
 
@@ -277,23 +277,14 @@ public class NativeDownloader {
                 ArrayList<HashMap> mData = new ArrayList<HashMap>();
                 HashMap<String,String> media = mediaData.get(which);
                 mData.add(media);
-                downloadMedia(filename+"_"+(which+1),mData);
+                downloadMedia(filename,mData,which+1);
                 dialogInterface.dismiss();
             }
         });
         builder.setNegativeButton(strRes("piko_pref_native_downloader_download_all"),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogInterface, int index) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            int i = 0;
-                            for (HashMap ignored : mediaData) {
-                                ArrayList<HashMap> mData = new ArrayList<>();
-                                HashMap media = mediaData.get(i);
-                                mData.add(media);
-                                downloadMedia(filename+"_"+(++i),mData);
-                            }
-
-                        }
+                        downloadMedia(filename,mediaData,0);
                         dialogInterface.dismiss();
                     }
                 });
@@ -303,7 +294,7 @@ public class NativeDownloader {
         //endfunc
     }
 
-    private static void downloadMedia(String filename,ArrayList<HashMap> mediaData){
+    private static void downloadMedia(String filename,ArrayList<HashMap> mediaData,int pos){
         try{
             Utils.toast(strRes("download_started"));
             int n = mediaData.size();
@@ -311,11 +302,13 @@ public class NativeDownloader {
                 HashMap<String, String> media = mediaData.get(i);
                 String mediaUrl = (String)media.get("url");
                 String ext = (String)media.get("ext");
-
-                String updFileName = filename+"."+ext;
-
-                Utils.downloadFile(mediaUrl,updFileName);
-            }
+                    if(pos == 0){ //download all
+                        filename+="_"+(++i);
+                    }else if(pos > 0){ //download specific media
+                        filename+="_"+pos;
+                    }//else for < 0 only filename
+                Utils.downloadFile(mediaUrl,filename,ext);
+                }
 
         } catch (Exception e){
             Utils.logger(e.toString());

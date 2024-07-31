@@ -55,8 +55,9 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         );
 
         TreeMap<String,Boolean> flags = new TreeMap();
-        flags.put(strRes("piko_pref_video_download"),SettingsStatus.enableVidDownload);
-        flags.put(strRes("piko_pref_reader_mode"),SettingsStatus.enableReaderMode);
+        flags.put(strEnableRes("piko_pref_video_download"),SettingsStatus.enableVidDownload);
+        flags.put(strEnableRes("piko_pref_reader_mode"),SettingsStatus.enableReaderMode);
+        flags.put(strEnableRes("piko_pref_undo_posts"),SettingsStatus.enableUndoPosts);
         flags.put(strRes("app_icon"),SettingsStatus.customAppIcon);
         flags.put(strRes("custom_navigation"),SettingsStatus.navBarCustomisation);
         flags.put(strRes("piko_pref_download"),SettingsStatus.changeDownloadEnabled);
@@ -70,7 +71,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRemoveRes("piko_pref_pinned_posts_section"),SettingsStatus.hideRPinnedPosts);
         flags.put(strRemoveRes("piko_pref_hide_detailed_posts"),SettingsStatus.hideDetailedPosts);
         flags.put(strRemoveRes("piko_pref_hide_trends"),SettingsStatus.hidePromotedTrend);
-        flags.put(strRes("piko_pref_chirp_font"),SettingsStatus.enableFontMod);
+        flags.put(strEnableRes("piko_pref_chirp_font"),SettingsStatus.enableFontMod);
         flags.put(strRemoveRes("piko_pref_hide_fab"),SettingsStatus.hideFAB);
         flags.put(strRemoveRes("piko_pref_hide_fab_menu"),SettingsStatus.hideFABBtns);
         flags.put(strRes("piko_pref_show_sensitive_media"),SettingsStatus.showSensitiveMedia);
@@ -97,12 +98,15 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("piko_pref_force_translate"),SettingsStatus.forceTranslate);
         flags.put(strRes("piko_pref_round_off_numbers"),SettingsStatus.roundOffNumbers);
         flags.put(strRes("piko_pref_customisation_inlinetabs"),SettingsStatus.inlineBarCustomisation);
-        flags.put(strRes("piko_pref_debug_menu"),SettingsStatus.enableDebugMenu);
+        flags.put(strEnableRes("piko_pref_debug_menu"),SettingsStatus.enableDebugMenu);
         flags.put(strRemoveRes("piko_pref_hide_premium_prompt"),SettingsStatus.hidePremiumPrompt);
         flags.put(strRemoveRes("piko_pref_hide_hidden_replies"),SettingsStatus.hideHiddenReplies);
         flags.put(strRes("piko_pref_del_from_db"),SettingsStatus.deleteFromDb);
         flags.put(strRes("piko_pref_video_download"),SettingsStatus.enableVidDownload);
         flags.put(strRes("piko_title_native_downloader"),SettingsStatus.nativeDownloader);
+        flags.put(strEnableRes("piko_pref_enable_vid_auto_advance"),SettingsStatus.enableVidAutoAdvance);
+        flags.put(strEnableRes("piko_pref_enable_force_pip"),SettingsStatus.enableForcePip);
+        flags.put(strRemoveRes("piko_pref_hide_premium_upsell"),SettingsStatus.removePremiumUpsell);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 
@@ -169,5 +173,8 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
     }
     private static String strRemoveRes(String tag) {
         return StringRef.str("piko_pref_remove",strRes(tag));
+    }
+    private static String strEnableRes(String tag) {
+        return StringRef.str("piko_pref_enable",strRes(tag));
     }
 }
