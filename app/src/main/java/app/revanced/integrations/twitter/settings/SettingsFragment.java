@@ -131,6 +131,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+            if (SettingsStatus.hideMainEvent) {
+                adsPrefs.addPreference(
+                        switchPreference(
+                                strRemoveRes("piko_pref_hide_main_event"),
+                                "",
+                                Settings.ADS_HIDE_MAIN_EVENT
+                        )
+                );
+            }
             if (SettingsStatus.hideWTF) {
                 adsPrefs.addPreference(
                         switchPreference(

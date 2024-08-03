@@ -6,7 +6,7 @@ import app.revanced.integrations.twitter.Pref;
 import app.revanced.integrations.twitter.settings.SettingsStatus;
 
 public class TimelineEntry {
-    private static final boolean hideAds,hideGAds,hideWTF,hideCTS,hideCTJ,hideDetailedPosts,hideRBMK,hidePinnedPosts,hidePremiumPrompt;
+    private static final boolean hideAds,hideGAds,hideWTF,hideCTS,hideCTJ,hideDetailedPosts,hideRBMK,hidePinnedPosts,hidePremiumPrompt,hideMainEvent;
     static {
         hideAds = (Pref.hideAds() && SettingsStatus.hideAds);
         hideGAds = (Pref.hideGoogleAds() && SettingsStatus.hideGAds);
@@ -17,6 +17,7 @@ public class TimelineEntry {
         hideRBMK = (Pref.hideRBMK() && SettingsStatus.hideRBMK);
         hidePinnedPosts = (Pref.hideRPinnedPosts() && SettingsStatus.hideRPinnedPosts);
         hidePremiumPrompt = (Pref.hidePremiumPrompt() && SettingsStatus.hidePremiumPrompt);
+        hideMainEvent = (Pref.hideMainEvent() && SettingsStatus.hideMainEvent);
     }
 
 
@@ -50,6 +51,9 @@ public class TimelineEntry {
                 return true;
             }
             if (entryId.startsWith("messageprompt-") && hidePremiumPrompt) {
+                return true;
+            }
+            if (entryId.startsWith("main-event-") && hideMainEvent) {
                 return true;
             }
         }

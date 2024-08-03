@@ -196,6 +196,9 @@ public class Pref {
     public static boolean hideGoogleAds() {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_GOOGLE_ADS);
     }
+    public static boolean hideMainEvent() {
+        return Utils.getBooleanPerf(Settings.ADS_HIDE_MAIN_EVENT);
+    }
 
     public static boolean hideWTF() {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_WHO_TO_FOLLOW);
