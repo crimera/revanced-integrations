@@ -6,7 +6,7 @@ import app.revanced.integrations.twitter.Pref;
 import app.revanced.integrations.twitter.settings.SettingsStatus;
 
 public class TimelineEntry {
-    private static final boolean hideAds,hideGAds,hideWTF,hideCTS,hideCTJ,hideDetailedPosts,hideRBMK,hidePinnedPosts,hidePremiumPrompt,hideMainEvent;
+    private static final boolean hideAds,hideGAds,hideWTF,hideCTS,hideCTJ,hideDetailedPosts,hideRBMK,hidePinnedPosts,hidePremiumPrompt,hideMainEvent,hideSuperheroEvent;
     static {
         hideAds = (Pref.hideAds() && SettingsStatus.hideAds);
         hideGAds = (Pref.hideGoogleAds() && SettingsStatus.hideGAds);
@@ -18,6 +18,7 @@ public class TimelineEntry {
         hidePinnedPosts = (Pref.hideRPinnedPosts() && SettingsStatus.hideRPinnedPosts);
         hidePremiumPrompt = (Pref.hidePremiumPrompt() && SettingsStatus.hidePremiumPrompt);
         hideMainEvent = (Pref.hideMainEvent() && SettingsStatus.hideMainEvent);
+        hideSuperheroEvent = (Pref.hideSuperheroEvent() && SettingsStatus.hideSuperheroEvent);
     }
 
 
@@ -25,13 +26,15 @@ public class TimelineEntry {
         String[] split = entryId.split("-");
         String entryId2 = split[0];
         if (!entryId2.equals("cursor") && !entryId2.equals("Guide") && !entryId2.startsWith("semantic_core")) {
-            if ((entryId2.equals("promoted") || ((entryId2.equals("conversationthread") && split.length == 3) || entryId2.equals("superhero"))) && hideAds) {
+            if (entryId2.equals("promoted") || ((entryId2.equals("conversationthread") && split.length == 3)) && hideAds) {
+                return true;
+            }
+            if (entryId2.equals("superhero") && hideSuperheroEvent) {
                 return true;
             }
             if (entryId2.equals("rtb") && hideGAds) {
                 return true;
             }
-
             if (entryId2.equals("tweetdetailrelatedtweets") && hideDetailedPosts) {
                 return true;
             }

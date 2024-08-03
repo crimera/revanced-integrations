@@ -25,6 +25,7 @@ public class SettingsStatus {
     public static boolean hideAds = false;
     public static boolean hideGAds = false;
     public static boolean hideMainEvent = false;
+    public static boolean hideSuperheroEvent = false;
     public static boolean hideWTF = false;
     public static boolean hideCTS = false;
     public static boolean hideCTJ = false;
@@ -96,6 +97,7 @@ public class SettingsStatus {
     public static void hideAds() { hideAds = true; }
     public static void hideGAds() { hideGAds = true; }
     public static void hideMainEvent() { hideMainEvent = true; }
+    public static void hideSuperheroEvent() { hideSuperheroEvent = true; }
     public static void hideWhoToFollow() { hideWTF = true; }
     public static void hideCreatorsToSub() { hideCTS = true; }
     public static void hideCommToJoin() { hideCTJ = true; }
@@ -118,7 +120,7 @@ public class SettingsStatus {
 
     public static boolean enableTimelineSection(){ return (inlineBarCustomisation || navBarCustomisation || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote|| hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance); }
     public static boolean enableMiscSection() { return (roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns); }
-    public static boolean enableAdsSection() {return (hideAds|| hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK ||hidePromotedTrend || removePremiumUpsell || hideMainEvent); }
+    public static boolean enableAdsSection() {return (hideAds|| hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK ||hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent); }
     public static boolean enableDownloadSection() {return (nativeDownloader || changeDownloadEnabled || mediaLinkHandle); }
 
     public static boolean enablePremiumSection() {return (enableReaderMode || enableUndoPosts || customAppIcon || enableForcePip); }
