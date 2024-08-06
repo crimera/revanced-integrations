@@ -1,3 +1,22 @@
+## [1.23.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.22.1-dev.1...v1.23.0-dev.1) (2024-08-03)
+
+
+### Features
+
+* **Twitter:** Added `Remove main event` patch ([d4b77d0](https://github.com/crimera/revanced-integrations/commit/d4b77d085e2c29f6ca557b08f7bc471b48dbd154))
+
+
+### Refactors
+
+* **Twitter:** Seperated/Added `Remove superhero event` patch ([f87f55b](https://github.com/crimera/revanced-integrations/commit/f87f55b2bc2185e38667b632010364d05317f0c5))
+
+## [1.22.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.22.0...v1.22.1-dev.1) (2024-08-02)
+
+
+### Bug Fixes
+
+* **Twitter:** Fix `Remove premium upsell` patch ([4430494](https://github.com/crimera/revanced-integrations/commit/4430494b25cc967fef70980b8f7ecdd3f1e78c63))
+
 ## [1.22.0](https://github.com/crimera/revanced-integrations/compare/v1.21.1...v1.22.0) (2024-07-31)
 
 
