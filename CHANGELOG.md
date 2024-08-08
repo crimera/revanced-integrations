@@ -1,3 +1,10 @@
+## [1.23.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.23.0...v1.23.1-dev.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* **Twitter - Native Downloader:** Fix only downloading the first two medias, also did some refactoring ([91ef652](https://github.com/crimera/revanced-integrations/commit/91ef652e39b96e005ebeda5f3f72bf19a62db91f))
+
 ## [1.23.0](https://github.com/crimera/revanced-integrations/compare/v1.22.0...v1.23.0) (2024-08-06)
 
 
