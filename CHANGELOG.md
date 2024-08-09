@@ -1,3 +1,10 @@
+## [1.24.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.23.1-dev.1...v1.24.0-dev.1) (2024-08-09)
+
+
+### Features
+
+* **Hook feature flag:** Added ability to search for supported flags. ([4b638fa](https://github.com/crimera/revanced-integrations/commit/4b638fa9fd20af36405dc434a257ba49431f8215))
+
 ## [1.23.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.23.0...v1.23.1-dev.1) (2024-08-08)
 
 
