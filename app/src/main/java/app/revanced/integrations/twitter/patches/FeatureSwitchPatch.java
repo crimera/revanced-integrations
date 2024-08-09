@@ -59,8 +59,7 @@ public class FeatureSwitchPatch {
                 addFeatureFlagSearchItem(flag);
             }
             if (FLAGS.containsKey(flag)) {
-                Object val = FLAGS.get(flag);
-                return val;
+                return FLAGS.get(flag);
             }
         } catch (Exception ex) {
 

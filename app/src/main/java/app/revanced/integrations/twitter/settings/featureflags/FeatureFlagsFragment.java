@@ -136,6 +136,7 @@ public class FeatureFlagsFragment extends Fragment {
         ln.setPadding(50, 50, 50, 50);
 
         EditText flagEditText = new EditText(getContext());
+        // TODO: add string to resources
         flagEditText.setHint("flag");
         flagEditText.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         ln.addView(flagEditText);
