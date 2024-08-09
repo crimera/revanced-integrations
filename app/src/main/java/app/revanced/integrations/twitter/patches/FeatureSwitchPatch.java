@@ -1,13 +1,15 @@
 package app.revanced.integrations.twitter.patches;
 
-import java.util.*;
-
 import app.revanced.integrations.twitter.Pref;
 import app.revanced.integrations.twitter.Utils;
 import app.revanced.integrations.twitter.settings.Settings;
 
+import java.util.HashMap;
+
 public class FeatureSwitchPatch {
-    private static HashMap<String, Object> FLAGS = new HashMap<>();
+    public static String FLAGS_SEARCH = "";
+
+    private static final HashMap<String, Object> FLAGS = new HashMap<>();
 
     private static void addFlag(String flag, Object val) {
         FLAGS.put(flag, val);
@@ -37,18 +39,32 @@ public class FeatureSwitchPatch {
         addFlag("explore_relaunch_enable_immersive_player_across_twitter", Pref.hideImmersivePlayer());
     }
 
+    public static void getFeatureFlagSearchItems() {
+        FLAGS_SEARCH = Utils.getStringPref(Settings.MISC_FEATURE_FLAGS_SEARCH);
+    }
+
+    public static void addFeatureFlagSearchItem(String flag) {
+        if (FLAGS_SEARCH.contains(flag)) {
+            return;
+        }
+
+        FLAGS_SEARCH = FLAGS_SEARCH.concat(flag + ",");
+        Utils.setStringPref(Settings.MISC_FEATURE_FLAGS_SEARCH.key, FLAGS_SEARCH);
+    }
+
     public static Object flagInfo(String flag, Object def) {
         try {
+            if (def instanceof Boolean) {
+                addFeatureFlagSearchItem(flag);
+            }
             if (FLAGS.containsKey(flag)) {
-                Object val = FLAGS.get(flag);
-                return val;
+                return FLAGS.get(flag);
             }
         } catch (Exception ex) {
 
         }
         return def;
     }
-
 
     public static void load() {
         String flags = Utils.getStringPref(Settings.MISC_FEATURE_FLAGS);
