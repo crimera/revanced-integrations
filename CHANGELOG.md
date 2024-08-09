@@ -1,3 +1,10 @@
+## [1.24.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.24.0-dev.1...v1.24.0-dev.2) (2024-08-09)
+
+
+### Bug Fixes
+
+* **Hook feature flag:** Wrong item being added when using search. ([ded8de8](https://github.com/crimera/revanced-integrations/commit/ded8de8678adff8199feb521f1517c4117541aaf))
+
 ## [1.24.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.23.1-dev.1...v1.24.0-dev.1) (2024-08-09)
 
 
