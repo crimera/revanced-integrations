@@ -7,7 +7,6 @@ import app.revanced.integrations.twitter.settings.Settings;
 import java.util.HashMap;
 
 public class FeatureSwitchPatch {
-    // TODO: needs to get replaced into a hashmap for faster lookup times
     public static String FLAGS_SEARCH = "";
 
     private static final HashMap<String, Object> FLAGS = new HashMap<>();

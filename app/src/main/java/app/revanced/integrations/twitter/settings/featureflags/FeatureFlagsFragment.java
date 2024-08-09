@@ -9,7 +9,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -95,19 +94,18 @@ public class FeatureFlagsFragment extends Fragment {
         EditText filter = view.findViewById(Utils.getResourceIdentifier("filterEditText", "id"));
 
         String[] searchFlags = FeatureSwitchPatch.FLAGS_SEARCH.split(",");
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), Utils.getResourceIdentifier("search_item_row", "layout"), Utils.getResourceIdentifier("searchItemText", "id"), searchFlags);
+        FeatureFlagSearchAdapter adapter = new FeatureFlagSearchAdapter(getContext(), searchFlags);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
         filter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                adapter.getFilter().filter(charSequence);
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                adapter.filter(charSequence.toString());
             }
 
             @Override
@@ -149,7 +147,7 @@ public class FeatureFlagsFragment extends Fragment {
         });
 
         // TODO: add string to resources
-        dia.setNeutralButton("Search flags", ((dialogInterface, i) -> {
+        dia.setNeutralButton(Utils.getResourceString("piko_pref_search_flags"), ((dialogInterface, i) -> {
             searchFlagsDialog(adapter);
         }));
 
