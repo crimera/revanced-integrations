@@ -1,3 +1,10 @@
+## [1.24.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.24.0-dev.2...v1.24.0-dev.3) (2024-08-09)
+
+
+### Updates
+
+* **Hook feature flag:** Improve flag matching in search. ([0723804](https://github.com/crimera/revanced-integrations/commit/07238045c1b3da94ceb3be29dab2b98a8bb073c0))
+
 ## [1.24.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.24.0-dev.1...v1.24.0-dev.2) (2024-08-09)
 
 
