@@ -120,7 +120,7 @@ public class FeatureFlagsFragment extends Fragment {
         AlertDialog dialog = dia.create();
 
         listView.setOnItemClickListener((adapterView, view1, i, l) -> {
-            flags.add(new FeatureFlag(searchFlags[i], true));
+            flags.add(new FeatureFlag(adapter.getItem(i), true));
             parentAdapter.notifyItemChanged(flags.size());
             dialog.dismiss();
         });
