@@ -19,6 +19,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting MISC_HIDE_VIEW_COUNT = new BooleanSetting("misc_hide_view_count", true);
     public static final BooleanSetting MISC_BROWSER_CHOOSER = new BooleanSetting("misc_browser_chooser", false);
     public static final StringSetting MISC_FEATURE_FLAGS = new StringSetting("misc_feature_flags", "");
+    public static final StringSetting MISC_FEATURE_FLAGS_SEARCH = new StringSetting("misc_feature_flags_search", "");
     public static final BooleanSetting MISC_ROUND_OFF_NUMBERS = new BooleanSetting("misc_round_off_numbers", true);
     public static final BooleanSetting MISC_DEBUG_MENU = new BooleanSetting("misc_debug_menu", false);
 

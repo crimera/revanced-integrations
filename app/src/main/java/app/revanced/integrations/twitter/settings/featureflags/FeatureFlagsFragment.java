@@ -1,16 +1,22 @@
 package app.revanced.integrations.twitter.settings.featureflags;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.twitter.patches.FeatureSwitchPatch;
 import app.revanced.integrations.twitter.settings.ActivityHook;
 import app.revanced.integrations.twitter.settings.Settings;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -80,6 +86,48 @@ public class FeatureFlagsFragment extends Fragment {
         dia.create().show();
     }
 
+    private void searchFlagsDialog(CustomAdapter parentAdapter) {
+        AlertDialog.Builder dia = new AlertDialog.Builder(getContext());
+        dia.setTitle(Utils.getResourceString("piko_pref_add_flag_title"));
+
+        @SuppressLint({"NewApi", "LocalSuppress"}) View view = getLayoutInflater().inflate(Utils.getResourceIdentifier("search_dialog", "layout"), null);
+        ListView listView = view.findViewById(Utils.getResourceIdentifier("featureFlagsSearchListView", "id"));
+        EditText filter = view.findViewById(Utils.getResourceIdentifier("filterEditText", "id"));
+
+        String[] searchFlags = FeatureSwitchPatch.FLAGS_SEARCH.split(",");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), Utils.getResourceIdentifier("search_item_row", "layout"), Utils.getResourceIdentifier("searchItemText", "id"), searchFlags);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        filter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        dia.setView(view);
+        AlertDialog dialog = dia.create();
+
+        listView.setOnItemClickListener((adapterView, view1, i, l) -> {
+            flags.add(new FeatureFlag(searchFlags[i], true));
+            parentAdapter.notifyItemChanged(flags.size());
+            dialog.dismiss();
+        });
+
+        dialog.show();
+    }
+
     public void addFlag(CustomAdapter adapter) {
         AlertDialog.Builder dia = new AlertDialog.Builder(getContext());
         dia.setTitle(Utils.getResourceString("piko_pref_add_flag_title"));
@@ -98,6 +146,11 @@ public class FeatureFlagsFragment extends Fragment {
             adapter.notifyItemChanged(flags.size());
             saveFlags();
         });
+
+        // TODO: add string to resources
+        dia.setNeutralButton("Search flags", ((dialogInterface, i) -> {
+            searchFlagsDialog(adapter);
+        }));
 
         dia.setNegativeButton(Utils.getResourceString("cancel"), null);
 
