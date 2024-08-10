@@ -1,3 +1,10 @@
+## [1.24.1](https://github.com/crimera/revanced-integrations/compare/v1.24.0...v1.24.1) (2024-08-10)
+
+
+### Bug Fixes
+
+* **Twitter:** Fix `Remove videos for you` patch setting ([6dd77e0](https://github.com/crimera/revanced-integrations/commit/6dd77e05b50d96510980693442c38ef5a755b632))
+
 ## [1.24.0](https://github.com/crimera/revanced-integrations/compare/v1.23.0...v1.24.0) (2024-08-10)
 
 
