@@ -200,6 +200,11 @@ public class Pref {
     public static boolean hideMainEvent() {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_MAIN_EVENT);
     }
+
+    public static boolean hideVideosForYou() {
+        return Utils.getBooleanPerf(Settings.ADS_HIDE_VIDEOS_FOR_YOU);
+    }
+
     public static boolean hideSuperheroEvent() {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_SUPERHERO_EVENT);
     }
