@@ -1,3 +1,20 @@
+## [1.24.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.24.0-dev.3...v1.24.0-dev.4) (2024-08-10)
+
+
+### Bug Fixes
+
+* **Twitter:** fix `Remove videos for you` patch ([8d86a1b](https://github.com/crimera/revanced-integrations/commit/8d86a1be168f67a64630de8b8924c449b39e16a3))
+
+
+### Features
+
+* **Twitter:** Added `Remove videos for you` patch ([1eaba5b](https://github.com/crimera/revanced-integrations/commit/1eaba5b6649ade1bf08b40a933f5aea01201e725))
+
+
+### Refactors
+
+* **Twitter:** Added quick settings button in side drawer ([7fe7013](https://github.com/crimera/revanced-integrations/commit/7fe701314b1f4e7ab1b3ec515e7252c5a6a62456))
+
 ## [1.24.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.24.0-dev.2...v1.24.0-dev.3) (2024-08-09)
 
 
