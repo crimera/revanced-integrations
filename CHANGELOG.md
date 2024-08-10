@@ -1,3 +1,28 @@
+## [1.24.0](https://github.com/crimera/revanced-integrations/compare/v1.23.0...v1.24.0) (2024-08-10)
+
+
+### Bug Fixes
+
+* **Hook feature flag:** Wrong item being added when using search. ([ded8de8](https://github.com/crimera/revanced-integrations/commit/ded8de8678adff8199feb521f1517c4117541aaf))
+* **Twitter - Native Downloader:** Fix only downloading the first two medias, also did some refactoring ([91ef652](https://github.com/crimera/revanced-integrations/commit/91ef652e39b96e005ebeda5f3f72bf19a62db91f))
+* **Twitter:** fix `Remove videos for you` patch ([8d86a1b](https://github.com/crimera/revanced-integrations/commit/8d86a1be168f67a64630de8b8924c449b39e16a3))
+
+
+### Features
+
+* **Hook feature flag:** Added ability to search for supported flags. ([4b638fa](https://github.com/crimera/revanced-integrations/commit/4b638fa9fd20af36405dc434a257ba49431f8215))
+* **Twitter:** Added `Remove videos for you` patch ([1eaba5b](https://github.com/crimera/revanced-integrations/commit/1eaba5b6649ade1bf08b40a933f5aea01201e725))
+
+
+### Updates
+
+* **Hook feature flag:** Improve flag matching in search. ([0723804](https://github.com/crimera/revanced-integrations/commit/07238045c1b3da94ceb3be29dab2b98a8bb073c0))
+
+
+### Refactors
+
+* **Twitter:** Added quick settings button in side drawer ([7fe7013](https://github.com/crimera/revanced-integrations/commit/7fe701314b1f4e7ab1b3ec515e7252c5a6a62456))
+
 ## [1.24.0-dev.4](https://github.com/crimera/revanced-integrations/compare/v1.24.0-dev.3...v1.24.0-dev.4) (2024-08-10)
 
 
