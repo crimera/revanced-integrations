@@ -61,7 +61,7 @@ public class TimelineEntry {
             if (entryId.startsWith("main-event-") && hideMainEvent) {
                 return true;
             }
-            if (entryId.contains("-tweet-") && hideVideosForYou) {
+            if (entryId2.equals("tweet") && entryId.contains("-tweet-") && hideVideosForYou) {
                 return true;
             }
         }
