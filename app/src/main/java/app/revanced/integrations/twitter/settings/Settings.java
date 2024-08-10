@@ -19,6 +19,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting MISC_HIDE_VIEW_COUNT = new BooleanSetting("misc_hide_view_count", true);
     public static final BooleanSetting MISC_BROWSER_CHOOSER = new BooleanSetting("misc_browser_chooser", false);
     public static final StringSetting MISC_FEATURE_FLAGS = new StringSetting("misc_feature_flags", "");
+    public static final StringSetting MISC_FEATURE_FLAGS_SEARCH = new StringSetting("misc_feature_flags_search", "");
     public static final BooleanSetting MISC_ROUND_OFF_NUMBERS = new BooleanSetting("misc_round_off_numbers", true);
     public static final BooleanSetting MISC_DEBUG_MENU = new BooleanSetting("misc_debug_menu", false);
 
@@ -27,6 +28,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ADS_HIDE_GOOGLE_ADS = new BooleanSetting("ads_hide_google_ads", true);
     public static final BooleanSetting ADS_HIDE_MAIN_EVENT = new BooleanSetting("ads_hide_main_event", false);
     public static final BooleanSetting ADS_HIDE_SUPERHERO_EVENT = new BooleanSetting("ads_hide_superhero_event", true);
+    public static final BooleanSetting ADS_HIDE_VIDEOS_FOR_YOU = new BooleanSetting("ads_hide_videos_for_you", true);
     public static final BooleanSetting ADS_HIDE_WHO_TO_FOLLOW = new BooleanSetting("ads_hide_who_to_follow", true);
     public static final BooleanSetting ADS_HIDE_CREATORS_TO_SUB = new BooleanSetting("ads_hide_creators_to_sub", true);
     public static final BooleanSetting ADS_HIDE_COMM_TO_JOIN = new BooleanSetting("ads_hide_comm_to_join", true);
