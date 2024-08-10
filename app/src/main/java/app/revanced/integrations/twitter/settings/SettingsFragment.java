@@ -149,6 +149,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+            if (SettingsStatus.hideVideosForYou) {
+                adsPrefs.addPreference(
+                        switchPreference(
+                                strRemoveRes("piko_pref_hide_videos_for_you"),
+                                "",
+                                Settings.ADS_HIDE_SUPERHERO_EVENT
+                        )
+                );
+            }
             if (SettingsStatus.hideWTF) {
                 adsPrefs.addPreference(
                         switchPreference(

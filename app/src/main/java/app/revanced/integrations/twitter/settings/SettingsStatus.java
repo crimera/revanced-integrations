@@ -28,6 +28,7 @@ public class SettingsStatus {
     public static boolean hideGAds = false;
     public static boolean hideMainEvent = false;
     public static boolean hideSuperheroEvent = false;
+    public static boolean hideVideosForYou = false;
     public static boolean hideWTF = false;
     public static boolean hideCTS = false;
     public static boolean hideCTJ = false;
@@ -199,6 +200,10 @@ public class SettingsStatus {
         hideMainEvent = true;
     }
 
+    public static void hideVideosForYou() {
+        hideVideosForYou = true;
+    }
+
     public static void hideSuperheroEvent() {
         hideSuperheroEvent = true;
     }
@@ -280,7 +285,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableAdsSection() {
-        return (hideAds || hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK || hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent);
+        return (hideAds || hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK || hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent || hideVideosForYou);
     }
 
     public static boolean enableDownloadSection() {
