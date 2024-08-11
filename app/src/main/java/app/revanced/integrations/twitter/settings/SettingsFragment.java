@@ -662,7 +662,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             entriesValues = new CharSequence[]{"Reply","Retweet", "Favorite","ViewCount","AddRemoveBookmarks", "TwitterShare"};
         }else if (key == Settings.CUSTOM_DEF_REPLY_SORTING.key) {
             entries = Utils.getResourceStringArray("piko_array_reply_sorting");
-            entriesValues = new CharSequence[]{"Relevance","Recency", "Likes"};
+            entriesValues = new CharSequence[]{"Relevance","Recency", "Likes","LastPostion"};
         }
         preference.setEntries(entries);
         preference.setEntryValues(entriesValues);
