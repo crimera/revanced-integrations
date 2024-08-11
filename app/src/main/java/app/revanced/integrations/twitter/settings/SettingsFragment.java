@@ -412,6 +412,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+
+            if (SettingsStatus.defaultReplySortFilter) {
+                customisationPrefs.addPreference(
+                        listPreference(
+                                strRes("piko_pref_customisation_reply_sorting"),
+                                "",
+                                Settings.CUSTOM_DEF_REPLY_SORTING
+                        )
+                );
+            }
         }
 
         //Timeline Section
@@ -650,6 +660,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }else if (key == Settings.CUSTOM_INLINE_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_inlinetabs");
             entriesValues = new CharSequence[]{"Reply","Retweet", "Favorite","ViewCount","AddRemoveBookmarks", "TwitterShare"};
+        }else if (key == Settings.CUSTOM_DEF_REPLY_SORTING.key) {
+            entries = Utils.getResourceStringArray("piko_array_reply_sorting");
+            entriesValues = new CharSequence[]{"Relevance","Recency", "Likes","LastPostion"};
         }
         preference.setEntries(entries);
         preference.setEntryValues(entriesValues);

@@ -53,6 +53,7 @@ public class SettingsStatus {
     public static boolean navBarCustomisation = false;
     public static boolean inlineBarCustomisation = false;
     public static boolean mediaLinkHandle = false;
+    public static boolean defaultReplySortFilter = false;
 
     public static boolean selectableText = false;
     public static boolean showSensitiveMedia = false;
@@ -272,12 +273,16 @@ public class SettingsStatus {
         navBarCustomisation = true;
     }
 
+    public static void defaultReplySortFilter() {
+        defaultReplySortFilter = true;
+    }
+
     public static void inlineBarCustomisation() {
         inlineBarCustomisation = true;
     }
 
     public static boolean enableTimelineSection() {
-        return (inlineBarCustomisation || navBarCustomisation || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance);
+        return ( disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance);
     }
 
     public static boolean enableMiscSection() {
@@ -297,7 +302,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableCustomisationSection() {
-        return (navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation);
+        return (inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
     }
 
     public static void load() {
