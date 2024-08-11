@@ -1,3 +1,11 @@
+## [1.25.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.24.1-dev.1...v1.25.0-dev.1) (2024-08-11)
+
+
+### Features
+
+* **Twitter:** Added `Customize reply sort filter` patch ([a231147](https://github.com/crimera/revanced-integrations/commit/a231147949485304562cbe328b1e1d74b90052bd))
+* **Twitter:** Added Remember filter for `Customize reply sort filter` ([da2cfce](https://github.com/crimera/revanced-integrations/commit/da2cfcec36e78d610187dac6ef585004f95c3138))
+
 ## [1.24.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.24.0...v1.24.1-dev.1) (2024-08-10)
 
 
