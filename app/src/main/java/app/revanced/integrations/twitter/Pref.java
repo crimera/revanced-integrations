@@ -282,5 +282,7 @@ public class Pref {
         return getList(Settings.CUSTOM_INLINE_TABS.key);
     }
 
+    public static String defaultReplySortFilter() {return Utils.getStringPref(Settings.CUSTOM_DEF_REPLY_SORTING);}
+
     //end
 }
