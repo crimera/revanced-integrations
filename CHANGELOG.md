@@ -1,3 +1,10 @@
+## [1.25.1](https://github.com/crimera/revanced-integrations/compare/v1.25.0...v1.25.1) (2024-08-12)
+
+
+### Bug Fixes
+
+* **Native Downloader:** Fix filename using wrong username on reposts. ([2350151](https://github.com/crimera/revanced-integrations/commit/235015191878e369f6b65684e4ebb5b6f15ece3a))
+
 ## [1.25.0](https://github.com/crimera/revanced-integrations/compare/v1.24.1...v1.25.0) (2024-08-12)
 
 
