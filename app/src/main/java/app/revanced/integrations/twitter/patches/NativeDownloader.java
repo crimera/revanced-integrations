@@ -153,7 +153,7 @@ public class NativeDownloader {
             HashMap<String, String> media = mediaData.get(which);
 
             Utils.toast(Utils.strRes("download_started"));
-            Utils.downloadFile(media.get("url"), filename + (which+1), media.get("ext"));
+            Utils.downloadFile(media.get("url"), filename + (which + 1), media.get("ext"));
         });
 
         builder.setNegativeButton(Utils.strRes("piko_pref_native_downloader_download_all"), (dialogInterface, index) -> {
@@ -178,25 +178,12 @@ public class NativeDownloader {
         Long id = (Long) getIdMethod.invoke(tweet);
         assert id != null;
 
-        Method getUserNameMethod = null;
-        Method getMediaMethod = null;
-
-        int c = 0, ind = 0;
-        Method[] methods = tweetClass.getDeclaredMethods();
-        for (Method method : methods) {
-            if (method.getReturnType().equals(String.class) && c < 5) {
-                c++;
-                if (c == 3) {
-                    getUserNameMethod = tweetClass.getDeclaredMethod(method.getName());
-                } else if (c == 4) {
-                    getMediaMethod = tweetClass.getDeclaredMethod(methods[ind + 1].getName());
-                    break;
-                }
-                continue;
-            }
-
-            ind++;
-        }
+        /*
+          Check how many versions this naive implementation lasts. checked until
+          versions 10.48 and the method names were the same.
+         */
+        Method getUserNameMethod = tweetClass.getDeclaredMethod("q");
+        Method getMediaMethod = tweetClass.getDeclaredMethod("b");
 
         String username = (String) getUserNameMethod.invoke(tweet);
         Object obj = getMediaMethod.invoke(tweet);
