@@ -282,5 +282,18 @@ public class Pref {
         return getList(Settings.CUSTOM_INLINE_TABS.key);
     }
 
+    public static String defaultReplySortFilter() {
+        String sortfilter = Utils.getStringPref(Settings.CUSTOM_DEF_REPLY_SORTING);
+        if(sortfilter.equals("LastPostion")){
+            sortfilter = Utils.getStringPref(Settings.REPLY_SORTING_LAST_FILTER);
+        }
+        return sortfilter;
+    }
+
+    public static void setReplySortFilter(String sortfilter) {
+        sortfilter = sortfilter.length()>0?sortfilter:"Likes";
+        Utils.setStringPref(Settings.REPLY_SORTING_LAST_FILTER.key,sortfilter);
+    }
+
     //end
 }
