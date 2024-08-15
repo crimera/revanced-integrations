@@ -1,3 +1,10 @@
+## [1.26.0](https://github.com/crimera/revanced-integrations/compare/v1.25.1...v1.26.0) (2024-08-15)
+
+
+### Features
+
+* Quick settings button is now optional ([bf89107](https://github.com/crimera/revanced-integrations/commit/bf89107981979a032298622cc9e80fc51b21110b))
+
 ## [1.26.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.25.1...v1.26.0-dev.1) (2024-08-15)
 
 
