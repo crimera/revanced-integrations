@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatButton;
-import app.revanced.integrations.twitter.settings.ActivityHook;
 import app.revanced.integrations.twitter.Utils;
 
 public class PikoSettingsButton extends AppCompatButton implements View.OnClickListener {
@@ -28,14 +27,19 @@ public class PikoSettingsButton extends AppCompatButton implements View.OnClickL
     // Initialization method
     private void init() {
         setOnClickListener(this);
+        if (!Utils.getBooleanPerf(Settings.MISC_QUICK_SETTINGS_BUTTON)) {
+            setVisibility(GONE);
+        }
     }
 
     // Override the onClick method
     @Override
     public void onClick(View v) {
-        try{
+        try {
             ActivityHook.startSettingsActivity();
-        }catch (Exception e){Utils.logger(e);}
+        } catch (Exception e) {
+            Utils.logger(e);
+        }
 
     }
 }

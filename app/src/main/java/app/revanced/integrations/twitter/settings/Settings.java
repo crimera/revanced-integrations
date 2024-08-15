@@ -22,6 +22,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting MISC_FEATURE_FLAGS_SEARCH = new StringSetting("misc_feature_flags_search", "");
     public static final BooleanSetting MISC_ROUND_OFF_NUMBERS = new BooleanSetting("misc_round_off_numbers", true);
     public static final BooleanSetting MISC_DEBUG_MENU = new BooleanSetting("misc_debug_menu", false);
+    public static final BooleanSetting MISC_QUICK_SETTINGS_BUTTON = new BooleanSetting("misc_quick_settings_button", false);
 
     public static final BooleanSetting ADS_HIDE_PROMOTED_TRENDS = new BooleanSetting("ads_hide_promoted_trends", true);
     public static final BooleanSetting ADS_HIDE_PROMOTED_POSTS = new BooleanSetting("ads_hide_promoted_posts", true);

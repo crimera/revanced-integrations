@@ -260,7 +260,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         }
 
-        //Misc Section
+        //misc Section
         if (SettingsStatus.enableMiscSection()) {
             LegacyTwitterPreferenceCategory miscPrefs = preferenceCategory(strRes("piko_title_misc"), screen);
             if (SettingsStatus.enableFontMod) {
@@ -350,6 +350,14 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+
+            miscPrefs.addPreference(
+              switchPreference(
+                      strRes("piko_pref_quick_settings"),
+                      strRes("piko_pref_quick_settings_summary"),
+                      Settings.MISC_QUICK_SETTINGS_BUTTON
+              )
+            );
 
             if (SettingsStatus.featureFlagsEnabled) {
                 miscPrefs.addPreference(
