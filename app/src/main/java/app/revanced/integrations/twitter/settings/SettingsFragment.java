@@ -692,7 +692,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             entriesValues = new CharSequence[]{"tweets", "tweets_replies", "affiliated", "subs", "highlights", "articles", "media", "likes"};
         }else if (key == Settings.CUSTOM_SIDEBAR_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_sidebar");
-            entriesValues = new CharSequence[]{"Profile","TwitterBlueNonSubscriber", "Grok","DMs","Communities","Bookmarks","Lists","TopArticles","BirdwatchNotes","Spaces","PendingFollowers","Monetization","ProfessionalToolsGroup","MediaTransparency","Imprint"};
+            entriesValues = new CharSequence[]{"Profile","Premium", "Grok","DMs","Communities","Bookmarks","Lists","TopArticles","BirdwatchNotes","Spaces","PendingFollowers","Monetization","ProfessionalToolsGroup","MediaTransparency","Imprint","SettingsAndSupportGroup"};
         }else if (key == Settings.CUSTOM_NAVBAR_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_navbar");
             entriesValues = new CharSequence[]{"HOME","GUIDE", "SPACES","COMMUNITIES","NOTIFICATIONS","CONNECT","COMMUNITY_NOTES","BOOKMARKS","DMS","GROK","MEDIA_TAB"};
