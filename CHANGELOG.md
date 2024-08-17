@@ -1,3 +1,15 @@
+## [1.26.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.26.0...v1.26.1-dev.1) (2024-08-16)
+
+
+### Bug Fixes
+
+* **Twitter:** Fix hide 'Premium' in `Customize side bar items` ([d5b3205](https://github.com/crimera/revanced-integrations/commit/d5b3205f4cca26d80fdd4b6aa4f9857009e60349))
+
+
+### Updates
+
+* **Twitter:** Added hide 'Settings and privacy' in `Customize side bar items` ([bdd76d3](https://github.com/crimera/revanced-integrations/commit/bdd76d33e9ca88273c1d85270edcc94f211cc68f))
+
 ## [1.26.0](https://github.com/crimera/revanced-integrations/compare/v1.25.1...v1.26.0) (2024-08-15)
 
 
