@@ -1,3 +1,15 @@
+## [1.26.2-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.26.1...v1.26.2-dev.1) (2024-08-18)
+
+
+### Bug Fixes
+
+* **Feature Flags:** Use ListView instead of RecyclerView for a more reliable list. ([7136241](https://github.com/crimera/revanced-integrations/commit/7136241b30af197250796d57119a50bc27ea495e))
+
+
+### Updates
+
+* Arrange some settings ([5583258](https://github.com/crimera/revanced-integrations/commit/558325878193a3180d76530e2e28f5626cfeeff9))
+
 ## [1.26.1](https://github.com/crimera/revanced-integrations/compare/v1.26.0...v1.26.1) (2024-08-17)
 
 
