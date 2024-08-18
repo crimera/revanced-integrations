@@ -551,6 +551,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+            if (SettingsStatus.enableForceHD) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strEnableRes("piko_pref_force_hd"),
+                                strRes("piko_pref_force_hd_desc"),
+                                Settings.TIMELINE_ENABLE_VID_FORCE_HD
+                        )
+                );
+            }
 
 
         }
