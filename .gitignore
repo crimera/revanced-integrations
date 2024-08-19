@@ -10,3 +10,5 @@
 .cxx
 local.properties
 node_modules
+/stub/src/main/java/L*
+/app/src/main/java/app/revanced/integrations/twitter/test*

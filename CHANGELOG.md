@@ -1,3 +1,27 @@
+## [1.27.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.26.2-dev.1...v1.27.0-dev.1) (2024-08-18)
+
+
+### Features
+
+* **Twitter:** Added `Enable force HD videos` patch ([163b0cb](https://github.com/crimera/revanced-integrations/commit/163b0cb75da05982bbdf7ee27de6c542aa055c9d))
+
+
+### Refactors
+
+* **Twitter:** Refactor patch info text for `Customize reply sort filter` ([dc036bc](https://github.com/crimera/revanced-integrations/commit/dc036bcecf2031b8fe0c2cf0b5356c7079bc6dd8))
+
+## [1.26.2-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.26.1...v1.26.2-dev.1) (2024-08-18)
+
+
+### Bug Fixes
+
+* **Feature Flags:** Use ListView instead of RecyclerView for a more reliable list. ([7136241](https://github.com/crimera/revanced-integrations/commit/7136241b30af197250796d57119a50bc27ea495e))
+
+
+### Updates
+
+* Arrange some settings ([5583258](https://github.com/crimera/revanced-integrations/commit/558325878193a3180d76530e2e28f5626cfeeff9))
+
 ## [1.26.1](https://github.com/crimera/revanced-integrations/compare/v1.26.0...v1.26.1) (2024-08-17)
 
 

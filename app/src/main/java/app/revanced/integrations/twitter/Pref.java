@@ -7,9 +7,10 @@ import java.util.*;
 
 @SuppressWarnings("unused")
 public class Pref {
-    public static boolean ROUND_OFF_NUMBERS;
+    public static boolean ROUND_OFF_NUMBERS,ENABLE_FORCE_HD;
     static{
         ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
+        ENABLE_FORCE_HD = enableForceHD();
     }
 
     public static boolean redirect(TabLayout$g g) {return Utils.redirect(g);}
@@ -180,6 +181,9 @@ public class Pref {
             return false;
         }
         return bool;
+    }
+    public static boolean enableForceHD(){
+        return Utils.getBooleanPerf(Settings.TIMELINE_ENABLE_VID_FORCE_HD);
     }
 
     public static boolean hidePromotedTrend(Object data) {
