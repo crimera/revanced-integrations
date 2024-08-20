@@ -18,7 +18,7 @@ public class DeepLink {
 
             if(deeplinkSegments.size() < 2) return false;
 
-            if(!(deeplinkSegments.get(0).toLowerCase().equals("i"))) return false;
+            if(!(deeplinkSegments.get(0).equals("i"))) return false;
 
             String mainPath = deeplinkSegments.get(1).toLowerCase();
             boolean isPiko = mainPath.equals("piko") || mainPath.equals("pikosettings");
@@ -27,7 +27,7 @@ public class DeepLink {
                 ActivityHook.startSettingsActivity();
                 return true;
             }else if(mainPath.equals("flags")){
-                ActivityHook.startFeatureFlagsActivity();
+                ActivityHook.startActivity(Settings.MISC_FEATURE_FLAGS.key);
                 return true;
             }
         }catch(Exception e){

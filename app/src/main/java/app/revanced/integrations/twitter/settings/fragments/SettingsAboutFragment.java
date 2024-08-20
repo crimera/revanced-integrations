@@ -1,4 +1,4 @@
-package app.revanced.integrations.twitter.settings;
+package app.revanced.integrations.twitter.settings.fragments;
 
 import android.text.*;
 import android.text.style.ForegroundColorSpan;
@@ -13,6 +13,9 @@ import com.twitter.ui.widget.LegacyTwitterPreferenceCategory;
 import app.revanced.integrations.BuildConfig;
 import java.util.*;
 import app.revanced.integrations.shared.StringRef;
+import app.revanced.integrations.twitter.settings.Settings;
+import app.revanced.integrations.twitter.settings.ActivityHook;
+import app.revanced.integrations.twitter.settings.SettingsStatus;
 
 @SuppressWarnings("deprecation")
 public class SettingsAboutFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
