@@ -20,6 +20,7 @@ public class SettingsStatus {
     public static boolean browserChooserEnabled = false;
     public static boolean featureFlagsEnabled = false;
     public static boolean forceTranslate = false;
+    public static boolean enableForceHD = false;
     public static boolean hidePromoteButton = false;
     public static boolean roundOffNumbers = false;
     public static boolean enableDebugMenu = false;
@@ -180,6 +181,10 @@ public class SettingsStatus {
         hideHiddenReplies = true;
     }
 
+    public static void enableForceHD() {
+        enableForceHD = true;
+    }
+
     public static void hidePromoteButton() {
         hidePromoteButton = true;
     }
@@ -282,7 +287,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableTimelineSection() {
-        return ( disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance);
+        return ( disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
     }
 
     public static boolean enableMiscSection() {

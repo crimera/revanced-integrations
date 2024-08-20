@@ -54,6 +54,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
 
+                if (SettingsStatus.enableForcePip) {
+                    premiumPrefs.addPreference(
+                            switchPreference(
+                                    strEnableRes("piko_pref_enable_force_pip"),
+                                    strRes("piko_pref_enable_force_pip_desc"),
+                                    Settings.PREMIUM_ENABLE_FORCE_PIP
+                            )
+                    );
+                }
+
                 premiumPrefs.addPreference(
                         buttonPreference(
                                 strRes("piko_pref_undo_posts_btn"),
@@ -62,21 +72,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         )
                 );
             }
+
             if (SettingsStatus.customAppIcon || SettingsStatus.navBarCustomisation) {
                 premiumPrefs.addPreference(
                         buttonPreference(
                                 strRes("piko_pref_icon_n_navbar_btn"),
                                 "",
                                 Settings.PREMIUM_ICONS.key
-                        )
-                );
-            }
-            if (SettingsStatus.enableForcePip) {
-                premiumPrefs.addPreference(
-                        switchPreference(
-                                strEnableRes("piko_pref_enable_force_pip"),
-                                strRes("piko_pref_enable_force_pip_desc"),
-                                Settings.PREMIUM_ENABLE_FORCE_PIP
                         )
                 );
             }
@@ -321,16 +323,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 );
             }
 
-            if (SettingsStatus.customSharingDomainEnabled) {
-                miscPrefs.addPreference(
-                        editTextPreference(
-                                strRes("piko_pref_custom_share_domain"),
-                                strRes("piko_pref_custom_share_domain_desc"),
-                                Settings.CUSTOM_SHARING_DOMAIN
-                        )
-                );
-            }
-
             if (SettingsStatus.roundOffNumbers) {
                 miscPrefs.addPreference(
                         switchPreference(
@@ -358,6 +350,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                       Settings.MISC_QUICK_SETTINGS_BUTTON
               )
             );
+
+            if (SettingsStatus.customSharingDomainEnabled) {
+                miscPrefs.addPreference(
+                        editTextPreference(
+                                strRes("piko_pref_custom_share_domain"),
+                                strRes("piko_pref_custom_share_domain_desc"),
+                                Settings.CUSTOM_SHARING_DOMAIN
+                        )
+                );
+            }
 
             if (SettingsStatus.featureFlagsEnabled) {
                 miscPrefs.addPreference(
@@ -546,6 +548,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                 strRemoveRes("piko_pref_hide_hidden_replies"),
                                 "",
                                 Settings.TIMELINE_HIDE_HIDDEN_REPLIES
+                        )
+                );
+            }
+            if (SettingsStatus.enableForceHD) {
+                timelinePrefs.addPreference(
+                        switchPreference(
+                                strEnableRes("piko_pref_force_hd"),
+                                strRes("piko_pref_force_hd_desc"),
+                                Settings.TIMELINE_ENABLE_VID_FORCE_HD
                         )
                 );
             }

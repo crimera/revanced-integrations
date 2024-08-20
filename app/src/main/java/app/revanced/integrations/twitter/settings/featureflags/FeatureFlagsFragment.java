@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.twitter.patches.FeatureSwitchPatch;
 import app.revanced.integrations.twitter.settings.ActivityHook;
@@ -49,7 +47,7 @@ public class FeatureFlagsFragment extends Fragment {
         app.revanced.integrations.twitter.Utils.setStringPref(Settings.MISC_FEATURE_FLAGS.key, FeatureFlag.toStringPref(flags));
     }
 
-    public void modifyFlag(CustomAdapter adapter, int position) {
+    public void modifyFlag(FeatureFlagAdapter adapter, int position) {
         FeatureFlag flag = flags.get(position);
 
         AlertDialog.Builder dia = new AlertDialog.Builder(getContext());
@@ -67,14 +65,14 @@ public class FeatureFlagsFragment extends Fragment {
             String editTextValue = flagEditText.getText().toString();
             if (!editTextValue.equals(flag.getName())) {
                 flags.set(position, new FeatureFlag(flagEditText.getText().toString(), flag.getEnabled()));
-                adapter.notifyItemChanged(position);
+                adapter.notifyDataSetChanged();
                 saveFlags();
             }
         });
 
         dia.setNeutralButton(Utils.getResourceString("remove"), ((dialogInterface, i) -> {
             flags.remove(position);
-            adapter.c.f(position, 1);
+            adapter.notifyDataSetChanged();
             saveFlags();
         }));
 
@@ -85,7 +83,7 @@ public class FeatureFlagsFragment extends Fragment {
         dia.create().show();
     }
 
-    private void searchFlagsDialog(CustomAdapter parentAdapter) {
+    private void searchFlagsDialog(FeatureFlagAdapter parentAdapter) {
         AlertDialog.Builder dia = new AlertDialog.Builder(getContext());
         dia.setTitle(Utils.getResourceString("piko_pref_add_flag_title"));
 
@@ -119,14 +117,15 @@ public class FeatureFlagsFragment extends Fragment {
 
         listView.setOnItemClickListener((adapterView, view1, i, l) -> {
             flags.add(new FeatureFlag(adapter.getItem(i), true));
-            parentAdapter.notifyItemChanged(flags.size());
+            parentAdapter.notifyDataSetChanged();
+            saveFlags();
             dialog.dismiss();
         });
 
         dialog.show();
     }
 
-    public void addFlag(CustomAdapter adapter) {
+    public void addFlag(FeatureFlagAdapter adapter) {
         AlertDialog.Builder dia = new AlertDialog.Builder(getContext());
         dia.setTitle(Utils.getResourceString("piko_pref_add_flag_title"));
 
@@ -142,7 +141,7 @@ public class FeatureFlagsFragment extends Fragment {
         dia.setPositiveButton(Utils.getResourceString("save"), (dialogInterface, i) -> {
             String editTextValue = flagEditText.getText().toString();
             flags.add(new FeatureFlag(editTextValue, true));
-            adapter.notifyItemChanged(flags.size());
+            adapter.notifyDataSetChanged();
             saveFlags();
         });
 
@@ -163,12 +162,15 @@ public class FeatureFlagsFragment extends Fragment {
         View view = inflater.inflate(Utils.getResourceIdentifier("feature_flags_view", "layout"), container, false);
         FloatingActionButton floatingActionButton = view.findViewById(Utils.getResourceIdentifier("add_flag", "id"));
 
-        RecyclerView rc = view.findViewById(Utils.getResourceIdentifier("list", "id"));
-        rc.setLayoutManager(new LinearLayoutManager(1));
+        ListView rc = view.findViewById(Utils.getResourceIdentifier("list", "id"));
         rc.setClipToPadding(false);
         rc.setPadding(0, 0, 0, 200);
 
-        CustomAdapter adapter = new CustomAdapter(flags);
+        FeatureFlagAdapter adapter = new FeatureFlagAdapter(getContext(), flags);
+
+        rc.setOnItemClickListener((adapterView, view1, i, l) -> {
+            app.revanced.integrations.twitter.Utils.toast(adapter.getItem(i).getName());
+        });
 
         floatingActionButton.setOnClickListener(view1 -> addFlag(adapter));
 
