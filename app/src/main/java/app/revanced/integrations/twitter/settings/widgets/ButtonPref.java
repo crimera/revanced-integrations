@@ -1,4 +1,4 @@
-package app.revanced.integrations.twitter.settings.widget;
+package app.revanced.integrations.twitter.settings.widgets;
 
 
 import android.content.Context;
@@ -15,10 +15,18 @@ import app.revanced.integrations.twitter.settings.fragments.*;
 
 public class ButtonPref extends Preference {
     private Context context;
+    private String iconName;
 
     public ButtonPref(Context context) {
         super(context);
         this.context = context;
+        init();
+    }
+
+    public ButtonPref(Context context,String iconName) {
+        super(context);
+        this.context = context;
+        this.iconName = iconName;
         init();
     }
 
@@ -35,6 +43,9 @@ public class ButtonPref extends Preference {
     }
 
     private void init() {
+        if(iconName!=null){
+            setIcon(app.revanced.integrations.shared.Utils.getResourceIdentifier(iconName, "drawable"));
+        }
         setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {

@@ -58,19 +58,6 @@ public class Utils {
         startActivityFromClassName(className);
     }
 
-    public static void startBackupActivity(Context context,boolean featureFlag) {
-        Intent intent = new Intent(context, BackupPrefFragment.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("featureFlag", featureFlag);
-        context.startActivity(intent);
-    }
-
-    public static void startRestoreActivity(boolean featureFlag) {
-        Intent intent = new Intent(ctx, RestorePrefFragment.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("featureFlag", featureFlag);
-        ctx.startActivity(intent);
-    }
 
     private static void startBookmarkActivity() {
         String className = "com.twitter.app.bookmarks.legacy.BookmarkActivity";

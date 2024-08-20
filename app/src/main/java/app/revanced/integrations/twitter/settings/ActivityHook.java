@@ -26,6 +26,22 @@ public class ActivityHook {
             fragment = new SettingsFragment();
         }else if (intent.getBooleanExtra(Settings.MISC_FEATURE_FLAGS.key, false)) {
             fragment = new FeatureFlagsFragment();
+        }else if (intent.getBooleanExtra(Settings.PREMIUM_SECTION.key, false)) {
+            fragment = new PremiumFragment();
+        }else if (intent.getBooleanExtra(Settings.DOWNLOAD_SECTION.key, false)) {
+            fragment = new DownloadFragment();
+        }else if (intent.getBooleanExtra(Settings.FLAGS_SECTION.key, false)) {
+            fragment = new FlagsFragment();
+        }else if (intent.getBooleanExtra(Settings.ADS_SECTION.key, false)) {
+            fragment = new AdsFragment();
+        }else if (intent.getBooleanExtra(Settings.MISC_SECTION.key, false)) {
+            fragment = new MiscFragment();
+        }else if (intent.getBooleanExtra(Settings.CUSTOMISE_SECTION.key, false)) {
+            fragment = new CustomiseFragment();
+        }else if (intent.getBooleanExtra(Settings.TIMELINE_SECTION.key, false)) {
+            fragment = new TimelineFragment();
+        }else if (intent.getBooleanExtra(Settings.BACKUP_SECTION.key, false)) {
+            fragment = new BackupFragment();
         }else if (intent.getBooleanExtra(Settings.PATCH_INFO.key, false)) {
             fragment = new SettingsAboutFragment();
         }
@@ -54,14 +70,6 @@ public class ActivityHook {
     public static void startActivity(String activity_name)throws Exception{
         Intent intent = new Intent(context, Class.forName("com.twitter.android.AuthorizeAppActivity"));
         Bundle bundle = new Bundle();
-        bundle.putBoolean(activity_name, true);
-        intent.putExtras(bundle);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
-
-    public static void startActivity(String activity_name,Bundle bundle)throws Exception{
-        Intent intent = new Intent(context, Class.forName("com.twitter.android.AuthorizeAppActivity"));
         bundle.putBoolean(activity_name, true);
         intent.putExtras(bundle);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

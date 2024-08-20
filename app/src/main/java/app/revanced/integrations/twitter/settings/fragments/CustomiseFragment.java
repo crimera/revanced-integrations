@@ -13,13 +13,13 @@ import app.revanced.integrations.twitter.settings.ActivityHook;
 import app.revanced.integrations.twitter.settings.SettingsStatus;
 
 @SuppressWarnings("deprecation")
-public class SettingsFragment extends PreferenceFragment {
+public class CustomiseFragment extends PreferenceFragment {
     private Context context;
 
     @Override
     public void onResume() {
         super.onResume();
-        ActivityHook.toolbar.setTitle(StringRef.str("piko_title_settings"));
+        ActivityHook.toolbar.setTitle(StringRef.str("piko_title_customisation"));
     }
 
     @Override
@@ -34,22 +34,8 @@ public class SettingsFragment extends PreferenceFragment {
         Helper helper = new Helper(context);
         ScreenBuilder screenBuilder = new ScreenBuilder(context, screen, helper);
 
-        boolean isSinglePage = app.revanced.integrations.twitter.Utils.getBooleanPerf(Settings.SINGLE_PAGE_SETTINGS);
-        if(isSinglePage) {
-            boolean buildCategory = true;
-            screenBuilder.buildPremiumSection(buildCategory);
-            screenBuilder.buildDownloadSection(buildCategory);
-            screenBuilder.buildFeatureFlagsSection(buildCategory);
-            screenBuilder.buildAdsSection(buildCategory);
-            screenBuilder.buildMiscSection(buildCategory);
-            screenBuilder.buildCustomiseSection(buildCategory);
-            screenBuilder.buildTimelineSection(buildCategory);
-            screenBuilder.buildExportSection(buildCategory);
-            screenBuilder.buildPikoSection(buildCategory);
+        screenBuilder.buildCustomiseSection(false);
 
-        }else{
-            screenBuilder.buildSinglePageSettings();
-        }
         setPreferenceScreen(screen);
 
     }

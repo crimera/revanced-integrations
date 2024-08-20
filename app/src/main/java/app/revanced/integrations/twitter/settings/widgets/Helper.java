@@ -1,4 +1,4 @@
-package app.revanced.integrations.twitter.settings.widget;
+package app.revanced.integrations.twitter.settings.widgets;
 
 import android.preference.Preference;
 import app.revanced.integrations.twitter.Utils;
@@ -6,7 +6,7 @@ import java.util.Set;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.StringSetting;
 import android.content.Context;
-
+import androidx.annotation.Nullable;
 public class Helper {
      private Context context;
 
@@ -22,7 +22,6 @@ public class Helper {
         preference.setSummary(summary);
         preference.setKey(setting.key);
         preference.setDefaultValue(setting.defaultValue);
-//        setOnPreferenceChangeListener(preference);
         return preference;
     }
 
@@ -32,17 +31,15 @@ public class Helper {
         preference.setSummary(summary);
         preference.setKey(setting.key);
         preference.setDefaultValue(setting.defaultValue);
-//        setOnPreferenceChangeListener(preference);
         return preference;
     }
 
-    public Preference buttonPreference(String title, String summary, String key) {
-        ButtonPref button = new ButtonPref(context);
-        button.setKey(key);
-        button.setTitle(title);
-        button.setSummary(summary);
-//        preference.setOnPreferenceClickListener(this);
-        return button;
+    public Preference buttonPreference(@Nullable String iconName,String title, String summary, BooleanSetting setting) {
+        ButtonPref preference = new ButtonPref(context,iconName);
+        preference.setTitle(title);
+        preference.setSummary(summary);
+        preference.setKey(setting.key);
+        return preference;
     }
 
     public Preference listPreference(String title, String summary, StringSetting setting) {
@@ -53,7 +50,6 @@ public class Helper {
         preference.setSummary(summary);
         preference.setKey(key);
         preference.setDefaultValue(setting.defaultValue);
-//        setOnPreferenceChangeListener(preference);
         return preference;
     }
 
@@ -64,7 +60,6 @@ public class Helper {
         preference.setDialogTitle(title);
         preference.setSummary(summary);
         preference.setKey(key);
-//        setOnPreferenceChangeListener(preference);
         return preference;
     }
 

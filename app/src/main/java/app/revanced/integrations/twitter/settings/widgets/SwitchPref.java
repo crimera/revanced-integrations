@@ -1,4 +1,4 @@
-package app.revanced.integrations.twitter.settings.widget;
+package app.revanced.integrations.twitter.settings.widgets;
 
 import android.content.Context;
 import android.preference.SwitchPreference;
