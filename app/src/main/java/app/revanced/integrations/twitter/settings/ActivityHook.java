@@ -16,34 +16,26 @@ import static app.revanced.integrations.shared.Utils.context;
 @SuppressWarnings("deprecation")
 public class ActivityHook {
     public static Toolbar toolbar;
-    private static final String EXTRA_PIKO_SETTINGS = "piko_settings";
+    private static final String EXTRA_PIKO = "piko";
+    private static final String EXTRA_PIKO_SETTINGS = EXTRA_PIKO+"_settings";
 
     public static boolean create(Activity act) {
-        Fragment fragment = null;
         Intent intent = act.getIntent();
+        if (!(intent.getBooleanExtra(EXTRA_PIKO, false))) return false;
+
+
+        Fragment fragment = null;
         boolean addToBackStack = false;
+
         if (intent.getBooleanExtra(EXTRA_PIKO_SETTINGS, false)) {
             fragment = new SettingsFragment();
         }else if (intent.getBooleanExtra(Settings.MISC_FEATURE_FLAGS.key, false)) {
             fragment = new FeatureFlagsFragment();
-        }else if (intent.getBooleanExtra(Settings.PREMIUM_SECTION.key, false)) {
-            fragment = new PremiumFragment();
-        }else if (intent.getBooleanExtra(Settings.DOWNLOAD_SECTION.key, false)) {
-            fragment = new DownloadFragment();
-        }else if (intent.getBooleanExtra(Settings.FLAGS_SECTION.key, false)) {
-            fragment = new FlagsFragment();
-        }else if (intent.getBooleanExtra(Settings.ADS_SECTION.key, false)) {
-            fragment = new AdsFragment();
-        }else if (intent.getBooleanExtra(Settings.MISC_SECTION.key, false)) {
-            fragment = new MiscFragment();
-        }else if (intent.getBooleanExtra(Settings.CUSTOMISE_SECTION.key, false)) {
-            fragment = new CustomiseFragment();
-        }else if (intent.getBooleanExtra(Settings.TIMELINE_SECTION.key, false)) {
-            fragment = new TimelineFragment();
-        }else if (intent.getBooleanExtra(Settings.BACKUP_SECTION.key, false)) {
-            fragment = new BackupFragment();
         }else if (intent.getBooleanExtra(Settings.PATCH_INFO.key, false)) {
             fragment = new SettingsAboutFragment();
+        }else{
+            fragment = new PageFragment();
+            fragment.setArguments(intent.getExtras());
         }
 
         if(fragment!=null) {
@@ -71,12 +63,11 @@ public class ActivityHook {
         Intent intent = new Intent(context, Class.forName("com.twitter.android.AuthorizeAppActivity"));
         Bundle bundle = new Bundle();
         bundle.putBoolean(activity_name, true);
+        bundle.putBoolean(EXTRA_PIKO, true);
         intent.putExtras(bundle);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
-
-
 
     public static void startSettingsActivity() throws Exception {
         startActivity(EXTRA_PIKO_SETTINGS);

@@ -7,6 +7,9 @@ import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.StringSetting;
 import android.content.Context;
 import androidx.annotation.Nullable;
+import android.text.*;
+import android.text.style.ForegroundColorSpan;
+import android.graphics.Color;
 public class Helper {
      private Context context;
 
@@ -34,9 +37,23 @@ public class Helper {
         return preference;
     }
 
-    public Preference buttonPreference(@Nullable String iconName,String title, String summary, BooleanSetting setting) {
-        ButtonPref preference = new ButtonPref(context,iconName);
+    public Preference buttonPreference(String title, String summary, BooleanSetting setting) {
+        ButtonPref preference = new ButtonPref(context);
         preference.setTitle(title);
+        preference.setSummary(summary);
+        preference.setKey(setting.key);
+        return preference;
+    }
+    public Preference buttonPreference(String title, String summary, BooleanSetting setting,@Nullable String iconName,@Nullable String color) {
+        ButtonPref preference = new ButtonPref(context,iconName);
+
+        if(color!=null){
+            Spannable span = new SpannableString(title);
+            span.setSpan(new ForegroundColorSpan(Color.parseColor(color)), 0, title.length(), 0);
+            preference.setTitle(span);
+        }else{
+            preference.setTitle(title);
+        }
         preference.setSummary(summary);
         preference.setKey(setting.key);
         return preference;

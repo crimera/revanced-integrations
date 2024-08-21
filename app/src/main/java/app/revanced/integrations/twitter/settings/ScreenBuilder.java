@@ -74,7 +74,7 @@ public class ScreenBuilder {
                 }
 
                 addPreference(category,
-                        helper.buttonPreference(null,
+                        helper.buttonPreference(
                                 strRes("piko_pref_undo_posts_btn"),
                                 "",
                                 Settings.PREMIUM_UNDO_POSTS
@@ -84,7 +84,7 @@ public class ScreenBuilder {
 
             if (SettingsStatus.customAppIcon || SettingsStatus.navBarCustomisation) {
                 addPreference(category,
-                        helper.buttonPreference(null,
+                        helper.buttonPreference(
                                 strRes("piko_pref_icon_n_navbar_btn"),
                                 "",
                                 Settings.PREMIUM_ICONS
@@ -267,10 +267,12 @@ public class ScreenBuilder {
 
         if (SettingsStatus.deleteFromDb) {
             addPreference(category,
-                    helper.buttonPreference(null,
+                    helper.buttonPreference(
                             strRes("piko_pref_del_from_db"),
                             "",
-                            Settings.ADS_DEL_FROM_DB
+                            Settings.ADS_DEL_FROM_DB,
+                            null,
+                            "#DE0025"
                     )
             );
         }
@@ -391,35 +393,43 @@ public class ScreenBuilder {
             category = preferenceCategory(strRes("piko_title_feature_flags"));
 
         addPreference(category,
-                helper.buttonPreference(null,
+                helper.buttonPreference(
                         strRes("piko_pref_feature_flags"),
                         "",
-                        Settings.FEATURE_FLAGS
+                        Settings.FEATURE_FLAGS,
+                        "ic_vector_incoming",
+                        null
                 )
         );
 
 
         addPreference(category,
-                helper.buttonPreference(null,
+                helper.buttonPreference(
                         StringRef.str("piko_pref_import",strRes("piko_title_feature_flags")),
                         strRes("piko_pref_app_restart_rec"),
-                        Settings.IMPORT_FLAGS
+                        Settings.IMPORT_FLAGS,
+                        "ic_vector_exiting",
+                        null
                 )
         );
 
         addPreference(category,
-                helper.buttonPreference(null,
+                helper.buttonPreference(
                         StringRef.str("piko_pref_export",strRes("piko_title_feature_flags")),
                         "",
-                        Settings.EXPORT_FLAGS
+                        Settings.EXPORT_FLAGS,
+                        "ic_vector_outcoming",
+                        null
                 )
         );
 
         addPreference(category,
-                helper.buttonPreference(null,
+                helper.buttonPreference(
                         strRes("delete")+": "+strRes("piko_title_feature_flags"),
                         "",
-                        Settings.RESET_FLAGS
+                        Settings.RESET_FLAGS,
+                        "vector_delete_icon",
+                        "#DE0025"
                 )
         );
 
@@ -638,25 +648,32 @@ public class ScreenBuilder {
         if(buildCategory)
             category = preferenceCategory(strRes("piko_title_backup"));
        addPreference(category,
-                helper.buttonPreference(null,
+                helper.buttonPreference(
                         StringRef.str("piko_pref_export",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
                         "",
-                        Settings.EXPORT_PREF
+                        Settings.EXPORT_PREF,
+                        "ic_vector_outgoing",
+                        null
                 )
         );
        addPreference(category,
-                helper.buttonPreference(null,
+                helper.buttonPreference(
                         StringRef.str("piko_pref_import",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
                         strRes("piko_pref_app_restart_rec"),
-                        Settings.IMPORT_PREF
+                        Settings.IMPORT_PREF,
+                        "ic_vector_incoming",
+                        null
+
                 )
         );
 
        addPreference(category,
-                helper.buttonPreference(null,
+                helper.buttonPreference(
                         strRes("delete")+": "+strRes("piko_name")+" "+strRes("settings_notification_pref_item_title"),
                         "",
-                        Settings.RESET_PREF
+                        Settings.RESET_PREF,
+                        "vector_delete_icon",
+                        "#DE0025"
                 )
         );
 
@@ -667,7 +684,7 @@ public class ScreenBuilder {
         if(buildCategory)
             category = preferenceCategory(strRes("piko_title_about"));
         addPreference(category,
-                helper.buttonPreference(null,
+                helper.buttonPreference(
                         strRes("piko_pref_patch_info"),
                         "",
                         Settings.PATCH_INFO
@@ -678,81 +695,90 @@ public class ScreenBuilder {
     public void buildSinglePageSettings(){
         if (SettingsStatus.enablePremiumSection()) {
             addPreference(
-                    helper.buttonPreference("ic_vector_twitter",
+                    helper.buttonPreference(
                             strRes("piko_title_premium"),
                             "",
-                            Settings.PREMIUM_SECTION
+                            Settings.PREMIUM_SECTION,
+                            "ic_vector_twitter",null
                     )
             ); 
         }
         if (SettingsStatus.enableDownloadSection()) {
             addPreference(
-                    helper.buttonPreference("ic_vector_incoming",
+                    helper.buttonPreference(
                             strRes("piko_title_download"),
                             "",
-                            Settings.DOWNLOAD_SECTION
+                            Settings.DOWNLOAD_SECTION,
+                            "ic_vector_incoming",null
                     )
             );
         }
         if (SettingsStatus.featureFlagsEnabled) {
             addPreference(
-                    helper.buttonPreference("ic_vector_location_stroke",
+                    helper.buttonPreference(
                             strRes("piko_title_feature_flags"),
                             "",
-                            Settings.FLAGS_SECTION
+                            Settings.FLAGS_SECTION,
+                            "ic_admin_tools_flagged",null
                     )
             );
         }
         if (SettingsStatus.enableAdsSection()) {
             addPreference(
-                    helper.buttonPreference("ic_vector_accessibility_alt",
+                    helper.buttonPreference(
                             strRes("piko_title_ads"),
                             "",
-                            Settings.ADS_SECTION
+                            Settings.ADS_SECTION,
+                            "ic_vector_accessibility_alt",null
                     )
             );
         }
         if (SettingsStatus.enableMiscSection()) {
             addPreference(
-                    helper.buttonPreference("ic_vector_heartline",
+                    helper.buttonPreference(
                             strRes("piko_title_misc"),
                             "",
-                            Settings.MISC_SECTION
+                            Settings.MISC_SECTION,
+                            "ic_vector_heartline",null
                     )
             );
         }
         if (SettingsStatus.enableCustomisationSection()) {
             addPreference(
-                    helper.buttonPreference("ic_vector_paintbrush_stroke",
+                    helper.buttonPreference(
                             strRes("piko_title_customisation"),
                             "",
-                            Settings.CUSTOMISE_SECTION
+                            Settings.CUSTOMISE_SECTION,
+                            "ic_vector_paintbrush_stroke",null
                     )
             );
         }
         if (SettingsStatus.enableTimelineSection()) {
             addPreference(
-                    helper.buttonPreference("ic_vector_timeline_stroke",
+                    helper.buttonPreference(
                             strRes("piko_title_timeline"),
                             "",
-                            Settings.TIMELINE_SECTION
+                            Settings.TIMELINE_SECTION,
+                            "ic_vector_timeline_stroke",null
                     )
             );
         }
    
         addPreference(
-                helper.buttonPreference("ic_vector_layers_stroke",
+                helper.buttonPreference(
                         strRes("piko_title_backup"),
                         "",
-                        Settings.BACKUP_SECTION
+                        Settings.BACKUP_SECTION,
+                        "ic_vector_layers_stroke",null
                 )
         );
         
         addPreference(
-                helper.buttonPreference("ic_vector_accessibility_circle",
+                helper.buttonPreference(
                         strRes("piko_title_about"),
                         "",
-                        Settings.PATCH_INFO
+                        Settings.PATCH_INFO,
+                        "ic_vector_accessibility_circle",null
                 )
         );
         

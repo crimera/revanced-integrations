@@ -17,6 +17,7 @@ public class ButtonPref extends Preference {
     private Context context;
     private String iconName;
 
+
     public ButtonPref(Context context) {
         super(context);
         this.context = context;
@@ -41,6 +42,11 @@ public class ButtonPref extends Preference {
         this.context = context;
         init();
     }
+
+    public void setIconName(String iconName) {
+        this.iconName = iconName;
+    }
+
 
     private void init() {
         if(iconName!=null){
