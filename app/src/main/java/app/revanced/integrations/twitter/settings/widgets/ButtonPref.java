@@ -13,6 +13,10 @@ import app.revanced.integrations.twitter.Utils;
 import app.revanced.integrations.twitter.patches.DatabasePatch;
 import app.revanced.integrations.twitter.settings.fragments.*;
 
+import android.graphics.PorterDuff;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+
 public class ButtonPref extends Preference {
     private Context context;
     private String iconName;
@@ -50,7 +54,14 @@ public class ButtonPref extends Preference {
 
     private void init() {
         if(iconName!=null){
-            setIcon(app.revanced.integrations.shared.Utils.getResourceIdentifier(iconName, "drawable"));
+            int resId = app.revanced.integrations.shared.Utils.getResourceIdentifier(iconName, "drawable");
+            Drawable icon = context.getResources().getDrawable(resId);
+            int clr = Color.GRAY;
+            if(iconName.contains("delete")){
+                clr = Color.RED;
+            }
+            icon.setColorFilter(clr, PorterDuff.Mode.SRC_IN);
+            setIcon(icon);
         }
         setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override
