@@ -777,7 +777,7 @@ public class ScreenBuilder {
         
         addPreference(
                 helper.buttonPreference(
-                        strRes("piko_title_about"),
+                        strRes("piko_pref_patch_info"),
                         "",
                         Settings.PATCH_INFO,
                         "ic_vector_accessibility_circle",null
