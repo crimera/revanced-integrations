@@ -27,7 +27,7 @@ public class DeepLink {
                 ActivityHook.startSettingsActivity();
                 return true;
             }else if(mainPath.equals("flags")){
-                ActivityHook.startActivity(Settings.MISC_FEATURE_FLAGS.key);
+                ActivityHook.startActivity(Settings.FEATURE_FLAGS.key);
                 return true;
             }
         }catch(Exception e){

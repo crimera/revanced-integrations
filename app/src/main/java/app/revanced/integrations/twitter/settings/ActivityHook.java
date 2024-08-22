@@ -29,7 +29,7 @@ public class ActivityHook {
 
         if (intent.getBooleanExtra(EXTRA_PIKO_SETTINGS, false)) {
             fragment = new SettingsFragment();
-        }else if (intent.getBooleanExtra(Settings.MISC_FEATURE_FLAGS.key, false)) {
+        }else if (intent.getBooleanExtra(Settings.FEATURE_FLAGS.key, false)) {
             fragment = new FeatureFlagsFragment();
         }else if (intent.getBooleanExtra(Settings.PATCH_INFO.key, false)) {
             fragment = new SettingsAboutFragment();

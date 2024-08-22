@@ -397,7 +397,7 @@ public class ScreenBuilder {
                         strRes("piko_pref_feature_flags"),
                         "",
                         Settings.FEATURE_FLAGS,
-                        "ic_vector_incoming",
+                        "ic_vector_exiting",
                         null
                 )
         );
@@ -408,7 +408,7 @@ public class ScreenBuilder {
                         StringRef.str("piko_pref_import",strRes("piko_title_feature_flags")),
                         strRes("piko_pref_app_restart_rec"),
                         Settings.IMPORT_FLAGS,
-                        "ic_vector_exiting",
+                        "ic_vector_incoming",
                         null
                 )
         );
@@ -418,7 +418,7 @@ public class ScreenBuilder {
                         StringRef.str("piko_pref_export",strRes("piko_title_feature_flags")),
                         "",
                         Settings.EXPORT_FLAGS,
-                        "ic_vector_outcoming",
+                        "ic_vector_outgoing",
                         null
                 )
         );
@@ -505,7 +505,7 @@ public class ScreenBuilder {
         addPreference(category,
                 helper.switchPreference(
                         strRes("piko_single_page_settings"),
-                        strRes("piko_single_page_settings_desc"),
+                        strRes("piko_single_page_settings_desc")+"\n"+strRes("piko_pref_app_restart_rec"),
                         Settings.SINGLE_PAGE_SETTINGS
                 )
         );
@@ -647,16 +647,9 @@ public class ScreenBuilder {
         LegacyTwitterPreferenceCategory category = null;
         if(buildCategory)
             category = preferenceCategory(strRes("piko_title_backup"));
-       addPreference(category,
-                helper.buttonPreference(
-                        StringRef.str("piko_pref_export",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
-                        "",
-                        Settings.EXPORT_PREF,
-                        "ic_vector_outgoing",
-                        null
-                )
-        );
-       addPreference(category,
+
+
+        addPreference(category,
                 helper.buttonPreference(
                         StringRef.str("piko_pref_import",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
                         strRes("piko_pref_app_restart_rec"),
@@ -664,6 +657,15 @@ public class ScreenBuilder {
                         "ic_vector_incoming",
                         null
 
+                )
+        );
+       addPreference(category,
+                helper.buttonPreference(
+                        StringRef.str("piko_pref_export",strRes("piko_name"))+" "+strRes("settings_notification_pref_item_title"),
+                        "",
+                        Settings.EXPORT_PREF,
+                        "ic_vector_outgoing",
+                        null
                 )
         );
 
