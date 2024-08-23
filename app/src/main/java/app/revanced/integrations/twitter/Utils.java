@@ -64,6 +64,11 @@ public class Utils {
         startActivityFromClassName(className);
     }
 
+    public static void startXSettings() {
+        String className = "com.twitter.app.settings.SettingsRootCompatActivity";
+        startActivityFromClassName(className);
+    }
+
     //thanks to @Ouxyl
     public static boolean redirect(TabLayout$g g) {
         try {

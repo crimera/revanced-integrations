@@ -6,6 +6,7 @@ import android.os.Bundle;
 import java.util.List;
 import android.net.Uri;
 import  app.revanced.integrations.twitter.Utils;
+import app.revanced.integrations.shared.settings.BooleanSetting;
 
 @SuppressWarnings("deprecation")
 public class DeepLink {
@@ -21,13 +22,42 @@ public class DeepLink {
             if(!(deeplinkSegments.get(0).equals("i"))) return false;
 
             String mainPath = deeplinkSegments.get(1).toLowerCase();
+            String lastSegment = deeplink.getLastPathSegment();
+
             boolean isPiko = mainPath.equals("piko") || mainPath.equals("pikosettings");
 
-            if(segmentSize == 2 && isPiko){
+            BooleanSetting key = null;
+            if(segmentSize == 2 && lastSegment.equals("settings")){
+                Utils.startXSettings();
+                return true;
+            }else if(segmentSize == 2 && isPiko){
                 ActivityHook.startSettingsActivity();
                 return true;
-            }else if(mainPath.equals("flags")){
-                ActivityHook.startActivity(Settings.FEATURE_FLAGS.key);
+            }else if(mainPath.equals("addflags")){
+                key = Settings.FEATURE_FLAGS;
+            }else if (isPiko) {
+                if(lastSegment.equals("premium")){
+                    key = Settings.PREMIUM_SECTION;
+                } else if (lastSegment.equals("download")) {
+                    key = Settings.DOWNLOAD_SECTION;
+                } else if (lastSegment.equals("flags")) {
+                    key = Settings.FLAGS_SECTION;
+                } else if (lastSegment.equals("ads")) {
+                    key = Settings.ADS_SECTION;
+                } else if (lastSegment.equals("misc")) {
+                    key = Settings.MISC_SECTION;
+                } else if (lastSegment.equals("customise") || lastSegment.equals("customize")) {
+                    key = Settings.CUSTOMISE_SECTION;
+                } else if (lastSegment.equals("timeline")) {
+                    key = Settings.TIMELINE_SECTION;
+                } else if (lastSegment.equals("pref")) {
+                    key = Settings.BACKUP_SECTION;
+                } else if (lastSegment.equals("info")) {
+                    key = Settings.PATCH_INFO;
+                }
+            }
+            if(key!=null){
+                ActivityHook.startActivity(key.key);
                 return true;
             }
         }catch(Exception e){
