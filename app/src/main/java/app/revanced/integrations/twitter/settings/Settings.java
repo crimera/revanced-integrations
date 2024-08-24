@@ -55,7 +55,7 @@ public class Settings extends BaseSettings {
 
     public static final BooleanSetting PREMIUM_READER_MODE = new BooleanSetting("premium_reader_mode", false);
     public static final BooleanSetting PREMIUM_UNDO_POSTS = new BooleanSetting("premium_undo_posts", false);
-    public static final StringSetting PREMIUM_ICONS = new StringSetting("premium_app_icon", "");
+    public static final BooleanSetting PREMIUM_ICONS = new BooleanSetting("premium_app_icon", true);
     public static final BooleanSetting PREMIUM_ENABLE_FORCE_PIP = new BooleanSetting("premium_enable_force_pip", false);
 
     public static final StringSetting CUSTOM_PROFILE_TABS = new StringSetting("customisation_profile_tabs", "");
@@ -66,11 +66,22 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_DEF_REPLY_SORTING = new StringSetting("customisation_def_reply_sorting", "Likes");
     public static final StringSetting REPLY_SORTING_LAST_FILTER = new StringSetting("reply_sorting_last_filter", "Likes");
 
-    public static final StringSetting EXPORT_PREF = new StringSetting("export_pref", "");
-    public static final StringSetting EXPORT_FLAGS = new StringSetting("export_flags", "");
-    public static final StringSetting IMPORT_PREF = new StringSetting("import_pref", "");
-    public static final StringSetting IMPORT_FLAGS = new StringSetting("import_flags", "");
+    public static final BooleanSetting EXPORT_PREF = new BooleanSetting("export_pref", true);
+    public static final BooleanSetting EXPORT_FLAGS = new BooleanSetting("export_flags", true);
+    public static final BooleanSetting IMPORT_PREF = new BooleanSetting("import_pref", true);
+    public static final BooleanSetting IMPORT_FLAGS = new BooleanSetting("import_flags", true);
     public static final BooleanSetting PATCH_INFO = new BooleanSetting("patch_info", true);
     public static final BooleanSetting RESET_PREF = new BooleanSetting("reset_pref", true);
     public static final BooleanSetting RESET_FLAGS = new BooleanSetting("reset_flags", true);
+    public static final BooleanSetting FEATURE_FLAGS = new BooleanSetting("feature_flags", true);
+
+    public static final BooleanSetting PREMIUM_SECTION = new BooleanSetting("premium_section", true);
+    public static final BooleanSetting DOWNLOAD_SECTION = new BooleanSetting("download_section", true);
+    public static final BooleanSetting FLAGS_SECTION = new BooleanSetting("flags_section", true);
+    public static final BooleanSetting ADS_SECTION = new BooleanSetting("ads_section", true);
+    public static final BooleanSetting MISC_SECTION = new BooleanSetting("misc_section", true);
+    public static final BooleanSetting CUSTOMISE_SECTION = new BooleanSetting("custommise_section", true);
+    public static final BooleanSetting TIMELINE_SECTION = new BooleanSetting("timeline_section", true);
+    public static final BooleanSetting BACKUP_SECTION = new BooleanSetting("backup_section", true);
+    public static final BooleanSetting SINGLE_PAGE_SETTINGS = new BooleanSetting("single_page_settings", false);
 }

@@ -1,10 +1,12 @@
-package app.revanced.integrations.twitter.settings;
+package app.revanced.integrations.twitter.settings.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatButton;
 import app.revanced.integrations.twitter.Utils;
+import app.revanced.integrations.twitter.settings.Settings;
+import app.revanced.integrations.twitter.settings.ActivityHook;
 
 public class PikoSettingsButton extends AppCompatButton implements View.OnClickListener {
 

@@ -15,8 +15,8 @@ import app.revanced.integrations.shared.StringRef;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.StringSetting;
 import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
-import app.revanced.integrations.twitter.settings.BackupPrefFragment;
-import app.revanced.integrations.twitter.settings.RestorePrefFragment;
+import app.revanced.integrations.twitter.settings.fragments.BackupPrefFragment;
+import app.revanced.integrations.twitter.settings.fragments.RestorePrefFragment;
 import app.revanced.integrations.twitter.settings.Settings;
 import com.google.android.material.tabs.TabLayout$g;
 import org.json.JSONArray;
@@ -58,22 +58,14 @@ public class Utils {
         startActivityFromClassName(className);
     }
 
-    public static void startBackupActivity(boolean featureFlag) {
-        Intent intent = new Intent(ctx, BackupPrefFragment.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("featureFlag", featureFlag);
-        ctx.startActivity(intent);
-    }
-
-    public static void startRestoreActivity(boolean featureFlag) {
-        Intent intent = new Intent(ctx, RestorePrefFragment.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("featureFlag", featureFlag);
-        ctx.startActivity(intent);
-    }
 
     private static void startBookmarkActivity() {
         String className = "com.twitter.app.bookmarks.legacy.BookmarkActivity";
+        startActivityFromClassName(className);
+    }
+
+    public static void startXSettings() {
+        String className = "com.twitter.app.settings.SettingsRootCompatActivity";
         startActivityFromClassName(className);
     }
 
