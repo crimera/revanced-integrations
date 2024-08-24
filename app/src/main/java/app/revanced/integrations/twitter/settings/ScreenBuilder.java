@@ -363,14 +363,6 @@ public class ScreenBuilder {
             );
         }
 
-        addPreference(category,
-                helper.switchPreference(
-                        strRes("piko_pref_quick_settings"),
-                        strRes("piko_pref_quick_settings_summary"),
-                        Settings.MISC_QUICK_SETTINGS_BUTTON
-                )
-        );
-
         if (SettingsStatus.customSharingDomainEnabled) {
             addPreference(category,
                     helper.editTextPreference(
@@ -501,6 +493,14 @@ public class ScreenBuilder {
             );
         }
 
+
+        addPreference(category,
+                helper.switchPreference(
+                        strRes("piko_pref_quick_settings"),
+                        strRes("piko_pref_quick_settings_summary"),
+                        Settings.MISC_QUICK_SETTINGS_BUTTON
+                )
+        );
 
         addPreference(category,
                 helper.switchPreference(
