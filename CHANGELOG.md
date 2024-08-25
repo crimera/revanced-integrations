@@ -1,3 +1,15 @@
+## [1.28.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.28.0-dev.1...v1.28.0-dev.2) (2024-08-25)
+
+
+### Bug Fixes
+
+* **Twitter:** Swap backup and restor activies ([5b16de7](https://github.com/crimera/revanced-integrations/commit/5b16de7d776067fea48e152dc7d08b543d73e301))
+
+
+### Refactors
+
+* **Twitter:** Refactor set initial value logic for Multi select pref ([3d8b811](https://github.com/crimera/revanced-integrations/commit/3d8b811369f17ff356d40741eb57797b4435e492))
+
 ## [1.28.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.27.0...v1.28.0-dev.1) (2024-08-25)
 
 
