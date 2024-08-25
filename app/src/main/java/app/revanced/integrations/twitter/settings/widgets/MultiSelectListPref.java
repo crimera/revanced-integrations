@@ -38,12 +38,7 @@ public class MultiSelectListPref extends MultiSelectListPreference {
             }
         });
     }
-
-    @Override
-    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        super.onSetInitialValue(restoreValue, defaultValue);
-        String key = getKey();
-
+    public void setInitialValue(String key) {
         CharSequence[] entries = new CharSequence[]{};
         CharSequence[] entriesValues = new CharSequence[]{};
         if (key == Settings.CUSTOM_PROFILE_TABS.key) {
