@@ -60,7 +60,7 @@ public class ButtonPref extends Preference {
 
             int clr = Color.RED;
 
-            if (!iconName.contains("delete")) {
+            if (!iconName.contains("trashcan")) {
                 int[] textColorAttr = {context.getResources().getIdentifier("coreColorPrimaryText", "attr", context.getPackageName())};
                 TypedArray typedValue = context.obtainStyledAttributes(textColorAttr);
                 clr = typedValue.getColor(0, 0);

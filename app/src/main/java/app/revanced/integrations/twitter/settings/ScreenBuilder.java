@@ -420,7 +420,7 @@ public class ScreenBuilder {
                         strRes("delete")+": "+strRes("piko_title_feature_flags"),
                         "",
                         Settings.RESET_FLAGS,
-                        "vector_delete_icon",
+                        "ic_vector_trashcan_stroke",
                         "#DE0025"
                 )
         );
@@ -674,7 +674,7 @@ public class ScreenBuilder {
                         strRes("delete")+": "+strRes("piko_name")+" "+strRes("settings_notification_pref_item_title"),
                         "",
                         Settings.RESET_PREF,
-                        "vector_delete_icon",
+                        "ic_vector_trashcan_stroke",
                         "#DE0025"
                 )
         );
@@ -721,7 +721,7 @@ public class ScreenBuilder {
                             strRes("piko_title_feature_flags"),
                             "",
                             Settings.FLAGS_SECTION,
-                            "ic_admin_tools_flagged",null
+                            "ic_vector_flag",null
                     )
             );
         }
