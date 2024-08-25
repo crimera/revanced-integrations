@@ -1,22 +1,25 @@
 package app.revanced.integrations.twitter.settings.widgets;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.preference.Preference;
-import app.revanced.integrations.twitter.Utils;
-import java.util.Set;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import androidx.annotation.Nullable;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.StringSetting;
-import android.content.Context;
-import androidx.annotation.Nullable;
-import android.text.*;
-import android.text.style.ForegroundColorSpan;
-import android.graphics.Color;
-public class Helper {
-     private Context context;
+import app.revanced.integrations.twitter.Utils;
 
-     public Helper(Context context){
-         this.context = context;
-     }
-    
+import java.util.Set;
+
+public class Helper {
+    private final Context context;
+
+    public Helper(Context context) {
+        this.context = context;
+    }
+
 
     public Preference editTextPreference(String title, String summary, StringSetting setting) {
         EditTextPref preference = new EditTextPref(context);
@@ -44,14 +47,15 @@ public class Helper {
         preference.setKey(setting.key);
         return preference;
     }
-    public Preference buttonPreference(String title, String summary, BooleanSetting setting,@Nullable String iconName,@Nullable String color) {
-        ButtonPref preference = new ButtonPref(context,iconName);
 
-        if(color!=null){
+    public Preference buttonPreference(String title, String summary, BooleanSetting setting, @Nullable String iconName, @Nullable String color) {
+        ButtonPref preference = new ButtonPref(context, iconName);
+
+        if (color != null) {
             Spannable span = new SpannableString(title);
             span.setSpan(new ForegroundColorSpan(Color.parseColor(color)), 0, title.length(), 0);
             preference.setTitle(span);
-        }else{
+        } else {
             preference.setTitle(title);
         }
         preference.setSummary(summary);
@@ -80,7 +84,7 @@ public class Helper {
         return preference;
     }
 
-    public void setValue(Preference preference,Object newValue){
+    public void setValue(Preference preference, Object newValue) {
         String key = preference.getKey();
         try {
             if (newValue != null) {
@@ -100,7 +104,6 @@ public class Helper {
             Utils.logger(ex);
         }
     }
-    
-    
-    
+
+
 }
