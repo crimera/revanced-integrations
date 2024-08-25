@@ -79,16 +79,16 @@ public class ButtonPref extends Preference {
                     Fragment fragment = null;
                     if (key.equals(Settings.EXPORT_PREF.key)) {
                         bundle.putBoolean("featureFlag", false);
-                        fragment = new RestorePrefFragment();
+                        fragment = new BackupPrefFragment();
                     } else if (key.equals(Settings.EXPORT_FLAGS.key)) {
                         bundle.putBoolean("featureFlag", true);
-                        fragment = new RestorePrefFragment();
+                        fragment = new BackupPrefFragment();
                     } else if (key.equals(Settings.IMPORT_PREF.key)) {
                         bundle.putBoolean("featureFlag", false);
-                        fragment = new BackupPrefFragment();
+                        fragment = new RestorePrefFragment();
                     } else if (key.equals(Settings.IMPORT_FLAGS.key)) {
                         bundle.putBoolean("featureFlag", true);
-                        fragment = new BackupPrefFragment();
+                        fragment = new RestorePrefFragment();
                     } else if (key.equals(Settings.PREMIUM_UNDO_POSTS.key)) {
                         Utils.startUndoPostActivity();
                     } else if (key.equals(Settings.PREMIUM_ICONS.key)) {

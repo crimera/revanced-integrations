@@ -81,6 +81,7 @@ public class Helper {
         preference.setDialogTitle(title);
         preference.setSummary(summary);
         preference.setKey(key);
+        preference.setInitialValue(key);
         return preference;
     }
 
