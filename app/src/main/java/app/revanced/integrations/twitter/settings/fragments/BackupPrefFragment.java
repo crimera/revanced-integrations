@@ -1,4 +1,4 @@
-package app.revanced.integrations.twitter.settings;
+package app.revanced.integrations.twitter.settings.fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import java.util.*;
 
 import app.revanced.integrations.twitter.Utils;
 import app.revanced.integrations.shared.StringRef;
+import app.revanced.integrations.twitter.settings.Settings;
 
 public class BackupPrefFragment extends Fragment {
     private String prefData;

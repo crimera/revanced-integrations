@@ -1,4 +1,4 @@
-package app.revanced.integrations.twitter.settings;
+package app.revanced.integrations.twitter.settings.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import android.app.Fragment;
 import app.revanced.integrations.twitter.Utils;
 import app.revanced.integrations.shared.StringRef;
+import app.revanced.integrations.twitter.settings.Settings;
 
 public class RestorePrefFragment extends Fragment {
     private static final int READ_REQUEST_CODE = 42;

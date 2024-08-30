@@ -1,3 +1,40 @@
+## [1.28.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.28.0-dev.1...v1.28.0-dev.2) (2024-08-25)
+
+
+### Bug Fixes
+
+* **Twitter:** Swap backup and restor activies ([5b16de7](https://github.com/crimera/revanced-integrations/commit/5b16de7d776067fea48e152dc7d08b543d73e301))
+
+
+### Refactors
+
+* **Twitter:** Refactor set initial value logic for Multi select pref ([3d8b811](https://github.com/crimera/revanced-integrations/commit/3d8b811369f17ff356d40741eb57797b4435e492))
+
+## [1.28.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.27.0...v1.28.0-dev.1) (2024-08-25)
+
+
+### Features
+
+* **Twitter:** Custom deeplinks ([92d6581](https://github.com/crimera/revanced-integrations/commit/92d658176f3bc40cd66a38e5bf21f4c034867a3a))
+* **Twitter:** Single page settings ([8936a5a](https://github.com/crimera/revanced-integrations/commit/8936a5a813da7df016f0353f7725bee4efdf1e83))
+
+
+### Updates
+
+* **Settings:** Changed some icons for consistency. ([a4cbe4e](https://github.com/crimera/revanced-integrations/commit/a4cbe4e6ae3fbb9143eabdc5b72b1760a7e96a4a))
+* **Settings:** Made category icons adopt to theme. ([4ec7f56](https://github.com/crimera/revanced-integrations/commit/4ec7f56d2e8ddbf27a0728fac1fbc125c8baf36c))
+* **Twitter:** Added button color ([1f5e749](https://github.com/crimera/revanced-integrations/commit/1f5e749565250cfa241b4f250771889e014d515f))
+* **Twitter:** Added more custom deeplinks ([826650e](https://github.com/crimera/revanced-integrations/commit/826650ed7b775cbf6f846165744c6e879a9c1f5f))
+* **Twitter:** Move `Quick settings button` to customise section ([4ae69ad](https://github.com/crimera/revanced-integrations/commit/4ae69adb7da71e400bc1d55939d6be109dd2718e))
+
+
+### Refactors
+
+* **Twitter:** changed 'About' button text ([dd355a2](https://github.com/crimera/revanced-integrations/commit/dd355a2b4bf4ad169ac28e36eeb231988f5c2215))
+* **Twitter:** Fix feature flags page call and icon ([e895cd3](https://github.com/crimera/revanced-integrations/commit/e895cd3b2ac2c89bd0922ee66ac510337917c193))
+* **Twitter:** handle pages using indent && added button color ([2e54588](https://github.com/crimera/revanced-integrations/commit/2e545883b3eae96ae3aaa9d06292f86aa8813519))
+* **Twitter:** Major code refactor for piko settings ([a22e937](https://github.com/crimera/revanced-integrations/commit/a22e93782782834f9276788d0cda6a2936ee79b7))
+
 ## [1.27.0](https://github.com/crimera/revanced-integrations/compare/v1.26.1...v1.27.0) (2024-08-20)
 
 
