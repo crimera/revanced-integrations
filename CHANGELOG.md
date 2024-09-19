@@ -1,3 +1,10 @@
+## [1.28.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.28.0...v1.28.1-dev.1) (2024-09-19)
+
+
+### Bug Fixes
+
+* **Twitter:** fix Tweet Info related patches in/from 10.58 ([e61241a](https://github.com/crimera/revanced-integrations/commit/e61241a2034e893d9d84d794d999baae1f6e29e6))
+
 ## [1.28.0](https://github.com/crimera/revanced-integrations/compare/v1.27.0...v1.28.0) (2024-08-30)
 
 
