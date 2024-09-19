@@ -9,52 +9,55 @@ import java.lang.reflect.Field;
 
 public class TweetInfo {
     private static final boolean hideCommNotes,hidePromoteBtn,forceTranslate;
-    private static Field commNotesField,promoteBtnField,translateField;
+    private static String commNotesFieldName, promoteBtnFieldName, translateFieldName;
 
     static {
         hideCommNotes = (Pref.hideCommNotes() && SettingsStatus.hideCommunityNote);
         hidePromoteBtn = (Pref.hidePromoteBtn() && SettingsStatus.hidePromoteButton);
         forceTranslate = (Pref.enableForceTranslate() && SettingsStatus.forceTranslate);
-        commNotesField = null;
-        promoteBtnField = null;
-        translateField = null;
+        commNotesFieldName = "";
+        promoteBtnFieldName = "";
+        translateFieldName = "";
 
     }
 
     private static void loader(Class jsonApiTweetCls){
-        commNotesField = null;
-        promoteBtnField = null;
-        translateField = null;
+        commNotesFieldName = "";
+        promoteBtnFieldName = "";
+        translateFieldName = "";
 
         Field[] fields = jsonApiTweetCls.getDeclaredFields();
         for(Field field : fields){
             if (field.getType() == boolean.class) {
-                if(commNotesField == null){
-                    commNotesField = field;
+                if(commNotesFieldName.length()==0){
+                    commNotesFieldName = field.getName();
                     continue;
                 }
-                translateField = field;
+                translateFieldName = field.getName();
                 continue;
             }
             if (field.getType() == JsonTweetQuickPromoteEligibility.class) {
-                promoteBtnField = field;
+                promoteBtnFieldName = field.getName();
             }
         }
     }
     public static JsonApiTweet checkEntry(JsonApiTweet jsonApiTweet) {
         try {
             Class jsonApiTweetCls = jsonApiTweet.getClass();
-            if( commNotesField == null || promoteBtnField == null || commNotesField == null ){
+            if( commNotesFieldName.length()==0 || promoteBtnFieldName.length()==0 || translateFieldName.length()==0 ){
                 loader(jsonApiTweetCls);
             }
             if(hideCommNotes){
-                commNotesField.set(jsonApiTweet,null);
+                Field f = jsonApiTweetCls.getDeclaredField(commNotesFieldName);
+                f.set(jsonApiTweet,null);
             }
             if(hidePromoteBtn){
-                promoteBtnField.set(jsonApiTweet,null);
+                Field f = jsonApiTweetCls.getDeclaredField(promoteBtnFieldName);
+                f.set(jsonApiTweet,null);
             }
             if(forceTranslate){
-                translateField.set(jsonApiTweet,true);
+                Field f = jsonApiTweetCls.getDeclaredField(translateFieldName);
+                f.set(jsonApiTweet,true);
             }
 
         } catch (Exception unused) {
