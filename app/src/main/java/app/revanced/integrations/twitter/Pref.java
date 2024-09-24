@@ -186,6 +186,10 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.TIMELINE_ENABLE_VID_FORCE_HD);
     }
 
+    public static boolean hideNudgeButton() {
+        return Utils.getBooleanPerf(Settings.TIMELINE_HIDE_NUDGE_BUTTON);
+    }
+
     public static boolean hidePromotedTrend(Object data) {
         if (data != null && Utils.getBooleanPerf(Settings.ADS_HIDE_PROMOTED_TRENDS)) {
             return true;
@@ -298,6 +302,7 @@ public class Pref {
         sortfilter = sortfilter.length()>0?sortfilter:"Likes";
         Utils.setStringPref(Settings.REPLY_SORTING_LAST_FILTER.key,sortfilter);
     }
+
 
     //end
 }

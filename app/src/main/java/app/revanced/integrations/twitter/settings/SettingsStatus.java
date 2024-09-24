@@ -63,7 +63,11 @@ public class SettingsStatus {
     public static boolean unshortenlink = false;
     public static boolean deleteFromDb = false;
     public static boolean nativeDownloader = false;
+    public static boolean hideNudgeButton = false;
 
+    public static void hideNudgeButton() {
+        hideNudgeButton = true;
+    }
     public static void removePremiumUpsell() {
         removePremiumUpsell = true;
     }
@@ -287,7 +291,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableTimelineSection() {
-        return ( disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
+        return ( hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
     }
 
     public static boolean enableMiscSection() {
