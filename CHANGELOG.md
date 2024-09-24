@@ -1,3 +1,17 @@
+## [1.28.2](https://github.com/crimera/revanced-integrations/compare/v1.28.1...v1.28.2) (2024-09-24)
+
+
+### Bug Fixes
+
+* **Downloads:** Fix video downloads getting removed after a week. ref: https://stackoverflow.com/questions/46501822/downloaded-files-get-deleted-automatically ([40612e7](https://github.com/crimera/revanced-integrations/commit/40612e7bc03301f0f5b26ee6c975fb84736923a9))
+
+## [1.28.2-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.28.1...v1.28.2-dev.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* **Downloads:** Fix video downloads getting removed after a week. ref: https://stackoverflow.com/questions/46501822/downloaded-files-get-deleted-automatically ([40612e7](https://github.com/crimera/revanced-integrations/commit/40612e7bc03301f0f5b26ee6c975fb84736923a9))
+
 ## [1.28.1](https://github.com/crimera/revanced-integrations/compare/v1.28.0...v1.28.1) (2024-09-19)
 
 

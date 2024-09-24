@@ -8,20 +8,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
-import android.os.Build;
+import android.os.Environment;
 import android.util.Log;
 import android.widget.LinearLayout;
 import app.revanced.integrations.shared.StringRef;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.StringSetting;
 import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
-import app.revanced.integrations.twitter.settings.fragments.BackupPrefFragment;
-import app.revanced.integrations.twitter.settings.fragments.RestorePrefFragment;
 import app.revanced.integrations.twitter.settings.Settings;
 import com.google.android.material.tabs.TabLayout$g;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -232,35 +231,42 @@ public class Utils {
 
     public static void downloadFile(String url, String mediaName, String ext) {
         String filename = mediaName + "." + ext;
+        boolean isPhoto = ext.equals("jpg");
 
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setDescription("Downloading " + filename);
         request.setTitle(filename);
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            request.allowScanningByMediaScanner();
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        String[] savePath = {"Pictures", "Twitter"};
+        if (!isPhoto) {
+            savePath = new String[]{Pref.getPublicFolder(), Utils.getStringPref(Settings.VID_SUBFOLDER)};
         }
-
-        if (ext.equals("jpg")) {
-            request.setDestinationInExternalPublicDir("Pictures", "Twitter/" + filename);
-        } else {
-            request.setDestinationInExternalPublicDir(Pref.getPublicFolder(), Pref.getVideoFolder(filename));
-        }
+        request.setDestinationInExternalPublicDir(savePath[0], savePath[1] + "/" + "temp_" + filename);
 
         DownloadManager manager = (DownloadManager) ctx.getSystemService(Context.DOWNLOAD_SERVICE);
         long downloadId = manager.enqueue(request);
+
+        final String[] finalSavePath = savePath;
         ctx.registerReceiver(new BroadcastReceiver() {
+
+            private String getPath(String filename) {
+               return finalSavePath[0] + "/" + finalSavePath[1] + "/" + filename;
+            }
+
             @Override
             public void onReceive(Context context, Intent intent) {
                 long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                 if (id == downloadId) {
+                    File tempFile = new File(Environment.getExternalStorageDirectory(), getPath("temp_"+filename));
+                    File file = new File(Environment.getExternalStorageDirectory(), getPath(filename));
+                    tempFile.renameTo(file);
+
                     toast(strRes("exo_download_completed") + ": " + filename);
                     ctx.unregisterReceiver(this);
                 }
             }
         }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-
     }
 
     public static void toast(String msg) {
