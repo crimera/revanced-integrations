@@ -1,3 +1,10 @@
+## [1.29.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.28.2...v1.29.0-dev.1) (2024-09-25)
+
+
+### Features
+
+* **Twitter:** Added `Hide nudge button` patch ([1e2879c](https://github.com/crimera/revanced-integrations/commit/1e2879cd1c04d8ed2673ffa7fec38c96abef7f4d))
+
 ## [1.28.2](https://github.com/crimera/revanced-integrations/compare/v1.28.1...v1.28.2) (2024-09-24)
 
 
