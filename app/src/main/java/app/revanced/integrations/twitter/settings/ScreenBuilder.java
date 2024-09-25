@@ -641,6 +641,15 @@ public class ScreenBuilder {
                     )
             );
         }
+        if (SettingsStatus.hideNudgeButton) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_hide_nudge_button"),
+                            strRes("piko_pref_hide_nudge_button_desc"),
+                            Settings.TIMELINE_HIDE_NUDGE_BUTTON
+                    )
+            );
+        }
     }
 
     public void buildExportSection(boolean buildCategory){
