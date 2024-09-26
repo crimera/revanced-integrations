@@ -373,7 +373,15 @@ public class ScreenBuilder {
             );
         }
 
-
+        if (SettingsStatus.hideSocialProof) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_hide_social_proof"),
+                            strRes("piko_pref_hide_social_proof_desc"),
+                            Settings.MISC_HIDE_SOCIAL_PROOF
+                    )
+            );
+        }
 
     }
 
@@ -492,7 +500,6 @@ public class ScreenBuilder {
                     )
             );
         }
-
 
         addPreference(category,
                 helper.switchPreference(
