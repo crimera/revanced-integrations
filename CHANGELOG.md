@@ -1,3 +1,10 @@
+## [1.30.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.29.0...v1.30.0-dev.1) (2024-09-27)
+
+
+### Features
+
+* **Twitter:** Added `Hide followed by context` patch ([da6fc21](https://github.com/crimera/revanced-integrations/commit/da6fc21f05fe1180676703d659f9e2dd36847c34))
+
 ## [1.29.0](https://github.com/crimera/revanced-integrations/compare/v1.28.2...v1.29.0) (2024-09-25)
 
 
