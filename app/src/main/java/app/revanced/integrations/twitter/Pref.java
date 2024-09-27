@@ -263,6 +263,9 @@ public class Pref {
     public static boolean enableDebugMenu() {
         return Utils.getBooleanPerf(Settings.MISC_DEBUG_MENU);
     }
+    public static boolean hideSocialProof() {
+        return Utils.getBooleanPerf(Settings.MISC_HIDE_SOCIAL_PROOF);
+    }
 
     private static ArrayList getList(String key){
         ArrayList<String> arrayList = new ArrayList<String>();
