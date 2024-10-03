@@ -64,7 +64,11 @@ public class SettingsStatus {
     public static boolean deleteFromDb = false;
     public static boolean nativeDownloader = false;
     public static boolean hideNudgeButton = false;
+    public static boolean hideSocialProof = false;
 
+    public static void hideSocialProof() {
+        hideSocialProof = true;
+    }
     public static void hideNudgeButton() {
         hideNudgeButton = true;
     }
@@ -295,7 +299,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableMiscSection() {
-        return (roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns);
+        return ( hideSocialProof || roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns);
     }
 
     public static boolean enableAdsSection() {
