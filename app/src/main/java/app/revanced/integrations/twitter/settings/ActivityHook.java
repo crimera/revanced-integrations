@@ -31,6 +31,7 @@ public class ActivityHook {
             fragment = new SettingsFragment();
         }else if (intent.getBooleanExtra(Settings.FEATURE_FLAGS.key, false)) {
             fragment = new FeatureFlagsFragment();
+            fragment.setArguments(intent.getExtras());
         }else if (intent.getBooleanExtra(Settings.PATCH_INFO.key, false)) {
             fragment = new SettingsAboutFragment();
         }else{
@@ -59,14 +60,20 @@ public class ActivityHook {
         transaction.commit();
     }
 
-    public static void startActivity(String activity_name)throws Exception{
+    public static void startActivity(String activity_name, Bundle bundle)throws Exception{
         Intent intent = new Intent(context, Class.forName("com.twitter.android.AuthorizeAppActivity"));
-        Bundle bundle = new Bundle();
         bundle.putBoolean(activity_name, true);
         bundle.putBoolean(EXTRA_PIKO, true);
         intent.putExtras(bundle);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
+    }
+
+    public static void startActivity(String activity_name)throws Exception{
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(activity_name, true);
+        bundle.putBoolean(EXTRA_PIKO, true);
+        startActivity(activity_name,bundle);
     }
 
     public static void startSettingsActivity() throws Exception {
