@@ -1,3 +1,10 @@
+## [1.31.0](https://github.com/crimera/revanced-integrations/compare/v1.30.0...v1.31.0) (2024-10-09)
+
+
+### Features
+
+* **Twitter:** Add flags via deep links ([2c8bd5e](https://github.com/crimera/revanced-integrations/commit/2c8bd5e64bf5d98070794f21dfe87a3a11721ac6))
+
 ## [1.30.0](https://github.com/crimera/revanced-integrations/compare/v1.29.0...v1.30.0) (2024-10-03)
 
 
