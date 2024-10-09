@@ -10,6 +10,8 @@ import app.revanced.integrations.shared.settings.BooleanSetting;
 
 @SuppressWarnings("deprecation")
 public class DeepLink {
+    private static final String bundleFlagNameKey = "flagName";
+    private static final String bundleFlagValueKey = "flagValue";
 
     public static boolean deeplink(Activity act) {
         try {
@@ -35,6 +37,16 @@ public class DeepLink {
                 return true;
             }else if(mainPath.equals("addflags")){
                 key = Settings.FEATURE_FLAGS;
+                String bundleFlagName = deeplink.getQueryParameter("f");
+                if(bundleFlagName!=null){
+                    boolean bundleFlagValue = deeplink.getBooleanQueryParameter("v",true);
+                    Bundle bundle = new Bundle();
+                    bundle.putString(bundleFlagNameKey, bundleFlagName);
+                    bundle.putBoolean(bundleFlagValueKey, bundleFlagValue);
+                    ActivityHook.startActivity(key.key,bundle);
+                    return true;
+
+                }
             }else if (isPiko) {
                 if(lastSegment.equals("premium")){
                     key = Settings.PREMIUM_SECTION;
