@@ -1,3 +1,10 @@
+## [1.31.1](https://github.com/crimera/revanced-integrations/compare/v1.31.0...v1.31.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **Remove Google Ad:** Include ads in the comments ([774ed00](https://github.com/crimera/revanced-integrations/commit/774ed00e010d042c40cd10e6354a555b2ffbdd30))
+
 ## [1.31.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.0...v1.31.1-dev.1) (2024-10-15)
 
 
