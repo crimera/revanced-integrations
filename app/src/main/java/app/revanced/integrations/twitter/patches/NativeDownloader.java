@@ -182,10 +182,14 @@ public class NativeDownloader {
           Check how many versions this naive implementation lasts. checked until
           versions 10.48 and the method names were the same.
          */
-        Method getUserNameMethod = tweetClass.getDeclaredMethod("q");
+        Method getUserNameMethod = tweetClass.getDeclaredMethod("r");
         Method getMediaMethod = tweetClass.getDeclaredMethod("b");
 
         String username = (String) getUserNameMethod.invoke(tweet);
+        if (username == null) {
+            Utils.toast("username is not found");
+        }
+        assert username != null;
         Object obj = getMediaMethod.invoke(tweet);
         ArrayList<HashMap<String, String>> media = getMediaData(obj);
 
