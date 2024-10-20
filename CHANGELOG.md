@@ -1,3 +1,10 @@
+## [1.31.2-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.1...v1.31.2-dev.1) (2024-10-20)
+
+
+### Bug Fixes
+
+* **Twitter:** Add support for version 10.64.0-beta.1 ([015f492](https://github.com/crimera/revanced-integrations/commit/015f492bfaf6fece4f3cb5e46707e283405e17d6))
+
 ## [1.31.1](https://github.com/crimera/revanced-integrations/compare/v1.31.0...v1.31.1) (2024-10-15)
 
 
