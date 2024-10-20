@@ -170,27 +170,40 @@ public class NativeDownloader {
         builder.show();
     }
 
-    // downloader(Landroid/content/Context;Ljava/lang/Object;)V
-    public static void downloader(Context activity, Object tweet) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
-        Class<?> tweetClass = tweet.getClass();
+    private static Class<?> tweetClass;
 
-        Method getIdMethod = tweetClass.getDeclaredMethod("getId");
-        Long id = (Long) getIdMethod.invoke(tweet);
+    public static Class<?> getTweetClass() throws ClassNotFoundException {
+        if (tweetClass == null) tweetClass = Class.forName("tweetObjectClass");
+
+        return tweetClass;
+    }
+
+    public static Long getTweetId(Object tweet) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return (Long) getTweetClass().getDeclaredMethod("idMethod").invoke(tweet);
+    }
+
+    public static String getTweetUsername(Object tweet) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return (String) getTweetClass().getDeclaredMethod("getUserNamemethod").invoke(tweet);
+    }
+
+    public static Object getTweetMedia(Object tweet) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return getTweetClass().getDeclaredMethod("getTweetMediaMethod").invoke(tweet);
+    }
+
+    // downloader(Landroid/content/Context;Ljava/lang/Object;)V
+    public static void downloader(Context activity, Object tweet) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException, ClassNotFoundException {
+        // TODO: make this into a fingerprint, match https://x.com/%1$s/status/%2$d
+        Class<?> tweetClass = getTweetClass();
+
+        Long id = getTweetId(tweet);
         assert id != null;
 
-        /*
-          Check how many versions this naive implementation lasts. checked until
-          versions 10.48 and the method names were the same.
-         */
-        Method getUserNameMethod = tweetClass.getDeclaredMethod("r");
-        Method getMediaMethod = tweetClass.getDeclaredMethod("b");
-
-        String username = (String) getUserNameMethod.invoke(tweet);
+        String username = getTweetUsername(tweet);
         if (username == null) {
             Utils.toast("username is not found");
         }
         assert username != null;
-        Object obj = getMediaMethod.invoke(tweet);
+        Object obj = getTweetMedia(tweet);
         ArrayList<HashMap<String, String>> media = getMediaData(obj);
 
         assert media != null;
