@@ -298,6 +298,7 @@ public class SettingsStatus {
         return (roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns);
     }
 
+
     public static boolean enableAdsSection() {
         return (hideAds || hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK || hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent || hideVideosForYou);
     }
