@@ -1,3 +1,66 @@
+## [1.31.2-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.31.2-dev.1...v1.31.2-dev.2) (2024-10-20)
+
+
+### Refactors
+
+* **Custom Downloader:** Improve getting of tweet method declarations ([a6ed0b2](https://github.com/crimera/revanced-integrations/commit/a6ed0b2d3db2757d83d0c0606eccf14c6ca2a02e))
+
+## [1.31.2-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.1...v1.31.2-dev.1) (2024-10-20)
+
+
+### Bug Fixes
+
+* **Twitter:** Add support for version 10.64.0-beta.1 ([015f492](https://github.com/crimera/revanced-integrations/commit/015f492bfaf6fece4f3cb5e46707e283405e17d6))
+
+## [1.31.1](https://github.com/crimera/revanced-integrations/compare/v1.31.0...v1.31.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **Remove Google Ad:** Include ads in the comments ([774ed00](https://github.com/crimera/revanced-integrations/commit/774ed00e010d042c40cd10e6354a555b2ffbdd30))
+
+## [1.31.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.0...v1.31.1-dev.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **Remove Google Ad:** Include ads in the comments ([774ed00](https://github.com/crimera/revanced-integrations/commit/774ed00e010d042c40cd10e6354a555b2ffbdd30))
+
+## [1.31.0](https://github.com/crimera/revanced-integrations/compare/v1.30.0...v1.31.0) (2024-10-09)
+
+
+### Features
+
+* **Twitter:** Add flags via deep links ([2c8bd5e](https://github.com/crimera/revanced-integrations/commit/2c8bd5e64bf5d98070794f21dfe87a3a11721ac6))
+
+## [1.30.0](https://github.com/crimera/revanced-integrations/compare/v1.29.0...v1.30.0) (2024-10-03)
+
+
+### Features
+
+* **Twitter:** Added `Hide followed by context` patch ([da6fc21](https://github.com/crimera/revanced-integrations/commit/da6fc21f05fe1180676703d659f9e2dd36847c34))
+
+## [1.30.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.29.0...v1.30.0-dev.1) (2024-09-27)
+
+
+### Features
+
+* **Twitter:** Added `Hide followed by context` patch ([da6fc21](https://github.com/crimera/revanced-integrations/commit/da6fc21f05fe1180676703d659f9e2dd36847c34))
+
+## [1.29.0](https://github.com/crimera/revanced-integrations/compare/v1.28.2...v1.29.0) (2024-09-25)
+
+
+### Features
+
+* **Twitter:** Added `Hide nudge button` patch ([1e2879c](https://github.com/crimera/revanced-integrations/commit/1e2879cd1c04d8ed2673ffa7fec38c96abef7f4d))
+
+## [1.29.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.28.2...v1.29.0-dev.1) (2024-09-25)
+
+
+### Features
+
+* **Twitter:** Added `Hide nudge button` patch ([1e2879c](https://github.com/crimera/revanced-integrations/commit/1e2879cd1c04d8ed2673ffa7fec38c96abef7f4d))
+
 ## [1.28.2](https://github.com/crimera/revanced-integrations/compare/v1.28.1...v1.28.2) (2024-09-24)
 
 
