@@ -1,3 +1,15 @@
+## [1.31.2](https://github.com/crimera/revanced-integrations/compare/v1.31.1...v1.31.2) (2024-10-24)
+
+
+### Bug Fixes
+
+* **Twitter:** Add support for version 10.64.0-beta.1 ([015f492](https://github.com/crimera/revanced-integrations/commit/015f492bfaf6fece4f3cb5e46707e283405e17d6))
+
+
+### Refactors
+
+* **Custom Downloader:** Improve getting of tweet method declarations ([a6ed0b2](https://github.com/crimera/revanced-integrations/commit/a6ed0b2d3db2757d83d0c0606eccf14c6ca2a02e))
+
 ## [1.31.2-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.31.2-dev.1...v1.31.2-dev.2) (2024-10-20)
 
 
