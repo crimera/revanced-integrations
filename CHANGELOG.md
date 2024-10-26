@@ -1,3 +1,10 @@
+## [1.32.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.3-dev.2...v1.32.0-dev.1) (2024-10-26)
+
+
+### Features
+
+* **Customize side bar items:** Allow for hiding of the "Jobs" item ([047946a](https://github.com/crimera/revanced-integrations/commit/047946aa9b5f7c494d56ad25d6fa9bfb7dbef524))
+
 ## [1.31.3-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.31.3-dev.1...v1.31.3-dev.2) (2024-10-26)
 
 
