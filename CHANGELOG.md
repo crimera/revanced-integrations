@@ -1,3 +1,10 @@
+## [1.31.3-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.2...v1.31.3-dev.1) (2024-10-26)
+
+
+### Updates
+
+* **Custom Downloader:** Only download files that doesn't already exist ([63c1664](https://github.com/crimera/revanced-integrations/commit/63c16647a7a7822465353fa58629ffcd2e4b8ca7))
+
 ## [1.31.2](https://github.com/crimera/revanced-integrations/compare/v1.31.1...v1.31.2) (2024-10-24)
 
 
