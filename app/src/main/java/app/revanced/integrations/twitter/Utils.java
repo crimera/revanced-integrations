@@ -229,6 +229,10 @@ public class Utils {
         return bigger;
     }
 
+    private static String getPath(String publicFolder, String subFolder, String filename) {
+        return publicFolder + "/" + subFolder + "/" + filename;
+    }
+
     public static void downloadFile(String url, String mediaName, String ext) {
         String filename = mediaName + "." + ext;
         boolean isPhoto = ext.equals("jpg");
@@ -238,28 +242,34 @@ public class Utils {
         request.setTitle(filename);
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
-        String[] savePath = {"Pictures", "Twitter"};
+        String publicFolder = "Pictures";
+        String subFolder = "Twitter";
+
         if (!isPhoto) {
-            savePath = new String[]{Pref.getPublicFolder(), Utils.getStringPref(Settings.VID_SUBFOLDER)};
+            publicFolder = Pref.getPublicFolder();
+            subFolder = Utils.getStringPref(Settings.VID_SUBFOLDER);
         }
-        request.setDestinationInExternalPublicDir(savePath[0], savePath[1] + "/" + "temp_" + filename);
+        request.setDestinationInExternalPublicDir(publicFolder, subFolder + "/" + "temp_" + filename);
+
+        File file = new File(Environment.getExternalStorageDirectory(), getPath(publicFolder, subFolder, filename));
+        if (file.exists()) {
+            toast(strRes("exo_download_completed") + ": " + filename);
+            return;
+        }
 
         DownloadManager manager = (DownloadManager) ctx.getSystemService(Context.DOWNLOAD_SERVICE);
         long downloadId = manager.enqueue(request);
 
-        final String[] finalSavePath = savePath;
+        File tempFile = new File(
+                Environment.getExternalStorageDirectory(),
+                getPath(publicFolder, subFolder, "temp_" + filename)
+        );
+
         ctx.registerReceiver(new BroadcastReceiver() {
-
-            private String getPath(String filename) {
-               return finalSavePath[0] + "/" + finalSavePath[1] + "/" + filename;
-            }
-
             @Override
             public void onReceive(Context context, Intent intent) {
                 long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                 if (id == downloadId) {
-                    File tempFile = new File(Environment.getExternalStorageDirectory(), getPath("temp_"+filename));
-                    File file = new File(Environment.getExternalStorageDirectory(), getPath(filename));
                     tempFile.renameTo(file);
 
                     toast(strRes("exo_download_completed") + ": " + filename);
