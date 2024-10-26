@@ -1,3 +1,10 @@
+## [1.31.3-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.31.3-dev.1...v1.31.3-dev.2) (2024-10-26)
+
+
+### Bug Fixes
+
+* Remove new MainEvent ads from Explore page ([6bb196b](https://github.com/crimera/revanced-integrations/commit/6bb196bb01d7f09f6442d635e556fc985b1b9751))
+
 ## [1.31.3-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.2...v1.31.3-dev.1) (2024-10-26)
 
 
