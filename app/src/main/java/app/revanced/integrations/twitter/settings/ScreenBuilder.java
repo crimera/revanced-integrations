@@ -121,6 +121,15 @@ public class ScreenBuilder {
                         )
                 );
             }
+        if (SettingsStatus.nativeDownloader) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_title_native_downloader"),
+                            "",
+                            Settings.VID_NATIVE_DOWNLOADER
+                    )
+            );
+        }
         
     }
 

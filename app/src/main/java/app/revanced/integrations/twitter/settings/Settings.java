@@ -11,6 +11,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting VID_SUBFOLDER = new StringSetting("vid_subfolder", "Twitter");
     public static final StringSetting VID_MEDIA_HANDLE = new StringSetting("vid_media_handle", "download_media");
     public static final StringSetting CUSTOM_SHARING_DOMAIN = new StringSetting("misc_custom_sharing_domain", "twitter");
+    public static final BooleanSetting VID_NATIVE_DOWNLOADER = new BooleanSetting("vid_native_downloader", true);
     public static final BooleanSetting MISC_FONT = new BooleanSetting("misc_font", false);
     public static final BooleanSetting MISC_HIDE_FAB = new BooleanSetting("misc_hide_fab", false);
     public static final BooleanSetting MISC_HIDE_FAB_BTN = new BooleanSetting("misc_hide_fab_btns", false);

@@ -12,7 +12,9 @@ public class Pref {
         ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
         ENABLE_FORCE_HD = enableForceHD();
     }
-
+    public static boolean enableNativeDownloader() {
+        return Utils.getBooleanPerf(Settings.VID_NATIVE_DOWNLOADER);
+    }
     public static boolean redirect(TabLayout$g g) {return Utils.redirect(g);}
 
     public static boolean isRoundOffNumbersEnabled() {
