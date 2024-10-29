@@ -1,3 +1,20 @@
+## [1.32.0](https://github.com/crimera/revanced-integrations/compare/v1.31.2...v1.32.0) (2024-10-29)
+
+
+### Bug Fixes
+
+* Remove new MainEvent ads from Explore page ([6bb196b](https://github.com/crimera/revanced-integrations/commit/6bb196bb01d7f09f6442d635e556fc985b1b9751))
+
+
+### Features
+
+* **Customize side bar items:** Allow for hiding of the "Jobs" item ([047946a](https://github.com/crimera/revanced-integrations/commit/047946aa9b5f7c494d56ad25d6fa9bfb7dbef524))
+
+
+### Updates
+
+* **Custom Downloader:** Only download files that doesn't already exist ([63c1664](https://github.com/crimera/revanced-integrations/commit/63c16647a7a7822465353fa58629ffcd2e4b8ca7))
+
 ## [1.32.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.3-dev.2...v1.32.0-dev.1) (2024-10-26)
 
 
