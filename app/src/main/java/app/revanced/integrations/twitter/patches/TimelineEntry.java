@@ -58,7 +58,7 @@ public class TimelineEntry {
             if (entryId.startsWith("messageprompt-") && hidePremiumPrompt) {
                 return true;
             }
-            if (entryId.startsWith("main-event-") && hideMainEvent) {
+            if (entryId.startsWith("main-event-") || entryId2.equals("eventsummary") && hideMainEvent) {
                 return true;
             }
             if (entryId2.equals("tweet") && entryId.contains("-tweet-") && hideVideosForYou) {
