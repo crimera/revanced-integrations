@@ -12,7 +12,20 @@ public class Pref {
         ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
         ENABLE_FORCE_HD = enableForceHD();
     }
+    public static boolean enableNativeDownloader() {
+        return Utils.getBooleanPerf(Settings.VID_NATIVE_DOWNLOADER);
+    }
 
+    public static int natveTranslatorProvider(){
+        return Integer.parseInt(Utils.getStringPref(Settings.NATIVE_TRANSLATOR_PROVIDERS));
+    }
+    public static boolean enableNativeTranslator() {
+        return Utils.getBooleanPerf(Settings.NATIVE_TRANSLATOR);
+    }
+
+    public static String translatorLanguage() {
+        return Utils.getStringPref(Settings.NATIVE_TRANSLATOR_LANG);
+    }
     public static boolean redirect(TabLayout$g g) {return Utils.redirect(g);}
 
     public static boolean isRoundOffNumbersEnabled() {

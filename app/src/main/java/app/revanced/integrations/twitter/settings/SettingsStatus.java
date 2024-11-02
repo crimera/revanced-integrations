@@ -63,6 +63,7 @@ public class SettingsStatus {
     public static boolean unshortenlink = false;
     public static boolean deleteFromDb = false;
     public static boolean nativeDownloader = false;
+    public static boolean nativeTranslator = false;
     public static boolean hideNudgeButton = false;
     public static boolean hideSocialProof = false;
 
@@ -82,6 +83,9 @@ public class SettingsStatus {
 
     public static void nativeDownloader() {
         nativeDownloader = true;
+    }
+    public static void nativeTranslator() {
+        nativeTranslator = true;
     }
 
     public static void deleteFromDb() {
@@ -299,7 +303,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableMiscSection() {
-        return ( hideSocialProof || roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns);
+        return ( nativeTranslator || hideSocialProof || roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns);
     }
 
     public static boolean enableAdsSection() {
