@@ -25,6 +25,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting MISC_DEBUG_MENU = new BooleanSetting("misc_debug_menu", false);
     public static final BooleanSetting MISC_QUICK_SETTINGS_BUTTON = new BooleanSetting("misc_quick_settings_button", false);
     public static final BooleanSetting MISC_HIDE_SOCIAL_PROOF = new BooleanSetting("misc_hide_social_proof", false);
+    public static final BooleanSetting NATIVE_TRANSLATOR = new BooleanSetting("native_translator", true);
+    public static final StringSetting NATIVE_TRANSLATOR_PROVIDERS = new StringSetting("native_translator_providers", "0");
+    public static final StringSetting NATIVE_TRANSLATOR_LANG = new StringSetting("native_translator_language", "en");
 
     public static final BooleanSetting ADS_HIDE_PROMOTED_TRENDS = new BooleanSetting("ads_hide_promoted_trends", true);
     public static final BooleanSetting ADS_HIDE_PROMOTED_POSTS = new BooleanSetting("ads_hide_promoted_posts", true);
