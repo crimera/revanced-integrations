@@ -14,7 +14,7 @@ import com.twitter.ui.widget.LegacyTwitterPreferenceCategory;
 import android.view.View;
 import app.revanced.integrations.twitter.settings.widgets.*;
 import androidx.annotation.Nullable;
-
+import app.revanced.integrations.twitter.Pref;
 public class ScreenBuilder {
     private Context context;
     private PreferenceScreen screen;
@@ -121,6 +121,15 @@ public class ScreenBuilder {
                         )
                 );
             }
+        if (SettingsStatus.nativeDownloader) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_title_native_downloader"),
+                            "",
+                            Settings.VID_NATIVE_DOWNLOADER
+                    )
+            );
+        }
         
     }
 
@@ -381,6 +390,31 @@ public class ScreenBuilder {
                             Settings.MISC_HIDE_SOCIAL_PROOF
                     )
             );
+        }
+
+        if (SettingsStatus.nativeTranslator) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_native_translator"),
+                            "",
+                            Settings.NATIVE_TRANSLATOR
+                    )
+            );
+            addPreference(category,
+                    helper.listPreference(
+                            strRes("piko_native_translator_provider"),
+                            "",
+                            Settings.NATIVE_TRANSLATOR_PROVIDERS
+                    )
+            );
+            addPreference(category,
+                    helper.listPreference(
+                            strRes("piko_native_translator_to_lang"),
+                            Pref.translatorLanguage(),
+                            Settings.NATIVE_TRANSLATOR_LANG
+                    )
+            );
+
         }
 
     }
