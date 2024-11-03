@@ -1,3 +1,10 @@
+## [1.33.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.33.0-dev.1...v1.33.0-dev.2) (2024-11-03)
+
+
+### Features
+
+* **Custom downloader:** temp files not getting renamed on android 13+ ([9638909](https://github.com/crimera/revanced-integrations/commit/96389095e9f643c368dd92dd733ff6812235a83b))
+
 ## [1.33.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.32.0...v1.33.0-dev.1) (2024-11-02)
 
 
