@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "app.revanced.integrations"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "app.revanced.integrations"
-        minSdk = 23
-        targetSdk = 33
+        minSdk = 26
+        targetSdk = 34
         multiDexEnabled = false
         versionName = version as String
     }
