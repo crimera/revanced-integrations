@@ -1,3 +1,22 @@
+## [1.33.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.33.0-dev.1...v1.33.0-dev.2) (2024-11-03)
+
+
+### Features
+
+* **Custom downloader:** temp files not getting renamed on android 13+ ([9638909](https://github.com/crimera/revanced-integrations/commit/96389095e9f643c368dd92dd733ff6812235a83b))
+
+## [1.33.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.32.0...v1.33.0-dev.1) (2024-11-02)
+
+
+### Features
+
+* **Twitter:** Added `Custom translator` patch ([d55b7a6](https://github.com/crimera/revanced-integrations/commit/d55b7a66a9f0d366303268b45a085cbf6f9ea92c))
+
+
+### Refactors
+
+* **Twitter:** refactor `Custom downloader` patch ([4142894](https://github.com/crimera/revanced-integrations/commit/4142894277a11d236bc4d28223f7a081103898ee))
+
 ## [1.32.0](https://github.com/crimera/revanced-integrations/compare/v1.31.2...v1.32.0) (2024-10-29)
 
 

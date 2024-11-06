@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import app.revanced.integrations.twitter.settings.Settings;
 import app.revanced.integrations.shared.Utils;
 import android.preference.Preference;
+import java.util.Locale;
+import app.revanced.integrations.twitter.patches.translator.Constants;
 //import java.util.*;
 
 public class ListPref extends ListPreference {
@@ -62,6 +64,12 @@ public class ListPref extends ListPreference {
         }else if (key == Settings.CUSTOM_DEF_REPLY_SORTING.key) {
             entries = Utils.getResourceStringArray("piko_array_reply_sorting");
             entriesValues = new CharSequence[]{"Relevance","Recency", "Likes","LastPostion"};
+        }else if (key == Settings.NATIVE_TRANSLATOR_PROVIDERS.key) {
+            entries = Utils.getResourceStringArray("piko_array_translators");
+            entriesValues = new CharSequence[]{"0", "1"};
+        }else if (key == Settings.NATIVE_TRANSLATOR_LANG.key) {
+            entries = Constants.displayNames;
+            entriesValues = Constants.languageTags;
         }
 
         setEntries(entries);

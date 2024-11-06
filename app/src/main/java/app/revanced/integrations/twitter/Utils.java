@@ -8,9 +8,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.LinearLayout;
+import androidx.annotation.RequiresApi;
 import app.revanced.integrations.shared.StringRef;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.StringSetting;
@@ -233,6 +235,21 @@ public class Utils {
         return publicFolder + "/" + subFolder + "/" + filename;
     }
 
+
+    private static void postDownload(String filename, File tempFile, File file, Intent intent, long downloadId, BroadcastReceiver broadcastReceiver) {
+        long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+        if (id == downloadId) {
+            boolean result = tempFile.renameTo(file);
+            if (!result) {
+                toast("Failed to rename temp file");
+            }
+
+            toast(strRes("exo_download_completed") + ": " + filename);
+            ctx.unregisterReceiver(broadcastReceiver);
+        }
+    }
+
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     public static void downloadFile(String url, String mediaName, String ext) {
         String filename = mediaName + "." + ext;
         boolean isPhoto = ext.equals("jpg");
@@ -265,25 +282,27 @@ public class Utils {
                 getPath(publicFolder, subFolder, "temp_" + filename)
         );
 
-        ctx.registerReceiver(new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-                if (id == downloadId) {
-                    tempFile.renameTo(file);
-
-                    toast(strRes("exo_download_completed") + ": " + filename);
-                    ctx.unregisterReceiver(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ctx.registerReceiver(new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    postDownload(filename, tempFile, file, intent, downloadId, this);
                 }
-            }
-        }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+            }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_EXPORTED);
+        } else {
+            ctx.registerReceiver(new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    postDownload(filename, tempFile, file, intent, downloadId, this);
+                }
+            }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        }
     }
 
     public static void toast(String msg) {
         app.revanced.integrations.shared.Utils.showToastShort(msg);
     }
 
-    //dont delete it
     public static void logger(Object j) {
         Log.d("piko", j.toString());
     }
