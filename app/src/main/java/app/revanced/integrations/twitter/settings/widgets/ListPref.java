@@ -50,23 +50,23 @@ public class ListPref extends ListPreference {
         CharSequence[] entries = new CharSequence[]{};
         CharSequence[] entriesValues = new CharSequence[]{};
         if (key == Settings.VID_PUBLIC_FOLDER.key) {
-            entries = new CharSequence[]{"Movies", "DCIM", "Pictures", "Download"};
+            entries =  Utils.getResourceStringArray("piko_array_public_folder");
             entriesValues = entries;
         }else if (key == Settings.CUSTOM_TIMELINE_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_timelinetabs");
-            entriesValues = new CharSequence[]{"show_both","hide_forYou", "hide_following"};
+            entriesValues = Utils.getResourceStringArray("piko_array_timelinetabs_val");
         }else if (key == Settings.VID_MEDIA_HANDLE.key) {
             entries = Utils.getResourceStringArray("piko_array_download_media_handle");
-            entriesValues = new CharSequence[]{"download_media","copy_media_link", "always_ask"};
+            entriesValues = Utils.getResourceStringArray("piko_array_download_media_handle_val");
         }else if (key == Settings.CUSTOM_INLINE_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_inlinetabs");
-            entriesValues = new CharSequence[]{"Reply","Retweet", "Favorite","ViewCount","AddRemoveBookmarks", "TwitterShare"};
+            entriesValues = Utils.getResourceStringArray("piko_array_inlinetabs_val");
         }else if (key == Settings.CUSTOM_DEF_REPLY_SORTING.key) {
             entries = Utils.getResourceStringArray("piko_array_reply_sorting");
-            entriesValues = new CharSequence[]{"Relevance","Recency", "Likes","LastPostion"};
+            entriesValues = Utils.getResourceStringArray("piko_array_reply_sorting_val");
         }else if (key == Settings.NATIVE_TRANSLATOR_PROVIDERS.key) {
             entries = Utils.getResourceStringArray("piko_array_translators");
-            entriesValues = new CharSequence[]{"0", "1"};
+            entriesValues = Utils.getResourceStringArray("piko_array_translators_val");
         }else if (key == Settings.NATIVE_TRANSLATOR_LANG.key) {
             entries = Constants.displayNames;
             entriesValues = Constants.languageTags;
