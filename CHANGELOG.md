@@ -1,3 +1,10 @@
+## [1.33.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.33.0...v1.33.1-dev.1) (2024-11-09)
+
+
+### Refactors
+
+* **Twitter:** refactor values of list preference ([4d7cfcd](https://github.com/crimera/revanced-integrations/commit/4d7cfcd1fe3d5d951e6c36cd40e1729efcc46bc6))
+
 ## [1.33.0](https://github.com/crimera/revanced-integrations/compare/v1.32.0...v1.33.0) (2024-11-06)
 
 
