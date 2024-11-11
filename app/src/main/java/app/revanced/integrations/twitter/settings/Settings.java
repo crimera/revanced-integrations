@@ -3,6 +3,7 @@ package app.revanced.integrations.twitter.settings;
 import app.revanced.integrations.shared.settings.BaseSettings;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.StringSetting;
+import app.revanced.integrations.shared.Utils;
 
 public class Settings extends BaseSettings {
     public static final String SHARED_PREF_NAME = "piko_settings";
@@ -71,6 +72,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_INLINE_TABS = new StringSetting("customisation_inlinebar_tabs", "");
     public static final StringSetting CUSTOM_DEF_REPLY_SORTING = new StringSetting("customisation_def_reply_sorting", "Likes");
     public static final StringSetting REPLY_SORTING_LAST_FILTER = new StringSetting("reply_sorting_last_filter", "Likes");
+    public static final StringSetting CUSTOM_POST_FONT_SIZE = new StringSetting("customisation_post_font_size", String.valueOf(Utils.getResourceDimension("font_size_normal")));
 
     public static final BooleanSetting EXPORT_PREF = new BooleanSetting("export_pref", true);
     public static final BooleanSetting EXPORT_FLAGS = new BooleanSetting("export_flags", true);

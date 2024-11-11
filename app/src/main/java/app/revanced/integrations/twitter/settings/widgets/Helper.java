@@ -31,6 +31,12 @@ public class Helper {
         return preference;
     }
 
+    public Preference editTextNumPreference(String title, String summary, StringSetting setting) {
+        EditTextPref preference = (EditTextPref)editTextPreference(title,summary,setting);
+        preference.setNumericOnly(true);
+        return preference;
+    }
+
     public Preference switchPreference(String title, String summary, BooleanSetting setting) {
         SwitchPref preference = new SwitchPref(context);
         preference.setTitle(title);

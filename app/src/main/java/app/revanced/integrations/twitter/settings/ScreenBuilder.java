@@ -535,6 +535,15 @@ public class ScreenBuilder {
             );
         }
 
+        if(SettingsStatus.customPostFontSize) {
+            addPreference(category,
+                    helper.editTextNumPreference(
+                            strRes("piko_pref_customisation_post_font_size"),
+                            String.valueOf(Pref.setPostFontSize()),
+                            Settings.CUSTOM_POST_FONT_SIZE
+                    ));
+        }
+
         addPreference(category,
                 helper.switchPreference(
                         strRes("piko_pref_quick_settings"),
