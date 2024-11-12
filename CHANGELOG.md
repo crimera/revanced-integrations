@@ -1,3 +1,10 @@
+## [1.34.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.33.1-dev.1...v1.34.0-dev.1) (2024-11-12)
+
+
+### Features
+
+* **Twitter:** Added `Customise post font size` patch ([e8706de](https://github.com/crimera/revanced-integrations/commit/e8706deb31ff479252727eea03c0bf738a006243))
+
 ## [1.33.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.33.0...v1.33.1-dev.1) (2024-11-09)
 
 
