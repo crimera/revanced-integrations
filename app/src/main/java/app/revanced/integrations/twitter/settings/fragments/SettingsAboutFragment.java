@@ -118,6 +118,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("piko_pref_hide_nudge_button"),SettingsStatus.hideNudgeButton);
         flags.put(strRes("piko_pref_hide_social_proof"),SettingsStatus.hideSocialProof);
         flags.put(strRes("translate_tweet_show"),SettingsStatus.nativeTranslator);
+        flags.put(strRes("piko_pref_customisation_post_font_size"),SettingsStatus.customPostFontSize);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 

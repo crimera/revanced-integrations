@@ -8,9 +8,20 @@ import java.util.*;
 @SuppressWarnings("unused")
 public class Pref {
     public static boolean ROUND_OFF_NUMBERS,ENABLE_FORCE_HD;
+    public static float POST_FONT_SIZE;
     static{
         ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
         ENABLE_FORCE_HD = enableForceHD();
+        POST_FONT_SIZE = setPostFontSize();
+    }
+    public static float setPostFontSize() {
+        Float fontSize = 0.0f;
+        try{
+            fontSize = Float.valueOf(Utils.getStringPref(Settings.CUSTOM_POST_FONT_SIZE));
+        }catch (Exception ex){
+            fontSize = app.revanced.integrations.shared.Utils.getResourceDimension("font_size_normal");
+        }
+        return fontSize;
     }
     public static boolean enableNativeDownloader() {
         return Utils.getBooleanPerf(Settings.VID_NATIVE_DOWNLOADER);
