@@ -66,7 +66,11 @@ public class SettingsStatus {
     public static boolean nativeTranslator = false;
     public static boolean hideNudgeButton = false;
     public static boolean hideSocialProof = false;
+    public static boolean customPostFontSize = false;
 
+    public static void customPostFontSize() {
+        customPostFontSize = true;
+    }
     public static void hideSocialProof() {
         hideSocialProof = true;
     }
@@ -319,7 +323,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableCustomisationSection() {
-        return (inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
+        return (customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
     }
 
     public static void load() {
