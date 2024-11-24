@@ -82,15 +82,25 @@ public class ScreenBuilder {
                 );
             }
 
-            if (SettingsStatus.customAppIcon || SettingsStatus.navBarCustomisation) {
+            if (SettingsStatus.customAppIcon) {
                 addPreference(category,
                         helper.buttonPreference(
-                                strRes("piko_pref_icon_n_navbar_btn"),
+                                strRes("app_icon"),
                                 "",
                                 Settings.PREMIUM_ICONS
                         )
                 );
             }
+
+        if (SettingsStatus.navBarCustomisation) {
+            addPreference(category,
+                    helper.buttonPreference(
+                            strRes("custom_navigation"),
+                            "",
+                            Settings.PREMIUM_NAVBAR
+                    )
+            );
+        }
         
     }
 

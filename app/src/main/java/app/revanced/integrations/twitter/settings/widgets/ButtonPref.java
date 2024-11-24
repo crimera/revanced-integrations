@@ -92,7 +92,9 @@ public class ButtonPref extends Preference {
                     } else if (key.equals(Settings.PREMIUM_UNDO_POSTS.key)) {
                         Utils.startUndoPostActivity();
                     } else if (key.equals(Settings.PREMIUM_ICONS.key)) {
-                        Utils.startAppIconNNavIconActivity();
+                        Utils.openUrl("https://www.x.com/settings/app_icon");
+                    }  else if (key.equals(Settings.PREMIUM_NAVBAR.key)) {
+                        Utils.openUrl("https://www.x.com/settings/custom_navigation");
                     } else if (key.equals(Settings.RESET_PREF.key)) {
                         Utils.deleteSharedPrefAB(context, false);
                     } else if (key.equals(Settings.RESET_FLAGS.key)) {

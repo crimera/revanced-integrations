@@ -34,6 +34,12 @@ public class Utils {
     private static final Context ctx = app.revanced.integrations.shared.Utils.getContext();
     private static final SharedPrefCategory sp = new SharedPrefCategory(Settings.SHARED_PREF_NAME);
 
+    public static void openUrl(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        ctx.startActivity(intent);
+    }
+
     private static void startActivity(Class cls) {
         Intent intent = new Intent(ctx, cls);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -130,7 +136,7 @@ public class Utils {
         ln.setOrientation(LinearLayout.VERTICAL);
 
         dialog.setTitle(strRes("settings_restart"));
-        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setPositiveButton(strRes("ok"), (dialogInterface, i) -> {
             app.revanced.integrations.shared.Utils.restartApp(context);
         });
         dialog.setNegativeButton(strRes("cancel"), null);
@@ -148,7 +154,7 @@ public class Utils {
         dialog.setTitle(strRes("delete"));
 
         dialog.setMessage(strRes("delete") + " " + strRes(content) + " ?");
-        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setPositiveButton(strRes("ok"), (dialogInterface, i) -> {
             boolean success = false;
             if (flag) {
                 sp.removeKey(Settings.MISC_FEATURE_FLAGS.key);
