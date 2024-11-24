@@ -63,6 +63,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting PREMIUM_READER_MODE = new BooleanSetting("premium_reader_mode", false);
     public static final BooleanSetting PREMIUM_UNDO_POSTS = new BooleanSetting("premium_undo_posts", false);
     public static final BooleanSetting PREMIUM_ICONS = new BooleanSetting("premium_app_icon", true);
+    public static final BooleanSetting PREMIUM_NAVBAR = new BooleanSetting("premium_custom_navbar", true);
     public static final BooleanSetting PREMIUM_ENABLE_FORCE_PIP = new BooleanSetting("premium_enable_force_pip", false);
 
     public static final StringSetting CUSTOM_PROFILE_TABS = new StringSetting("customisation_profile_tabs", "");

@@ -34,6 +34,12 @@ public class Utils {
     private static final Context ctx = app.revanced.integrations.shared.Utils.getContext();
     private static final SharedPrefCategory sp = new SharedPrefCategory(Settings.SHARED_PREF_NAME);
 
+    public static void openUrl(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        ctx.startActivity(intent);
+    }
+
     private static void startActivity(Class cls) {
         Intent intent = new Intent(ctx, cls);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
