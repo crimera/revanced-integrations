@@ -1,3 +1,15 @@
+## [1.34.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.34.0...v1.34.1-dev.1) (2024-11-24)
+
+
+### Bug Fixes
+
+* **Twitter:** Fix dialog  positive button string ([fcbecce](https://github.com/crimera/revanced-integrations/commit/fcbecce8646a7b0aef3d239a2d99574a4ec62bc7))
+
+
+### Refactors
+
+* **Twitter:** refactor custom app icon and nav icons ([b5dc850](https://github.com/crimera/revanced-integrations/commit/b5dc850f3a3d3d2cdd98a1ae3a5b7702edad475f))
+
 ## [1.34.0](https://github.com/crimera/revanced-integrations/compare/v1.33.0...v1.34.0) (2024-11-14)
 
 
