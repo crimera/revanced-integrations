@@ -130,7 +130,7 @@ public class Utils {
         ln.setOrientation(LinearLayout.VERTICAL);
 
         dialog.setTitle(strRes("settings_restart"));
-        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setPositiveButton(strRes("ok"), (dialogInterface, i) -> {
             app.revanced.integrations.shared.Utils.restartApp(context);
         });
         dialog.setNegativeButton(strRes("cancel"), null);
@@ -148,7 +148,7 @@ public class Utils {
         dialog.setTitle(strRes("delete"));
 
         dialog.setMessage(strRes("delete") + " " + strRes(content) + " ?");
-        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setPositiveButton(strRes("ok"), (dialogInterface, i) -> {
             boolean success = false;
             if (flag) {
                 sp.removeKey(Settings.MISC_FEATURE_FLAGS.key);
