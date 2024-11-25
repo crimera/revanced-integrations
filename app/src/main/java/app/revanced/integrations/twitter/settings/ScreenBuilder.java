@@ -710,6 +710,15 @@ public class ScreenBuilder {
                     )
             );
         }
+        if (SettingsStatus.showSensitiveMedia) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_show_sensitive_media"),
+                            "",
+                            Settings.TIMELINE_SHOW_SENSITIVE_MEDIA
+                    )
+            );
+        }
     }
 
     public void buildExportSection(boolean buildCategory){

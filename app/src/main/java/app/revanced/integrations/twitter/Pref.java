@@ -23,6 +23,10 @@ public class Pref {
         }
         return fontSize;
     }
+    public static boolean showSensitiveMedia() {
+        return Utils.getBooleanPerf(Settings.TIMELINE_SHOW_SENSITIVE_MEDIA);
+    }
+
     public static boolean enableNativeDownloader() {
         return Utils.getBooleanPerf(Settings.VID_NATIVE_DOWNLOADER);
     }
