@@ -36,7 +36,7 @@ public class TimelineEntry {
             if (entryId2.equals("superhero") && hideSuperheroEvent) {
                 return true;
             }
-            if (entryId2.equals("rtb") && hideGAds) {
+            if (entryId.contains("rtb") && hideGAds) {
                 return true;
             }
             if (entryId2.equals("tweetdetailrelatedtweets") && hideDetailedPosts) {
