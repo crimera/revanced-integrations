@@ -1,3 +1,15 @@
+## [1.34.1-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.34.1-dev.1...v1.34.1-dev.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* **Twitter:** fix `hide Google ads` ([d975a79](https://github.com/crimera/revanced-integrations/commit/d975a79d1024141b18d5d749a1603edfc88b5921))
+
+
+### Refactors
+
+* **Twitter:** Added toggle for `Show sensitive media` patch ([a7a991c](https://github.com/crimera/revanced-integrations/commit/a7a991c46539112a33a842d6fcec776e83f7aab5))
+
 ## [1.34.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.34.0...v1.34.1-dev.1) (2024-11-24)
 
 
