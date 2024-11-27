@@ -82,15 +82,25 @@ public class ScreenBuilder {
                 );
             }
 
-            if (SettingsStatus.customAppIcon || SettingsStatus.navBarCustomisation) {
+            if (SettingsStatus.customAppIcon) {
                 addPreference(category,
                         helper.buttonPreference(
-                                strRes("piko_pref_icon_n_navbar_btn"),
+                                strRes("app_icon"),
                                 "",
                                 Settings.PREMIUM_ICONS
                         )
                 );
             }
+
+        if (SettingsStatus.navBarCustomisation) {
+            addPreference(category,
+                    helper.buttonPreference(
+                            strRes("custom_navigation"),
+                            "",
+                            Settings.PREMIUM_NAVBAR
+                    )
+            );
+        }
         
     }
 
@@ -697,6 +707,15 @@ public class ScreenBuilder {
                             strRes("piko_pref_hide_nudge_button"),
                             strRes("piko_pref_hide_nudge_button_desc"),
                             Settings.TIMELINE_HIDE_NUDGE_BUTTON
+                    )
+            );
+        }
+        if (SettingsStatus.showSensitiveMedia) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_show_sensitive_media"),
+                            "",
+                            Settings.TIMELINE_SHOW_SENSITIVE_MEDIA
                     )
             );
         }
