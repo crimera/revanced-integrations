@@ -312,6 +312,9 @@ public class Pref {
     public static ArrayList customSidebar() {
         return getList(Settings.CUSTOM_SIDEBAR_TABS.key);
     }
+    public static ArrayList customExploreTabs() {
+        return getList(Settings.CUSTOM_EXPLORE_TABS.key);
+    }
 
     public static ArrayList customNavbar() {
         return getList(Settings.CUSTOM_NAVBAR_TABS.key);
