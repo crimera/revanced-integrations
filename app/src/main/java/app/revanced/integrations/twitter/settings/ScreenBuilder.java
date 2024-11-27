@@ -505,6 +505,15 @@ public class ScreenBuilder {
                     )
             );
         }
+        if (SettingsStatus.exploreTabCustomisation) {
+            addPreference(category,
+                    helper.multiSelectListPref(
+                            strRes("piko_pref_customisation_exploretabs"),
+                            strRes("piko_pref_app_restart_rec"),
+                            Settings.CUSTOM_EXPLORE_TABS
+                    )
+            );
+        }
         if (SettingsStatus.sideBarCustomisation) {
            addPreference(category,
                     helper.multiSelectListPref(
