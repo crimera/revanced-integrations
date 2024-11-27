@@ -53,6 +53,9 @@ public class MultiSelectListPref extends MultiSelectListPreference {
         }else if (key == Settings.CUSTOM_INLINE_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_inlinetabs");
             entriesValues = new CharSequence[]{"Reply","Retweet", "Favorite","ViewCount","AddRemoveBookmarks", "TwitterShare"};
+        }else if (key == Settings.CUSTOM_EXPLORE_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_exploretabs");
+            entriesValues = Utils.getResourceStringArray("piko_array_exploretabs_val");
         }
         setEntries(entries);
         setEntryValues(entriesValues);
