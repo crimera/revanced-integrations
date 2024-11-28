@@ -1,3 +1,10 @@
+## [1.35.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.34.1...v1.35.0-dev.1) (2024-11-28)
+
+
+### Features
+
+* **Twitter:** Added `Customize explore tabs` patch ([7f53b59](https://github.com/crimera/revanced-integrations/commit/7f53b59512b4f60549325fc9e93754bb8d927a1e))
+
 ## [1.34.1](https://github.com/crimera/revanced-integrations/compare/v1.34.0...v1.34.1) (2024-11-27)
 
 
