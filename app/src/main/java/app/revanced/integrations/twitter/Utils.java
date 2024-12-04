@@ -37,6 +37,7 @@ public class Utils {
     public static void openUrl(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setPackage(ctx.getPackageName());
         ctx.startActivity(intent);
     }
 
