@@ -95,7 +95,7 @@ public class ScreenBuilder {
         if (SettingsStatus.navBarCustomisation) {
             addPreference(category,
                     helper.buttonPreference(
-                            strRes("custom_navigation"),
+                            strRes("tab_customization_screen_title"),
                             "",
                             Settings.PREMIUM_NAVBAR
                     )
