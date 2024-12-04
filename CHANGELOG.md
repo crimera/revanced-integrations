@@ -1,3 +1,15 @@
+## [1.35.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.35.0...v1.35.1-dev.1) (2024-12-04)
+
+
+### Bug Fixes
+
+* **Twitter:** app icon & customise navbar url openning in browser ([4a95984](https://github.com/crimera/revanced-integrations/commit/4a95984322c848240a8136cc2387b1b204564d32))
+
+
+### Refactors
+
+* **Twitter:** Change `Customize Navbar` string in/from 10.70 ([d4c31b9](https://github.com/crimera/revanced-integrations/commit/d4c31b916e44033081db2d06f8c1814fc83e65fc))
+
 ## [1.35.0](https://github.com/crimera/revanced-integrations/compare/v1.34.1...v1.35.0) (2024-12-04)
 
 
