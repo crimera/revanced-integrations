@@ -50,6 +50,7 @@ public class SettingsStatus {
 
     public static boolean profileTabCustomisation = false;
     public static boolean timelineTabCustomisation = false;
+    public static boolean exploreTabCustomisation = false;
     public static boolean sideBarCustomisation = false;
     public static boolean navBarCustomisation = false;
     public static boolean inlineBarCustomisation = false;
@@ -286,6 +287,10 @@ public class SettingsStatus {
         timelineTabCustomisation = true;
     }
 
+    public static void exploreTabCustomisation() {
+        exploreTabCustomisation = true;
+    }
+
     public static void sideBarCustomisation() {
         sideBarCustomisation = true;
     }
@@ -323,7 +328,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableCustomisationSection() {
-        return (customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
+        return (exploreTabCustomisation || customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
     }
 
     public static void load() {
