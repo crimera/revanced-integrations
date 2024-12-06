@@ -284,6 +284,16 @@ public class ScreenBuilder {
             );
         }
 
+        if (SettingsStatus.hideTopPeopleSearch) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRemoveRes("piko_pref_top_people_search"),
+                            strRes("piko_pref_top_people_search_desc"),
+                            Settings.ADS_HIDE_TOP_PEOPLE_SEARCH
+                    )
+            );
+        }
+
         if (SettingsStatus.deleteFromDb) {
             addPreference(category,
                     helper.buttonPreference(

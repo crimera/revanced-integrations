@@ -39,6 +39,7 @@ public class SettingsStatus {
     public static boolean hidePremiumPrompt = false;
     public static boolean hideHiddenReplies = false;
     public static boolean removePremiumUpsell = false;
+    public static boolean hideTopPeopleSearch = false;
 
     public static boolean enableReaderMode = false;
     public static boolean enableUndoPosts = false;
@@ -255,6 +256,10 @@ public class SettingsStatus {
         hideRPinnedPosts = true;
     }
 
+    public static void hideTopPeopleSearch() {
+        hideTopPeopleSearch = true;
+    }
+
     public static void hidePromotedTrends() {
         hidePromotedTrend = true;
     }
@@ -316,7 +321,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableAdsSection() {
-        return (hideAds || hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK || hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent || hideVideosForYou);
+        return (hideTopPeopleSearch || hideAds || hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK || hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent || hideVideosForYou);
     }
 
     public static boolean enableDownloadSection() {

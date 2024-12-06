@@ -261,6 +261,10 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_REVISIT_BMK);
     }
 
+    public static boolean hideTopPeopleSearch() {
+        return Utils.getBooleanPerf(Settings.ADS_HIDE_TOP_PEOPLE_SEARCH);
+    }
+
     public static boolean removePremiumUpsell() {return !Utils.getBooleanPerf(Settings.ADS_REMOVE_PREMIUM_UPSELL);
     }
 
