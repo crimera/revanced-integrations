@@ -5,6 +5,7 @@ import java.util.*;
 import java.lang.reflect.Field;
 import app.revanced.integrations.twitter.Pref;
 import app.revanced.integrations.twitter.Utils;
+import com.twitter.model.json.search.JsonTypeaheadResponse;
 
 public class Customise {
 
@@ -124,6 +125,30 @@ public class Customise {
             logger(e);
         }
         return inp;
+    }
+
+    public static JsonTypeaheadResponse typeAheadResponse(JsonTypeaheadResponse jsonTypeaheadResponse){
+        try{
+            ArrayList choices = Pref.customSearchTypeAhead();
+            if(choices.contains("users")){
+                jsonTypeaheadResponse.a = new ArrayList<>();
+            }
+            if(choices.contains("topics")){
+                jsonTypeaheadResponse.b = new ArrayList<>();
+            }
+            if(choices.contains("events")){
+                jsonTypeaheadResponse.c = new ArrayList<>();
+            }
+            if(choices.contains("lists")){
+                jsonTypeaheadResponse.d = new ArrayList<>();
+            }
+            if(choices.contains("ordered_section")){
+                jsonTypeaheadResponse.e = new ArrayList<>();
+            }
+        }catch (Exception e){
+            logger(e);
+        }
+        return jsonTypeaheadResponse;
     }
 
 //class end

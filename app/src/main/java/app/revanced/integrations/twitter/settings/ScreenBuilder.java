@@ -564,6 +564,16 @@ public class ScreenBuilder {
             );
         }
 
+        if (SettingsStatus.typeaheadCustomisation) {
+            addPreference(category,
+                    helper.multiSelectListPref(
+                            strRes("piko_pref_customisation_search_type_ahead"),
+                            "",
+                            Settings.CUSTOM_SEARCH_TYPE_AHEAD
+                    )
+            );
+        }
+
         if(SettingsStatus.customPostFontSize) {
             addPreference(category,
                     helper.editTextNumPreference(

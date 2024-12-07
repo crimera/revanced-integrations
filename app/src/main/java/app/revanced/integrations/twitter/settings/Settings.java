@@ -76,6 +76,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_INLINE_TABS = new StringSetting("customisation_inlinebar_tabs", "");
     public static final StringSetting CUSTOM_DEF_REPLY_SORTING = new StringSetting("customisation_def_reply_sorting", "Likes");
     public static final StringSetting REPLY_SORTING_LAST_FILTER = new StringSetting("reply_sorting_last_filter", "Likes");
+    public static final StringSetting CUSTOM_SEARCH_TYPE_AHEAD = new StringSetting("customisation_search_type_ahead", "");
     public static final StringSetting CUSTOM_POST_FONT_SIZE = new StringSetting("customisation_post_font_size", String.valueOf(Utils.getResourceDimension("font_size_normal")));
 
     public static final BooleanSetting EXPORT_PREF = new BooleanSetting("export_pref", true);

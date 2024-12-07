@@ -341,6 +341,10 @@ public class Pref {
         Utils.setStringPref(Settings.REPLY_SORTING_LAST_FILTER.key,sortfilter);
     }
 
+    public static ArrayList customSearchTypeAhead() {
+        return getList(Settings.CUSTOM_SEARCH_TYPE_AHEAD.key);
+    }
+
 
     //end
 }

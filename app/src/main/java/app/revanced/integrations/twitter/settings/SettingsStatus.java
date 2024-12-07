@@ -57,6 +57,7 @@ public class SettingsStatus {
     public static boolean inlineBarCustomisation = false;
     public static boolean mediaLinkHandle = false;
     public static boolean defaultReplySortFilter = false;
+    public static boolean typeaheadCustomisation = false;
 
     public static boolean selectableText = false;
     public static boolean showSensitiveMedia = false;
@@ -312,6 +313,10 @@ public class SettingsStatus {
         inlineBarCustomisation = true;
     }
 
+    public static void typeaheadCustomisation() {
+        typeaheadCustomisation = true;
+    }
+
     public static boolean enableTimelineSection() {
         return ( showSensitiveMedia || hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
     }
@@ -333,7 +338,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableCustomisationSection() {
-        return (exploreTabCustomisation || customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
+        return (typeaheadCustomisation || exploreTabCustomisation || customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
     }
 
     public static void load() {
