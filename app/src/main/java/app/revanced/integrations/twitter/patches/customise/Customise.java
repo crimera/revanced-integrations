@@ -16,6 +16,9 @@ public class Customise {
     public static List navBar(List inp){
         try{
             ArrayList choices = Pref.customNavbar();
+
+            if(choices.isEmpty()) return inp;
+
             List list2 = new ArrayList<>(inp);
             Iterator itr = list2.iterator();
 
@@ -36,6 +39,9 @@ public class Customise {
     public static ArrayList profiletabs(ArrayList inp){
         try{
             ArrayList choices = Pref.customProfileTabs();
+
+            if(choices.isEmpty()) return inp;
+
             Object inpObj = inp.clone();
             ArrayList<?> arr = (ArrayList<?>) inpObj;
             Iterator itr = inp.iterator();
@@ -63,6 +69,9 @@ public class Customise {
     public static ArrayList exploretabs(ArrayList inp){
         try{
             ArrayList choices = Pref.customExploreTabs();
+
+            if(choices.isEmpty()) return inp;
+
             Object inpObj = inp.clone();
             ArrayList<?> arr = (ArrayList<?>) inpObj;
             Iterator itr = inp.iterator();
@@ -90,6 +99,9 @@ public class Customise {
     public static List inlineBar(List inp){
         try{
             ArrayList choices = Pref.inlineBar();
+
+            if(choices.isEmpty()) return inp;
+
             List list2 = new ArrayList<>(inp);
             Iterator itr = inp.iterator();
 
@@ -110,6 +122,9 @@ public class Customise {
     public static List sideBar(List inp){
         try{
             ArrayList choices = Pref.customSidebar();
+
+            if(choices.isEmpty()) return inp;
+
             List list2 = new ArrayList<>(inp);
             Iterator itr = list2.iterator();
 
@@ -130,20 +145,23 @@ public class Customise {
     public static JsonTypeaheadResponse typeAheadResponse(JsonTypeaheadResponse jsonTypeaheadResponse){
         try{
             ArrayList choices = Pref.customSearchTypeAhead();
-            if(choices.contains("users")){
-                jsonTypeaheadResponse.a = new ArrayList<>();
-            }
-            if(choices.contains("topics")){
-                jsonTypeaheadResponse.b = new ArrayList<>();
-            }
-            if(choices.contains("events")){
-                jsonTypeaheadResponse.c = new ArrayList<>();
-            }
-            if(choices.contains("lists")){
-                jsonTypeaheadResponse.d = new ArrayList<>();
-            }
-            if(choices.contains("ordered_section")){
-                jsonTypeaheadResponse.e = new ArrayList<>();
+            if(!choices.isEmpty())
+            {
+                if (choices.contains("users")) {
+                    jsonTypeaheadResponse.a = new ArrayList<>();
+                }
+                if (choices.contains("topics")) {
+                    jsonTypeaheadResponse.b = new ArrayList<>();
+                }
+                if (choices.contains("events")) {
+                    jsonTypeaheadResponse.c = new ArrayList<>();
+                }
+                if (choices.contains("lists")) {
+                    jsonTypeaheadResponse.d = new ArrayList<>();
+                }
+                if (choices.contains("ordered_section")) {
+                    jsonTypeaheadResponse.e = new ArrayList<>();
+                }
             }
         }catch (Exception e){
             logger(e);
