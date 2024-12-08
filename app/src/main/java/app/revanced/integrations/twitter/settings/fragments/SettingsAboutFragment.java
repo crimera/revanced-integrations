@@ -62,7 +62,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strEnableRes("piko_pref_reader_mode"),SettingsStatus.enableReaderMode);
         flags.put(strEnableRes("piko_pref_undo_posts"),SettingsStatus.enableUndoPosts);
         flags.put(strRes("app_icon"),SettingsStatus.customAppIcon);
-        flags.put(strRes("custom_navigation"),SettingsStatus.navBarCustomisation);
+        flags.put(strRes("tab_customization_screen_title"),SettingsStatus.navBarCustomisation);
         flags.put(strRes("piko_pref_download"),SettingsStatus.changeDownloadEnabled);
         flags.put(strRes("piko_pref_download_media_link_handle"),SettingsStatus.mediaLinkHandle);
         flags.put(strRemoveRes("piko_pref_hide_promoted_posts"),SettingsStatus.hideAds);
@@ -121,7 +121,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("translate_tweet_show"),SettingsStatus.nativeTranslator);
         flags.put(strRes("piko_pref_customisation_post_font_size"),SettingsStatus.customPostFontSize);
         flags.put(strRemoveRes("piko_pref_top_people_search"),SettingsStatus.hideTopPeopleSearch);
-        flags.put(strRes("piko_pref_customisation_searchtabs"),SettingsStatus.customPostFontSize);
+        flags.put(strRes("piko_pref_customisation_searchtabs"),SettingsStatus.searchTabCustomisation);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 
