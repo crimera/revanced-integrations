@@ -554,6 +554,16 @@ public class ScreenBuilder {
             );
         }
 
+        if (SettingsStatus.searchTabCustomisation) {
+            addPreference(category,
+                    helper.multiSelectListPref(
+                            strRes("piko_pref_customisation_searchtabs"),
+                            strRes("piko_pref_app_restart_rec"),
+                            Settings.CUSTOM_SEARCH_TABS
+                    )
+            );
+        }
+
         if (SettingsStatus.defaultReplySortFilter) {
            addPreference(category,
                     helper.listPreference(

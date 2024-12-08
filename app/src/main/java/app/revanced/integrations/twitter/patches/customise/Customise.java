@@ -151,5 +151,30 @@ public class Customise {
         return jsonTypeaheadResponse;
     }
 
+    public static List searchTabs(List inp){
+        try{
+            ArrayList choices = Pref.searchTabs();
+
+            if(choices.isEmpty()) return inp;
+
+            List list2 = new ArrayList<>(inp);
+            Iterator itr = inp.iterator();
+
+            while (itr.hasNext()) {
+                Object obj = itr.next();
+                Class<?> clazz = obj.getClass();
+                Field field = clazz.getDeclaredField("a");
+                int itemVal = (int) field.get(obj);
+                if(choices.contains(String.valueOf(itemVal))){
+                    list2.remove(obj);
+                }
+            }
+            return list2;
+        }catch (Exception e){
+            logger(e);
+        }
+        return inp;
+    }
+
 //class end
 }

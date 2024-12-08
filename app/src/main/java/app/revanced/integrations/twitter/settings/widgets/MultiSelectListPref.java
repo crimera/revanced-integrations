@@ -59,6 +59,9 @@ public class MultiSelectListPref extends MultiSelectListPreference {
         }else if (key == Settings.CUSTOM_SEARCH_TYPE_AHEAD.key) {
             entries = Utils.getResourceStringArray("piko_array_search_type_ahead");
             entriesValues = Utils.getResourceStringArray("piko_array_search_type_ahead_val");
+        }else if (key == Settings.CUSTOM_SEARCH_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_searchtabs");
+            entriesValues = Utils.getResourceStringArray("piko_array_searchtabs_val");
         }
         setEntries(entries);
         setEntryValues(entriesValues);

@@ -55,6 +55,7 @@ public class SettingsStatus {
     public static boolean sideBarCustomisation = false;
     public static boolean navBarCustomisation = false;
     public static boolean inlineBarCustomisation = false;
+    public static boolean searchTabCustomisation = false;
     public static boolean mediaLinkHandle = false;
     public static boolean defaultReplySortFilter = false;
     public static boolean typeaheadCustomisation = false;
@@ -300,6 +301,9 @@ public class SettingsStatus {
     public static void sideBarCustomisation() {
         sideBarCustomisation = true;
     }
+    public static void searchTabCustomisation() {
+        searchTabCustomisation = true;
+    }
 
     public static void navBarCustomisation() {
         navBarCustomisation = true;
@@ -338,7 +342,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableCustomisationSection() {
-        return (typeaheadCustomisation || exploreTabCustomisation || customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
+        return (searchTabCustomisation || typeaheadCustomisation || exploreTabCustomisation || customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
     }
 
     public static void load() {
