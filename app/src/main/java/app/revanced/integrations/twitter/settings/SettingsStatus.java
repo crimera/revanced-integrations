@@ -39,6 +39,7 @@ public class SettingsStatus {
     public static boolean hidePremiumPrompt = false;
     public static boolean hideHiddenReplies = false;
     public static boolean removePremiumUpsell = false;
+    public static boolean hideTopPeopleSearch = false;
 
     public static boolean enableReaderMode = false;
     public static boolean enableUndoPosts = false;
@@ -54,8 +55,10 @@ public class SettingsStatus {
     public static boolean sideBarCustomisation = false;
     public static boolean navBarCustomisation = false;
     public static boolean inlineBarCustomisation = false;
+    public static boolean searchTabCustomisation = false;
     public static boolean mediaLinkHandle = false;
     public static boolean defaultReplySortFilter = false;
+    public static boolean typeaheadCustomisation = false;
 
     public static boolean selectableText = false;
     public static boolean showSensitiveMedia = false;
@@ -255,6 +258,10 @@ public class SettingsStatus {
         hideRPinnedPosts = true;
     }
 
+    public static void hideTopPeopleSearch() {
+        hideTopPeopleSearch = true;
+    }
+
     public static void hidePromotedTrends() {
         hidePromotedTrend = true;
     }
@@ -294,6 +301,9 @@ public class SettingsStatus {
     public static void sideBarCustomisation() {
         sideBarCustomisation = true;
     }
+    public static void searchTabCustomisation() {
+        searchTabCustomisation = true;
+    }
 
     public static void navBarCustomisation() {
         navBarCustomisation = true;
@@ -307,6 +317,10 @@ public class SettingsStatus {
         inlineBarCustomisation = true;
     }
 
+    public static void typeaheadCustomisation() {
+        typeaheadCustomisation = true;
+    }
+
     public static boolean enableTimelineSection() {
         return ( showSensitiveMedia || hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
     }
@@ -316,7 +330,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableAdsSection() {
-        return (hideAds || hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK || hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent || hideVideosForYou);
+        return (hideTopPeopleSearch || hideAds || hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK || hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent || hideVideosForYou);
     }
 
     public static boolean enableDownloadSection() {
@@ -328,7 +342,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableCustomisationSection() {
-        return (exploreTabCustomisation || customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
+        return (searchTabCustomisation || typeaheadCustomisation || exploreTabCustomisation || customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
     }
 
     public static void load() {
