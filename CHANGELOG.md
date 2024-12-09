@@ -1,3 +1,18 @@
+## [1.36.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.35.1-dev.1...v1.36.0-dev.1) (2024-12-09)
+
+
+### Features
+
+* **Twitter:** Added `Customize search suggestions` patch ([936a167](https://github.com/crimera/revanced-integrations/commit/936a16770e6eb5a5e1ec98a6ca55279914321920))
+* **Twitter:** Added `Customize search tab items` patch ([7f47bb3](https://github.com/crimera/revanced-integrations/commit/7f47bb335d3e3f1c62e8c3c9a8160320e7b078c9))
+* **Twitter:** Added `Remove top people in search` patch ([dd19233](https://github.com/crimera/revanced-integrations/commit/dd192335447861948c8ee867fa2483369b1cb92d))
+
+
+### Refactors
+
+* **Twitter:** Added empty check for choices during Customisation ([296dd1c](https://github.com/crimera/revanced-integrations/commit/296dd1cb79534ce5baa9e7951572971d9a8f270b))
+* **Twitter:** Strings in 'About' ([89c169f](https://github.com/crimera/revanced-integrations/commit/89c169fa54f6b9e10e75a9841121deb43531f465))
+
 ## [1.35.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.35.0...v1.35.1-dev.1) (2024-12-04)
 
 
