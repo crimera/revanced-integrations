@@ -284,6 +284,16 @@ public class ScreenBuilder {
             );
         }
 
+        if (SettingsStatus.hideTopPeopleSearch) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRemoveRes("piko_pref_top_people_search"),
+                            strRes("piko_pref_top_people_search_desc"),
+                            Settings.ADS_HIDE_TOP_PEOPLE_SEARCH
+                    )
+            );
+        }
+
         if (SettingsStatus.deleteFromDb) {
             addPreference(category,
                     helper.buttonPreference(
@@ -544,12 +554,32 @@ public class ScreenBuilder {
             );
         }
 
+        if (SettingsStatus.searchTabCustomisation) {
+            addPreference(category,
+                    helper.multiSelectListPref(
+                            strRes("piko_pref_customisation_searchtabs"),
+                            strRes("piko_pref_app_restart_rec"),
+                            Settings.CUSTOM_SEARCH_TABS
+                    )
+            );
+        }
+
         if (SettingsStatus.defaultReplySortFilter) {
            addPreference(category,
                     helper.listPreference(
                             strRes("piko_pref_customisation_reply_sorting"),
                             "",
                             Settings.CUSTOM_DEF_REPLY_SORTING
+                    )
+            );
+        }
+
+        if (SettingsStatus.typeaheadCustomisation) {
+            addPreference(category,
+                    helper.multiSelectListPref(
+                            strRes("piko_pref_customisation_search_type_ahead"),
+                            "",
+                            Settings.CUSTOM_SEARCH_TYPE_AHEAD
                     )
             );
         }
