@@ -43,6 +43,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ADS_HIDE_REVISIT_PINNED_POSTS = new BooleanSetting("ads_hide_revisit_pinned_posts", true);
     public static final BooleanSetting ADS_HIDE_DETAILED_POSTS = new BooleanSetting("ads_hide_detailed_posts", true);
     public static final BooleanSetting ADS_HIDE_PREMIUM_PROMPT = new BooleanSetting("ads_hide_premium_prompt", true);
+    public static final BooleanSetting ADS_HIDE_TOP_PEOPLE_SEARCH = new BooleanSetting("ads_hide_top_people_search", false);
     public static final BooleanSetting ADS_DEL_FROM_DB = new BooleanSetting("ads_del_from_db", false);
     public static final BooleanSetting ADS_REMOVE_PREMIUM_UPSELL = new BooleanSetting("ads_remove_premium_upsell", true);
 
@@ -73,8 +74,10 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_SIDEBAR_TABS = new StringSetting("customisation_sidebar_tabs", "");
     public static final StringSetting CUSTOM_NAVBAR_TABS = new StringSetting("customisation_navbar_tabs", "");
     public static final StringSetting CUSTOM_INLINE_TABS = new StringSetting("customisation_inlinebar_tabs", "");
+    public static final StringSetting CUSTOM_SEARCH_TABS = new StringSetting("customisation_search_tabs", "");
     public static final StringSetting CUSTOM_DEF_REPLY_SORTING = new StringSetting("customisation_def_reply_sorting", "Likes");
     public static final StringSetting REPLY_SORTING_LAST_FILTER = new StringSetting("reply_sorting_last_filter", "Likes");
+    public static final StringSetting CUSTOM_SEARCH_TYPE_AHEAD = new StringSetting("customisation_search_type_ahead", "");
     public static final StringSetting CUSTOM_POST_FONT_SIZE = new StringSetting("customisation_post_font_size", String.valueOf(Utils.getResourceDimension("font_size_normal")));
 
     public static final BooleanSetting EXPORT_PREF = new BooleanSetting("export_pref", true);

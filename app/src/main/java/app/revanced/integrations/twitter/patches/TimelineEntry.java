@@ -8,7 +8,7 @@ import app.revanced.integrations.twitter.Pref;
 import app.revanced.integrations.twitter.settings.SettingsStatus;
 
 public class TimelineEntry {
-    private static final boolean hideAds,hideGAds,hideWTF,hideCTS,hideCTJ,hideDetailedPosts,hideRBMK,hidePinnedPosts,hidePremiumPrompt,hideMainEvent,hideSuperheroEvent,hideVideosForYou,showSensitiveMedia;
+    private static final boolean hideAds,hideGAds,hideWTF,hideCTS,hideCTJ,hideDetailedPosts,hideRBMK,hidePinnedPosts,hidePremiumPrompt,hideMainEvent,hideSuperheroEvent,hideVideosForYou,showSensitiveMedia,hideTopPeopleSearch;
     static {
         hideAds = (Pref.hideAds() && SettingsStatus.hideAds);
         hideGAds = (Pref.hideGoogleAds() && SettingsStatus.hideGAds);
@@ -23,6 +23,7 @@ public class TimelineEntry {
         hideSuperheroEvent = (Pref.hideSuperheroEvent() && SettingsStatus.hideSuperheroEvent);
         hideVideosForYou = (Pref.hideVideosForYou() && SettingsStatus.hideVideosForYou);
         showSensitiveMedia = Pref.showSensitiveMedia();
+        hideTopPeopleSearch = (Pref.hideTopPeopleSearch() && SettingsStatus.hideTopPeopleSearch);
     }
 
 
@@ -64,6 +65,9 @@ public class TimelineEntry {
                 return true;
             }
             if (entryId2.equals("tweet") && entryId.contains("-tweet-") && hideVideosForYou) {
+                return true;
+            }
+            if (entryId2.equals("toptabsrpusermodule") && hideTopPeopleSearch) {
                 return true;
             }
         }

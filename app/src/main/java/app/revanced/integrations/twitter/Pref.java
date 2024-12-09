@@ -261,6 +261,10 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.ADS_HIDE_REVISIT_BMK);
     }
 
+    public static boolean hideTopPeopleSearch() {
+        return Utils.getBooleanPerf(Settings.ADS_HIDE_TOP_PEOPLE_SEARCH);
+    }
+
     public static boolean removePremiumUpsell() {return !Utils.getBooleanPerf(Settings.ADS_REMOVE_PREMIUM_UPSELL);
     }
 
@@ -324,6 +328,10 @@ public class Pref {
         return getList(Settings.CUSTOM_INLINE_TABS.key);
     }
 
+    public static ArrayList searchTabs() {
+        return getList(Settings.CUSTOM_SEARCH_TABS.key);
+    }
+
     public static String defaultReplySortFilter() {
         String sortfilter = Utils.getStringPref(Settings.CUSTOM_DEF_REPLY_SORTING);
         if(sortfilter.equals("LastPostion")){
@@ -335,6 +343,10 @@ public class Pref {
     public static void setReplySortFilter(String sortfilter) {
         sortfilter = sortfilter.length()>0?sortfilter:"Likes";
         Utils.setStringPref(Settings.REPLY_SORTING_LAST_FILTER.key,sortfilter);
+    }
+
+    public static ArrayList customSearchTypeAhead() {
+        return getList(Settings.CUSTOM_SEARCH_TYPE_AHEAD.key);
     }
 
 
