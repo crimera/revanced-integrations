@@ -34,7 +34,7 @@ public class TimelineEntry {
             if (entryId2.equals("promoted") || ((entryId2.equals("conversationthread") && split.length == 3)) && hideAds) {
                 return true;
             }
-            if (entryId2.equals("superhero") && hideSuperheroEvent) {
+            if ((entryId2.equals("superhero") || entryId2.equals("eventsummary")) && hideSuperheroEvent) {
                 return true;
             }
             if (entryId.contains("rtb") && hideGAds) {
@@ -61,7 +61,7 @@ public class TimelineEntry {
             if (entryId.startsWith("messageprompt-") && hidePremiumPrompt) {
                 return true;
             }
-            if (entryId.startsWith("main-event-") || entryId2.equals("eventsummary") && hideMainEvent) {
+            if ((entryId.startsWith("main-event-") || entryId2.equals("pivot")) && hideMainEvent) {
                 return true;
             }
             if (entryId2.equals("tweet") && entryId.contains("-tweet-") && hideVideosForYou) {
