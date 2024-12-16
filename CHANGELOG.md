@@ -1,3 +1,10 @@
+## [1.36.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.36.0...v1.36.1-dev.1) (2024-12-16)
+
+
+### Refactors
+
+* **Twitter:** Added 'NFL Jetfuel' part of Main event patch ([97f834e](https://github.com/crimera/revanced-integrations/commit/97f834e75e046114a5e8209a84be62edd27462ed))
+
 ## [1.36.0](https://github.com/crimera/revanced-integrations/compare/v1.35.0...v1.36.0) (2024-12-14)
 
 
