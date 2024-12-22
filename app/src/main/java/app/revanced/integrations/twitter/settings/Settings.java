@@ -97,5 +97,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting CUSTOMISE_SECTION = new BooleanSetting("custommise_section", true);
     public static final BooleanSetting TIMELINE_SECTION = new BooleanSetting("timeline_section", true);
     public static final BooleanSetting BACKUP_SECTION = new BooleanSetting("backup_section", true);
+    public static final BooleanSetting NATIVE_SECTION = new BooleanSetting("native_section", true);
     public static final BooleanSetting SINGLE_PAGE_SETTINGS = new BooleanSetting("single_page_settings", false);
 }

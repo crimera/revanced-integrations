@@ -110,7 +110,7 @@ public class ScreenBuilder {
             LegacyTwitterPreferenceCategory category = null;
                 if(buildCategory)
                     category = preferenceCategory(strRes("piko_title_download"));
-            if (SettingsStatus.changeDownloadEnabled || SettingsStatus.nativeDownloader) {
+            if (SettingsStatus.changeDownloadEnabled) {
                 addPreference(category,helper.listPreference(
                         strRes("piko_pref_download_path"),
                         strRes("piko_pref_download_path_desc"),
@@ -131,15 +131,6 @@ public class ScreenBuilder {
                         )
                 );
             }
-        if (SettingsStatus.nativeDownloader) {
-            addPreference(category,
-                    helper.switchPreference(
-                            strRes("piko_title_native_downloader"),
-                            "",
-                            Settings.VID_NATIVE_DOWNLOADER
-                    )
-            );
-        }
         
     }
 
@@ -307,6 +298,60 @@ public class ScreenBuilder {
         }
     }
 
+    public void buildNativeSection(){
+        if (!(SettingsStatus.enableNativeSection())) return;
+
+        LegacyTwitterPreferenceCategory category = preferenceCategory(strRes("piko_title_native_downloader"));
+        if (SettingsStatus.nativeDownloader) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_title_native_downloader_toggle"),
+                            "",
+                            Settings.VID_NATIVE_DOWNLOADER
+                    )
+            );
+
+            addPreference(category,helper.listPreference(
+                    strRes("piko_pref_download_path"),
+                    strRes("piko_pref_download_path_desc"),
+                    Settings.VID_PUBLIC_FOLDER
+            ));
+            addPreference(category,helper.editTextPreference(
+                    strRes("piko_pref_download_folder"),
+                    strRes("piko_pref_download_folder_desc"),
+                    Settings.VID_SUBFOLDER
+            ));
+        }
+
+
+        category = preferenceCategory(strRes("piko_title_native_translator"));
+
+        if (SettingsStatus.nativeTranslator) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_native_translator_toggle"),
+                            "",
+                            Settings.NATIVE_TRANSLATOR
+                    )
+            );
+            addPreference(category,
+                    helper.listPreference(
+                            strRes("piko_native_translator_provider"),
+                            "",
+                            Settings.NATIVE_TRANSLATOR_PROVIDERS
+                    )
+            );
+            addPreference(category,
+                    helper.listPreference(
+                            strRes("piko_native_translator_to_lang"),
+                            Pref.translatorLanguage(),
+                            Settings.NATIVE_TRANSLATOR_LANG
+                    )
+            );
+
+        }
+    }
+
     public void buildMiscSection(boolean buildCategory){
 
         if (!(SettingsStatus.enableMiscSection())) return;
@@ -410,31 +455,6 @@ public class ScreenBuilder {
                             Settings.MISC_HIDE_SOCIAL_PROOF
                     )
             );
-        }
-
-        if (SettingsStatus.nativeTranslator) {
-            addPreference(category,
-                    helper.switchPreference(
-                            strRes("piko_native_translator"),
-                            "",
-                            Settings.NATIVE_TRANSLATOR
-                    )
-            );
-            addPreference(category,
-                    helper.listPreference(
-                            strRes("piko_native_translator_provider"),
-                            "",
-                            Settings.NATIVE_TRANSLATOR_PROVIDERS
-                    )
-            );
-            addPreference(category,
-                    helper.listPreference(
-                            strRes("piko_native_translator_to_lang"),
-                            Pref.translatorLanguage(),
-                            Settings.NATIVE_TRANSLATOR_LANG
-                    )
-            );
-
         }
 
     }
@@ -849,6 +869,16 @@ public class ScreenBuilder {
                             "",
                             Settings.ADS_SECTION,
                             "ic_vector_accessibility_alt",null
+                    )
+            );
+        }
+        if (SettingsStatus.enableNativeSection()) {
+            addPreference(
+                    helper.buttonPreference(
+                            strRes("piko_title_native"),
+                            "",
+                            Settings.NATIVE_SECTION,
+                            "ic_vector_flask_stroke",null
                     )
             );
         }
