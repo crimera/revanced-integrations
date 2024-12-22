@@ -321,6 +321,13 @@ public class ScreenBuilder {
                     strRes("piko_pref_download_folder_desc"),
                     Settings.VID_SUBFOLDER
             ));
+            addPreference(category,
+                    helper.listPreference(
+                            strRes("piko_pref_native_downloader_filename_title"),
+                            "",
+                            Settings.VID_NATIVE_DOWNLOADER_FILENAME
+                    )
+            );
         }
 
 

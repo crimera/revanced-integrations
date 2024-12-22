@@ -70,6 +70,9 @@ public class ListPref extends ListPreference {
         }else if (key == Settings.NATIVE_TRANSLATOR_LANG.key) {
             entries = Constants.displayNames;
             entriesValues = Constants.languageTags;
+        }else if (key == Settings.VID_NATIVE_DOWNLOADER_FILENAME.key) {
+            entries = Utils.getResourceStringArray("piko_array_native_download_filename");
+            entriesValues = Utils.getResourceStringArray("piko_array_native_download_filename_val");
         }
 
         setEntries(entries);
