@@ -56,6 +56,8 @@ public class DeepLink {
                     key = Settings.FLAGS_SECTION;
                 } else if (lastSegment.equals("ads")) {
                     key = Settings.ADS_SECTION;
+                } else if (lastSegment.equals("native")) {
+                    key = Settings.NATIVE_SECTION;
                 } else if (lastSegment.equals("misc")) {
                     key = Settings.MISC_SECTION;
                 } else if (lastSegment.equals("customise") || lastSegment.equals("customize")) {

@@ -349,6 +349,10 @@ public class Pref {
         return getList(Settings.CUSTOM_SEARCH_TYPE_AHEAD.key);
     }
 
+    public static int nativeDownloaderFileNameType() {
+        return Integer.parseInt(Utils.getStringPref(Settings.VID_NATIVE_DOWNLOADER_FILENAME));
+    }
+
 
     //end
 }

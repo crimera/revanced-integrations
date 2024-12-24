@@ -4,13 +4,15 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.widget.LinearLayout;
 import app.revanced.integrations.twitter.Utils;
-
+import app.revanced.integrations.twitter.Pref;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class NativeDownloader {
     public static String downloadString() {
@@ -30,6 +32,22 @@ public class NativeDownloader {
         return "jpg";
     }
 
+    private static String generateFileName(Object tweet) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException, ClassNotFoundException {
+        String tweetId = String.valueOf(getTweetId(tweet));
+        int fileNameType = Pref.nativeDownloaderFileNameType();
+        switch (fileNameType) {
+            case 1:
+                return getTweetUsername(tweet) + "_" + tweetId;
+            case 2:
+                return getTweetProfileName(tweet) + "_" + tweetId;
+            case 3:
+                return getTweetUserId(tweet) + "_" + tweetId;
+            case 5:
+                return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+            default:
+                return tweetId;
+        }
+    }
     private static ArrayList<HashMap<String, String>> getMediaData(Object yghObj) {
         ArrayList<HashMap<String, String>> mediaData = new ArrayList<>();
 
@@ -170,6 +188,32 @@ public class NativeDownloader {
         builder.show();
     }
 
+
+    // downloader(Landroid/content/Context;Ljava/lang/Object;)V
+    public static void downloader(Context activity, Object tweet) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException, ClassNotFoundException {
+
+        Object obj = getTweetMedia(tweet);
+        ArrayList<HashMap<String, String>> media = getMediaData(obj);
+
+        assert media != null;
+        if (media.isEmpty()) {
+            Utils.toast(Utils.strRes("piko_pref_native_downloader_no_media"));
+            return;
+        }
+
+        String fileName = generateFileName(tweet);
+
+        if (media.size() == 1) {
+            HashMap<String, String> item = media.get(0);
+
+            Utils.toast(Utils.strRes("download_started"));
+            Utils.downloadFile(item.get("url"), fileName, item.get("ext"));
+            return;
+        }
+
+        alertBox(activity, fileName + "-", media);
+    }
+
     private static Class<?> tweetClass;
 
     public static Class<?> getTweetClass() throws ClassNotFoundException {
@@ -186,40 +230,16 @@ public class NativeDownloader {
         return (String) getTweetClass().getDeclaredMethod("getUserNamemethod").invoke(tweet);
     }
 
+    public static String getTweetProfileName(Object tweet) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return (String) getTweetClass().getDeclaredMethod("getTweetProfileName").invoke(tweet);
+    }
+
+    public static Long getTweetUserId(Object tweet) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return (Long) getTweetClass().getDeclaredMethod("getTweetUserIdMethod").invoke(tweet);
+    }
+
     public static Object getTweetMedia(Object tweet) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         return getTweetClass().getDeclaredMethod("getTweetMediaMethod").invoke(tweet);
     }
 
-    // downloader(Landroid/content/Context;Ljava/lang/Object;)V
-    public static void downloader(Context activity, Object tweet) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException, ClassNotFoundException {
-        // TODO: make this into a fingerprint, match https://x.com/%1$s/status/%2$d
-        Class<?> tweetClass = getTweetClass();
-
-        Long id = getTweetId(tweet);
-        assert id != null;
-
-        String username = getTweetUsername(tweet);
-        if (username == null) {
-            Utils.toast("username is not found");
-        }
-        assert username != null;
-        Object obj = getTweetMedia(tweet);
-        ArrayList<HashMap<String, String>> media = getMediaData(obj);
-
-        assert media != null;
-        if (media.isEmpty()) {
-            Utils.toast(Utils.strRes("piko_pref_native_downloader_no_media"));
-            return;
-        }
-
-        if (media.size() == 1) {
-            HashMap<String, String> item = media.get(0);
-
-            Utils.toast(Utils.strRes("download_started"));
-            Utils.downloadFile(item.get("url"), username + "_" + id, item.get("ext"));
-            return;
-        }
-
-        alertBox(activity, username + "_" + id + "-", media);
-    }
 }
