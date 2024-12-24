@@ -1,3 +1,11 @@
+## [1.36.1-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.36.1-dev.1...v1.36.1-dev.2) (2024-12-24)
+
+
+### Refactors
+
+* **Twitter:** Added 'Native features' section ([4da5c2c](https://github.com/crimera/revanced-integrations/commit/4da5c2c8103c03ade527e5e8fd3c980a912ffcd2))
+* **Twitter:** Added Native download filename customization ([8ab46df](https://github.com/crimera/revanced-integrations/commit/8ab46dfaf8e7d36cb9cdf6696082d2b5b0804c50))
+
 ## [1.36.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.36.0...v1.36.1-dev.1) (2024-12-16)
 
 
