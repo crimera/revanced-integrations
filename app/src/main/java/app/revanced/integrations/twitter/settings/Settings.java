@@ -12,7 +12,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting VID_SUBFOLDER = new StringSetting("vid_subfolder", "Twitter");
     public static final StringSetting VID_MEDIA_HANDLE = new StringSetting("vid_media_handle", "download_media");
     public static final StringSetting CUSTOM_SHARING_DOMAIN = new StringSetting("misc_custom_sharing_domain", "twitter");
-    public static final BooleanSetting VID_NATIVE_DOWNLOADER = new BooleanSetting("vid_native_downloader", true);
+
     public static final BooleanSetting MISC_FONT = new BooleanSetting("misc_font", false);
     public static final BooleanSetting MISC_HIDE_FAB = new BooleanSetting("misc_hide_fab", false);
     public static final BooleanSetting MISC_HIDE_FAB_BTN = new BooleanSetting("misc_hide_fab_btns", false);
@@ -26,9 +26,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting MISC_DEBUG_MENU = new BooleanSetting("misc_debug_menu", false);
     public static final BooleanSetting MISC_QUICK_SETTINGS_BUTTON = new BooleanSetting("misc_quick_settings_button", false);
     public static final BooleanSetting MISC_HIDE_SOCIAL_PROOF = new BooleanSetting("misc_hide_social_proof", false);
-    public static final BooleanSetting NATIVE_TRANSLATOR = new BooleanSetting("native_translator", true);
-    public static final StringSetting NATIVE_TRANSLATOR_PROVIDERS = new StringSetting("native_translator_providers", "0");
-    public static final StringSetting NATIVE_TRANSLATOR_LANG = new StringSetting("native_translator_language", "en");
 
     public static final BooleanSetting ADS_HIDE_PROMOTED_TRENDS = new BooleanSetting("ads_hide_promoted_trends", true);
     public static final BooleanSetting ADS_HIDE_PROMOTED_POSTS = new BooleanSetting("ads_hide_promoted_posts", true);
@@ -46,6 +43,12 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ADS_HIDE_TOP_PEOPLE_SEARCH = new BooleanSetting("ads_hide_top_people_search", false);
     public static final BooleanSetting ADS_DEL_FROM_DB = new BooleanSetting("ads_del_from_db", false);
     public static final BooleanSetting ADS_REMOVE_PREMIUM_UPSELL = new BooleanSetting("ads_remove_premium_upsell", true);
+
+    public static final BooleanSetting VID_NATIVE_DOWNLOADER = new BooleanSetting("vid_native_downloader", true);
+    public static final StringSetting VID_NATIVE_DOWNLOADER_FILENAME = new StringSetting("vid_native_downloader_filename", "0");
+    public static final BooleanSetting NATIVE_TRANSLATOR = new BooleanSetting("native_translator", true);
+    public static final StringSetting NATIVE_TRANSLATOR_PROVIDERS = new StringSetting("native_translator_providers", "0");
+    public static final StringSetting NATIVE_TRANSLATOR_LANG = new StringSetting("native_translator_language", "en");
 
     public static final BooleanSetting TIMELINE_DISABLE_AUTO_SCROLL = new BooleanSetting("timeline_disable_auto_scroll", true);
     public static final BooleanSetting TIMELINE_HIDE_LIVETHREADS = new BooleanSetting("timeline_hide_livethreads", false);
@@ -97,5 +100,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting CUSTOMISE_SECTION = new BooleanSetting("custommise_section", true);
     public static final BooleanSetting TIMELINE_SECTION = new BooleanSetting("timeline_section", true);
     public static final BooleanSetting BACKUP_SECTION = new BooleanSetting("backup_section", true);
+    public static final BooleanSetting NATIVE_SECTION = new BooleanSetting("native_section", true);
     public static final BooleanSetting SINGLE_PAGE_SETTINGS = new BooleanSetting("single_page_settings", false);
 }

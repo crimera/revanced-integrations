@@ -326,15 +326,19 @@ public class SettingsStatus {
     }
 
     public static boolean enableMiscSection() {
-        return ( nativeTranslator || hideSocialProof || roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns);
+        return ( hideSocialProof || roundOffNumbers || enableFontMod || hideRecommendedUsers || hideFAB || hideViewCount || customSharingDomainEnabled || hideFABBtns);
     }
 
     public static boolean enableAdsSection() {
         return (hideTopPeopleSearch || hideAds || hideGAds || hideWTF || hideCTS || hideCTJ || hideDetailedPosts || hideRBMK || hidePromotedTrend || removePremiumUpsell || hideMainEvent || hideSuperheroEvent || hideVideosForYou);
     }
 
+    public static boolean enableNativeSection() {
+        return (nativeDownloader || nativeTranslator);
+    }
+
     public static boolean enableDownloadSection() {
-        return (nativeDownloader || changeDownloadEnabled || mediaLinkHandle);
+        return (changeDownloadEnabled || mediaLinkHandle);
     }
 
     public static boolean enablePremiumSection() {
