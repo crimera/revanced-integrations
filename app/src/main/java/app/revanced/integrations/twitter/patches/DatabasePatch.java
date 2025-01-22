@@ -110,6 +110,10 @@ public class DatabasePatch {
                                 entry_id_str = "messageprompt%";
                                 break;
                             }
+                            case 9: {
+                                entry_id_str = "stories%";
+                                break;
+                            }
                         }
                         if (entry_id_str != "") {
                             int deletedRows = database.delete("timeline", "entity_id LIKE ?", new String[]{entry_id_str});
