@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.lang.StackTraceElement;
 
 public class NativeDownloader {
     public static String downloadString() {
@@ -77,17 +78,11 @@ public class NativeDownloader {
 
             Class<?> itemClass = list.get(0).getClass();
 
-            Field imageUrlField = null;
-            Method getVideoDataMethod = null;
-            Field videoField = null;
-            Field videoCDCField = null;
-
             for (Object item : list) {
                 Method[] itemMethods = itemClass.getDeclaredMethods();
 
-                if (getVideoDataMethod == null) {
-                    getVideoDataMethod = itemMethods[itemMethods.length - 1];
-                }
+                Method getVideoDataMethod = itemMethods[itemMethods.length - 1];
+
                 Object videoData = getVideoDataMethod.invoke(item);
 
                 HashMap<String, String> data = new HashMap<>();
@@ -95,26 +90,10 @@ public class NativeDownloader {
                 if (videoData != null) {
                     Class<?> videoDataClass = videoData.getClass();
 
-                    // setting fields
-                    if (videoField == null) {
-                        int c = 1;
-                        for (Field field : videoDataClass.getDeclaredFields()) {
-                            if (String.class.isAssignableFrom(field.getType())) {
-                                if (c == 1) {
-                                    videoField = field;
-                                    videoField.setAccessible(true);
-                                } else if (c == 2) {
-                                    videoCDCField = field;
-                                    videoCDCField.setAccessible(true);
-                                    break;
-                                }
-
-                                c++;
-                            }
-                        }
-                    }
-
+                    Field videoField = getVideoUrlField(videoDataClass);
                     String mediaUrl = (String) videoField.get(videoData);
+
+                    Field videoCDCField = getVideoCodecField(videoDataClass);
                     String c = (String) videoCDCField.get(videoData);
 
                     String ext = getExtension(c);
@@ -124,18 +103,9 @@ public class NativeDownloader {
                     data.put("url", mediaUrl);
                     mediaData.add(data);
                 } else {
-                    if (imageUrlField == null) {
-                        for (Field field : itemClass.getDeclaredFields()) {
-                            if (String.class.isAssignableFrom(field.getType())) {
-                                imageUrlField = field;
-                                imageUrlField.setAccessible(true);
-                                break;
-                            }
-                        }
-                    }
 
-                    assert imageUrlField != null;
-                    String mediaUrl = (String) imageUrlField.get(item);
+                    Field mediaUrlField = getImageUrlField(itemClass);
+                    String mediaUrl = (String) mediaUrlField.get(item);
                     String ext = "jpg";
 
                     data.put("type", Utils.strRes("drafts_empty_photo"));
@@ -191,27 +161,33 @@ public class NativeDownloader {
 
     // downloader(Landroid/content/Context;Ljava/lang/Object;)V
     public static void downloader(Context activity, Object tweet) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException, ClassNotFoundException {
+try {
+    Object obj = getTweetMedia(tweet);
+    ArrayList<HashMap<String, String>> media = getMediaData(obj);
 
-        Object obj = getTweetMedia(tweet);
-        ArrayList<HashMap<String, String>> media = getMediaData(obj);
+    assert media != null;
+    if (media.isEmpty()) {
+        Utils.toast(Utils.strRes("piko_pref_native_downloader_no_media"));
+        return;
+    }
 
-        assert media != null;
-        if (media.isEmpty()) {
-            Utils.toast(Utils.strRes("piko_pref_native_downloader_no_media"));
-            return;
-        }
+    String fileName = generateFileName(tweet);
 
-        String fileName = generateFileName(tweet);
+    if (media.size() == 1) {
+        HashMap<String, String> item = media.get(0);
 
-        if (media.size() == 1) {
-            HashMap<String, String> item = media.get(0);
+        Utils.toast(Utils.strRes("download_started"));
+        Utils.downloadFile(item.get("url"), fileName, item.get("ext"));
+        return;
+    }
 
-            Utils.toast(Utils.strRes("download_started"));
-            Utils.downloadFile(item.get("url"), fileName, item.get("ext"));
-            return;
-        }
-
-        alertBox(activity, fileName + "-", media);
+    alertBox(activity, fileName + "-", media);
+}catch(Exception ex){
+    StackTraceElement[] stackTraceElements = ex.getStackTrace();
+    for (StackTraceElement element : stackTraceElements) {
+        Utils.logger("Exception occurred at line " + element.getLineNumber() + " in " + element.getClassName() + "." + element.getMethodName());
+    }
+}
     }
 
     private static Class<?> tweetClass;
@@ -240,6 +216,24 @@ public class NativeDownloader {
 
     public static Object getTweetMedia(Object tweet) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         return getTweetClass().getDeclaredMethod("getTweetMediaMethod").invoke(tweet);
+    }
+
+    private static Field getField(Class mediaItemClass,String fieldName) throws NoSuchFieldException,ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Field field = mediaItemClass.getDeclaredField(fieldName);
+        field.setAccessible(true);
+        return field;
+    }
+
+    private static Field getImageUrlField(Class mediaItemClass) throws NoSuchFieldException,ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return getField(mediaItemClass,"imageUrlFieldName");
+    }
+
+    private static Field getVideoUrlField(Class mediaItemClass) throws NoSuchFieldException,ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return getField(mediaItemClass,"videoUrlFieldName");
+    }
+
+    private static Field getVideoCodecField(Class mediaItemClass) throws NoSuchFieldException,ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return getField(mediaItemClass,"videoCodecField");
     }
 
 }
