@@ -1,3 +1,10 @@
+## [1.37.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.36.1...v1.37.0-dev.1) (2025-01-22)
+
+
+### Features
+
+* **Twitter:** Added `Remove Todays news` patch ([0bc30ae](https://github.com/crimera/revanced-integrations/commit/0bc30ae6ad5534c2349514a5b98759697b7e806e))
+
 ## [1.36.1](https://github.com/crimera/revanced-integrations/compare/v1.36.0...v1.36.1) (2025-01-07)
 
 

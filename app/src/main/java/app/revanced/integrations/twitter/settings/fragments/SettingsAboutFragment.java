@@ -122,6 +122,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("piko_pref_customisation_post_font_size"),SettingsStatus.customPostFontSize);
         flags.put(strRemoveRes("piko_pref_top_people_search"),SettingsStatus.hideTopPeopleSearch);
         flags.put(strRes("piko_pref_customisation_searchtabs"),SettingsStatus.searchTabCustomisation);
+        flags.put(strRemoveRes("piko_pref_hide_todays_news"),SettingsStatus.hideTodaysNews);
 
         LegacyTwitterPreferenceCategory patPref = preferenceCategory(strRes("piko_pref_patches"), screen);
 
