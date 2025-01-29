@@ -1,3 +1,10 @@
+## [1.37.1](https://github.com/crimera/revanced-integrations/compare/v1.37.0...v1.37.1) (2025-01-29)
+
+
+### Bug Fixes
+
+* **Twitter:** fix `Custom downloader` patch ([fcae1e6](https://github.com/crimera/revanced-integrations/commit/fcae1e6d368e444b9174e9c0c43bb47ac1c53c8f))
+
 ## [1.37.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.37.0...v1.37.1-dev.1) (2025-01-28)
 
 
