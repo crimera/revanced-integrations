@@ -62,7 +62,7 @@ public class PageFragment extends PreferenceFragment {
             screenBuilder.buildExportSection(false);
             toolbarText = "piko_title_backup";
         }else if (bundle.getBoolean(Settings.NATIVE_SECTION.key, false)) {
-            screenBuilder.buildNativeSection();
+            screenBuilder.buildNativeSection(false);
             toolbarText = "piko_title_native";
         }
 

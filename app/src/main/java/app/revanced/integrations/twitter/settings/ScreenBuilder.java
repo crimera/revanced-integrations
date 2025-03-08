@@ -307,8 +307,14 @@ public class ScreenBuilder {
         }
     }
 
-    public void buildNativeSection(){
+    public void buildNativeSection(boolean buildCategory){
         if (!(SettingsStatus.enableNativeSection())) return;
+
+        if (!buildCategory) {
+            Preference nativePageDescription = new Preference(context);
+            nativePageDescription.setSummary(strRes("piko_pref_native_page_desc"));
+            addPreference(nativePageDescription);
+        }
 
         LegacyTwitterPreferenceCategory category = preferenceCategory(strRes("piko_title_native_downloader"));
         if (SettingsStatus.nativeDownloader) {
