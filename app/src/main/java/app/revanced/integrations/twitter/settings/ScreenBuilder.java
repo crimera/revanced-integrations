@@ -423,16 +423,6 @@ public class ScreenBuilder {
             );
         }
 
-        if (SettingsStatus.browserChooserEnabled) {
-            addPreference(category,
-                    helper.switchPreference(
-                            strRes("piko_pref_browser_chooser"),
-                            strRes("piko_pref_browser_chooser_desc"),
-                            Settings.MISC_BROWSER_CHOOSER
-                    )
-            );
-        }
-
         if (SettingsStatus.roundOffNumbers) {
             addPreference(category,
                     helper.switchPreference(
