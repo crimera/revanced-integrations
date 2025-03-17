@@ -17,7 +17,6 @@ public class SettingsStatus {
     public static boolean hideLiveThreads = false;
     public static boolean hideBanner = false;
     public static boolean showPollResultsEnabled = false;
-    public static boolean browserChooserEnabled = false;
     public static boolean featureFlagsEnabled = false;
     public static boolean forceTranslate = false;
     public static boolean enableForceHD = false;
@@ -144,10 +143,6 @@ public class SettingsStatus {
     public static void enableFeatureFlags() {
         featureFlagsEnabled = true;
         FeatureSwitchPatch.getFeatureFlagSearchItems();
-    }
-
-    public static void enableBrowserChooser() {
-        browserChooserEnabled = true;
     }
 
     public static void hideRecommendedUsers() {

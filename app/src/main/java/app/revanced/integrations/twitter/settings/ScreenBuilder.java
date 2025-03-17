@@ -307,8 +307,14 @@ public class ScreenBuilder {
         }
     }
 
-    public void buildNativeSection(){
+    public void buildNativeSection(boolean buildCategory){
         if (!(SettingsStatus.enableNativeSection())) return;
+
+        if (!buildCategory) {
+            Preference nativePageDescription = new Preference(context);
+            nativePageDescription.setSummary(strRes("piko_pref_native_page_desc"));
+            addPreference(nativePageDescription);
+        }
 
         LegacyTwitterPreferenceCategory category = preferenceCategory(strRes("piko_title_native_downloader"));
         if (SettingsStatus.nativeDownloader) {
@@ -419,16 +425,6 @@ public class ScreenBuilder {
                             strRemoveRes("piko_pref_hide_view_count"),
                             "",
                             Settings.MISC_HIDE_VIEW_COUNT
-                    )
-            );
-        }
-
-        if (SettingsStatus.browserChooserEnabled) {
-            addPreference(category,
-                    helper.switchPreference(
-                            strRes("piko_pref_browser_chooser"),
-                            strRes("piko_pref_browser_chooser_desc"),
-                            Settings.MISC_BROWSER_CHOOSER
                     )
             );
         }
