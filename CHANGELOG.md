@@ -1,3 +1,15 @@
+## [1.38.0](https://github.com/crimera/revanced-integrations/compare/v1.37.1...v1.38.0) (2025-03-20)
+
+
+### Bug Fixes
+
+* Remove obsolete `Open browser chooser on opening links` patch ([533782d](https://github.com/crimera/revanced-integrations/commit/533782d6eab8c10b4365e61f9dc32e6077abb988))
+
+
+### Features
+
+* **Settings:** Add a description to "Native features" page ([cae1f50](https://github.com/crimera/revanced-integrations/commit/cae1f5074565f57482d9d7ad88f04a6ba39695a2))
+
 ## [1.38.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.37.1...v1.38.0-dev.1) (2025-03-17)
 
 
