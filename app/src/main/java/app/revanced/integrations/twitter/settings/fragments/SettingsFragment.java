@@ -41,7 +41,7 @@ public class SettingsFragment extends PreferenceFragment {
             screenBuilder.buildDownloadSection(buildCategory);
             screenBuilder.buildFeatureFlagsSection(buildCategory);
             screenBuilder.buildAdsSection(buildCategory);
-            screenBuilder.buildNativeSection();
+            screenBuilder.buildNativeSection(buildCategory);
             screenBuilder.buildMiscSection(buildCategory);
             screenBuilder.buildCustomiseSection(buildCategory);
             screenBuilder.buildTimelineSection(buildCategory);

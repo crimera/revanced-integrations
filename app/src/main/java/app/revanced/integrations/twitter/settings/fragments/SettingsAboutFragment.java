@@ -80,7 +80,6 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strRes("piko_pref_show_sensitive_media"),SettingsStatus.showSensitiveMedia);
         flags.put(strRes("piko_pref_selectable_text"),SettingsStatus.selectableText);
         flags.put(strRemoveRes("piko_pref_rec_users"),SettingsStatus.hideRecommendedUsers);
-        flags.put(strRes("piko_pref_browser_chooser"),SettingsStatus.browserChooserEnabled);
         flags.put(strRes("piko_pref_custom_share_domain"),SettingsStatus.customSharingDomainEnabled);
         flags.put(strRes("piko_pref_feature_flags"),SettingsStatus.featureFlagsEnabled);
         flags.put(strRes("piko_pref_customisation_profiletabs"),SettingsStatus.profileTabCustomisation);

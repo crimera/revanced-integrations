@@ -19,7 +19,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting MISC_HIDE_RECOMMENDED_USERS = new BooleanSetting("misc_hide_recommended_users", true);
     public static final BooleanSetting MISC_HIDE_COMM_NOTES = new BooleanSetting("misc_hide_comm_notes", false);
     public static final BooleanSetting MISC_HIDE_VIEW_COUNT = new BooleanSetting("misc_hide_view_count", true);
-    public static final BooleanSetting MISC_BROWSER_CHOOSER = new BooleanSetting("misc_browser_chooser", false);
     public static final StringSetting MISC_FEATURE_FLAGS = new StringSetting("misc_feature_flags", "");
     public static final StringSetting MISC_FEATURE_FLAGS_SEARCH = new StringSetting("misc_feature_flags_search", "");
     public static final BooleanSetting MISC_ROUND_OFF_NUMBERS = new BooleanSetting("misc_round_off_numbers", true);
