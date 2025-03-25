@@ -1,3 +1,10 @@
+## [1.38.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.38.0...v1.38.1-dev.1) (2025-03-25)
+
+
+### Bug Fixes
+
+* **Twitter:** Fix ads filter, for replies ([8a5c608](https://github.com/crimera/revanced-integrations/commit/8a5c60878f35b2cd9c0a17d32f01ee97ce40d73a))
+
 ## [1.38.0](https://github.com/crimera/revanced-integrations/compare/v1.37.1...v1.38.0) (2025-03-20)
 
 
