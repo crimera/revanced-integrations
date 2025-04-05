@@ -8,9 +8,7 @@ import app.revanced.integrations.twitter.Pref;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.lang.StackTraceElement;
@@ -77,19 +75,19 @@ public class NativeDownloader {
             }
 
             Class<?> itemClass = list.get(0).getClass();
+            Class<?> videoDataClass = getVideoDataClass();
 
             for (Object item : list) {
                 Method[] itemMethods = itemClass.getDeclaredMethods();
 
-                Method getVideoDataMethod = itemMethods[itemMethods.length - 1];
+                Method getVideoDataMethod = Arrays.stream(itemMethods).filter(method -> method.getReturnType() == videoDataClass).findFirst().orElse(null);
 
+                assert getVideoDataMethod != null;
                 Object videoData = getVideoDataMethod.invoke(item);
 
                 HashMap<String, String> data = new HashMap<>();
 
                 if (videoData != null) {
-                    Class<?> videoDataClass = videoData.getClass();
-
                     Field videoField = getVideoUrlField(videoDataClass);
                     String mediaUrl = (String) videoField.get(videoData);
 
@@ -191,6 +189,7 @@ try {
     }
 
     private static Class<?> tweetClass;
+    private static Class<?> videoDataClass;
 
     public static Class<?> getTweetClass() throws ClassNotFoundException {
         if (tweetClass == null) tweetClass = Class.forName("tweetObjectClass");
@@ -234,6 +233,12 @@ try {
 
     private static Field getVideoCodecField(Class mediaItemClass) throws NoSuchFieldException,ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         return getField(mediaItemClass,"videoCodecField");
+    }
+
+    private static Class<?> getVideoDataClass() throws ClassNotFoundException {
+        if (videoDataClass == null) videoDataClass = Class.forName("videoDataClass");
+
+        return videoDataClass;
     }
 
 }
