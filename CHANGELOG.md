@@ -1,3 +1,10 @@
+## [1.38.2-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.38.1...v1.38.2-dev.1) (2025-04-05)
+
+
+### Bug Fixes
+
+* **Twitter - Custom Downloader:** Added VideoDataClass Fingerprint ([fa2d4b0](https://github.com/crimera/revanced-integrations/commit/fa2d4b03b55dc8ba0097d2266fe5692168d6b9c4))
+
 ## [1.38.1](https://github.com/crimera/revanced-integrations/compare/v1.38.0...v1.38.1) (2025-03-25)
 
 
