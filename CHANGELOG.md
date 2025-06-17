@@ -1,3 +1,10 @@
+## [1.38.3](https://github.com/crimera/revanced-integrations/compare/v1.38.2...v1.38.3) (2025-06-17)
+
+
+### Refactors
+
+* **Twitter:** Remove `TimelineVideoEntity.java` ([8169fab](https://github.com/crimera/revanced-integrations/commit/8169fab4f05ff01ab8966fc8ec0b16ddad849652))
+
 ## [1.38.3-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.38.2...v1.38.3-dev.1) (2025-06-17)
 
 
