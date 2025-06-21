@@ -64,6 +64,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting TIMELINE_ENABLE_VID_FORCE_HD = new BooleanSetting("timeline_enable_vid_force_hd", true);
     public static final BooleanSetting TIMELINE_HIDE_NUDGE_BUTTON = new BooleanSetting("timeline_hide_nudge_button", false);
     public static final BooleanSetting TIMELINE_SHOW_SENSITIVE_MEDIA = new BooleanSetting("timeline_show_sensitive_media", true);
+    public static final BooleanSetting TIMELINE_HIDE_COMM_BADGE = new BooleanSetting("timeline_hide_community_badge", false);
 
     public static final BooleanSetting PREMIUM_READER_MODE = new BooleanSetting("premium_reader_mode", false);
     public static final BooleanSetting PREMIUM_UNDO_POSTS = new BooleanSetting("premium_undo_posts", false);

@@ -71,7 +71,11 @@ public class SettingsStatus {
     public static boolean hideNudgeButton = false;
     public static boolean hideSocialProof = false;
     public static boolean customPostFontSize = false;
+    public static boolean hideCommBadge = false;
 
+    public static void hideCommBadge() {
+        hideCommBadge = true;
+    }
     public static void customPostFontSize() {
         customPostFontSize = true;
     }
@@ -322,7 +326,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableTimelineSection() {
-        return ( showSensitiveMedia || hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
+        return ( hideCommBadge || showSensitiveMedia || hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
     }
 
     public static boolean enableMiscSection() {
