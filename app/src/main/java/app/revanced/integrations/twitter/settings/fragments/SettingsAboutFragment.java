@@ -117,6 +117,7 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
         flags.put(strEnableRes("piko_pref_force_hd"),SettingsStatus.enableForceHD);
         flags.put(strRes("piko_pref_hide_nudge_button"),SettingsStatus.hideNudgeButton);
         flags.put(strRes("piko_pref_hide_social_proof"),SettingsStatus.hideSocialProof);
+        flags.put(strRes("piko_pref_hide_community_badge"),SettingsStatus.hideCommBadge);
         flags.put(strRes("piko_title_native_translator"),SettingsStatus.nativeTranslator);
         flags.put(strRes("piko_pref_customisation_post_font_size"),SettingsStatus.customPostFontSize);
         flags.put(strRemoveRes("piko_pref_top_people_search"),SettingsStatus.hideTopPeopleSearch);

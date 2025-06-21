@@ -7,12 +7,13 @@ import java.util.*;
 
 @SuppressWarnings("unused")
 public class Pref {
-    public static boolean ROUND_OFF_NUMBERS,ENABLE_FORCE_HD;
+    public static boolean ROUND_OFF_NUMBERS,ENABLE_FORCE_HD, HIDE_COMM_BADGE;
     public static float POST_FONT_SIZE;
     static{
         ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
         ENABLE_FORCE_HD = enableForceHD();
         POST_FONT_SIZE = setPostFontSize();
+        HIDE_COMM_BADGE = hideCommBadge();
     }
     public static float setPostFontSize() {
         Float fontSize = 0.0f;
@@ -23,6 +24,11 @@ public class Pref {
         }
         return fontSize;
     }
+
+    public static boolean hideCommBadge() {
+        return !Utils.getBooleanPerf(Settings.TIMELINE_HIDE_COMM_BADGE);
+    }
+
     public static boolean showSensitiveMedia() {
         return Utils.getBooleanPerf(Settings.TIMELINE_SHOW_SENSITIVE_MEDIA);
     }

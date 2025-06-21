@@ -790,6 +790,15 @@ public class ScreenBuilder {
                     )
             );
         }
+        if (SettingsStatus.hideCommBadge) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_hide_community_badge"),
+                            "",
+                            Settings.TIMELINE_HIDE_COMM_BADGE
+                    )
+            );
+        }
     }
 
     public void buildExportSection(boolean buildCategory){
