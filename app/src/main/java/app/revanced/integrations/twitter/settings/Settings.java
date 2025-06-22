@@ -84,6 +84,9 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_SEARCH_TYPE_AHEAD = new StringSetting("customisation_search_type_ahead", "");
     public static final StringSetting CUSTOM_POST_FONT_SIZE = new StringSetting("customisation_post_font_size", String.valueOf(Utils.getResourceDimension("font_size_normal")));
 
+    public static final BooleanSetting LOG_RES = new BooleanSetting("logging_response", false);
+    public static final BooleanSetting LOG_RES_OVRD = new BooleanSetting("logging_response_overwrite_file", false);
+
     public static final BooleanSetting EXPORT_PREF = new BooleanSetting("export_pref", true);
     public static final BooleanSetting EXPORT_FLAGS = new BooleanSetting("export_flags", true);
     public static final BooleanSetting IMPORT_PREF = new BooleanSetting("import_pref", true);
@@ -100,6 +103,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting MISC_SECTION = new BooleanSetting("misc_section", true);
     public static final BooleanSetting CUSTOMISE_SECTION = new BooleanSetting("custommise_section", true);
     public static final BooleanSetting TIMELINE_SECTION = new BooleanSetting("timeline_section", true);
+    public static final BooleanSetting LOGGING_SECTION = new BooleanSetting("logging_section", true);
     public static final BooleanSetting BACKUP_SECTION = new BooleanSetting("backup_section", true);
     public static final BooleanSetting NATIVE_SECTION = new BooleanSetting("native_section", true);
     public static final BooleanSetting SINGLE_PAGE_SETTINGS = new BooleanSetting("single_page_settings", false);

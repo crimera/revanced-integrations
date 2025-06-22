@@ -801,6 +801,32 @@ public class ScreenBuilder {
         }
     }
 
+    public void buildLoggingSection(boolean buildCategory) {
+        LegacyTwitterPreferenceCategory category = null;
+        if (buildCategory)
+            category = preferenceCategory(strRes("piko_title_logging"));
+
+        if (SettingsStatus.serverResponseLogging) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_server_response_logging"),
+                            strRes("piko_pref_server_response_logging_desc"),
+                            Settings.LOG_RES
+                    )
+            );
+        }
+
+        if (SettingsStatus.serverResponseLoggingOverwriteFile) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_server_response_logging_file_overwrite"),
+                            strRes("piko_pref_server_response_logging_file_overwrite_desc"),
+                            Settings.LOG_RES_OVRD
+                    )
+            );
+        }
+
+    }
     public void buildExportSection(boolean buildCategory){
         LegacyTwitterPreferenceCategory category = null;
         if(buildCategory)
@@ -930,6 +956,17 @@ public class ScreenBuilder {
                             "",
                             Settings.TIMELINE_SECTION,
                             "ic_vector_timeline_stroke",null
+                    )
+            );
+        }
+
+        if (SettingsStatus.loggingSection()) {
+            addPreference(
+                    helper.buttonPreference(
+                            strRes("piko_title_logging"),
+                            "",
+                            Settings.LOGGING_SECTION,
+                            "ic_vector_bug_stroke",null
                     )
             );
         }

@@ -24,7 +24,12 @@ public class Pref {
         }
         return fontSize;
     }
-
+    public static boolean serverResponseLogging() {
+        return Utils.getBooleanPerf(Settings.LOG_RES);
+    }
+    public static boolean serverResponseLoggingOverwriteFile() {
+        return Utils.getBooleanPerf(Settings.LOG_RES_OVRD);
+    }
     public static boolean hideCommBadge() {
         return !Utils.getBooleanPerf(Settings.TIMELINE_HIDE_COMM_BADGE);
     }
