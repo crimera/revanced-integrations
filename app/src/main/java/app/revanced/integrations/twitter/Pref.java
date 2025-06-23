@@ -31,7 +31,7 @@ public class Pref {
         return Utils.getBooleanPerf(Settings.LOG_RES_OVRD);
     }
     public static boolean hideCommBadge() {
-        return !Utils.getBooleanPerf(Settings.TIMELINE_HIDE_COMM_BADGE);
+        return Utils.getBooleanPerf(Settings.TIMELINE_HIDE_COMM_BADGE);
     }
 
     public static boolean showSensitiveMedia() {
