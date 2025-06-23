@@ -64,6 +64,9 @@ public class PageFragment extends PreferenceFragment {
         }else if (bundle.getBoolean(Settings.NATIVE_SECTION.key, false)) {
             screenBuilder.buildNativeSection(false);
             toolbarText = "piko_title_native";
+        }else if (bundle.getBoolean(Settings.LOGGING_SECTION.key, false)) {
+            screenBuilder.buildLoggingSection(false);
+            toolbarText = "piko_title_logging";
         }
 
         ActivityHook.toolbar.setTitle(StringRef.str(toolbarText));
