@@ -1,3 +1,11 @@
+## [1.39.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.38.3...v1.39.0-dev.1) (2025-07-03)
+
+
+### Features
+
+* **Twitter:** Added `Hide community badges` patch ([1c76b7d](https://github.com/crimera/revanced-integrations/commit/1c76b7d7635bdc1c7045154b601e6922e45e18e3))
+* **Twitter:** Added `Log server response` patch ([35dabb6](https://github.com/crimera/revanced-integrations/commit/35dabb66ebe792211a5a3637bb1b206c73a9ef2b))
+
 ## [1.38.3](https://github.com/crimera/revanced-integrations/compare/v1.38.2...v1.38.3) (2025-06-17)
 
 
