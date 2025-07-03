@@ -71,7 +71,19 @@ public class SettingsStatus {
     public static boolean hideNudgeButton = false;
     public static boolean hideSocialProof = false;
     public static boolean customPostFontSize = false;
+    public static boolean hideCommBadge = false;
+    public static boolean serverResponseLogging = false;
+    public static boolean serverResponseLoggingOverwriteFile = false;
 
+    public static void serverResponseLogging() {
+        serverResponseLogging = true;
+    }
+    public static void serverResponseLoggingOverwriteFile() {
+        serverResponseLoggingOverwriteFile = true;
+    }
+    public static void hideCommBadge() {
+        hideCommBadge = true;
+    }
     public static void customPostFontSize() {
         customPostFontSize = true;
     }
@@ -322,7 +334,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableTimelineSection() {
-        return ( showSensitiveMedia || hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
+        return ( hideCommBadge || showSensitiveMedia || hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
     }
 
     public static boolean enableMiscSection() {
@@ -347,6 +359,9 @@ public class SettingsStatus {
 
     public static boolean enableCustomisationSection() {
         return (searchTabCustomisation || typeaheadCustomisation || exploreTabCustomisation || customPostFontSize || inlineBarCustomisation || navBarCustomisation || sideBarCustomisation || profileTabCustomisation || timelineTabCustomisation || defaultReplySortFilter);
+    }
+    public static boolean loggingSection() {
+        return (serverResponseLogging || serverResponseLoggingOverwriteFile);
     }
 
     public static void load() {
