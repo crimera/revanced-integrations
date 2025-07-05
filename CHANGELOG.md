@@ -1,3 +1,10 @@
+## [1.39.0-dev.3](https://github.com/crimera/revanced-integrations/compare/v1.39.0-dev.2...v1.39.0-dev.3) (2025-07-05)
+
+
+### Bug Fixes
+
+* **Twitter - Settings patch:** Add bottom padding ([737cc56](https://github.com/crimera/revanced-integrations/commit/737cc5669fb3c2294a32e4daf5a4954224e6619b))
+
 ## [1.39.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.39.0-dev.1...v1.39.0-dev.2) (2025-07-05)
 
 
