@@ -38,8 +38,9 @@ public class ActivityHook {
 
             window.getDecorView().setOnApplyWindowInsetsListener((v, insets) -> {
                 int statusBarHeight = insets.getSystemWindowInsetTop();
+                int navBarHeight = insets.getSystemWindowInsetBottom();
 
-                window.getDecorView().setPadding(v.getPaddingLeft(), statusBarHeight, v.getPaddingRight(), v.getPaddingBottom());
+                window.getDecorView().setPadding(v.getPaddingLeft(), statusBarHeight, v.getPaddingRight(), navBarHeight);
 
                 return insets.consumeSystemWindowInsets();
             });
