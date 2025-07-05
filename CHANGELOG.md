@@ -1,3 +1,10 @@
+## [1.39.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.39.0-dev.1...v1.39.0-dev.2) (2025-07-05)
+
+
+### Bug Fixes
+
+* **Twitter - Settings patch:** Add support for edge to edge ([cdbc3b7](https://github.com/crimera/revanced-integrations/commit/cdbc3b777a18117ac3db99b80823fe45b818c48f))
+
 ## [1.39.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.38.3...v1.39.0-dev.1) (2025-07-03)
 
 
