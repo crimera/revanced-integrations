@@ -5,12 +5,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.preference.*;
 import androidx.annotation.Nullable;
-import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.twitter.settings.widgets.Helper;
 import app.revanced.integrations.twitter.settings.ScreenBuilder;
 import app.revanced.integrations.twitter.settings.Settings;
 import app.revanced.integrations.twitter.settings.ActivityHook;
-import app.revanced.integrations.twitter.settings.SettingsStatus;
 
 @SuppressWarnings("deprecation")
 public class SettingsFragment extends PreferenceFragment {
@@ -35,7 +33,7 @@ public class SettingsFragment extends PreferenceFragment {
         ScreenBuilder screenBuilder = new ScreenBuilder(context, screen, helper);
 
         boolean isSinglePage = app.revanced.integrations.twitter.Utils.getBooleanPerf(Settings.SINGLE_PAGE_SETTINGS);
-        if(isSinglePage) {
+        if (isSinglePage) {
             boolean buildCategory = true;
             screenBuilder.buildPremiumSection(buildCategory);
             screenBuilder.buildDownloadSection(buildCategory);
@@ -49,7 +47,7 @@ public class SettingsFragment extends PreferenceFragment {
             screenBuilder.buildExportSection(buildCategory);
             screenBuilder.buildPikoSection(buildCategory);
 
-        }else{
+        } else {
             screenBuilder.buildSinglePageSettings();
         }
         setPreferenceScreen(screen);
