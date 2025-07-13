@@ -1,3 +1,10 @@
+## [1.40.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.39.0...v1.40.0-dev.1) (2025-07-13)
+
+
+### Features
+
+* **Twitter:** Added `Show post source label` patch ([f1c01a8](https://github.com/crimera/revanced-integrations/commit/f1c01a8fb33a086b36d6f9448c499888bd8e2c18))
+
 ## [1.39.0](https://github.com/crimera/revanced-integrations/compare/v1.38.3...v1.39.0) (2025-07-05)
 
 
