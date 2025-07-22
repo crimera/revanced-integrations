@@ -45,7 +45,7 @@ public class SettingsStatus {
     public static boolean enableUndoPosts = false;
     public static boolean customAppIcon = false;
     public static boolean enableForcePip = false;
-
+    public static boolean showSourceLabel = false;
     public static boolean hideImmersivePlayer = false;
     public static boolean enableVidAutoAdvance = false;
 
@@ -294,6 +294,10 @@ public class SettingsStatus {
         enableForcePip = true;
     }
 
+    public static void showSourceLabel() {
+        showSourceLabel = true;
+    }
+
     public static void hideImmersivePlayer() {
         hideImmersivePlayer = true;
     }
@@ -334,7 +338,7 @@ public class SettingsStatus {
     }
 
     public static boolean enableTimelineSection() {
-        return ( hideCommBadge || showSensitiveMedia || hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
+        return ( showSourceLabel || hideCommBadge || showSensitiveMedia || hideNudgeButton || disableAutoTimelineScroll || forceTranslate || hidePromoteButton || hideCommunityNote || hideLiveThreads || hideBanner || hideInlineBmk || showPollResultsEnabled || hideImmersivePlayer || enableVidAutoAdvance || enableForceHD);
     }
 
     public static boolean enableMiscSection() {

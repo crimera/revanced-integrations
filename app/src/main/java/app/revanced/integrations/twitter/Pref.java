@@ -7,13 +7,14 @@ import java.util.*;
 
 @SuppressWarnings("unused")
 public class Pref {
-    public static boolean ROUND_OFF_NUMBERS,ENABLE_FORCE_HD, HIDE_COMM_BADGE;
+    public static boolean ROUND_OFF_NUMBERS,ENABLE_FORCE_HD, HIDE_COMM_BADGE,SHOW_SRC_LBL;
     public static float POST_FONT_SIZE;
     static{
         ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
         ENABLE_FORCE_HD = enableForceHD();
         POST_FONT_SIZE = setPostFontSize();
         HIDE_COMM_BADGE = hideCommBadge();
+        SHOW_SRC_LBL = showSourceLabel();
     }
     public static float setPostFontSize() {
         Float fontSize = 0.0f;
@@ -29,6 +30,10 @@ public class Pref {
     }
     public static boolean serverResponseLoggingOverwriteFile() {
         return Utils.getBooleanPerf(Settings.LOG_RES_OVRD);
+    }
+
+    public static boolean showSourceLabel() {
+        return Utils.getBooleanPerf(Settings.TIMELINE_SHOW_SOURCE_LABEL);
     }
     public static boolean hideCommBadge() {
         return Utils.getBooleanPerf(Settings.TIMELINE_HIDE_COMM_BADGE);

@@ -658,6 +658,15 @@ public class ScreenBuilder {
                     )
             );
         }
+        if (SettingsStatus.showSourceLabel) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_show_post_source"),
+                            strRes("piko_pref_show_post_source_desc"),
+                            Settings.TIMELINE_SHOW_SOURCE_LABEL
+                    )
+            );
+        }
         if (SettingsStatus.hideLiveThreads) {
             addPreference(category,
                     helper.switchPreference(

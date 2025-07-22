@@ -51,6 +51,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting NATIVE_TRANSLATOR_LANG = new StringSetting("native_translator_language", "en");
 
     public static final BooleanSetting TIMELINE_DISABLE_AUTO_SCROLL = new BooleanSetting("timeline_disable_auto_scroll", true);
+    public static final BooleanSetting TIMELINE_SHOW_SOURCE_LABEL = new BooleanSetting("timeline_show_source_label", false);
     public static final BooleanSetting TIMELINE_HIDE_LIVETHREADS = new BooleanSetting("timeline_hide_livethreads", false);
     public static final BooleanSetting TIMELINE_HIDE_BANNER = new BooleanSetting("timeline_hide_banner", true);
     public static final BooleanSetting TIMELINE_HIDE_BMK_ICON = new BooleanSetting("timeline_hide_bookmark_icon", false);
