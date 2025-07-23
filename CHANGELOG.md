@@ -1,3 +1,10 @@
+## [1.40.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.40.0...v1.40.1-dev.1) (2025-07-23)
+
+
+### Updates
+
+* **Twitter - Customize reply sort filter:** Set default reply sort to "relevant", same with stock twitter. ([7a9ebb9](https://github.com/crimera/revanced-integrations/commit/7a9ebb9555245a33115d394660a680713e75ac17))
+
 ## [1.40.0](https://github.com/crimera/revanced-integrations/compare/v1.39.0...v1.40.0) (2025-07-22)
 
 
