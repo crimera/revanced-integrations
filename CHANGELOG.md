@@ -1,3 +1,10 @@
+## [1.41.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.40.1-dev.1...v1.41.0-dev.1) (2025-07-26)
+
+
+### Features
+
+* **Twitter:** support custom deeplink hosts ([f50d670](https://github.com/crimera/revanced-integrations/commit/f50d670ae068787217bf77621d87df635fe83ffa))
+
 ## [1.40.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.40.0...v1.40.1-dev.1) (2025-07-23)
 
 
