@@ -56,6 +56,13 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
                         strRes("piko_title_piko_integrations")
                 )
         );
+        verPref.addPreference(
+                buttonPreference(
+                        strRes("piko_settings_supported_links"),
+                        "",
+                        strRes("piko_settings_supported_links")
+                )
+        );
 
         TreeMap<String,Boolean> flags = new TreeMap();
         flags.put(strEnableRes("piko_pref_video_download"),SettingsStatus.enableVidDownload);
@@ -181,6 +188,9 @@ public class SettingsAboutFragment extends PreferenceFragment implements Prefere
             String summary = preference.getSummary().toString();
             Utils.setClipboard(summary);
             Utils.showToastShort(strRes("copied_to_clipboard")+": "+ summary);
+        }else if (key.equals(strRes("piko_settings_supported_links"))){
+            app.revanced.integrations.twitter.Utils.openDefaultLinks();
+
         }
 
         return true;

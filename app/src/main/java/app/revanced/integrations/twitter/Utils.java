@@ -41,6 +41,13 @@ public class Utils {
         ctx.startActivity(intent);
     }
 
+    public static void openDefaultLinks(){
+        Intent intent = new Intent(android.provider.Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS);
+        intent.setData(Uri.parse("package:"+ctx.getPackageName()));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        ctx.startActivity(intent);
+    }
+
     private static void startActivity(Class cls) {
         Intent intent = new Intent(ctx, cls);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
