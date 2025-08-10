@@ -1,7 +1,6 @@
 package app.revanced.integrations.twitter.settings;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import java.util.List;
 import android.net.Uri;
