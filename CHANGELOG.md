@@ -1,3 +1,10 @@
+## [1.41.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.41.0-dev.1...v1.41.0-dev.2) (2025-08-10)
+
+
+### Refactors
+
+* remove unused import (just a version bump for the version to be released) ([845da93](https://github.com/crimera/revanced-integrations/commit/845da93364924f6c5b5e0254246f18de9a242005))
+
 ## [1.41.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.40.1-dev.1...v1.41.0-dev.1) (2025-07-26)
 
 
