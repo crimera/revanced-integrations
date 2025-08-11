@@ -1,3 +1,20 @@
+## [1.41.0](https://github.com/crimera/revanced-integrations/compare/v1.40.0...v1.41.0) (2025-08-11)
+
+
+### Features
+
+* **Twitter:** support custom deeplink hosts ([f50d670](https://github.com/crimera/revanced-integrations/commit/f50d670ae068787217bf77621d87df635fe83ffa))
+
+
+### Updates
+
+* **Twitter - Customize reply sort filter:** Set default reply sort to "relevant", same with stock twitter. ([7a9ebb9](https://github.com/crimera/revanced-integrations/commit/7a9ebb9555245a33115d394660a680713e75ac17))
+
+
+### Refactors
+
+* remove unused import (just a version bump for the version to be released) ([845da93](https://github.com/crimera/revanced-integrations/commit/845da93364924f6c5b5e0254246f18de9a242005))
+
 ## [1.41.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.41.0-dev.1...v1.41.0-dev.2) (2025-08-10)
 
 
