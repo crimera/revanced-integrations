@@ -361,7 +361,7 @@ public class Pref {
     }
 
     public static void setReplySortFilter(String sortfilter) {
-        sortfilter = sortfilter.length()>0?sortfilter:"Likes";
+        sortfilter = sortfilter.length()>0?sortfilter:"Relevance";
         Utils.setStringPref(Settings.REPLY_SORTING_LAST_FILTER.key,sortfilter);
     }
 
