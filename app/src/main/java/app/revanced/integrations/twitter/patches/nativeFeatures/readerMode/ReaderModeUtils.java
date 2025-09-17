@@ -103,7 +103,7 @@ public class ReaderModeUtils {
         return;
     }
 
-    private static JSONObject getThreadInfo(String tweetId) throws Exception {
+    static JSONObject getThreadInfo(String tweetId) throws Exception {
         String api = "https://twitter-thread.com/api/unroll-thread?id=" + tweetId;
 
         StringBuilder content = new StringBuilder();
@@ -154,11 +154,20 @@ public class ReaderModeUtils {
 
     public static void clearCache() {
         File dir = cacheDir();
+        File jsonDir = jsonCacheDir();
         boolean deleted = true;
         if (dir != null && dir.isDirectory()) {
             File[] children = dir.listFiles();
             if (children != null) {
                 for (File child : children) {
+                    deleted = deleted && child.delete();
+                }
+            }
+        }
+        if (jsonDir != null && jsonDir.isDirectory()) {
+            File[] jsonChildren = jsonDir.listFiles();
+            if (jsonChildren != null) {
+                for (File child : jsonChildren) {
                     deleted = deleted && child.delete();
                 }
             }
@@ -182,6 +191,38 @@ public class ReaderModeUtils {
     private static String readCacheFile(String tweetId) throws Exception {
         try {
             return Utils.readFile(cacheFileDir(tweetId));
+        } catch (Exception e) {
+            Utils.logger(e.toString());
+        }
+        return null;
+    }
+
+    static File jsonCacheDir() {
+        File cacheDir = ctx.getCacheDir();
+        File jsonThreadsDir = new File(cacheDir, "json_threads");
+
+        if (!jsonThreadsDir.exists()) {
+            jsonThreadsDir.mkdirs();
+        }
+        return jsonThreadsDir;
+    }
+
+    static File jsonCacheFileDir(String tweetId) {
+        return new File(jsonCacheDir(), THREADS_KEY + "_" + tweetId + ".json");
+    }
+
+    static boolean writeJsonCacheFile(String tweetId, String jsonData) {
+        try {
+            return Utils.writeFile(jsonCacheFileDir(tweetId), jsonData.getBytes(), false);
+        } catch (Exception e) {
+            Utils.logger(e.toString());
+        }
+        return false;
+    }
+
+    static String readJsonCacheFile(String tweetId) throws Exception {
+        try {
+            return Utils.readFile(jsonCacheFileDir(tweetId));
         } catch (Exception e) {
             Utils.logger(e.toString());
         }

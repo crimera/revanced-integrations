@@ -19,7 +19,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import app.revanced.integrations.shared.StringRef;
+import org.json.JSONObject;
 import android.webkit.JavascriptInterface;
+import app.revanced.integrations.twitter.patches.nativeFeatures.readerMode.ReaderModeUtils;
 
 public class ReaderModeFragment extends Fragment {
 
@@ -35,11 +37,30 @@ public class ReaderModeFragment extends Fragment {
             mContext = context;
         }
 
-        @JavascriptInterface
-        public void copyText(String text) {
-            Utils.setClipboard(text);
-            Utils.showToastShort(StringRef.str("link_copied_to_clipboard"));
+    @JavascriptInterface
+    public void copyText(String text) {
+        Utils.setClipboard(text);
+        Utils.showToastShort(StringRef.str("link_copied_to_clipboard"));
+    }
+
+    @JavascriptInterface
+    public String getThreadInfo(String tweetId) {
+        if (tweetId == null || tweetId.isEmpty()) return "{\"error\":\"Invalid tweetId\"}";
+        try {
+            String cachedJson = ReaderModeUtils.readJsonCacheFile(tweetId);
+            if (cachedJson != null) return cachedJson;
+
+            JSONObject jsonResponse = ReaderModeUtils.getThreadInfo(tweetId);
+            if (jsonResponse != null) {
+                String jsonString = jsonResponse.toString();
+                ReaderModeUtils.writeJsonCacheFile(tweetId, jsonString);
+                return jsonString;
+            }
+            return "{\"error\":\"Failed to fetch thread data\"}";
+        } catch (Exception e) {
+            return "{\"error\":\"" + e.getMessage() + "\"}";
         }
+    }
     }
 
     @Override

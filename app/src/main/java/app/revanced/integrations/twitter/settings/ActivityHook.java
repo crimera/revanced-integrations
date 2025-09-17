@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import androidx.appcompat.widget.Toolbar;
 import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.twitter.patches.nativeFeatures.readerMode.ReaderModeRefactor;
 import app.revanced.integrations.twitter.settings.featureflags.FeatureFlagsFragment;
 import app.revanced.integrations.twitter.settings.fragments.*;
 import app.revanced.integrations.twitter.patches.nativeFeatures.readerMode.ReaderModeFragment;
@@ -58,7 +59,7 @@ public class ActivityHook {
         } else if (activity_name .equals( Settings.PATCH_INFO)) {
             fragment = new SettingsAboutFragment();
         }else if (activity_name .equals( Settings.READER_MODE_KEY) ){
-            fragment = new ReaderModeFragment();
+            fragment = new ReaderModeRefactor();
         }  else {
             fragment = new PageFragment();
         }

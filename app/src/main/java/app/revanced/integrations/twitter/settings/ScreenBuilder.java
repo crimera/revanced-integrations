@@ -402,6 +402,13 @@ public class ScreenBuilder {
                             Settings.RESET_READER_MODE_CACHE
                     )
             );
+            addPreference(
+                    helper.editTextPreference(
+                            "Set custom reader mode url",
+                            "For development purposes only",
+                            Settings.READER_MODE_URL
+                    )
+            );
 
         }
     }

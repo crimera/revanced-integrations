@@ -102,6 +102,7 @@ public class Settings extends BaseSettings {
     public static final String RESET_FLAGS = "reset_flags";
     public static final String FEATURE_FLAGS = "feature_flags";
     public static final String RESET_READER_MODE_CACHE = "reader_mode_cache";
+    public static final StringSetting READER_MODE_URL = new StringSetting("reader_mode_url", "");
 
     public static final String PREMIUM_SECTION = "premium_section";
     public static final String DOWNLOAD_SECTION = "download_section";
